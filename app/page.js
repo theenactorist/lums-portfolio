@@ -267,46 +267,77 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== TESTIMONIALS ===== */}
-        <section className="testimonials section" id="testimonials">
-          <div className="container">
+        {/* ===== TESTIMONIALS (PALMER REDESIGN) ===== */}
+        <section className="palmer-testimonials" id="testimonials">
+          {/* Layer 1: Background Marquee Text */}
+          <div className="palmer-bg-text-wrapper">
+            <span className="palmer-bg-text">
+              Testimonials © Reviews Testimonials © Reviews Testimonials © Reviews Testimonials © Reviews
+            </span>
+          </div>
+
+          {/* Layer 2: Scrolling Tracks */}
+          <div className="palmer-track-container">
+            {/* Top Track */}
             <motion.div
-              className="testimonials__header"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6 }}
+              className="palmer-track"
+              animate={{ x: ['0%', '-33.33%'] }}
+              transition={{ repeat: Infinity, ease: 'linear', duration: 15 }}
             >
-              <h2 className="selected-work__label">What people say</h2>
-              <p className="selected-work__sublabel">Kind words from colleagues, managers, and mentees</p>
+              {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+                <div className="palmer-card" key={`top-${i}`}>
+                   <div className="palmer-card__quote">"</div>
+                   <p className="palmer-card__text">{t.quote}</p>
+                   <div className="palmer-card__footer">
+                     <div className="palmer-card__user">
+                       <div className="palmer-card__avatar">{t.name.split(' ').map((n) => n[0]).join('')}</div>
+                       <div className="palmer-card__meta">
+                         <div className="palmer-card__name-wrap">
+                           <span className="palmer-card__name">{t.name}</span>
+                           <svg className="palmer-card__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                         </div>
+                         <span className="palmer-card__role">{t.role}</span>
+                       </div>
+                     </div>
+                     <div className="palmer-card__logo">{t.company}</div>
+                   </div>
+                </div>
+              ))}
             </motion.div>
 
-            <div className="testimonials__grid">
-              {testimonials.map((t, i) => (
-                <motion.div
-                  className="testimonial"
-                  key={i}
-                  initial={{ opacity: 0, y: 32 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  id={`testimonial-${i}`}
-                >
-                  <div className="testimonial__quote-mark">"</div>
-                  <blockquote className="testimonial__text">{t.quote}</blockquote>
-                  <div className="testimonial__author">
-                    <div className="testimonial__avatar">
-                      {t.name.split(' ').map((n) => n[0]).join('')}
-                    </div>
-                    <div className="testimonial__info">
-                      <span className="testimonial__name">{t.name}</span>
-                      <span className="testimonial__role">{t.role} · {t.company}</span>
-                    </div>
-                    <span className="testimonial__source">{t.source}</span>
-                  </div>
-                </motion.div>
+            {/* Bottom Track */}
+            <motion.div
+              className="palmer-track palmer-track--reverse"
+              animate={{ x: ['-33.33%', '0%'] }}
+              transition={{ repeat: Infinity, ease: 'linear', duration: 20 }}
+            >
+              {[...testimonials, ...testimonials, ...testimonials, ...testimonials].reverse().map((t, i) => (
+                <div className="palmer-card" key={`bot-${i}`}>
+                   <div className="palmer-card__quote">"</div>
+                   <p className="palmer-card__text">{t.quote}</p>
+                   <div className="palmer-card__footer">
+                     <div className="palmer-card__user">
+                       <div className="palmer-card__avatar">{t.name.split(' ').map((n) => n[0]).join('')}</div>
+                       <div className="palmer-card__meta">
+                         <div className="palmer-card__name-wrap">
+                           <span className="palmer-card__name">{t.name}</span>
+                           <svg className="palmer-card__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                         </div>
+                         <span className="palmer-card__role">{t.role}</span>
+                       </div>
+                     </div>
+                     <div className="palmer-card__logo">{t.company}</div>
+                   </div>
+                </div>
               ))}
-            </div>
+            </motion.div>
+          </div>
+
+          {/* Layer 3: Central Floating Button */}
+          <div className="palmer-cta-overlay">
+            <Link href="mailto:hello@example.com" className="palmer-cta-btn">
+              Get in Touch
+            </Link>
           </div>
         </section>
 

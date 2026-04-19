@@ -5,7 +5,11 @@ import ThemeProvider from "./components/ThemeProvider";
 import { AudioProvider } from "./components/AudioContext";
 
 export const metadata = {
-  title: "Lums — Product Designer | Olumide Olusesi",
+  metadataBase: new URL('https://olumideolusesi.com'),
+  title: {
+    default: "Lums — Product Designer | Olumide Olusesi",
+    template: "%s | Lums",
+  },
   description:
     "Lums (Olumide Olusesi) is a Senior Product Designer based in Ontario, Canada. Currently at Shiga Digital, previously at Branch International, Carbon, and UBA. Specializing in fintech, digital banking, and user-centered design.",
   keywords: [
@@ -18,22 +22,32 @@ export const metadata = {
     "Ontario Canada",
   ],
   openGraph: {
-    title: "Lums — Product Designer | Olumide Olusesi",
+    title: {
+      default: "Lums — Product Designer | Olumide Olusesi",
+      template: "%s | Lums",
+    },
     description:
       "Senior Product Designer crafting intuitive digital experiences. Currently at Shiga Digital.",
     type: "website",
     locale: "en_CA",
     url: "https://olumideolusesi.com",
+    siteName: "Lums Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Lums — Product Designer",
-    description:
-      "Senior Product Designer crafting intuitive digital experiences.",
+    description: "Senior Product Designer crafting intuitive digital experiences.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

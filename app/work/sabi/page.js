@@ -19,37 +19,70 @@ export default function SabiCaseStudy() {
   return (
     <PageTransition>
       <main className="cs-page">
-        {/* ===== HERO ===== */}
-        <section className="project-hero" style={{ backgroundColor: '#1e1e28' }}>
-          <div className="container">
+        {/* ===== BREADCRUMB ===== */}
+        <nav className="cs-breadcrumb" aria-label="Breadcrumb">
+          <div className="container cs-wide-container">
+            <ol className="cs-breadcrumb__list">
+              <li className="cs-breadcrumb__item">
+                <Link href="/" className="cs-breadcrumb__link">Home</Link>
+              </li>
+              <li className="cs-breadcrumb__sep" aria-hidden="true">&gt;</li>
+              <li className="cs-breadcrumb__item cs-breadcrumb__item--current" aria-current="page">
+                Case Study
+              </li>
+            </ol>
+          </div>
+        </nav>
+
+        {/* ===== HERO (wide, side-by-side) ===== */}
+        <section className="cs-hero">
+          <div className="container cs-hero__container">
             <motion.div
-              className="project-hero__content"
+              className="cs-hero__grid"
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="project-hero__client">Case Study · Sabi</span>
-              <h1 className="project-hero__title">
-                Navigating Complexity: Revolutionizing Supply Chain Logistics for African SMEs
-              </h1>
-              <p className="project-hero__subtitle">
-                Sabi is Africa&apos;s leading provider of enabling infrastructure powering the
-                distribution of goods and services. Founded with a solutions-oriented approach to
-                solving commercial challenges, Sabi has grown to become a significant player in
-                global supply chain services, focusing on the processes involved in the sourcing
-                and distribution of physical goods and commodities across diverse markets.
-              </p>
+              <div className="cs-hero__text">
+                <h1 className="cs-hero__title">
+                  Navigating Complexity: Revolutionizing Supply Chain Logistics for African SMEs
+                </h1>
+                <p className="cs-hero__subtitle">
+                  Sabi is Africa&apos;s leading provider of enabling infrastructure powering the
+                  distribution of goods and services. Founded with a solutions-oriented approach
+                  to solving commercial challenges, Sabi has grown to become a significant player
+                  in global supply chain services, focusing on the processes involved in the
+                  sourcing and distribution of physical goods and commodities across diverse
+                  markets.
+                </p>
+              </div>
+
+              <figure className="cs-hero__cover">
+                <Image
+                  src="/work/sabi/cover.gif"
+                  alt="Sabi product mockups showcasing logistics dashboard and mobile apps"
+                  width={1200}
+                  height={675}
+                  unoptimized
+                  priority
+                  className="cs-hero__cover-image"
+                />
+              </figure>
             </motion.div>
           </div>
         </section>
 
         {/* ===== META GRID ===== */}
-        <section className="cs-meta-section section">
-          <div className="container">
+        <section className="cs-meta-section">
+          <div className="container cs-wide-container">
             <motion.div className="cs-meta" {...fadeUp}>
               <div className="cs-meta__item">
                 <span className="cs-meta__label">Role</span>
                 <span className="cs-meta__value">Product Design</span>
+              </div>
+              <div className="cs-meta__item">
+                <span className="cs-meta__label">Year</span>
+                <span className="cs-meta__value">2021 — 2022</span>
               </div>
               <div className="cs-meta__item">
                 <span className="cs-meta__label">Duration</span>
@@ -64,23 +97,6 @@ export default function SabiCaseStudy() {
                 <span className="cs-meta__value">Sabi</span>
               </div>
             </motion.div>
-          </div>
-        </section>
-
-        {/* ===== COVER ===== */}
-        <section className="cs-cover-section">
-          <div className="container">
-            <motion.figure className="cs-cover" {...fadeUp}>
-              <Image
-                src="/work/sabi/cover.gif"
-                alt="Sabi product mockups showcasing logistics dashboard and mobile apps"
-                width={1200}
-                height={675}
-                unoptimized
-                priority
-                className="cs-cover__image"
-              />
-            </motion.figure>
           </div>
         </section>
 
@@ -418,27 +434,25 @@ export default function SabiCaseStudy() {
           </div>
         </section>
 
-        {/* ===== NEXT / BACK ===== */}
-        <section className="project-next">
+        {/* ===== NEXT CASE STUDY (subtle) ===== */}
+        <section className="cs-next">
           <div className="container">
-            <Link href="/work" className="project-next__link">
-              <motion.div
-                className="project-next__inner"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="project-next__label">Explore more</span>
-                <h2 className="project-next__title">Back to work</h2>
-                <div className="project-next__arrow">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </div>
-              </motion.div>
-            </Link>
+            <motion.div
+              className="cs-next__row"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="cs-next__label">Next case study</span>
+              <Link href="/work/uba" className="cs-next__link">
+                UBA — HR Management System
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
+            </motion.div>
           </div>
         </section>
       </main>
