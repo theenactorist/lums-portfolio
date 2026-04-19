@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, animate } from 'framer-motion';
 
 const CATEGORIES = [
   {
@@ -36,54 +36,112 @@ const CATEGORIES = [
   },
 ];
 
-const RADIUS = 110;
+// Elliptical scaling
+const RADIUS_X = 140;
+const RADIUS_Y = 55;
 
 export default function OrbitalSkills() {
-  const [angle, setAngle] = useState(0);
+  const [rotation, setRotation] = useState(0);
   const [activeId, setActiveId] = useState(null);
-  const timerRef = useRef(null);
-  const angleRef = useRef(0);
+  const rAF = useRef(null);
+  const animationControls = useRef(null);
 
+  // Auto rotation loop for idle state
   useEffect(() => {
-    if (!activeId) {
-      timerRef.current = setInterval(() => {
-        angleRef.current = (angleRef.current + 0.3) % 360;
-        setAngle(angleRef.current);
-      }, 50);
-    }
-    return () => clearInterval(timerRef.current);
+    if (activeId) return; // Pause auto-rotation when an item is active
+
+    let lastTime = performance.now();
+    const loop = (time) => {
+      const delta = time - lastTime;
+      lastTime = time;
+      
+      // Advance by a tiny amount per frame (adjust 0.02 for speed)
+      setRotation(prev => prev + (delta * 0.02));
+      rAF.current = requestAnimationFrame(loop);
+    };
+    
+    rAF.current = requestAnimationFrame(loop);
+    
+    return () => {
+      if (rAF.current) cancelAnimationFrame(rAF.current);
+    };
   }, [activeId]);
 
-  const handleNodeClick = (id) => {
-    setActiveId(prev => prev === id ? null : id);
+  const handleNodeClick = (id, index) => {
+    if (activeId === id) {
+      // Toggle off
+      setActiveId(null);
+      if (animationControls.current) animationControls.current.stop();
+      return;
+    }
+    
+    // Toggle on
+    setActiveId(id);
+    
+    if (animationControls.current) animationControls.current.stop();
+
+    // 1. Where is the node placed originally?
+    const baseAngle = (index / CATEGORIES.length) * 360;
+    
+    // 2. We want the node to rest at the FRONT, which is 90 degrees (Math.sin = 1)
+    // The visual angle is (baseAngle + targetRotation) % 360 = 90
+    // So targetRotation = 90 - baseAngle.
+    const currentMod = rotation % 360;
+    let targetMod = (90 - baseAngle) % 360;
+    if (targetMod < 0) targetMod += 360;
+    
+    // 3. Find the shortest rotational path to prevent "unwinding"
+    let diff = targetMod - currentMod;
+    if (diff > 180) diff -= 360;
+    if (diff < -180) diff += 360;
+    
+    const targetRotation = rotation + diff;
+
+    // 4. Animate it fluidly natively through Framer Motion
+    animationControls.current = animate(rotation, targetRotation, {
+      type: 'spring',
+      stiffness: 80,
+      damping: 20,
+      onUpdate: (latest) => setRotation(latest)
+    });
   };
 
   const activeCategory = CATEGORIES.find(c => c.id === activeId);
 
+  // Calculate the mapped nodes with Depth and Z-Indexing
   const nodes = CATEGORIES.map((cat, i) => {
-    const deg = ((i / CATEGORIES.length) * 360 + angle) % 360;
+    const deg = ((i / CATEGORIES.length) * 360 + rotation) % 360;
     const rad = (deg * Math.PI) / 180;
-    const x = Math.cos(rad) * RADIUS;
-    const y = Math.sin(rad) * RADIUS;
+    
+    // Elliptical coordinate calculation
+    const x = Math.cos(rad) * RADIUS_X;
+    const y = Math.sin(rad) * RADIUS_Y;
+    
+    // Depth from 0 (back) to 1 (front)
     const depth = (1 + Math.sin(rad)) / 2;
-    const opacity = Math.max(0.4, 0.4 + 0.6 * depth);
-    const scale = activeId === cat.id ? 1.12 : (0.88 + 0.12 * depth);
-    return { ...cat, x, y, opacity, scale };
+    
+    const opacity = Math.max(0.2, 0.2 + 0.8 * depth);
+    const scale = activeId === cat.id ? 1.25 : (0.7 + 0.3 * depth);
+    
+    // Nodes in the back go under the center hub (z: 100), nodes in the front come over it.
+    const zIndex = Math.round(100 - 50 + (depth * 100));
+
+    return { ...cat, index: i, x, y, opacity, scale, zIndex, depth };
   });
 
   return (
-    <div className="orbital-wrapper">
+    <div className="orbital-wrapper" style={{ perspective: '800px' }}>
       <motion.div
         className="orbital"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
       >
-        <svg className="orbital__rings" viewBox="-150 -150 300 300">
-          <circle cx="0" cy="0" r={RADIUS} className="orbital__ring-line" />
+        <svg className="orbital__rings" viewBox="-180 -100 360 200">
+          <ellipse cx="0" cy="0" rx={RADIUS_X} ry={RADIUS_Y} className="orbital__ring-line" />
         </svg>
 
-        <div className="orbital__center">
+        <div className="orbital__center" style={{ zIndex: 100 }}>
           <div className="orbital__center-glow" />
           <svg width="44" height="44" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="orbital__logo">
             <rect width="28" height="27.8137" rx="13.9068" className="orbital__logo-bg" />
@@ -101,9 +159,11 @@ export default function OrbitalSkills() {
               top: '50%',
               transform: `translate(calc(-50% + ${node.x}px), calc(-50% + ${node.y}px)) scale(${node.scale})`,
               opacity: node.opacity,
-              transition: activeId ? 'transform 0.4s ease, opacity 0.4s ease' : 'opacity 0.1s',
+              zIndex: node.zIndex,
+              boxShadow: activeId === node.id ? '0 0 24px rgba(235,90,50, 0.4)' : 'none',
+              transition: activeId ? 'transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease' : 'opacity 0.1s',
             }}
-            onClick={() => handleNodeClick(node.id)}
+            onClick={() => handleNodeClick(node.id, node.index)}
             aria-label={node.label}
             aria-pressed={activeId === node.id}
           >
