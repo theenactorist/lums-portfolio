@@ -24,23 +24,25 @@ const projects = [
   },
   {
     id: 'sabi',
-    title: 'Sabi',
+    title: "Sabi's Supply Chain Logistics Solution for African SMEs",
     description: 'Revolutionizing supply chain logistics for African SMEs — building tools for inventory, commerce, and distribution at scale.',
     role: 'Senior Product Designer',
     period: '2021 — 2022',
     tags: ['Web', 'B2B', 'Logistics'],
     color: '#1e1e28',
     accentColor: '#6fa3ef',
+    thumbnail: '/work/sabi/Navigating Complexity_ Revolutionizing Supply Chain Logistics for African SMEs.jpg',
   },
   {
     id: 'uba',
-    title: 'UBA',
+    title: "UBA's Human Resource Management System",
     description: 'Concept to production: HR management system for 20,000+ employees across 20 African countries.',
     role: 'Product Designer',
     period: 'Nov 2019 — Jun 2022',
     tags: ['Enterprise', 'Web App', 'HR Tech'],
     color: '#141422',
     accentColor: '#d4613a',
+    thumbnail: '/work/uba/Concept to Production_ Human Resource Management System.jpg',
   },
   {
     id: 'shiga',
@@ -254,6 +256,12 @@ export default function Home() {
                             Cards
                           </motion.div>
                         </div>
+                      ) : project.thumbnail ? (
+                        <img
+                          src={project.thumbnail}
+                          alt={project.title}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        />
                       ) : (
                         <div className="project-entry__image-placeholder">
                           <span>{project.title}</span>
