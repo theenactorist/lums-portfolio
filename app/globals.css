@@ -1002,7 +1002,7 @@ main > .section:first-child {
 .hero__headline {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -1025,7 +1025,7 @@ main > .section:first-child {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
 .hero__flag {
@@ -3041,3 +3041,324 @@ main > .section:first-child {
   .rp-role-row { flex-direction: column; gap: 2px; }
   .rp-period { color: #777; }
 }
+
+/* ============================================
+   Rahul Jain About Page Layout
+   ============================================ */
+
+.about-lums-intro {
+  padding-top: 160px;
+}
+
+.about-lums-hero__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-lums-hero__headline {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.about-lums-hero__italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.about-lums-hero__sub {
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.about-lums-hero__portrait-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Orbital Skills === */
+.orbital-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.orbital {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.orbital__rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.orbital__ring-line {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+}
+
+.orbital__center {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+
+.orbital__center-glow {
+  position: absolute;
+  inset: -12px;
+  background: var(--accent-glow);
+  border-radius: 50%;
+  animation: orbital-pulse 2.5s ease-in-out infinite;
+}
+
+.orbital__spark {
+  color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+
+.orbital__logo {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+.orbital__logo-bg {
+  fill: #1a1a1a;
+}
+
+[data-theme="light"] .orbital__logo-bg {
+  fill: #1a1a1a;
+}
+
+.orbital__logo-mark {
+  fill: #fffcf7;
+}
+
+@keyframes orbital-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.3); }
+}
+
+.orbital__node {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 200ms, background 200ms, color 200ms;
+  z-index: 2;
+}
+
+.orbital__node--active,
+.orbital__node:hover {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+
+/* Skills reveal panel */
+.orbital-panel {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  min-height: 80px;
+}
+
+.orbital-panel__title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.orbital-panel__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.orbital-panel__chip {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.orbital-panel__hint {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  .orbital { width: 260px; height: 260px; }
+  .orbital-panel { max-width: 260px; }
+}
+
+.about-lums-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 48px;
+  font-style: italic;
+}
+
+.about-lums-story {
+  padding-top: 80px;
+  padding-bottom: 48px;
+}
+
+.about-lums-philosophy {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.about-lums-prose {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.about-lums-prose p {
+  margin-bottom: 24px;
+}
+
+.about-lums-prose strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.about-lums-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-lums-list li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.about-lums-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent);
+  font-size: 0.875rem;
+}
+
+.about-lums-loves {
+  padding-top: 48px;
+  padding-bottom: 120px;
+}
+
+.about-lums-loves__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.about-lums-loves__card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-lums-loves__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0, 0.05);
+}
+
+[data-theme="dark"] .about-lums-loves__card:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0, 0.2);
+}
+
+.about-lums-loves__icon {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.about-lums-loves__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.about-lums-loves__desc {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .about-lums-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  
+  .about-lums-hero__sub {
+    margin: 0 auto;
+  }
+  
+  .about-lums-hero__portrait-wrapper {
+    max-width: 300px;
+  }
+  
+  .about-lums-loves__grid {
+    grid-template-columns: 1fr;
+  }
+}
+

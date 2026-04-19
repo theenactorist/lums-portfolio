@@ -156,6 +156,15 @@ export default function Resume() {
               <li>Created foundational design-system guides including component documentation, usage patterns, and design tokens, adopted across multiple teams through workshops and design reviews — boosting product consistency by 25% and reducing design rework.</li>
             </ul>
 
+            {/* Skills Summary */}
+            <h2 className="rp-section">Skills Summary</h2>
+            <ul className="rp-list">
+              <li><strong>Design Leadership:</strong> Design systems, cross-functional collaboration, design operations, AI workflow integration (Claude, Stitch, Gemini, NotebookLM, Antigravity), documentation &amp; writing, product roadmap planning, design critiques, engineering &amp; stakeholder alignment.</li>
+              <li><strong>Core Design:</strong> End-to-end UX/UI (mobile iOS/Android, Web), prototyping (Figma, FigJam, Framer), interaction design, typography, design thinking.</li>
+              <li><strong>Research &amp; Strategy:</strong> Usability testing, user research &amp; interviews, journey mapping, A/B testing, heuristic evaluation, analytics-informed iteration, competitive analysis.</li>
+              <li><strong>Technical &amp; Delivery:</strong> Vibe coding, design QA, acceptance criteria, user stories.</li>
+            </ul>
+
             {/* Education */}
             <h2 className="rp-section">Education</h2>
             <div className="rp-role-row">

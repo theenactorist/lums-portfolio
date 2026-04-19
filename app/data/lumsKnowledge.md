@@ -220,8 +220,8 @@ Tools: Claude + Cursor + VS Code + Antigravity IDE
 - Big on team culture — bonding, making work feel lighter
 - Volunteering: live stream director
 - Hobbies: DIY learning, working out, mentoring, bonding with close circles
-- Moved from Lagos, Nigeria → Ontario, Canada. Still misses Lagos jollof.
-- Moved from Lagos, Nigeria to Ontario, Canada — a big chapter change that shaped his perspective on designing for diverse markets.
+- Based in Ontario, Canada (remote-friendly, open to global roles).
+- Based in Ontario, Canada (remote-friendly, open to global roles).
 - **Currently reading:** *Org Design for Design Orgs* by Peter Merholz and Kristin Skinner
 
 **Recent learning interests:**

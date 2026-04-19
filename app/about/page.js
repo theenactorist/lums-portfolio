@@ -2,143 +2,7 @@
 
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
-
-/* ============================================
-   Experience Timeline Data
-   ============================================ */
-const experience = [
-  {
-    company: 'Shiga Digital',
-    role: 'Founding Product Designer',
-    period: 'May 2024 — Present',
-    location: 'Remote',
-    description: 'Helped the startup secure funding rounds of over $2.5M and partnerships from Tether, Telegram, and Visa. Led product design for a digital asset platform, shaping the future of cross-border payments and crypto infrastructure across Africa, Middle East, and Europe.',
-    tags: ['Fintech', 'Crypto', 'Stablecoin', 'B2C & B2B', 'Web App', 'Mobile App', 'Mini-apps'],
-    current: true,
-  },
-  {
-    company: 'Branch International',
-    role: 'Senior Product Designer',
-    period: 'Oct 2024 — Mar 2026',
-    location: 'Remote',
-    description: 'Designed lending and financial inclusion products serving millions of users across the US, Kenya, India, and emerging markets. Redefined AI-native design by creating innovations like the Illustrations GPT, Copywriting Skill, and Neem DS prototyper.',
-    tags: ['Lending', 'Cards', 'Savings', 'KYC', 'AI Innovation', 'Emerging Markets'],
-    current: false,
-  },
-  {
-    company: 'Carbon',
-    role: 'Product Designer',
-    period: 'Jun 2022 — Oct 2024',
-    location: 'Lagos, Nigeria',
-    description: 'Revamped the home screen experience for one of Africa\'s leading digital banks. Worked across mobile and web products.',
-    tags: ['Digital Banking', 'Mobile', 'UX Research'],
-    current: false,
-  },
-  {
-    company: 'Sabi',
-    role: 'Senior Product Designer',
-    period: '2021 — 2022',
-    location: 'Lagos, Nigeria',
-    description: 'Revolutionized supply chain logistics for African SMEs through intuitive B2B marketplace design.',
-    tags: ['B2B', 'Logistics', 'Marketplace', 'E-commerce'],
-    current: false,
-  },
-  {
-    company: 'United Bank for Africa',
-    role: 'Product Designer',
-    period: 'Nov 2019 — Jun 2022',
-    location: 'Lagos, Nigeria',
-    description: 'Designed an HR management system from concept to production serving 20,000+ employees across 20 African countries.',
-    tags: ['Enterprise', 'HR Tech', 'Web App'],
-    current: false,
-  },
-  {
-    company: 'Africa Prudential',
-    role: 'UI/UX Designer',
-    period: '2019 — 2020',
-    location: 'Lagos, Nigeria',
-    description: 'Designed digital products for one of Nigeria\'s leading registrar and investor services companies.',
-    tags: ['Finance', 'Enterprise'],
-    current: false,
-  },
-  {
-    company: 'Boughview Innovations',
-    role: 'UI Designer',
-    period: '2017 — 2019',
-    location: 'Lagos, Nigeria',
-    description: 'Started career journey in UI design, building digital products and honing visual design craft.',
-    tags: ['UI Design', 'Startup'],
-    current: false,
-  },
-];
-
-/* ============================================
-   Stats
-   ============================================ */
-const stats = [
-  { label: 'Years of Experience', value: '7+' },
-  { label: 'Products Shipped', value: '20+' },
-  { label: 'Users Impacted', value: '5M+' },
-  { label: 'Mentorship Minutes', value: '1200+' },
-];
-
-/* ============================================
-   Tools
-   ============================================ */
-const tools = [
-  { name: 'Figma', category: 'Design' },
-  { name: 'Framer', category: 'Design' },
-  { name: 'Principle', category: 'Prototyping' },
-  { name: 'ProtoPie', category: 'Prototyping' },
-  { name: 'Maze', category: 'Research' },
-  { name: 'Hotjar', category: 'Research' },
-  { name: 'Notion', category: 'PM' },
-  { name: 'Jira', category: 'PM' },
-  { name: 'Linear', category: 'PM' },
-  { name: 'Miro', category: 'Collaboration' },
-  { name: 'FigJam', category: 'Collaboration' },
-  { name: 'Lottie', category: 'Animation' },
-  { name: 'After Effects', category: 'Animation' },
-  { name: 'VS Code', category: 'Vibe Coding' },
-  { name: 'Claude AI', category: 'Vibe Coding' },
-  { name: 'Next.js', category: 'Vibe Coding' },
-];
-
-/* ============================================
-   Vibe-Coded Projects
-   ============================================ */
-const vibeProjects = [
-  {
-    name: 'Resume Engine',
-    description: 'AI-powered resume & cover letter generator with ATS scoring.',
-    tech: ['Next.js', 'Claude API', 'PostgreSQL'],
-    status: 'Deployed',
-  },
-  {
-    name: 'Shiga Telegram Bot',
-    description: 'Crypto payment bot with wallet logic, KYC, and React mini app.',
-    tech: ['Node.js', 'Grammy.js', 'React'],
-    status: 'Deployed',
-  },
-  {
-    name: 'Declutter',
-    description: 'Personal e-commerce webapp for selling household items.',
-    tech: ['React', 'Node.js', 'Express'],
-    status: 'Deployed',
-  },
-  {
-    name: 'AudioBox',
-    description: 'Live audio broadcasting platform with visualizer and mixer.',
-    tech: ['Next.js', 'React', 'WebRTC'],
-    status: 'Deployed',
-  },
-  {
-    name: 'This Portfolio',
-    description: 'The very site you\'re viewing — designed and vibe-coded.',
-    tech: ['Next.js', 'Framer Motion', 'CSS'],
-    status: 'Live',
-  },
-];
+import OrbitalSkills from '../components/OrbitalSkills';
 
 /* ============================================
    Animation Variants
@@ -166,164 +30,134 @@ const staggerItem = {
 };
 
 /* ============================================
-   About Page
+   About Page (Rahul Jain Style)
    ============================================ */
 export default function About() {
   return (
     <PageTransition>
       <main className="about-page">
-        {/* ===== INTRO ===== */}
-        <section className="about-intro section" id="about-intro">
+        {/* ===== INTRO HERO (60/40 Split) ===== */}
+        <section className="about-lums-intro section" id="about-intro">
           <div className="container">
-            <motion.div className="about-intro__grid" {...fadeUp}>
-              <div className="about-intro__text">
-                <h1 className="about-intro__headline">
-                  I design products people{' '}
-                  <span className="about-intro__italic">actually</span>{' '}
-                  love to use.
+            <div className="about-lums-hero__grid">
+              {/* Left Content */}
+              <motion.div className="about-lums-hero__text" {...fadeUp}>
+                <h1 className="about-lums-hero__headline">
+                  I don&apos;t just ship features. I design products people <span className="about-lums-hero__italic">actually</span> love.
                 </h1>
-                <p className="about-intro__bio">
-                  I'm Olumide Olusesi — but most people call me <strong>Lums</strong>.
-                  I'm a Senior Product Designer with 7+ years of experience designing for fintech,
-                  digital banking, and enterprise platforms across Africa and beyond.
+                <p className="about-lums-hero__sub">
+                  Most people call me Lums, a Senior Product Designer with 8+ years shipping across multiple markets. I build with AI and think in systems.
                 </p>
-                <p className="about-intro__bio">
-                  Currently at <strong>Shiga Digital</strong>, I'm shaping the future of
-                  cross-border payments and crypto infrastructure. Before that, I helped
-                  millions of users access financial services at Branch International, Carbon,
-                  and UBA.
+              </motion.div>
+
+              {/* Right Content (Orbital Skills) */}
+              <motion.div
+                className="about-lums-hero__portrait-wrapper"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                <OrbitalSkills />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== MY STORY ===== */}
+        <section className="about-lums-story section" id="my-story">
+          <div className="container">
+            <motion.div className="about-lums-story__content" {...fadeUp}>
+              <h2 className="about-lums-section-title">My Story</h2>
+              
+              <div className="about-lums-prose">
+                <p>
+                  I started out studying Civil Engineering, then made a deliberate pivot into design.
+                  Turns out, the systems thinking that helps you calculate load on a bridge is the
+                  exact same muscle that helps you architect a checkout flow. I spent three years at
+                  agencies doing visual and motion work before I realised I didn&apos;t just want
+                  things to look good. I wanted to solve the logic underneath.
                 </p>
-                <p className="about-intro__bio">
-                  When I'm not pushing pixels, I'm vibe-coding — building full-stack apps with
-                  AI pair programming. I believe the best designers understand how things are built.
+                <p>
+                  Since then I&apos;ve designed across multiple markets and continents, with 5M+ people
+                  using things I helped build. I mentor on ADPList (1,200+ minutes in), vibe-code
+                  full-stack apps with AI, and I&apos;m currently deep in <em>Org Design for Design
+                  Orgs</em>. My colleagues will tell you two things about me: I care obsessively about
+                  the work, and I have a laugh you can hear from two floors up. Data is music to me.
+                  The only thing that keeps me genuinely humble is how fast AI design tools are
+                  shipping. By the time you finish reading this, there&apos;s probably a new model to try.
                 </p>
-              </div>
-              <div className="about-intro__stats">
-                {stats.map((stat, i) => (
-                  <motion.div
-                    className="stat-card"
-                    key={stat.label}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 + i * 0.08, duration: 0.5 }}
-                  >
-                    <span className="stat-card__value">{stat.value}</span>
-                    <span className="stat-card__label">{stat.label}</span>
-                  </motion.div>
-                ))}
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* ===== EXPERIENCE TIMELINE ===== */}
-        <section className="experience section" id="experience">
+        {/* ===== DESIGN PROCESS & PHILOSOPHIES ===== */}
+        <section className="about-lums-philosophy section" id="philosophy">
           <div className="container">
-            <motion.h2 className="section-title" {...fadeUp}>
-              Experience
-            </motion.h2>
-            <div className="timeline">
-              {experience.map((exp, i) => (
-                <motion.div
-                  className={`timeline__item ${exp.current ? 'timeline__item--current' : ''}`}
-                  key={exp.company}
-                  initial={{ opacity: 0, x: -24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ delay: i * 0.06, duration: 0.5 }}
-                  id={`exp-${exp.company.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  <div className="timeline__dot" />
-                  <div className="timeline__content">
-                    <div className="timeline__header">
-                      <div>
-                        <h3 className="timeline__company">{exp.company}</h3>
-                        <p className="timeline__role">{exp.role}</p>
-                      </div>
-                      <div className="timeline__meta">
-                        <span className="timeline__period">{exp.period}</span>
-                        {exp.current && <span className="timeline__badge">Current</span>}
-                      </div>
-                    </div>
-                    <p className="timeline__desc">{exp.description}</p>
-                    <div className="timeline__tags">
-                      {exp.tags.map((tag) => (
-                        <span className="timeline__tag" key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <motion.div className="about-lums-philosophy__content" {...fadeUp}>
+              <h2 className="about-lums-section-title">Design Philosophy</h2>
+              
+              <div className="about-lums-prose">
+                <p>
+                  I don't believe in rigid frameworks that stall momentum. Instead, I focus on shipping value safely and quickly. Here is how I think about building products:
+                </p>
+                <ul className="about-lums-list">
+                  <li><strong>Design isn't just screens, it's systems:</strong> I don't stop at the UI. I love digging into how components connect, scale, and behave across an entire ecosystem.</li>
+                  <li><strong>AI amplifies craft, it doesn't replace it:</strong> I leverage AI to handle the heavy lifting of zero-to-one exploration, giving me the mental space to obsess over human nuance, product strategy, and visual polish.</li>
+                  <li><strong>Iterate while the paint is still wet:</strong> I believe in putting ideas in front of users fast. We learn exponentially more from a broken prototype in a user's hands than a perfect file on a canvas.</li>
+                  <li><strong>Carry the engineers along:</strong> A design only matters if it ships. I design with the backend in mind, writing clear documentation and obsessing over clean handoffs so developers actually enjoy building what we design.</li>
+                </ul>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* ===== TOOLS ===== */}
-        <section className="tools section" id="tools">
+        {/* ===== THINGS I LOVE ===== */}
+        <section className="about-lums-loves section" id="things-i-love">
           <div className="container">
-            <motion.h2 className="section-title" {...fadeUp}>
-              Tools & Tech
-            </motion.h2>
-            <motion.div
-              className="tools__grid"
+            <motion.div className="about-lums-loves__header" {...fadeUp}>
+              <h2 className="about-lums-section-title">Things I Love</h2>
+            </motion.div>
+
+            <motion.div 
+              className="about-lums-loves__grid"
               variants={staggerContainer}
               initial="initial"
               whileInView="whileInView"
               viewport={{ once: true }}
             >
-              {tools.map((tool) => (
-                <motion.div className="tool-chip" key={tool.name} {...staggerItem}>
-                  <span className="tool-chip__name">{tool.name}</span>
-                  <span className="tool-chip__category">{tool.category}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
+              <motion.div className="about-lums-loves__card" variants={staggerItem}>
+                <div className="about-lums-loves__icon">🌱</div>
+                <h3 className="about-lums-loves__title">Mentorship</h3>
+                <p className="about-lums-loves__desc">
+                  I believe deeply in lifting as you climb. Between ADPList and Beyond Theory, I have spent over 1,200 minutes across 40+ sessions guiding junior designers through portfolio reviews, career transitions, and navigating fintech UX. 
+                </p>
+              </motion.div>
 
-        {/* ===== VIBE-CODED PROJECTS ===== */}
-        <section className="vibe section" id="vibe-coded">
-          <div className="container">
-            <motion.div className="vibe__header" {...fadeUp}>
-              <h2 className="section-title">Vibe-Coded Apps</h2>
-              <p className="vibe__subtitle">
-                Full-stack applications built with AI pair programming — because the best designers know how to ship.
-              </p>
+              <motion.div className="about-lums-loves__card" variants={staggerItem}>
+                <div className="about-lums-loves__icon">🎥</div>
+                <h3 className="about-lums-loves__title">Directing Livestreams</h3>
+                <p className="about-lums-loves__desc">
+                  When I step away from pushing pixels on a canvas, you will often find me directing live streams as a volunteer. It flexes a completely different type of creative focus, spatial awareness, and real-time execution.
+                </p>
+              </motion.div>
+
+              <motion.div className="about-lums-loves__card" variants={staggerItem}>
+                <div className="about-lums-loves__icon">⚡</div>
+                <h3 className="about-lums-loves__title">Vibecoding</h3>
+                <p className="about-lums-loves__desc">
+                  I am a passionate AI-native builder. I build full-stack, production-ready applications through AI pair programming (like exactly what you are reading right now). A designer who understands how things are built, builds markedly better things.
+                </p>
+              </motion.div>
+
+              <motion.div className="about-lums-loves__card" variants={staggerItem}>
+                <div className="about-lums-loves__icon">📚</div>
+                <h3 className="about-lums-loves__title">Continuous Learning</h3>
+                <p className="about-lums-loves__desc">
+                  I dedicate at least 1 hour every single day to studying design trends. Currently, I'm deeply reading <em>Org Design for Design Orgs</em> and heavily researching Generative UI patterns for AI-forward products.
+                </p>
+              </motion.div>
             </motion.div>
-            <div className="vibe__grid">
-              {vibeProjects.map((project, i) => (
-                <motion.div
-                  className="vibe-card"
-                  key={project.name}
-                  initial={{ opacity: 0, y: 32, rotate: i % 2 === 0 ? -1 : 1 }}
-                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ delay: i * 0.1, duration: 0.6 }}
-                  id={`vibe-${project.name.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  <div className="vibe-card__status">
-                    <span className="vibe-card__dot" />
-                    {project.status}
-                  </div>
-                  <h3 className="vibe-card__name">{project.name}</h3>
-                  <p className="vibe-card__desc">{project.description}</p>
-                  <div className="vibe-card__tech">
-                    {project.tech.map((t) => (
-                      <span className="vibe-card__tech-tag" key={t}>{t}</span>
-                    ))}
-                  </div>
-                  <div className="vibe-card__badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                      <path d="M2 17l10 5 10-5"/>
-                      <path d="M2 12l10 5 10-5"/>
-                    </svg>
-                    Built with AI
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
       </main>
