@@ -226,7 +226,15 @@ export default function Home() {
                     {/* Top row: title + description */}
                     <div className="project-entry__header">
                       <div className="project-entry__title-group">
-                        <h3 className="project-entry__title">{project.title}</h3>
+                        <h3 className="project-entry__title">
+                          {project.title}
+                          <span className="project-entry__title-arrow">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M7 17L17 7"/>
+                              <path d="M7 7h10v10"/>
+                            </svg>
+                          </span>
+                        </h3>
                         <span className="project-entry__period">{project.period}</span>
                       </div>
                       <p className="project-entry__description">{project.description}</p>
@@ -251,12 +259,6 @@ export default function Home() {
                           <span>{project.title}</span>
                         </div>
                       )}
-                      <div className="project-entry__image-arrow">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="7" y1="17" x2="17" y2="7"/>
-                          <polyline points="7 7 17 7 17 17"/>
-                        </svg>
-                      </div>
                     </div>
                   </Link>
                 </motion.article>
