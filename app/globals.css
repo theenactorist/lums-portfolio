@@ -1037,7 +1037,7 @@ main > .section:first-child {
   font-size: var(--text-md);
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-top: var(--space-xs);
+  margin-top: calc(var(--space-xs) - 28px);
 }
 
 .hero__company-link {
@@ -1594,8 +1594,12 @@ main > .section:first-child {
 }
 
 /* ==========================================
-   SELECTED WORK — Rahul Jain Layout
+   SELECTED WORK — Lums Layout
    ========================================== */
+.selected-work {
+  margin-top: -136px;
+}
+
 .selected-work__header {
   margin-bottom: var(--space-3xl);
   padding-bottom: var(--space-lg);
@@ -1620,6 +1624,8 @@ main > .section:first-child {
   display: flex;
   flex-direction: column;
   gap: var(--space-5xl);
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 /* Individual project entry — Bento Grid Style */
@@ -1635,7 +1641,6 @@ main > .section:first-child {
   padding: var(--space-xl);
   border-radius: var(--radius-xl);
   background: var(--bg-surface);
-  border: 1px solid var(--border);
   transition: all var(--transition-base);
   overflow: hidden;
   will-change: transform, box-shadow;
@@ -1725,7 +1730,7 @@ main > .section:first-child {
   z-index: 1;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: var(--radius-md);
+  border-radius: 40px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -1745,6 +1750,55 @@ main > .section:first-child {
   color: rgba(255, 255, 255, 0.06);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* Base Bento Framework */
+.project-entry__bento {
+  position: absolute;
+  inset: var(--space-2xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.bento-card {
+  background: var(--bg-surface);
+  border-radius: 24px;
+  position: absolute;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+  overflow: hidden;
+}
+
+.bento-card--main {
+  width: 55%;
+  height: 90%;
+  z-index: 2;
+}
+
+.bento-card--left {
+  width: 25%;
+  height: 60%;
+  left: 0;
+  bottom: -5%;
+  z-index: 3;
+}
+
+.bento-card--right {
+  width: 30%;
+  height: 70%;
+  right: -2%;
+  top: 5%;
+  z-index: 1;
+}
+
+[data-theme="light"] .bento-card {
+  box-shadow: 0 24px 48px rgba(0,0,0,0.08);
 }
 
 .project-entry__image-arrow {
@@ -3043,7 +3097,7 @@ main > .section:first-child {
 }
 
 /* ============================================
-   Rahul Jain About Page Layout
+   Lums About Page Layout
    ============================================ */
 
 .about-lums-intro {
@@ -3360,5 +3414,151 @@ main > .section:first-child {
   .about-lums-loves__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================
+   Cosmic 404
+   ============================================ */
+.cosmic-404 {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.cosmic-starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 60%, rgba(224, 123, 60, 0.05) 0%, transparent 65%);
+}
+
+.cosmic-starfield::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 30%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 33% 10%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 75%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 5% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 92% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 48% 92%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 65%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(2px 2px at 88% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 3% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 5%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 90%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 38% 70%, rgba(255,255,255,0.7) 0%, transparent 100%);
+  animation: starfield-drift 80s linear infinite;
+}
+
+.cosmic-starfield::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 8% 70%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 52% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 73% 40%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 90% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 18% 95%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 44% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 62% 78%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(2px 2px at 95% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 28%, rgba(255,255,255,0.7) 0%, transparent 100%);
+  animation: starfield-drift 120s linear infinite reverse;
+  opacity: 0.7;
+}
+
+@keyframes starfield-drift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-40px); }
+}
+
+.cosmic-404__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: var(--container-padding);
+  max-width: 640px;
+}
+
+.cosmic-404__code {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(5rem, 12vw, 9rem);
+  color: var(--accent);
+  line-height: 1;
+  text-shadow: 0 0 60px rgba(224, 123, 60, 0.4);
+  margin: 0;
+}
+
+.cosmic-404__headline {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cosmic-404__sub {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 420px;
+  margin: 0;
+}
+
+.cosmic-404__globe-wrap {
+  margin: 4px 0;
+  opacity: 0.9;
+}
+
+.cosmic-globe {
+  width: 280px;
+  height: 280px;
+  display: block;
+  filter: drop-shadow(0 0 40px rgba(220, 220, 240, 0.25)) drop-shadow(0 0 80px rgba(200, 200, 220, 0.1));
+}
+
+.cosmic-404__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-full);
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
+}
+
+.cosmic-404__cta:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .cosmic-globe { width: 220px; height: 220px; }
 }
 

@@ -9,7 +9,7 @@ import AskLums from './components/AskLums';
 import LogoTicker from './components/LogoTicker';
 
 /* ============================================
-   Featured Work Data — Rahul Jain style
+   Featured Work Data — Lums style
    ============================================ */
 const projects = [
   {
@@ -197,7 +197,7 @@ export default function Home() {
           <LogoTicker />
         </RippleHero>
 
-        {/* ===== SELECTED WORK — Rahul Jain Style ===== */}
+        {/* ===== SELECTED WORK — Lums Style ===== */}
         <section className="selected-work section" id="featured-work">
           <div className="container">
             <motion.div
@@ -234,9 +234,23 @@ export default function Home() {
 
                     {/* Image panel */}
                     <div className="project-entry__image" style={{ backgroundColor: project.color }}>
-                      <div className="project-entry__image-placeholder">
-                        <span>{project.title}</span>
-                      </div>
+                      {i === 0 ? (
+                        <div className="project-entry__bento">
+                          <motion.div className="bento-card bento-card--left" initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.05 + 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
+                            Analytics
+                          </motion.div>
+                          <motion.div className="bento-card bento-card--main" initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.05 + 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+                            Home Screen
+                          </motion.div>
+                          <motion.div className="bento-card bento-card--right" initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.05 + 0.25, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
+                            Cards
+                          </motion.div>
+                        </div>
+                      ) : (
+                        <div className="project-entry__image-placeholder">
+                          <span>{project.title}</span>
+                        </div>
+                      )}
                       <div className="project-entry__image-arrow">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="7" y1="17" x2="17" y2="7"/>

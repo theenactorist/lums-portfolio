@@ -30,7 +30,7 @@ const staggerItem = {
 };
 
 /* ============================================
-   About Page (Rahul Jain Style)
+   About Page (Lums Style)
    ============================================ */
 export default function About() {
   return (
