@@ -60,6 +60,7 @@ His Civil Engineering degree taught him systems thinking, precision, and problem
 - Owned strategy and design for Carbon Business — the company's first B2B lending product for SME working capital (₦200k–₦10M)
 - Led a cross-functional team of 5, wrote PRDs, ran sprints, managed stakeholders — acting as de facto PM
 - Designed the full KYB flow; shipped from zero to $500k CAD disbursed in 9 months
+- Designed the Carbon debit card experience — including card issuance, virtual card management, PIN setup, and card-linked spend tracking within the app
 - Revamped Android and iOS home screens, improving feature discoverability, boosting organic referrals by 15%
 - Founded a Beta-Testing Community of 120+ participants, cutting external research costs by 25%
 - Standardized design handoff, improving design-to-development velocity by 30%
@@ -78,6 +79,7 @@ His Civil Engineering degree taught him systems thinking, precision, and problem
 ### Branch International Financial Services — Senior Product Designer | Oct 2024 – Mar 2026
 *(Fintech, Lending, Product-led)*
 - Led migration of wallet, rewards, home screen, loan, and KYC modules across Kenya, India, and Nigeria to Branch's Neem Design System — 100% visual and functional consistency across 5 modules
+- Designed the Branch credit and debit card experience — covering card application, physical and virtual card management, transaction history, spend controls, and card-linked rewards across Kenya, India, and Nigeria
 - Redesigned KYC onboarding with OTP-based pre-fill: approval rates increased from 42% to 56%, manual data entry errors reduced by 35%
 - Built three AI-powered design tools adopted 500+ times across 6 teams in 4 countries:
   - **Illustrations GPT:** 500+ iterations to produce 30 consistent illustrations for India; scaled to Africa markets (Q2 2026 handoff)

@@ -400,6 +400,19 @@ export default function Home() {
             onMouseLeave={() => { wallPausedRef.current = false; }}
             onFocus={() => { wallPausedRef.current = true; }}
             onBlur={() => { wallPausedRef.current = false; }}
+            onTouchStart={() => { wallPausedRef.current = true; }}
+            onTouchEnd={() => {
+              setTimeout(() => {
+                if (wallRowRef.current) wallPosRef.current = wallRowRef.current.scrollLeft;
+                wallPausedRef.current = false;
+              }, 800);
+            }}
+            onTouchCancel={() => {
+              setTimeout(() => {
+                if (wallRowRef.current) wallPosRef.current = wallRowRef.current.scrollLeft;
+                wallPausedRef.current = false;
+              }, 800);
+            }}
           >
             <ul className="wall__row" ref={wallRowRef}>
               {[...testimonials, ...testimonials].map((t, i) => (

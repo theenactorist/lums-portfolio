@@ -1880,6 +1880,12 @@ main > .section:first-child {
   .hero__headline {
     font-size: var(--text-2xl);
   }
+  .selected-work {
+    margin-top: 0;
+  }
+  .project-entry__image {
+    border-radius: 20px;
+  }
   .project-entry__header {
     grid-template-columns: 1fr;
     gap: var(--space-md);
