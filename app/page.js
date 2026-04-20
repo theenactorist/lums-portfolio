@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import PageTransition from './components/PageTransition';
@@ -14,21 +14,22 @@ import LogoTicker from './components/LogoTicker';
 const projects = [
   {
     id: 'carbon',
-    title: 'Carbon',
+    title: 'Revamping Fintech Home screen Experience',
     description: 'Revamping the home screen experience for a leading digital bank to improve feature discoverability and user engagement.',
     role: 'Product Designer',
-    period: 'Jun 2022 — Oct 2024',
-    tags: ['Mobile', 'Fintech', 'UX Research'],
+    period: '2023',
+    tags: ['B2C', 'Fintech & Banking', 'Mobile App'],
     color: '#1a1a2e',
     accentColor: '#e07b3c',
+    thumbnail: '/work/carbon/Revamping Fintech Home screen Experience.jpg',
   },
   {
     id: 'sabi',
     title: "Sabi's Supply Chain Logistics Solution for African SMEs",
     description: 'Revolutionizing supply chain logistics for African SMEs — building tools for inventory, commerce, and distribution at scale.',
     role: 'Senior Product Designer',
-    period: '2021 — 2022',
-    tags: ['Web', 'B2B', 'Logistics'],
+    period: '2022',
+    tags: ['B2B2C', 'E-commerce', 'Logistics'],
     color: '#1e1e28',
     accentColor: '#6fa3ef',
     thumbnail: '/work/sabi/Navigating Complexity_ Revolutionizing Supply Chain Logistics for African SMEs.jpg',
@@ -38,8 +39,8 @@ const projects = [
     title: "UBA's Human Resource Management System",
     description: 'Concept to production: HR management system for 20,000+ employees across 20 African countries.',
     role: 'Product Designer',
-    period: 'Nov 2019 — Jun 2022',
-    tags: ['Enterprise', 'Web App', 'HR Tech'],
+    period: '2021',
+    tags: ['Web App', 'Enterprise'],
     color: '#141422',
     accentColor: '#d4613a',
     thumbnail: '/work/uba/Concept to Production_ Human Resource Management System.jpg',
@@ -53,6 +54,7 @@ const projects = [
     tags: ['Fintech', 'Crypto', 'B2B'],
     color: '#161625',
     accentColor: '#4fd1c5',
+    hidden: true,
   },
   {
     id: 'branch',
@@ -63,33 +65,70 @@ const projects = [
     tags: ['Lending', 'Mobile', 'Emerging Markets'],
     color: '#1a1a24',
     accentColor: '#a78bfa',
+    hidden: true,
   },
 ];
 
 const testimonials = [
   {
-    name: 'Chijioke Dozie',
-    role: 'CEO',
-    company: 'Carbon',
-    relationship: 'Manager',
-    quote: 'Olumide is a rare talent — he combines deep user empathy with the ability to deliver pixel-perfect, ship-ready designs. His work on our home screen revamp directly improved user engagement.',
-    source: 'LinkedIn',
+    name: 'Deovrat Dwivedi',
+    role: 'Design Team Lead',
+    kind: 'colleague',
+    quote: "Lums is not a pixel pusher. He is an AI-native builder with a designer's eye and a PM's brain — and that combination is exactly what product teams need to stay relevant in 2026. He specialises in taking an abstract problem, dissecting it surgically, and creating something better than what you imagined. Beyond the work — he is a generous collaborator, a fun teammate, and someone who makes the people around him better.",
+  },
+  {
+    name: 'Duncan',
+    role: 'Product Designer',
+    kind: 'colleague',
+    quote: 'From being your onboarding buddy to someone who shaped how I think about AI and automation — you inspired a whole new way of approaching problems and possibilities.',
+  },
+  {
+    name: 'Annmercy',
+    role: 'UX Researcher',
+    kind: 'colleague',
+    quote: 'One of the fiercest AI champs at work. Impeccable work that made our experience easier. Such a valuable addition to the product team.',
+  },
+  {
+    name: 'Fortunate Nneji',
+    role: 'Product Manager',
+    kind: 'colleague',
+    quote: 'Consistently impressed with his design skills, team leadership, and ability to make complex projects feel effortless. He would be an asset to any organization.',
   },
   {
     name: 'Tonye Boham',
-    role: 'Group Head, Digital Banking',
-    company: 'UBA',
-    relationship: 'Manager',
-    quote: 'From concept to production, Olumide delivered an HR management system that transformed how we manage 20,000+ employees across 20 countries. His attention to detail is exceptional.',
-    source: 'LinkedIn',
+    role: 'Head, HR Group Shared Service',
+    kind: 'stakeholder',
+    quote: 'Your immense contribution towards the delivery of the HR automation platform is a sterling achievement — borne out of your dedication, result-oriented approach, and willingness to go the extra mile to ensure delivery of all envisioned and ad-hoc requirements of the platform.',
   },
   {
-    name: 'ADPList Mentee',
+    name: 'Chijioke Dozie',
+    role: 'Chief Executive Officer',
+    kind: 'stakeholder',
+    quote: "I'm really proud of what the @get_carbon team are delivering and this new design change of the Carbon app is just one of the many new changes that are coming. Our mission is not just to change the way you bank, but change your life by banking with us!",
+  },
+  {
+    name: 'Rachael Aluko',
+    role: 'Senior Product Designer',
+    kind: 'colleague',
+    quote: 'Olumide consistently made well-informed design decisions that were backed strongly by research, data, and design processes, making it difficult for stakeholders to say no. His ability to communicate ideas and solutions in a way that commands attention is remarkable.',
+  },
+  {
+    name: 'Eniayo',
+    role: 'Product Manager',
+    kind: 'colleague',
+    quote: "You're one of those people who make work feel easy — reliable, thoughtful, and just always on top of things.",
+  },
+  {
+    name: 'Simon Julius',
+    role: 'Frontend Engineer',
+    kind: 'colleague',
+    quote: 'I love the dedication Olumide puts into his work — how he carries the developer along when making designs, and how he takes responsibility while creating user-centric designs.',
+  },
+  {
+    name: 'Emike Okoyomoh',
     role: 'Product Designer',
-    company: 'Various',
-    relationship: 'Mentee',
-    quote: 'Lums is one of the most insightful mentors I\'ve worked with. His feedback is always actionable and he genuinely cares about your growth as a designer.',
-    source: 'ADPList',
+    kind: 'colleague',
+    quote: 'His unique wealth of design experience and flexibility made him a valuable asset. He excels at his core — product design — but also contributes beyond scope, taking initiative to mentor junior designers.',
   },
 ];
 
@@ -135,6 +174,50 @@ function RippleHero({ children }) {
    ============================================ */
 export default function Home() {
   const [tooltipVisible, setTooltipVisible] = useState(false);
+  const wallRowRef = useRef(null);
+  const wallPausedRef = useRef(false);
+  const wallPosRef = useRef(0);
+
+  const scrollWallBy = (direction) => {
+    const row = wallRowRef.current;
+    if (!row) return;
+    const card = row.querySelector('.wall__card');
+    const step = card ? card.offsetWidth + 24 : 400;
+    const half = row.scrollWidth / 2;
+    let newPos = wallPosRef.current + (direction === 'next' ? step : -step);
+    if (newPos < 0) newPos += half > 0 ? half : 0;
+    if (half > 0 && newPos >= half) newPos -= half;
+    wallPosRef.current = newPos;
+    row.scrollLeft = newPos;
+  };
+
+  useEffect(() => {
+    const row = wallRowRef.current;
+    if (!row) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let rafId;
+    let lastTime = performance.now();
+    const pxPerSec = 35;
+
+    const tick = (now) => {
+      const dt = Math.min(now - lastTime, 50);
+      lastTime = now;
+      if (!wallPausedRef.current) {
+        const half = row.scrollWidth / 2;
+        if (half > 0) {
+          wallPosRef.current += (pxPerSec * dt) / 1000;
+          if (wallPosRef.current >= half) wallPosRef.current -= half;
+          row.scrollLeft = wallPosRef.current;
+        }
+      } else {
+        wallPosRef.current = row.scrollLeft;
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
 
   return (
     <PageTransition>
@@ -214,7 +297,7 @@ export default function Home() {
             </motion.div>
 
             <div className="selected-work__list">
-              {projects.map((project, i) => (
+              {projects.filter((p) => !p.hidden).map((project, i) => (
                 <motion.article
                   key={project.id}
                   className="project-entry"
@@ -232,31 +315,25 @@ export default function Home() {
                           {project.title}
                           <span className="project-entry__title-arrow">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M7 17L17 7"/>
-                              <path d="M7 7h10v10"/>
+                              <line x1="5" y1="12" x2="19" y2="12" />
+                              <polyline points="12 5 19 12 12 19" />
                             </svg>
                           </span>
                         </h3>
-                        <span className="project-entry__period">{project.period}</span>
+                        {project.tags && project.tags.length > 0 && (
+                          <ul className="project-entry__tags" aria-label="Project categories">
+                            {project.tags.map((tag) => (
+                              <li key={tag} className="project-entry__tag">{tag}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                       <p className="project-entry__description">{project.description}</p>
                     </div>
 
                     {/* Image panel */}
                     <div className="project-entry__image" style={{ backgroundColor: project.color }}>
-                      {i === 0 ? (
-                        <div className="project-entry__bento">
-                          <motion.div className="bento-card bento-card--left" initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.05 + 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
-                            Analytics
-                          </motion.div>
-                          <motion.div className="bento-card bento-card--main" initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.05 + 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
-                            Home Screen
-                          </motion.div>
-                          <motion.div className="bento-card bento-card--right" initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.05 + 0.25, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
-                            Cards
-                          </motion.div>
-                        </div>
-                      ) : project.thumbnail ? (
+                      {project.thumbnail ? (
                         <img
                           src={project.thumbnail}
                           alt={project.title}
@@ -275,77 +352,103 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== TESTIMONIALS (PALMER REDESIGN) ===== */}
-        <section className="palmer-testimonials" id="testimonials">
-          {/* Layer 1: Background Marquee Text */}
-          <div className="palmer-bg-text-wrapper">
-            <span className="palmer-bg-text">
-              Testimonials © Reviews Testimonials © Reviews Testimonials © Reviews Testimonials © Reviews
-            </span>
-          </div>
-
-          {/* Layer 2: Scrolling Tracks */}
-          <div className="palmer-track-container">
-            {/* Top Track */}
+        {/* ===== RECOMMENDATIONS WALL ===== */}
+        <section className="wall section" id="recommendations">
+          <div className="container">
             <motion.div
-              className="palmer-track"
-              animate={{ x: ['0%', '-33.33%'] }}
-              transition={{ repeat: Infinity, ease: 'linear', duration: 15 }}
+              className="wall__header wall__header--row"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6 }}
             >
-              {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, i) => (
-                <div className="palmer-card" key={`top-${i}`}>
-                   <div className="palmer-card__quote">"</div>
-                   <p className="palmer-card__text">{t.quote}</p>
-                   <div className="palmer-card__footer">
-                     <div className="palmer-card__user">
-                       <div className="palmer-card__avatar">{t.name.split(' ').map((n) => n[0]).join('')}</div>
-                       <div className="palmer-card__meta">
-                         <div className="palmer-card__name-wrap">
-                           <span className="palmer-card__name">{t.name}</span>
-                           <svg className="palmer-card__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                         </div>
-                         <span className="palmer-card__role">{t.role}</span>
-                       </div>
-                     </div>
-                     <div className="palmer-card__logo">{t.company}</div>
-                   </div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Bottom Track */}
-            <motion.div
-              className="palmer-track palmer-track--reverse"
-              animate={{ x: ['-33.33%', '0%'] }}
-              transition={{ repeat: Infinity, ease: 'linear', duration: 20 }}
-            >
-              {[...testimonials, ...testimonials, ...testimonials, ...testimonials].reverse().map((t, i) => (
-                <div className="palmer-card" key={`bot-${i}`}>
-                   <div className="palmer-card__quote">"</div>
-                   <p className="palmer-card__text">{t.quote}</p>
-                   <div className="palmer-card__footer">
-                     <div className="palmer-card__user">
-                       <div className="palmer-card__avatar">{t.name.split(' ').map((n) => n[0]).join('')}</div>
-                       <div className="palmer-card__meta">
-                         <div className="palmer-card__name-wrap">
-                           <span className="palmer-card__name">{t.name}</span>
-                           <svg className="palmer-card__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                         </div>
-                         <span className="palmer-card__role">{t.role}</span>
-                       </div>
-                     </div>
-                     <div className="palmer-card__logo">{t.company}</div>
-                   </div>
-                </div>
-              ))}
+              <div className="wall__header-text">
+                <span className="wall__eyebrow">Recommendations</span>
+                <h2 className="wall__title">Words from people I&apos;ve built with</h2>
+                <p className="wall__sub">
+                  Verified quotes from stakeholders and colleagues across the teams I&apos;ve designed with.
+                </p>
+              </div>
+              <div className="wall__nav" role="group" aria-label="Recommendation carousel controls">
+                <button
+                  type="button"
+                  className="wall__nav-btn"
+                  aria-label="Previous recommendation"
+                  onClick={() => scrollWallBy('prev')}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  className="wall__nav-btn"
+                  aria-label="Next recommendation"
+                  onClick={() => scrollWallBy('next')}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              </div>
             </motion.div>
           </div>
 
-          {/* Layer 3: Central Floating Button */}
-          <div className="palmer-cta-overlay">
-            <Link href="mailto:hello@example.com" className="palmer-cta-btn">
-              Get in Touch
-            </Link>
+          <div
+            className="wall__row-wrap"
+            onMouseEnter={() => { wallPausedRef.current = true; }}
+            onMouseLeave={() => { wallPausedRef.current = false; }}
+            onFocus={() => { wallPausedRef.current = true; }}
+            onBlur={() => { wallPausedRef.current = false; }}
+          >
+            <ul className="wall__row" ref={wallRowRef}>
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <li
+                  key={`${t.name}-${i}`}
+                  className="wall__card"
+                  aria-hidden={i >= testimonials.length ? 'true' : undefined}
+                >
+                  <span className="wall__quote-mark" aria-hidden="true">&ldquo;</span>
+                  <p className="wall__text">{t.quote}</p>
+                  <div className="wall__footer">
+                    <div className="wall__avatar" aria-hidden="true">
+                      {t.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
+                    </div>
+                    <div className="wall__meta">
+                      <span className="wall__name">
+                        {t.name}
+                        <svg
+                          className="wall__verified"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-label="Verified on LinkedIn"
+                        >
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                      </span>
+                      <span className="wall__role">{t.role}</span>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="container">
+            <div className="wall__cta">
+              <a
+                href="https://www.linkedin.com/in/olumideolusesi/details/recommendations/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="wall__cta-btn"
+              >
+                See more on LinkedIn
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
           </div>
         </section>
 

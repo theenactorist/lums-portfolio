@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from '../../components/PageTransition';
+import ZoomableImage from '../../components/ZoomableImage';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -58,7 +59,7 @@ export default function SabiCaseStudy() {
               </div>
 
               <figure className="cs-hero__cover">
-                <Image
+                <ZoomableImage
                   src="/work/sabi/cover.gif"
                   alt="Sabi product mockups showcasing logistics dashboard and mobile apps"
                   width={1200}
@@ -207,9 +208,9 @@ export default function SabiCaseStudy() {
                 <li>Team — view and manage drivers</li>
               </ul>
 
-              <div className="cs-feature__gallery cs-feature__gallery--split">
+              <div className="cs-feature__gallery cs-feature__gallery--split cs-feature__gallery--wide">
                 <figure className="cs-feature__figure cs-feature__figure--portrait">
-                  <Image
+                  <ZoomableImage
                     src="/work/sabi/logistics-mobile.png"
                     alt="Logistics platform mobile view"
                     width={283}
@@ -218,7 +219,7 @@ export default function SabiCaseStudy() {
                   />
                 </figure>
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/sabi/logistics-desktop.png"
                     alt="Logistics platform desktop dashboard"
                     width={971}
@@ -266,10 +267,10 @@ export default function SabiCaseStudy() {
                 <li>Profile — bio-data and past trips</li>
               </ul>
 
-              <div className="cs-feature__gallery cs-feature__gallery--trio">
+              <div className="cs-feature__gallery cs-feature__gallery--trio cs-feature__gallery--wide">
                 {['driver-1', 'driver-2', 'driver-3'].map((name, i) => (
                   <figure key={name} className="cs-feature__figure cs-feature__figure--portrait">
-                    <Image
+                    <ZoomableImage
                       src={`/work/sabi/${name}.png`}
                       alt={`Driver app mobile screen ${i + 1}`}
                       width={425}
@@ -323,7 +324,7 @@ export default function SabiCaseStudy() {
 
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/sabi/suppliers.png"
                     alt="Suppliers platform desktop dashboard"
                     width={1457}

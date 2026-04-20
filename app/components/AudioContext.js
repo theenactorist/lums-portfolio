@@ -31,14 +31,16 @@ export function AudioProvider({ children }) {
     clickRef.current.play().catch(() => {});
   };
 
-  // Global hover listener — fires on any interactive element
+  // Global hover listener — fires once per interactive element entry (not on every child re-enter)
   useEffect(() => {
+    const SELECTOR = 'a, button, [role="button"], input, select, textarea, label';
     const handleMouseOver = (e) => {
       if (!isPlayingRef.current) return;
-      const el = e.target.closest(
-        'a, button, [role="button"], input, select, textarea, label'
-      );
-      if (el) playClick();
+      const el = e.target.closest(SELECTOR);
+      if (!el) return;
+      const from = e.relatedTarget?.closest(SELECTOR);
+      if (from === el) return;
+      playClick();
     };
 
     document.addEventListener('mouseover', handleMouseOver);

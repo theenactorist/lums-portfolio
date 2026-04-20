@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from '../../components/PageTransition';
+import ZoomableImage from '../../components/ZoomableImage';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -64,7 +65,7 @@ export default function UBACaseStudy() {
               </div>
 
               <figure className="cs-hero__cover">
-                <Image
+                <ZoomableImage
                   src="/work/uba/cover.gif"
                   alt="UBA Human Resource Management System interface"
                   width={1200}
@@ -184,10 +185,10 @@ export default function UBACaseStudy() {
         <section className="cs-feature section">
           <div className="container">
             <motion.div className="cs-feature__inner" {...fadeUp}>
-              <div className="cs-feature__gallery cs-feature__gallery--single">
-                {[1, 2, 3, 4].map((n) => (
+              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide">
+                {[1, 4, 2, 3].map((n) => (
                   <figure key={n} className="cs-feature__figure">
-                    <Image
+                    <ZoomableImage
                       src={`/work/uba/solution-${n}.jpg`}
                       alt={`HCMConnect interface screen ${n}`}
                       width={2048}
@@ -247,7 +248,7 @@ export default function UBACaseStudy() {
 
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/discovery.jpg"
                     alt="Discovery research synthesis"
                     width={2048}
@@ -283,7 +284,7 @@ export default function UBACaseStudy() {
 
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/define.jpg"
                     alt="Information architecture and definition"
                     width={2048}
@@ -316,7 +317,7 @@ export default function UBACaseStudy() {
               </p>
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/userflow.jpg"
                     alt="User flow diagrams"
                     width={2048}
@@ -340,7 +341,7 @@ export default function UBACaseStudy() {
               <h3 className="cs-feature__subtitle">Sketches</h3>
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/sketches.jpg"
                     alt="Early sketches"
                     width={2048}
@@ -364,7 +365,7 @@ export default function UBACaseStudy() {
               <h3 className="cs-feature__subtitle">Wireframes</h3>
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/wireframes.jpg"
                     alt="Wireframes"
                     width={2048}
@@ -386,9 +387,9 @@ export default function UBACaseStudy() {
 
               {/* High fidelity mockups */}
               <h3 className="cs-feature__subtitle">High-fidelity mockups</h3>
-              <div className="cs-feature__gallery cs-feature__gallery--split-even">
+              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/hifi-1.jpg"
                     alt="High-fidelity mockup 1"
                     width={2048}
@@ -397,7 +398,7 @@ export default function UBACaseStudy() {
                   />
                 </figure>
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/hifi-2.jpg"
                     alt="High-fidelity mockup 2"
                     width={2048}
@@ -422,7 +423,7 @@ export default function UBACaseStudy() {
               </p>
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/testing.jpg"
                     alt="Usability testing documentation"
                     width={2048}
@@ -445,10 +446,10 @@ export default function UBACaseStudy() {
               </p>
 
               <h3 className="cs-feature__subtitle">Final designs</h3>
-              <div className="cs-feature__gallery cs-feature__gallery--single">
+              <div className="cs-feature__gallery cs-feature__gallery--trio cs-feature__gallery--wide">
                 {['final-1', 'final-2', 'final-3'].map((name, i) => (
                   <figure key={name} className="cs-feature__figure">
-                    <Image
+                    <ZoomableImage
                       src={`/work/uba/${name}.jpg`}
                       alt={`Final design ${i + 1}`}
                       width={2048}
@@ -467,7 +468,7 @@ export default function UBACaseStudy() {
               </ul>
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
-                  <Image
+                  <ZoomableImage
                     src="/work/uba/handoff.jpg"
                     alt="Developer handoff documentation"
                     width={2048}
@@ -523,8 +524,8 @@ export default function UBACaseStudy() {
               transition={{ duration: 0.5 }}
             >
               <span className="cs-next__label">Next case study</span>
-              <Link href="/work/sabi" className="cs-next__link">
-                Sabi — Revolutionizing Supply Chain Logistics
+              <Link href="/work/carbon" className="cs-next__link">
+                Carbon — Revamping Fintech Home Screen Experience
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />

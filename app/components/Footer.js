@@ -27,7 +27,6 @@ export default function Footer() {
                 height={31}
               />
             </div>
-            <p className="footer__tagline">Let&apos;s build something great together.</p>
             <p className="footer__tagline footer__tagline--sub">
               Open to new opportunities, collaborations, and interesting conversations.
             </p>
