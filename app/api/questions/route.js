@@ -1,8 +1,24 @@
 import { query, initDb } from '../../../lib/db';
+import crypto from 'crypto';
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
-  if (searchParams.get('key') !== process.env.ADMIN_KEY) {
+  const providedKey = searchParams.get('key') || '';
+  const expectedKey = process.env.ADMIN_KEY || '';
+
+  let isAuthorized = false;
+  try {
+    if (providedKey.length === expectedKey.length && expectedKey.length > 0) {
+      isAuthorized = crypto.timingSafeEqual(
+        Buffer.from(providedKey),
+        Buffer.from(expectedKey)
+      );
+    }
+  } catch (err) {
+    isAuthorized = false;
+  }
+
+  if (!isAuthorized) {
     return new Response('Unauthorized', { status: 401 });
   }
 

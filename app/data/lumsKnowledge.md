@@ -13,7 +13,7 @@
 - **Years of experience:** 6+ years as a Product Designer at product-led companies (2020–present). Prior to that, 3 years as a Visual/UI/UX Designer at design agencies (2017–2020). Total design career: 8+ years.
 - **Employment status:** Open to full-time and contract roles. Not available for freelance.
 - **Email:** consistentolusesi@gmail.com
-- **Phone:** (236) 975-8435
+- **Phone:** (647) 657-7810
 - **LinkedIn:** linkedin.com/in/olumideolusesi
 - **Portfolio:** olumideolusesi.com
 

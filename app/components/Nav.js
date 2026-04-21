@@ -61,7 +61,7 @@ export default function Nav() {
           {/* Social Icons */}
           <div className="nav__socials" id="nav-socials">
             <a
-              href="tel:+12369758435"
+              href="tel:+16476577810"
               className="nav__social-link"
               aria-label="Phone"
               id="nav-phone"
@@ -233,7 +233,7 @@ export default function Nav() {
               transition={{ delay: 0.4 }}
             >
               <a
-                href="tel:+12369758435"
+                href="tel:+16476577810"
                 className="nav__social-link"
                 aria-label="Phone"
               >

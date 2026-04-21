@@ -77,7 +77,7 @@ export default function Resume() {
             {/* Header */}
             <div className="rp-header">
               <div className="rp-contact">
-                <div><a href="tel:+12369758435">(236) 975-8435</a></div>
+                <div><a href="tel:+16476577810">(647) 657-7810</a></div>
                 <div><a href="mailto:consistentolusesi@gmail.com">consistentolusesi@gmail.com</a></div>
                 <div><a href="https://linkedin.com/in/olumideolusesi" target="_blank" rel="noopener noreferrer">linkedin.com/in/olumideolusesi</a></div>
                 <div><a href="https://olumideolusesi.com" target="_blank" rel="noopener noreferrer">olumideolusesi.com</a></div>

@@ -1,8 +1,13 @@
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs';
 import path from 'path';
-import { initDb, query } from '../../../lib/db';
+import { query } from '../../../lib/db';
 import { sendUnknownQuery } from '../../../lib/mailer';
+
+// In-memory rate limiting map (resets on serverless cold start, but blocks rapid loop flooding)
+const requestTracker = new Map();
+const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 10;
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -39,6 +44,23 @@ If a question CANNOT be answered from the knowledge base, your ENTIRE response m
 ${knowledge}`;
 
 export async function POST(req) {
+  // Simple in-memory rate limiting
+  const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown-ip';
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+  
+  // Clean up old entries
+  for (const [key, timestamp] of requestTracker.entries()) {
+    if (timestamp < windowStart) requestTracker.delete(key);
+  }
+
+  const userRequests = Array.from(requestTracker.entries()).filter(([key]) => key.startsWith(ip));
+  
+  if (userRequests.length >= MAX_REQUESTS_PER_WINDOW) {
+    return new Response('Rate limit exceeded. Please wait a minute before sending more questions.', { status: 429 });
+  }
+  requestTracker.set(`${ip}-${now}`, now);
+
   const { message, sessionId, history = [] } = await req.json();
   if (!message?.trim()) {
     return new Response('Missing message', { status: 400 });
@@ -113,11 +135,9 @@ export async function POST(req) {
         : fullResponse.trim();
 
       Promise.all([
-        initDb().then(() =>
-          query(
-            'INSERT INTO questions (session_id, user_message, assistant_response, is_unknown) VALUES ($1, $2, $3, $4)',
-            [sessionId ?? null, message, cleanResponse, isUnknown]
-          )
+        query(
+          'INSERT INTO questions (session_id, user_message, assistant_response, is_unknown) VALUES ($1, $2, $3, $4)',
+          [sessionId ?? null, message, cleanResponse, isUnknown]
         ),
         isUnknown ? sendUnknownQuery(message) : Promise.resolve(),
       ]).catch((err) => console.error('[Ask Lums background]', err));
