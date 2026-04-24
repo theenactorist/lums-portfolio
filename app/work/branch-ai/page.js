@@ -132,8 +132,8 @@ export default function BranchAICaseStudy() {
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
                   <ZoomableImage
-                    src="/work/branch-ai/overview.jpg"
-                    alt="Three AI initiatives overview - Illustration GPT, Copywriting AI, Prototyping AI"
+                    src="/work/branch-ai/the-opportunity.jpg"
+                    alt="The Opportunity - Branch AI Initiatives across India, Kenya and Nigeria"
                     width={2400}
                     height={800}
                     className="cs-feature__image"
