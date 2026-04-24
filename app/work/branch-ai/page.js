@@ -204,6 +204,9 @@ export default function BranchAICaseStudy() {
                     className="cs-feature__image"
                   />
                 </figure>
+                <div className="cs-feature__footer">
+                  <p className="cs-feature__caption">Illustration AI Architecture</p>
+                </div>
               </div>
 
               <p className="cs-feature__body">
