@@ -391,23 +391,14 @@ export default function BranchAICaseStudy() {
                 </li>
               </ul>
 
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height" style={{ marginTop: 'var(--space-lg)' }}>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
+              <div className="cs-feature__gallery cs-feature__gallery--single cs-feature__gallery--wide" style={{ marginTop: 'var(--space-lg)' }}>
+                <figure className="cs-feature__figure">
                   <ZoomableImage
-                    src="/work/branch-ai/copy-modes.jpg"
-                    alt="Copywriting AI three modes - Write, Rewrite, Audit"
+                    src="/work/branch-ai/copy-impact.jpg"
+                    alt="Branch Copy AI Impact"
                     width={2400}
                     height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/branch-ai/copy-markets.jpg"
-                    alt="Copywriting AI market switching - India, Kenya, Nigeria"
-                    width={2400}
-                    height={800}
-                    className="cs-feature__image cs-feature__image--cover"
+                    className="cs-feature__image"
                   />
                 </figure>
               </div>
@@ -417,18 +408,6 @@ export default function BranchAICaseStudy() {
                 &quot;works perfectly - 99% accurate.&quot; That last 4% - the hardest
                 to close - is where the real craft lives.
               </p>
-
-              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/branch-ai/copy-impact.jpg"
-                    alt="Branch Copy AI Impact"
-                    width={2400}
-                    height={1400}
-                    className="cs-feature__image"
-                  />
-                </figure>
-              </div>
             </motion.div>
           </div>
         </section>
