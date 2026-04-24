@@ -13,6 +13,17 @@ import LogoTicker from './components/LogoTicker';
    ============================================ */
 const projects = [
   {
+    id: 'branch-ai',
+    title: 'Three AIs, One Design System',
+    description: 'Engineering three AI-powered tools that transformed how Branch\'s product team creates illustrations, writes copy, and prototypes across 3 markets.',
+    role: 'AI UX Designer',
+    period: 'Oct 2024 - Mar 2026',
+    tags: ['AI', 'Design Systems', 'Fintech'],
+    color: '#0a1628',
+    accentColor: '#6CD2FF',
+    thumbnail: '/work/branch-ai/cover.jpg',
+  },
+  {
     id: 'carbon',
     title: 'Revamping Fintech Home screen Experience',
     description: 'Revamping the home screen experience for a leading digital bank to improve feature discoverability and user engagement.',
@@ -26,7 +37,7 @@ const projects = [
   {
     id: 'sabi',
     title: "Sabi's Supply Chain Logistics Solution for African SMEs",
-    description: 'Revolutionizing supply chain logistics for African SMEs — building tools for inventory, commerce, and distribution at scale.',
+    description: 'Revolutionizing supply chain logistics for African SMEs, building tools for inventory, commerce, and distribution at scale.',
     role: 'Senior Product Designer',
     period: '2022',
     tags: ['B2B2C', 'E-commerce', 'Logistics'],

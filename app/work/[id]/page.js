@@ -106,6 +106,38 @@ const projectData = {
       },
     ],
   },
+  'branch-ai': {
+    title: 'Three AIs, One Design System',
+    subtitle: 'Engineering AI tools that transformed creative output across India, Kenya, and Nigeria.',
+    client: 'Branch International',
+    discipline: 'AI UX Design, Design Systems',
+    timeline: 'Oct 2024 — Mar 2026',
+    role: 'AI UX Designer',
+    tools: 'ChatGPT, Claude, Figma MCP, React',
+    color: '#0a1628',
+    sections: [
+      {
+        label: 'Summary',
+        content: 'At Branch International, I identified three high-impact opportunities where AI could serve as a force multiplier for the design team. I built three AI-powered tools — Illustration GPT for brand-consistent visuals, Copywriting AI for production-ready microcopy, and Neem DS Prototyper for rapid prototyping — that transformed how a team of 5 designers and 25 PMs create and ship across three markets.',
+      },
+      {
+        label: 'Challenge',
+        content: 'The team was spending significant hours on repetitive creative tasks: manually sourcing illustrations, rewriting copy for three market variants (India, Kenya, Nigeria), and building prototypes from scratch for stakeholder communication.',
+      },
+      {
+        label: 'Process',
+        content: 'I approached each tool as a design systems problem — not a prompt engineering problem. I engineered structured instruction architectures using versioned JSON rule sets that encode brand guidelines, component rules, market compliance, and quality gates.',
+      },
+      {
+        label: 'Solution',
+        content: 'Three production-ready AI tools: a ChatGPT Custom GPT for illustrations (500+ iterations, 30 illustrations for India), a Claude Skill for copywriting (95% → 99% accuracy, live in India), and a Claude Skill for prototyping (PRD to prototype in 3 days instead of 3 weeks).',
+      },
+      {
+        label: 'Impact',
+        content: 'The Illustration GPT outputs are ready for handoff and scheduled for Q2 2026 implementation. The Copywriting AI is already live in India and expanding to Africa. The Prototyper reduced PRD-to-prototype time from 3 weeks to 3 days.',
+      },
+    ],
+  },
 };
 
 /* ============================================

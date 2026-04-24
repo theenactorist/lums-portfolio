@@ -345,7 +345,13 @@ ul, ol {
 .nav__socials {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .nav__socials {
+    gap: calc(var(--space-xl) * 2);
+  }
 }
 
 .nav__social-link {
@@ -633,7 +639,13 @@ ul, ol {
 
 .footer__cta-links {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .footer__cta-links {
+    gap: calc(var(--space-xl) * 2);
+  }
 }
 
 .footer__cta-link {
