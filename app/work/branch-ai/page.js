@@ -197,7 +197,7 @@ export default function BranchAICaseStudy() {
               <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)', marginBottom: 'var(--space-md)' }}>
                 <figure className="cs-feature__figure">
                   <ZoomableImage
-                    src="/work/branch-ai/illust-arch.jpg"
+                    src="/work/branch-ai/illust-arch-v2.png"
                     alt="Illustration GPT system architecture - manifest, rules, and materials flowing into GPT engine"
                     width={2048}
                     height={1086}
