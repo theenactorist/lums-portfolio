@@ -162,7 +162,7 @@ export default function BranchAICaseStudy() {
                 Brand-consistent visual generation at scale.
               </p>
 
-              <h3 className="cs-feature__deliverables-label">Problem</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Problem</h3>
               <p className="cs-feature__body">
                 The design team relied on generic stock illustrations that never matched
                 Branch&apos;s visual identity. Every illustration required manual editing -
@@ -173,7 +173,7 @@ export default function BranchAICaseStudy() {
                 never stops, and the models literally hallucinate.
               </p>
 
-              <h3 className="cs-feature__deliverables-label">Design Thinking</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Design Thinking</h3>
               <p className="cs-feature__body">
                 I approached this as a design systems problem, not a prompt engineering problem.
                 Instead of writing clever one-off prompts, I engineered a structured instruction
@@ -199,20 +199,13 @@ export default function BranchAICaseStudy() {
                 </li>
               </ul>
               <p className="cs-feature__body">
-                The system evolved through 6 major versions (v1.0 → v1.6), each iteration
+                The system evolved through 6 major versions (v1.0 to v1.6), each iteration
                 tightening constraints based on output analysis. Over 500 iterations were
                 executed to deliver a set of 30 illustrations for India, which then scaled to
                 African markets.
               </p>
-            </motion.div>
-          </div>
-        </section>
 
-        {/* Illustration GPT - Architecture Diagram */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <h3 className="cs-feature__deliverables-label">System Architecture</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>System Architecture</h3>
               <div className="cs-feature__gallery cs-feature__gallery--single">
                 <figure className="cs-feature__figure">
                   <ZoomableImage
@@ -225,12 +218,12 @@ export default function BranchAICaseStudy() {
                 </figure>
               </div>
 
-              <h3 className="cs-feature__deliverables-label">Solution</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Solution</h3>
               <p className="cs-feature__body">
                 The final system (v1.6) is a ChatGPT Custom GPT that takes an uploaded device
                 photo or text brief, segments the image into functional parts (screen, body,
                 buttons, etc.), auto-assigns materials from the brand palette, and generates
-                4096×4096 transparent PNGs with soft ground shadows. A pre-delivery validation
+                4096x4096 transparent PNGs with soft ground shadows. A pre-delivery validation
                 gate checks colour ratios before output - ensuring the 60/25/10/5 split is
                 maintained within ±10% tolerance.
               </p>
@@ -240,31 +233,24 @@ export default function BranchAICaseStudy() {
                 payment moments, and abstract brand objects. The illustrations are ready for
                 handoff and scheduled for implementation in Q2 2026.
               </p>
-            </motion.div>
-          </div>
-        </section>
 
-        {/* Illustration GPT - Sample Outputs */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide">
-                <figure className="cs-feature__figure">
+              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height">
+                <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
                     src="/work/branch-ai/illust-before.jpg"
                     alt="Before and after - stock illustration vs. Illustration GPT output"
                     width={2400}
                     height={1200}
-                    className="cs-feature__image"
+                    className="cs-feature__image cs-feature__image--cover"
                   />
                 </figure>
-                <figure className="cs-feature__figure">
+                <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
                     src="/work/branch-ai/illust-grid.jpg"
                     alt="Grid of Illustration GPT sample outputs"
                     width={2400}
                     height={1600}
-                    className="cs-feature__image"
+                    className="cs-feature__image cs-feature__image--cover"
                   />
                 </figure>
               </div>
