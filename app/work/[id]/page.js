@@ -111,7 +111,7 @@ const projectData = {
     subtitle: 'Engineering AI tools that transformed creative output across India, Kenya, and Nigeria.',
     client: 'Branch International',
     discipline: 'AI UX Design, Design Systems',
-    timeline: 'Oct 2024 — Mar 2026',
+    timeline: 'Oct 2025 - Feb 2026',
     role: 'AI UX Designer',
     tools: 'ChatGPT, Claude, Figma MCP, React',
     color: '#0a1628',

@@ -79,7 +79,7 @@ export default function BranchAICaseStudy() {
               </div>
               <div className="cs-meta__item">
                 <span className="cs-meta__label">Duration</span>
-                <span className="cs-meta__value">Oct 2024 - Mar 2026</span>
+                <span className="cs-meta__value">Oct 2025 - Feb 2026</span>
               </div>
               <div className="cs-meta__item">
                 <span className="cs-meta__label">Industry</span>
