@@ -346,6 +346,22 @@ export default function BranchAICaseStudy() {
                   leading zeros, fixing casing violations.
                 </li>
               </ul>
+              
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)', marginBottom: 'var(--space-md)' }}>
+                <figure className="cs-feature__figure">
+                  <ZoomableImage
+                    src="/work/branch-ai/designthinking-copywriting.png"
+                    alt="AI Architecture for Copywriting"
+                    width={2400}
+                    height={1400}
+                    className="cs-feature__image"
+                  />
+                </figure>
+                <div className="cs-feature__footer">
+                  <p className="cs-feature__caption">AI Architecture</p>
+                </div>
+              </div>
+
               <p className="cs-feature__body">
                 The system evolved from Claude Projects (v1-v7 as structured JSONs) to
                 Claude Skills - a pivotal transition. Projects locked the AI to a single
