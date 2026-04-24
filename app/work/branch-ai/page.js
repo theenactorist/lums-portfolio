@@ -391,7 +391,7 @@ export default function BranchAICaseStudy() {
                 </li>
               </ul>
 
-              <div className="cs-feature__gallery cs-feature__gallery--single cs-feature__gallery--wide" style={{ marginTop: 'var(--space-lg)' }}>
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
                 <figure className="cs-feature__figure">
                   <ZoomableImage
                     src="/work/branch-ai/copy-impact.jpg"
