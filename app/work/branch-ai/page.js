@@ -417,6 +417,18 @@ export default function BranchAICaseStudy() {
                 &quot;works perfectly - 99% accurate.&quot; That last 4% - the hardest
                 to close - is where the real craft lives.
               </p>
+
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
+                <figure className="cs-feature__figure">
+                  <ZoomableImage
+                    src="/work/branch-ai/copy-impact.jpg"
+                    alt="Branch Copy AI Impact"
+                    width={2400}
+                    height={1400}
+                    className="cs-feature__image"
+                  />
+                </figure>
+              </div>
             </motion.div>
           </div>
         </section>
