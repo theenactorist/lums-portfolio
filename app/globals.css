@@ -3235,6 +3235,7 @@ main > .section:first-child {
 .zoom-trigger {
   all: unset;
   display: block;
+  position: relative;
   width: 100%;
   cursor: zoom-in;
   border-radius: inherit;
@@ -3253,6 +3254,44 @@ main > .section:first-child {
   height: auto;
   display: block;
 }
+
+.zoom-trigger__hint {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(10, 10, 14, 0.4);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all var(--transition-base);
+  pointer-events: none;
+}
+
+.zoom-trigger:hover .zoom-trigger__hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .zoom-trigger__hint {
+    opacity: 1;
+    transform: translateY(0);
+    width: 32px;
+    height: 32px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
 
 /* Lightbox overlay */
 .zoom-overlay {

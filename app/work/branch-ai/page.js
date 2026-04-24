@@ -118,28 +118,23 @@ export default function BranchAICaseStudy() {
                 <p>
                   I identified three high-impact opportunities where AI could serve as a force
                   multiplier - not replacing designers, but giving them exoskeletons that amplified
-                  their output while enforcing brand consistency automatically.
+                  their output while enforcing brand consistency automatically. To solve this at scale,
+                  I converted these identified opportunities into three targeted AI initiatives.
                 </p>
               </div>
             </motion.div>
-          </div>
-        </section>
 
-        {/* ===== OVERVIEW - THREE INITIATIVES ===== */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <div className="cs-feature__gallery cs-feature__gallery--single">
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/branch-ai/the-opportunity.jpg"
-                    alt="The Opportunity - Branch AI Initiatives across India, Kenya and Nigeria"
-                    width={2400}
-                    height={800}
-                    className="cs-feature__image"
-                  />
-                </figure>
-              </div>
+            {/* Overview Image seamlessly attached to The Opportunity */}
+            <motion.div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-2xl)' }} {...fadeUp}>
+              <figure className="cs-feature__figure">
+                <ZoomableImage
+                  src="/work/branch-ai/the-opportunity.jpg"
+                  alt="The Opportunity - Branch AI Initiatives across India, Kenya and Nigeria"
+                  width={2400}
+                  height={800}
+                  className="cs-feature__image"
+                />
+              </figure>
             </motion.div>
           </div>
         </section>
@@ -198,15 +193,8 @@ export default function BranchAICaseStudy() {
                   Fresnel edges, rubber stays matte. No toy plastic, no clay renders.
                 </li>
               </ul>
-              <p className="cs-feature__body">
-                The system evolved through 6 major versions (v1.0 to v1.6), each iteration
-                tightening constraints based on output analysis. Over 500 iterations were
-                executed to deliver a set of 30 illustrations for India, which then scaled to
-                African markets.
-              </p>
-
-              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>System Architecture</h3>
-              <div className="cs-feature__gallery cs-feature__gallery--single">
+              
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)', marginBottom: 'var(--space-md)' }}>
                 <figure className="cs-feature__figure">
                   <ZoomableImage
                     src="/work/branch-ai/illust-arch.jpg"
@@ -216,6 +204,52 @@ export default function BranchAICaseStudy() {
                     className="cs-feature__image"
                   />
                 </figure>
+              </div>
+
+              <p className="cs-feature__body">
+                The system evolved through 6 major versions (v1.0 to v1.6), each iteration
+                tightening constraints based on output analysis. Over 500 iterations were
+                executed to deliver a set of 30 illustrations for India, which then scaled to
+                African markets.
+              </p>
+
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Iterations and Ideation</h3>
+              <p className="cs-feature__body">
+                The most demanding part of this project was not the engineering — it was the
+                feedback cycle. I ran multiple ideation rounds and presented batches of
+                illustration concepts directly to the product team, design lead, and
+                cross-functional stakeholders. Each round surfaced new subjective preferences:
+                someone wanted warmer tones, another preferred cooler shadows, others pushed for
+                more contextual scenes over pure product renders.
+              </p>
+              <p className="cs-feature__body">
+                Rather than chasing individual opinions, I used each round of feedback as a
+                signal-gathering exercise. If a critique was raised by more than one reviewer,
+                it earned a spot on my iteration checklist. If it was isolated to a single
+                preference, I filed it as context but held the line on the system rules. This
+                discipline is what kept the 500+ iterations from becoming noise — every cycle
+                had a clear question it was answering.
+              </p>
+              <p className="cs-feature__body">
+                The output below represents one such ideation round: multiple style directions
+                explored in parallel, each anchored to the same brand rules but probing
+                different aesthetic interpretations — lighting intensity, shadow density, surface
+                finish, and background treatment. Presenting these side-by-side gave the product
+                team a concrete vocabulary for feedback, and gave me a faster path to convergence.
+              </p>
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
+                <figure className="cs-feature__figure">
+                  <ZoomableImage
+                    src="/work/branch-ai/illust-iteration.jpg"
+                    alt="Multiple illustration ideation directions presented to the Branch product team"
+                    width={2400}
+                    height={1400}
+                    className="cs-feature__image"
+                  />
+                </figure>
+                <div className="cs-feature__footer">
+                  <p className="cs-feature__caption">Illustration style ideation round presented to stakeholders.</p>
+                </div>
               </div>
 
               <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Solution</h3>
@@ -237,8 +271,8 @@ export default function BranchAICaseStudy() {
               <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height">
                 <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
-                    src="/work/branch-ai/illust-before.jpg"
-                    alt="Before and after - stock illustration vs. Illustration GPT output"
+                    src="/work/branch-ai/illust-solution-1.jpg"
+                    alt="Illustration GPT solution output 1"
                     width={2400}
                     height={1200}
                     className="cs-feature__image cs-feature__image--cover"
@@ -246,13 +280,16 @@ export default function BranchAICaseStudy() {
                 </figure>
                 <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
-                    src="/work/branch-ai/illust-grid.jpg"
-                    alt="Grid of Illustration GPT sample outputs"
+                    src="/work/branch-ai/illust-solution-2.jpg"
+                    alt="Illustration GPT solution output 2"
                     width={2400}
                     height={1600}
                     className="cs-feature__image cs-feature__image--cover"
                   />
                 </figure>
+                <div className="cs-feature__footer" style={{ gridColumn: '1 / -1' }}>
+                  <p className="cs-feature__caption">Illustration Outputs</p>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -269,7 +306,7 @@ export default function BranchAICaseStudy() {
                 Production-ready microcopy across 3 markets.
               </p>
 
-              <h3 className="cs-feature__deliverables-label">Problem</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Problem</h3>
               <p className="cs-feature__body">
                 Branch operates in India, Kenya, and Nigeria - each with distinct regulatory
                 requirements, currency formats, and terminology conventions.
@@ -280,7 +317,7 @@ export default function BranchAICaseStudy() {
                 copy per market.
               </p>
 
-              <h3 className="cs-feature__deliverables-label">Design Thinking</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Design Thinking</h3>
               <p className="cs-feature__body">
                 I decomposed the copywriting challenge into structured rule sets, each encoded
                 as a versioned JSON that the AI could reason against:
@@ -316,15 +353,8 @@ export default function BranchAICaseStudy() {
                 entire product team - more people, more chats, more adoption. The AI-written
                 copy is already live in India and being written for African markets.
               </p>
-            </motion.div>
-          </div>
-        </section>
 
-        {/* Copywriting AI - Modes & Markets */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <h3 className="cs-feature__deliverables-label">Solution - Three Operating Modes</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Solution - Three Operating Modes</h3>
               <ul className="cs-feature__list">
                 <li>
                   <strong>Write</strong> - Generates 5 production-ready copy options from a brief.
@@ -342,28 +372,28 @@ export default function BranchAICaseStudy() {
                 </li>
               </ul>
 
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide">
-                <figure className="cs-feature__figure">
+              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height" style={{ marginTop: 'var(--space-lg)' }}>
+                <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
                     src="/work/branch-ai/copy-modes.jpg"
                     alt="Copywriting AI three modes - Write, Rewrite, Audit"
                     width={2400}
                     height={1200}
-                    className="cs-feature__image"
+                    className="cs-feature__image cs-feature__image--cover"
                   />
                 </figure>
-                <figure className="cs-feature__figure">
+                <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
                     src="/work/branch-ai/copy-markets.jpg"
                     alt="Copywriting AI market switching - India, Kenya, Nigeria"
                     width={2400}
                     height={800}
-                    className="cs-feature__image"
+                    className="cs-feature__image cs-feature__image--cover"
                   />
                 </figure>
               </div>
 
-              <p className="cs-feature__body">
+              <p className="cs-feature__body" style={{ marginTop: 'var(--space-md)' }}>
                 The system was pushed from &quot;works well - 95% accurate&quot; to
                 &quot;works perfectly - 99% accurate.&quot; That last 4% - the hardest
                 to close - is where the real craft lives.
@@ -383,7 +413,7 @@ export default function BranchAICaseStudy() {
                 From PRD to prototype in under 2 minutes.
               </p>
 
-              <h3 className="cs-feature__deliverables-label">Problem</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Problem</h3>
               <p className="cs-feature__body">
                 Branch&apos;s Neem Design System contained 30+ components with strict
                 token-based styling - all values via <code>--neem-</code> CSS custom
@@ -397,7 +427,7 @@ export default function BranchAICaseStudy() {
                 the high-fidelity screens and hand off to engineering and QA.
               </p>
 
-              <h3 className="cs-feature__deliverables-label">Design Thinking</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Design Thinking</h3>
               <p className="cs-feature__body">
                 I connected Claude directly to Branch&apos;s Figma design system via the
                 Figma MCP (Model Context Protocol), then authored a comprehensive Claude
@@ -427,15 +457,8 @@ export default function BranchAICaseStudy() {
                 composition rules for all 6 Branch app screen types, and a complete Lucide
                 icon mapping table.
               </p>
-            </motion.div>
-          </div>
-        </section>
 
-        {/* Prototyping AI - Pipeline & Before/After */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <h3 className="cs-feature__deliverables-label">Solution</h3>
+              <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Solution</h3>
               <p className="cs-feature__body">
                 A Claude Skill that transforms a Figma URL or text description into a
                 pixel-perfect, token-compliant React prototype. It takes a Figma screenshot
@@ -449,23 +472,23 @@ export default function BranchAICaseStudy() {
                 solution.
               </p>
 
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide">
-                <figure className="cs-feature__figure">
+              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height" style={{ marginTop: 'var(--space-lg)' }}>
+                <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
                     src="/work/branch-ai/proto-pipeline.jpg"
                     alt="Prototyping AI pipeline - Figma to Claude MCP to validated React prototype"
                     width={2048}
                     height={1086}
-                    className="cs-feature__image"
+                    className="cs-feature__image cs-feature__image--cover"
                   />
                 </figure>
-                <figure className="cs-feature__figure">
+                <figure className="cs-feature__figure cs-feature__figure--fill">
                   <ZoomableImage
                     src="/work/branch-ai/proto-compare.jpg"
                     alt="Before and after - Figma design to generated React prototype"
                     width={2400}
                     height={1200}
-                    className="cs-feature__image"
+                    className="cs-feature__image cs-feature__image--cover"
                   />
                 </figure>
               </div>
