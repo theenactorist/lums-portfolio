@@ -4211,12 +4211,47 @@ main > .section:first-child {
   margin-bottom: 5px;
 }
 
+/* Dark mode — on-screen only. PDF export & print override this back to light. */
+[data-theme="dark"] .resume-paper {
+  background: #16161a;
+  color: #e8e8ec;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .rp-name { color: #8b95ff; }
+[data-theme="dark"] .rp-title { color: #d4d4d8; }
+[data-theme="dark"] .rp-contact,
+[data-theme="dark"] .rp-contact a { color: #b4b4b8; }
+[data-theme="dark"] .rp-contact a:hover { color: #8b95ff; }
+
+[data-theme="dark"] .rp-section {
+  color: #8b95ff;
+  border-bottom-color: #8b95ff;
+}
+
+[data-theme="dark"] .rp-role-title { color: #f4f4f6; }
+[data-theme="dark"] .rp-period { color: #a0a0a8; }
+[data-theme="dark"] .rp-company,
+[data-theme="dark"] .rp-company a { color: #b4b4b8; }
+[data-theme="dark"] .rp-company a:hover { color: #8b95ff; }
+[data-theme="dark"] .rp-body,
+[data-theme="dark"] .rp-list li { color: #d4d4d8; }
+
 /* Print styles */
 @media print {
   .resume-page { background: transparent; padding-top: 0; }
   .resume-actions { display: none; }
   .resume-paper-wrap { padding: 0; }
-  .resume-paper { box-shadow: none; border-radius: 0; padding: 18mm 22mm; max-width: 100%; }
+  .resume-paper {
+    box-shadow: none; border-radius: 0; padding: 18mm 22mm; max-width: 100%;
+    background: #ffffff !important; color: #222 !important;
+  }
+  .rp-name { color: #4657f1 !important; }
+  .rp-title, .rp-role-title { color: #222 !important; }
+  .rp-contact, .rp-contact a, .rp-company, .rp-company a { color: #444 !important; }
+  .rp-section { color: #4657f1 !important; border-bottom-color: #4657f1 !important; }
+  .rp-period { color: #555 !important; }
+  .rp-body, .rp-list li { color: #333 !important; }
 }
 
 /* Mobile */

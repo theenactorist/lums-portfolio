@@ -462,6 +462,22 @@ export default function BranchAICaseStudy() {
                   hardcoded values, mobile-first (375px viewport).
                 </li>
               </ul>
+              
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)', marginBottom: 'var(--space-md)' }}>
+                <figure className="cs-feature__figure">
+                  <ZoomableImage
+                    src="/work/branch-ai/prototyping-ai-architecture.jpg"
+                    alt="Prototyping AI Architecture"
+                    width={2400}
+                    height={1400}
+                    className="cs-feature__image"
+                  />
+                </figure>
+                <div className="cs-feature__footer">
+                  <p className="cs-feature__caption">AI Architecture</p>
+                </div>
+              </div>
+
               <p className="cs-feature__body">
                 The skill includes 62 pre-built component files (JSX + CSS), screen
                 composition rules for all 6 Branch app screen types, and a complete Lucide

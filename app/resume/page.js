@@ -18,7 +18,13 @@ export default function Resume() {
       margin: 0,
       filename: 'Olumide-Olusesi-Resume.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        onclone: (clonedDoc) => {
+          clonedDoc.documentElement.setAttribute('data-theme', 'light');
+        },
+      },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
     });
   };
