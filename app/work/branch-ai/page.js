@@ -498,28 +498,7 @@ export default function BranchAICaseStudy() {
                 solution.
               </p>
 
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height" style={{ marginTop: 'var(--space-lg)' }}>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/branch-ai/proto-pipeline.jpg"
-                    alt="Prototyping AI pipeline - Figma to Claude MCP to validated React prototype"
-                    width={2048}
-                    height={1086}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/branch-ai/proto-compare.jpg"
-                    alt="Before and after - Figma design to generated React prototype"
-                    width={2400}
-                    height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-              </div>
-
-              <div className="cs-feature__gallery cs-feature__gallery--single cs-feature__gallery--wide" style={{ marginTop: 'var(--space-2xl)' }}>
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
                 <figure className="cs-feature__figure">
                   <ZoomableImage
                     src="/work/branch-ai/main-outputs-generated.jpg"
