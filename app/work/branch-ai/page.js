@@ -648,8 +648,8 @@ export default function BranchAICaseStudy() {
               transition={{ duration: 0.5 }}
             >
               <span className="cs-next__label">Next case study</span>
-              <Link href="/work/carbon" className="cs-next__link">
-                Carbon - Revamping Home Screen Experience
+              <Link href="/work/shiga-onboarding" className="cs-next__link">
+                Shiga — Cutting Time to Value with a Passkey-Led Onboarding
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />

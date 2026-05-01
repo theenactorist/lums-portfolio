@@ -19,6 +19,16 @@ const allProjects = [
     color: '#0a1628',
   },
   {
+    id: 'shiga-onboarding',
+    title: 'Cutting Time to Value with a Passkey-Led Onboarding',
+    description: 'Rebuilding ENTA\'s sign-up around passkeys and deferred KYC to get users to their dashboard in under a minute.',
+    role: 'Product Designer',
+    period: 'Q1 2026 · 1 week',
+    tags: ['Fintech', 'Crypto', 'B2C'],
+    category: 'product',
+    color: '#0f1a2e',
+  },
+  {
     id: 'carbon',
     title: 'Carbon',
     description: 'Revamping the home screen experience for a leading digital bank.',
@@ -47,16 +57,6 @@ const allProjects = [
     tags: ['Enterprise', 'Web App', 'HR Tech'],
     category: 'product',
     color: '#141422',
-  },
-  {
-    id: 'shiga',
-    title: 'Shiga Digital',
-    description: 'Shaping the future of cross-border payments and crypto infrastructure.',
-    role: 'Senior Product Designer',
-    period: 'May 2024 - Present',
-    tags: ['Fintech', 'Crypto', 'B2B'],
-    category: 'product',
-    color: '#161625',
   },
   {
     id: 'branch',
