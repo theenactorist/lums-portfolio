@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from '../../components/PageTransition';
 import ZoomableImage from '../../components/ZoomableImage';
@@ -46,21 +45,20 @@ export default function BranchAICaseStudy() {
                   Three AIs, One Design System
                 </h1>
                 <p className="cs-hero__subtitle">
-                  How I engineered three AI-powered tools that transformed how{' '}
+                  How I designed three AI-powered workflows that helped{' '}
                   <a href="https://branch.co" target="_blank" rel="noopener noreferrer" className="cs-inline-link">
                     Branch International
-                  </a>&apos;s
-                  product team creates illustrations, writes copy, and prototypes
-                  - scaling creative output across India, Kenya, and Nigeria.
+                  </a>&apos;s product team create brand-consistent illustrations,
+                  market-ready copy, and faster prototypes across India, Kenya, and Nigeria.
                 </p>
               </div>
 
               <figure className="cs-hero__cover">
                 <ZoomableImage
-                  src="/work/branch-ai/cover.jpg"
-                  alt="Branch AI Initiatives - three converging AI tools"
-                  width={2400}
-                  height={1200}
+                  src="/work/branch-ai/workflows-overview.jpg"
+                  alt="Three AI workflows connecting team bottlenecks to product outcomes"
+                  width={1672}
+                  height={941}
                   priority
                   className="cs-hero__cover-image"
                 />
@@ -90,11 +88,66 @@ export default function BranchAICaseStudy() {
                 <span className="cs-meta__value">Branch International</span>
               </div>
               <div className="cs-meta__item">
+                <span className="cs-meta__label">Markets</span>
+                <span className="cs-meta__value">India, Kenya, Nigeria</span>
+              </div>
+              <div className="cs-meta__item">
                 <span className="cs-meta__label">Team</span>
                 <span className="cs-meta__value cs-meta__value--stack">
                   5 × product designers<br />
                   ~25 × product managers &amp; UX researchers
                 </span>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ===== SUMMARY ===== */}
+        <section className="cs-prose section">
+          <div className="container">
+            <motion.div className="cs-prose__row" {...fadeUp}>
+              <div className="cs-prose__label"><span>Summary</span></div>
+              <div className="cs-prose__content">
+                <p>
+                  Branch&apos;s product team operated across multiple markets, product lines,
+                  and regulatory contexts. A 5-person design team supported a much larger
+                  group of product managers and UX researchers across lending, payments, KYC,
+                  growth, marketing, risk, loan operations, and customer support.
+                </p>
+                <p>
+                  I noticed the same pattern repeating across the team: designers and PMs were
+                  spending valuable time on work that was important but repetitive - adapting
+                  illustrations to brand rules, rewriting copy for different markets, and
+                  creating early prototypes to explain product ideas.
+                </p>
+                <p>
+                  I turned those bottlenecks into three AI-powered workflows: Illustration GPT
+                  for brand-consistent visuals, Copywriting AI for market-ready product copy,
+                  and Neem DS Prototyper for rapid design-system prototypes.
+                </p>
+                <p>
+                  The result was not AI for novelty. It was AI constrained by Branch&apos;s
+                  design system, product rules, market context, quality gates, and human
+                  review loops.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div className="cs-impact-grid" {...fadeUp}>
+              <div className="cs-impact-card">
+                <span className="cs-impact-card__label">Illustration</span>
+                <strong>500+ iterations</strong>
+                <p>30 India illustrations produced, with a system designed to scale to African markets.</p>
+              </div>
+              <div className="cs-impact-card">
+                <span className="cs-impact-card__label">Copy</span>
+                <strong>95% to 99%</strong>
+                <p>Review-pass accuracy improved through audits against component, tone, and market rules.</p>
+              </div>
+              <div className="cs-impact-card">
+                <span className="cs-impact-card__label">Prototyping</span>
+                <strong>3 weeks to 3 days</strong>
+                <p>PRD-to-prototype workflow compressed so teams could align earlier.</p>
               </div>
             </motion.div>
           </div>
@@ -107,31 +160,94 @@ export default function BranchAICaseStudy() {
               <div className="cs-prose__label"><span>The Opportunity</span></div>
               <div className="cs-prose__content">
                 <p>
-                  Branch International operates across three markets - India, Kenya, and Nigeria. The organisation features
-                  a product team of around 25 product managers and UX researchers working across distinct domains:
-                  Lending (Africa, India), Payments (Africa, India), KYC (Africa, India), Growth, Marketing, and Risk, Loan Operations
-                  and Customer Support. This massive operation was supported by a 5-person design team distributed globally.
-                  The team was spending significant hours on repetitive creative tasks: manually sourcing and editing stock illustrations
-                  to match brand guidelines, writing and rewriting microcopy across three market variants,
-                  and building prototypes from scratch for every initiative.
+                  Branch International operates across India, Kenya, and Nigeria. The product
+                  team works across several domains, including lending, payments, KYC, growth,
+                  marketing, risk, loan operations, and customer support.
                 </p>
                 <p>
-                  I identified three high-impact opportunities where AI could serve as a force
-                  multiplier - not replacing designers, but giving them exoskeletons that amplified
-                  their output while enforcing brand consistency automatically. To solve this at scale,
-                  I converted these identified opportunities into three targeted AI initiatives.
+                  A small design team was supporting around 25 PMs and UX researchers. That
+                  meant designers were often pulled into repeated production-heavy tasks:
+                  editing stock illustrations to match Branch&apos;s brand, rewriting product
+                  copy across three market variants, and creating prototypes from scratch to
+                  help PMs communicate product ideas.
+                </p>
+                <p>
+                  These tasks were valuable, but they created avoidable drag. They slowed
+                  exploration, increased inconsistency, and made it harder for the design
+                  team to support the wider product organisation.
                 </p>
               </div>
             </motion.div>
 
-            {/* Overview Image seamlessly attached to The Opportunity */}
             <motion.div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-2xl)' }} {...fadeUp}>
               <figure className="cs-feature__figure">
                 <ZoomableImage
-                  src="/work/branch-ai/the-opportunity-v2.png"
-                  alt="The Opportunity - Branch AI Initiatives across India, Kenya and Nigeria"
-                  width={2400}
-                  height={800}
+                  src="/work/branch-ai/before-after.jpg"
+                  alt="Before and after comparison of Branch AI workflows"
+                  width={1672}
+                  height={941}
+                  className="cs-feature__image"
+                />
+              </figure>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ===== MY ROLE ===== */}
+        <section className="cs-prose section">
+          <div className="container">
+            <motion.div className="cs-prose__row" {...fadeUp}>
+              <div className="cs-prose__label"><span>My Role</span></div>
+              <div className="cs-prose__content">
+                <p>
+                  I led the design and development of the AI workflow logic behind the three
+                  initiatives. My role was to define where AI could help without removing
+                  human judgment, then turn that into repeatable systems the team could use.
+                </p>
+                <ul>
+                  <li>Identified repeated workflow bottlenecks across illustration, copy, and prototyping.</li>
+                  <li>Designed the input, output, and review flow for each AI workflow.</li>
+                  <li>Created structured rules, prompts, JSON systems, and quality gates.</li>
+                  <li>Tested and refined outputs through repeated feedback cycles.</li>
+                  <li>Translated subjective stakeholder feedback into system constraints.</li>
+                  <li>Positioned AI as a collaborator inside Branch&apos;s design system, not a replacement for designers.</li>
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ===== DESIGN PRINCIPLE ===== */}
+        <section className="cs-prose section">
+          <div className="container">
+            <motion.div className="cs-prose__row" {...fadeUp}>
+              <div className="cs-prose__label"><span>Design Principle</span></div>
+              <div className="cs-prose__content">
+                <h2>AI Assists, Humans Decide</h2>
+                <p>
+                  The key principle across all three workflows was simple: AI could generate,
+                  audit, and accelerate work, but final judgment stayed with designers and PMs.
+                </p>
+                <p>
+                  I designed the tools with visible review points so outputs could be rejected,
+                  revised, regenerated, or approved. The goal was not hidden automation. The
+                  goal was faster work with clearer human control.
+                </p>
+                <p>
+                  Each workflow solved a different problem, but they shared one operating
+                  model: AI should work inside Branch&apos;s design system, product rules, market
+                  constraints, and quality standards.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-2xl)' }} {...fadeUp}>
+              <figure className="cs-feature__figure">
+                <ZoomableImage
+                  src="/work/branch-ai/human-oversight.jpg"
+                  alt="Human oversight loop for Branch AI workflows"
+                  width={1672}
+                  height={941}
                   className="cs-feature__image"
                 />
               </figure>
@@ -159,20 +275,30 @@ export default function BranchAICaseStudy() {
 
               <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Problem</h3>
               <p className="cs-feature__body">
-                The design team relied on generic stock illustrations that never matched
-                Branch&apos;s visual identity. Every illustration required manual editing -
-                colour correction, background removal, style consistency checks. Across three
-                markets producing marketing materials weekly, this created a significant
-                bottleneck. Generating a consistent illustration style using Gen AI is
-                deceptively hard - it&apos;s subjective, it&apos;s iterative, the feedback
-                never stops, and the models literally hallucinate.
+                Branch&apos;s design team relied on stock illustrations that rarely matched
+                the brand&apos;s visual identity out of the box. Every illustration required
+                manual work: colour correction, background removal, style alignment, lighting
+                adjustments, brand consistency checks, and rework after stakeholder feedback.
+                Across India, Kenya, and Nigeria, this became a recurring bottleneck.
+              </p>
+              <p className="cs-feature__body">
+                Generative AI seemed useful, but it introduced a different problem: outputs
+                were often inconsistent. A single prompt could produce attractive results, but
+                not a repeatable illustration system. The challenge was not simply to generate
+                illustrations. The challenge was to make AI generate illustrations that behaved
+                like Branch&apos;s visual system.
               </p>
 
               <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Design Thinking</h3>
               <p className="cs-feature__body">
-                I approached this as a design systems problem, not a prompt engineering problem.
-                Instead of writing clever one-off prompts, I engineered a structured instruction
-                architecture with three interlocking JSON files:
+                I approached this as a design-system challenge, not a prompt-writing challenge.
+                The key design decision was to stop treating AI output as one-off generation.
+                I treated it like a design system: rules, materials, quality gates, and
+                repeatable workflows.
+              </p>
+              <p className="cs-feature__body">
+                Instead of writing clever one-off prompts, I structured the Illustration GPT
+                around three interlocking instruction layers:
               </p>
               <ul className="cs-feature__list">
                 <li>
@@ -265,6 +391,12 @@ export default function BranchAICaseStudy() {
                 maintained within ±10% tolerance.
               </p>
               <p className="cs-feature__body">
+                In day-to-day use, a designer could upload a device photo or product object.
+                The GPT would segment the object, assign materials, apply Branch visual rules,
+                and return a transparent PNG for review. The designer could then reject, edit,
+                regenerate, or approve the output.
+              </p>
+              <p className="cs-feature__body">
                 An &quot;Idea Scout&quot; mode proposes 8-10 illustration concepts when no
                 image is provided, spanning product hardware vignettes, UI-on-device scenes,
                 payment moments, and abstract brand objects. The illustrations are ready for
@@ -294,6 +426,11 @@ export default function BranchAICaseStudy() {
                   <p className="cs-feature__caption">Illustration Outputs</p>
                 </div>
               </div>
+
+              <div className="cs-status-card">
+                <span className="cs-status-card__label">Status</span>
+                <p>System built; India illustration set produced; implementation scheduled for Q2 2026.</p>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -322,8 +459,13 @@ export default function BranchAICaseStudy() {
 
               <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Design Thinking</h3>
               <p className="cs-feature__body">
-                I decomposed the copywriting challenge into structured rule sets, each encoded
-                as a versioned JSON that the AI could reason against:
+                I decomposed the copywriting challenge into structured rule sets. The AI was
+                not designed to &quot;write nice copy.&quot; It was designed to write,
+                rewrite, and audit copy against Branch&apos;s product language, component rules,
+                and market-specific constraints.
+              </p>
+              <p className="cs-feature__body">
+                The system used versioned JSONs that the AI could reason against:
               </p>
               <ul className="cs-feature__list">
                 <li>
@@ -374,6 +516,12 @@ export default function BranchAICaseStudy() {
               </p>
 
               <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Solution - Three Operating Modes</h3>
+              <p className="cs-feature__body">
+                A PM or designer could paste rough copy, select a market and component type,
+                then receive production-ready options or an audit report showing what needed
+                to change. This separated generation from validation: the AI did not only
+                create copy, it helped check copy quality.
+              </p>
               <ul className="cs-feature__list">
                 <li>
                   <strong>Write</strong> - Generates 5 production-ready copy options from a brief.
@@ -391,6 +539,13 @@ export default function BranchAICaseStudy() {
                 </li>
               </ul>
 
+              <div className="cs-example-card">
+                <span className="cs-example-card__label">Rewrite example</span>
+                <p><strong>Input:</strong> Don&apos;t forget to verify your mobile number!</p>
+                <p><strong>AI check:</strong> tone, punctuation, framing, and component fit.</p>
+                <p><strong>Suggested rewrite:</strong> Verify your mobile number to continue.</p>
+              </div>
+
               <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
                 <figure className="cs-feature__figure">
                   <ZoomableImage
@@ -404,10 +559,16 @@ export default function BranchAICaseStudy() {
               </div>
 
               <p className="cs-feature__body" style={{ marginTop: 'var(--space-md)' }}>
-                The system was pushed from &quot;works well - 95% accurate&quot; to
-                &quot;works perfectly - 99% accurate.&quot; That last 4% - the hardest
-                to close - is where the real craft lives.
+                Through repeated audits against component copy rules, market terminology,
+                casing, punctuation, compliance language, and reviewer acceptance, the system
+                moved from roughly 95% rule compliance to 99% review-pass accuracy. Copy is
+                already live in India and being adapted for African markets.
               </p>
+
+              <div className="cs-status-card">
+                <span className="cs-status-card__label">Status</span>
+                <p>Live in India; being adapted for African markets.</p>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -420,7 +581,7 @@ export default function BranchAICaseStudy() {
             <motion.div className="cs-feature__inner" {...fadeUp}>
               <h2 className="cs-feature__title">Initiative 03 - Neem DS Prototyper</h2>
               <p className="cs-feature__intro">
-                From PRD to prototype in under 2 minutes.
+                From PRD to prototype in days.
               </p>
 
               <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Problem</h3>
@@ -437,9 +598,29 @@ export default function BranchAICaseStudy() {
                 the high-fidelity screens and hand off to engineering and QA.
               </p>
 
+              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)', marginBottom: 'var(--space-md)' }}>
+                <figure className="cs-feature__figure">
+                  <ZoomableImage
+                    src="/work/branch-ai/prd-to-prototype.jpg"
+                    alt="PRD to prototype workflow reduced from weeks to days"
+                    width={1672}
+                    height={941}
+                    className="cs-feature__image"
+                  />
+                </figure>
+              </div>
+
               <h3 className="cs-feature__deliverables-label" style={{ marginTop: 'var(--space-xl)' }}>Design Thinking</h3>
               <p className="cs-feature__body">
-                I connected Claude directly to Branch&apos;s Figma design system via the
+                The goal was not to replace the designer&apos;s final work. The goal was to
+                create a faster alignment tool so PMs could communicate ideas earlier, gather
+                stakeholder feedback sooner, and refine the PRD before a designer invested
+                time in high-fidelity design.
+              </p>
+              <p className="cs-feature__body">
+                The prototyper worked by mapping product requirements to existing Neem Design
+                System components instead of creating UI from scratch. I connected Claude
+                directly to Branch&apos;s Figma design system via the
                 Figma MCP (Model Context Protocol), then authored a comprehensive Claude
                 Skill that:
               </p>
@@ -493,9 +674,15 @@ export default function BranchAICaseStudy() {
                 only <code>--neem-</code> design tokens.
               </p>
               <p className="cs-feature__body">
-                A PRD-to-prototype workflow that would&apos;ve taken three weeks now takes
-                three days to hand off. Thrown as a vague problem, it returns a precise
-                solution.
+                In day-to-day use, a PM could share a PRD or product idea. The AI generated
+                an early prototype using Neem Design System components, giving stakeholders
+                something concrete to react to before high-fidelity design began.
+              </p>
+              <p className="cs-feature__body">
+                A PRD-to-prototype workflow that could take around three weeks now takes
+                around three days to hand off. The more important impact was not just speed.
+                It changed when feedback could happen, making design work more focused and
+                reducing the chance of late-stage rework.
               </p>
 
               <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
@@ -509,6 +696,95 @@ export default function BranchAICaseStudy() {
                   />
                 </figure>
               </div>
+
+              <div className="cs-status-card">
+                <span className="cs-status-card__label">Status</span>
+                <p>Built and validated for the PRD-to-prototype workflow.</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ===== CROSS-INITIATIVE OUTCOMES ===== */}
+        <section className="cs-prose section">
+          <div className="container">
+            <motion.div className="cs-prose__row" {...fadeUp}>
+              <div className="cs-prose__label"><span>What Changed</span></div>
+              <div className="cs-prose__content">
+                <h2>Cross-Initiative Outcomes</h2>
+                <p>
+                  Across the three workflows, the project helped Branch move from repeated
+                  manual production work to a more scalable operating model for design and
+                  product collaboration.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div className="cs-comparison-table" {...fadeUp}>
+              <div className="cs-comparison-table__header">
+                <span>Area</span>
+                <span>Before</span>
+                <span>After</span>
+              </div>
+              <div className="cs-comparison-table__row">
+                <span>Illustration</span>
+                <span>Manual stock illustration edits</span>
+                <span>Brand-consistent AI illustration system</span>
+              </div>
+              <div className="cs-comparison-table__row">
+                <span>Copy</span>
+                <span>Manual rewrites across markets</span>
+                <span>Market-aware copy assistant</span>
+              </div>
+              <div className="cs-comparison-table__row">
+                <span>Prototyping</span>
+                <span>Slow PRD-to-prototype cycles</span>
+                <span>Faster design-system-based prototypes</span>
+              </div>
+              <div className="cs-comparison-table__row">
+                <span>Review</span>
+                <span>Subjective feedback loops</span>
+                <span>Structured review rules and quality gates</span>
+              </div>
+              <div className="cs-comparison-table__row">
+                <span>Control</span>
+                <span>Manual production work</span>
+                <span>AI acceleration with human approval</span>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ===== TRUST AND CONTROL ===== */}
+        <section className="cs-prose section">
+          <div className="container">
+            <motion.div className="cs-prose__row" {...fadeUp}>
+              <div className="cs-prose__label"><span>Trust &amp; Control</span></div>
+              <div className="cs-prose__content">
+                <h2>Trust, Transparency, and User Control</h2>
+                <p>
+                  The strongest design decision across the project was keeping humans in
+                  control. AI outputs can look polished while still being wrong, so each
+                  workflow needed review and correction points.
+                </p>
+                <p>
+                  I separated generation from validation: Illustration GPT checked colour,
+                  material, and style consistency; Copywriting AI audited copy against
+                  component and market rules; Neem DS Prototyper validated component usage
+                  and token constraints.
+                </p>
+                <p>
+                  The workflows were not hidden automation. Designers and PMs could inspect,
+                  reject, edit, approve, or regenerate outputs. When feedback appeared more
+                  than once, I converted it into a system rule so the workflows improved over
+                  time.
+                </p>
+                <p>
+                  AI helped reduce the cost of exploration. It did not own final judgment.
+                  The more consequential the output, the more human control the workflow
+                  needed.
+                </p>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -519,21 +795,12 @@ export default function BranchAICaseStudy() {
             <motion.div className="cs-award__card" {...fadeUp}>
               <span className="cs-award__eyebrow">#kudos</span>
               <blockquote className="cs-award__quote">
-                &ldquo;Lums is not a pixel pusher. He is an AI-native builder with a
-                designer&apos;s eye and a PM&apos;s brain - and that combination is exactly
-                what product teams need to stay relevant in 2026. Beyond the work - he is
-                a generous collaborator, a fun teammate, and someone who makes the people
-                around him better. It is a pleasure to have you on the team. Cheers, buddy.
-                You have re-defined &lsquo;That&apos;s so cool!&rsquo;&rdquo;
+                &ldquo;He is an AI-native builder with a designer&apos;s eye and a PM&apos;s brain.&rdquo;
               </blockquote>
               <div className="cs-award__attribution">
-                <Image
-                  src="/work/branch-ai/deovrat-avatar.jpg"
-                  alt="Deovrat Dwivedi"
-                  width={56}
-                  height={56}
-                  className="cs-award__avatar"
-                />
+                <div className="cs-award__avatar cs-award__avatar--initials" aria-hidden="true">
+                  DD
+                </div>
                 <div className="cs-award__person">
                   <span className="cs-award__name">Deovrat Dwivedi</span>
                   <span className="cs-award__role">Design Lead · Branch International</span>
@@ -610,11 +877,10 @@ export default function BranchAICaseStudy() {
                 </li>
                 <li>
                   <strong>AI output quality is a function of input quality:</strong> These
-                  tools are exoskeletons for a SEAL agent - tremendous amplifiers of human
-                  intent. But garbage in, garbage out still applies. The cleaner and more
-                  structured the input, the better the processing. AI can even be used to
-                  clean and organise data <em>before</em> the primary generation step - a
-                  meta-loop that compounds quality.
+                  workflows amplified human intent, but garbage in, garbage out still
+                  applies. The cleaner and more structured the input, the better the
+                  processing. AI can also clean and organise data <em>before</em> the primary
+                  generation step, which compounds quality.
                 </li>
                 <li>
                   <strong>Plan before executing - the lighthouse principle:</strong> Every
@@ -633,6 +899,34 @@ export default function BranchAICaseStudy() {
                   checklist. Individual taste is valid; converging taste is signal.
                 </li>
               </ul>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ===== FINAL REFLECTION ===== */}
+        <section className="cs-prose section">
+          <div className="container">
+            <motion.div className="cs-prose__row" {...fadeUp}>
+              <div className="cs-prose__label"><span>Reflection</span></div>
+              <div className="cs-prose__content">
+                <h2>Final Reflection</h2>
+                <p>
+                  This project changed how I think about AI in product design. The value of
+                  AI is not just speed. Speed only matters when the output is useful,
+                  reviewable, and aligned with the product system.
+                </p>
+                <p>
+                  The work taught me that AI-powered workflows need the same level of design
+                  thinking as user-facing products: clear user goals, clear constraints,
+                  clear failure states, clear feedback loops, clear ownership, and clear
+                  review points.
+                </p>
+                <p>
+                  The goal was never to replace designers or PMs. It was to reduce repeated
+                  production work so the team could spend more time on judgment, alignment,
+                  and better product decisions.
+                </p>
+              </div>
             </motion.div>
           </div>
         </section>

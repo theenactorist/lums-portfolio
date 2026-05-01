@@ -11,7 +11,7 @@ const allProjects = [
   {
     id: 'branch-ai',
     title: 'Three AIs, One Design System',
-    description: 'Engineering AI tools that transformed how Branch\'s team creates illustrations, writes copy, and prototypes.',
+    description: 'Designing AI workflows that helped Branch create consistent illustrations, market-ready copy, and faster prototypes.',
     role: 'AI UX Designer',
     period: 'Oct 2025 - Feb 2026',
     tags: ['AI', 'Design Systems', 'Fintech'],
