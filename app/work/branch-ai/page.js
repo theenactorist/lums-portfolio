@@ -260,8 +260,8 @@ export default function BranchAICaseStudy() {
 
             <motion.div className="cs-impact-grid" {...fadeUp}>
               <div className="cs-impact-card">
-                <span className="cs-impact-card__label">Research</span>
-                <strong>50+ people</strong>
+                <span className="cs-impact-card__label">Team input</span>
+                <strong>50+ people consulted</strong>
                 <p>Input came through 1:1s, Slack DMs, product reviews, presentations, FigJam voting, and direct testing.</p>
               </div>
               <div className="cs-impact-card">
