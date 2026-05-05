@@ -427,10 +427,7 @@ export default function BranchAICaseStudy() {
                 </div>
               </div>
 
-              <div className="cs-status-card">
-                <span className="cs-status-card__label">Status</span>
-                <p>System built; India illustration set produced; implementation scheduled for Q2 2026.</p>
-              </div>
+
             </motion.div>
           </div>
         </section>
