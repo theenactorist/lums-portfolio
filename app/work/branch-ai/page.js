@@ -266,8 +266,8 @@ export default function BranchAICaseStudy() {
               </div>
               <div className="cs-impact-card">
                 <span className="cs-impact-card__label">Copy audit</span>
-                <strong>4,390 components</strong>
-                <p>530 screens were reviewed and 1,778 copy changes were implemented.</p>
+                <strong>4,390 components audited</strong>
+                <p>Across 530 screens, with 1,778 copy changes implemented.</p>
               </div>
               <div className="cs-impact-card">
                 <span className="cs-impact-card__label">PRD evaluation</span>
