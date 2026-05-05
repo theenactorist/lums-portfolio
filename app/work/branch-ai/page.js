@@ -565,10 +565,7 @@ export default function BranchAICaseStudy() {
                 already live in India and being adapted for African markets.
               </p>
 
-              <div className="cs-status-card">
-                <span className="cs-status-card__label">Status</span>
-                <p>Live in India; being adapted for African markets.</p>
-              </div>
+
             </motion.div>
           </div>
         </section>
