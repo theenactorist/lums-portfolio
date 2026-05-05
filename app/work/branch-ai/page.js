@@ -743,6 +743,36 @@ export default function BranchAICaseStudy() {
           </div>
         </section>
 
+        <section className="cs-award section">
+          <div className="container">
+            <motion.div className="cs-award__card" {...fadeUp}>
+              <span className="cs-award__eyebrow">Recognition</span>
+              <blockquote className="cs-award__quote">
+                &ldquo;He is an AI-native builder with a designer&apos;s eye and a PM&apos;s brain.&rdquo;
+              </blockquote>
+              <div className="cs-award__attribution">
+                <div className="cs-award__avatar cs-award__avatar--initials" aria-hidden="true">
+                  DD
+                </div>
+                <div className="cs-award__person">
+                  <span className="cs-award__name">Deovrat Dwivedi</span>
+                  <span className="cs-award__role">Design Lead · Branch International</span>
+                </div>
+              </div>
+
+              <div className="cs-award__screenshot" style={{ marginTop: '3rem', borderRadius: '8px', overflow: 'hidden' }}>
+                <ZoomableImage
+                  src="/work/branch-ai/kudos.jpeg"
+                  alt="Deovrat Dwivedi's Slack recognition for the Branch AI initiatives"
+                  width={1200}
+                  height={1000}
+                  className="cs-feature__image"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         <section className="cs-learnings section">
           <div className="container">
             <motion.div className="cs-learnings__inner" {...fadeUp}>
