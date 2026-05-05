@@ -3668,6 +3668,39 @@ main > .section:first-child {
   line-height: 1.65;
 }
 
+.cs-initiative-snapshot {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-sm);
+  max-width: 1000px;
+}
+
+.cs-initiative-snapshot__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.cs-initiative-snapshot__item span {
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cs-initiative-snapshot__item strong {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
 .cs-feature__cta {
   display: inline-flex;
   align-items: center;
@@ -4040,10 +4073,16 @@ main > .section:first-child {
   .cs-poll-callout {
     grid-template-columns: 1fr;
   }
+  .cs-initiative-snapshot {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 480px) {
   .cs-meta {
+    grid-template-columns: 1fr;
+  }
+  .cs-initiative-snapshot {
     grid-template-columns: 1fr;
   }
   .cs-metrics__value {

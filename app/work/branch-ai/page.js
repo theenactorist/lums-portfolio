@@ -144,6 +144,19 @@ function CaseImage({ src, alt, width = 1672, height = 941, caption, priority = f
   );
 }
 
+function InitiativeSnapshot({ items }) {
+  return (
+    <div className="cs-initiative-snapshot">
+      {items.map((item) => (
+        <div className="cs-initiative-snapshot__item" key={item.label}>
+          <span>{item.label}</span>
+          <strong>{item.value}</strong>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function BranchAICaseStudy() {
   return (
     <PageTransition>
@@ -341,7 +354,7 @@ export default function BranchAICaseStudy() {
         <section className="cs-prose section">
           <div className="container">
             <motion.div className="cs-prose__row" {...fadeUp}>
-              <div className="cs-prose__label"><span>Discovery</span></div>
+              <div className="cs-prose__label"><span>Findings</span></div>
               <div className="cs-prose__content">
                 <h2>What I Discovered</h2>
                 <p>
@@ -398,6 +411,15 @@ export default function BranchAICaseStudy() {
               <p className="cs-feature__intro">
                 Creating one visual language for Branch product illustrations.
               </p>
+
+              <InitiativeSnapshot
+                items={[
+                  { label: 'Main problem', value: 'Inconsistent illustration styles' },
+                  { label: 'Primary users', value: 'Designers' },
+                  { label: 'Main output', value: 'Around 40 illustrations across markets' },
+                  { label: 'Status', value: 'All ready, 60% live' },
+                ]}
+              />
 
               <h3 className="cs-feature__deliverables-label">Problem</h3>
               <p className="cs-feature__body">
@@ -498,7 +520,8 @@ export default function BranchAICaseStudy() {
                   All illustration sets are ready. About 60% are live in the app, with the
                   remaining rollout dependent on engineering bandwidth. The system reduced
                   design review back-and-forth because new work started from clearer style
-                  rules and stronger shared alignment.
+                  rules and stronger shared alignment. This gave designers a shared visual
+                  baseline instead of restarting style debates for each new illustration.
                 </p>
               </div>
             </motion.div>
@@ -512,6 +535,15 @@ export default function BranchAICaseStudy() {
               <p className="cs-feature__intro">
                 Turning individual prompting into a market-aware copy workflow.
               </p>
+
+              <InitiativeSnapshot
+                items={[
+                  { label: 'Main problem', value: 'Generic AI copy lacked Branch context' },
+                  { label: 'Primary users', value: 'Designers, PMs, researchers' },
+                  { label: 'Main output', value: '530 screens, 4,390 components, 1,778 changes' },
+                  { label: 'Status', value: 'Live product copy improvements' },
+                ]}
+              />
 
               <h3 className="cs-feature__deliverables-label">Problem</h3>
               <p className="cs-feature__body">
@@ -538,15 +570,6 @@ export default function BranchAICaseStudy() {
                 Branch&apos;s product reality.
               </p>
 
-              <h3 className="cs-feature__deliverables-label">Before and After: Turning Generic Copy Into Product-Ready Microcopy</h3>
-              <p className="cs-feature__body">
-                To test the system, I audited real product surfaces and compared existing copy
-                against Branch&apos;s market, brand, component, and UX writing rules. The goal
-                was not to make copy sound nicer. It was to make each string clearer, more
-                contextual, and more appropriate for the product moment.
-              </p>
-              <DataTable {...copyExamples} caption="Before and after copy rewrite examples" />
-
               <CaseImage
                 src="/work/branch-ai/copywriting-ai-architecture.png"
                 alt="Copywriting AI architecture"
@@ -570,6 +593,15 @@ export default function BranchAICaseStudy() {
                 reality.&quot;
               </p>
 
+              <h3 className="cs-feature__deliverables-label">Before and After: Turning Generic Copy Into Product-Ready Microcopy</h3>
+              <p className="cs-feature__body">
+                To test the system, I audited real product surfaces and compared existing copy
+                against Branch&apos;s market, brand, component, and UX writing rules. The goal
+                was not to make copy sound nicer. It was to make each string clearer, more
+                contextual, and more appropriate for the product moment.
+              </p>
+              <DataTable {...copyExamples} caption="Before and after copy rewrite examples" />
+
               <h3 className="cs-feature__deliverables-label">Copy AI impact</h3>
               <p className="cs-feature__body">
                 The copywriting workflow supported 530 reviewed screens, 4,390 audited
@@ -589,7 +621,8 @@ export default function BranchAICaseStudy() {
                   Copywriting became more reliable through Branch-specific product, market,
                   component, brand, and lint rules. The workflow reduced design-review
                   back-and-forth because first drafts started closer to Branch&apos;s product
-                  reality.
+                  reality. This helped reduce review friction because copy started closer to
+                  Branch&apos;s product, market, and component standards.
                 </p>
               </div>
             </motion.div>
@@ -603,6 +636,15 @@ export default function BranchAICaseStudy() {
               <p className="cs-feature__intro">
                 Helping PMs evaluate PRDs through interactive prototypes.
               </p>
+
+              <InitiativeSnapshot
+                items={[
+                  { label: 'Main problem', value: 'Generic prototypes did not follow Branch UX patterns' },
+                  { label: 'Primary users', value: 'PMs' },
+                  { label: 'Main output', value: 'Interactive prototypes for PRD evaluation' },
+                  { label: 'Impact', value: 'About 30% reduction in evaluation time' },
+                ]}
+              />
 
               <h3 className="cs-feature__deliverables-label">Problem</h3>
               <p className="cs-feature__body">
@@ -646,7 +688,8 @@ export default function BranchAICaseStudy() {
                   general feedback from PMs. The tool was tested directly by PMs, designers,
                   and developers. The biggest shift was not only speed: stakeholders could
                   respond to interactive prototypes earlier, before work moved into
-                  high-fidelity design.
+                  high-fidelity design. This made PRD feedback more concrete because
+                  stakeholders could react to an interaction, not just a written description.
                 </p>
               </div>
             </motion.div>
