@@ -1,19 +1,19 @@
 export const metadata = {
   title: 'Three AIs, One Design System - Branch International',
   description:
-    'How Olumide engineered three AI-powered tools (Illustration GPT, Copywriting AI, Prototyping AI) that transformed creative output for Branch International across India, Kenya, and Nigeria.',
+    'How Olumide designed three AI-powered workflows that helped Branch International create brand-consistent illustrations, market-ready copy, and faster prototypes across India, Kenya, and Nigeria.',
   openGraph: {
     title: 'Three AIs, One Design System - Branch International',
     description:
-      'Case study: Engineering three AI-powered tools that transformed how a 25-person product team creates illustrations, writes copy, and prototypes across 3 markets.',
+      'Case study: designing AI-powered workflows that helped a distributed product team move faster while preserving design-system rules, market context, and human review.',
     type: 'article',
     url: 'https://olumideolusesi.com/work/branch-ai',
     images: [
       {
-        url: '/work/branch-ai/cover.jpg',
-        width: 2400,
-        height: 1200,
-        alt: 'Three AIs, One Design System - Branch International case study',
+        url: '/work/branch-ai/workflows-overview.jpg',
+        width: 1672,
+        height: 941,
+        alt: 'Three AI workflows connecting team bottlenecks to product outcomes',
       },
     ],
   },
@@ -21,8 +21,8 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Three AIs, One Design System - Branch International',
     description:
-      'Engineering three AI-powered tools that transformed creative output across India, Kenya, and Nigeria.',
-    images: ['/work/branch-ai/cover.jpg'],
+      'Designing AI-powered workflows for illustration, copy, and prototyping across India, Kenya, and Nigeria.',
+    images: ['/work/branch-ai/workflows-overview.jpg'],
   },
 };
 

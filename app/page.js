@@ -15,13 +15,13 @@ const projects = [
   {
     id: 'branch-ai',
     title: 'Three AIs, One Design System',
-    description: 'Turning repeated design bottlenecks into AI-powered workflows for illustration, copy, and prototyping across 3 markets.',
-    role: 'AI UX Designer',
+    description: 'Turning scattered AI use into governed product workflows for illustration, copywriting, and prototyping.',
+    role: 'Product Designer',
     period: 'Oct 2025 - Feb 2026',
     tags: ['AI', 'Design Systems', 'Fintech'],
     color: '#0a1628',
     accentColor: '#6CD2FF',
-    thumbnail: '/work/branch-ai/workflows-overview.jpg',
+    thumbnail: '/work/branch-ai/three-ai-workflows.jpg',
   },
   {
     id: 'shiga-onboarding',

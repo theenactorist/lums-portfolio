@@ -1,19 +1,19 @@
 export const metadata = {
   title: 'Three AIs, One Design System - Branch International',
   description:
-    'How Olumide designed three AI-powered workflows that helped Branch International create brand-consistent illustrations, market-ready copy, and faster prototypes across India, Kenya, and Nigeria.',
+    'How Olumide turned scattered AI use into governed product workflows for illustration, copywriting, and prototyping across Branch International.',
   openGraph: {
     title: 'Three AIs, One Design System - Branch International',
     description:
-      'Case study: designing AI-powered workflows that helped a distributed product team move faster while preserving design-system rules, market context, and human review.',
+      'Case study: researching informal AI use and designing governed workflows with Branch product context, market rules, design-system logic, and human review.',
     type: 'article',
     url: 'https://olumideolusesi.com/work/branch-ai',
     images: [
       {
-        url: '/work/branch-ai/workflows-overview.jpg',
+        url: '/work/branch-ai/three-ai-workflows.jpg',
         width: 1672,
         height: 941,
-        alt: 'Three AI workflows connecting team bottlenecks to product outcomes',
+        alt: 'Three governed AI workflows across illustration, copywriting, and prototyping',
       },
     ],
   },
@@ -21,8 +21,8 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Three AIs, One Design System - Branch International',
     description:
-      'Designing AI-powered workflows for illustration, copy, and prototyping across India, Kenya, and Nigeria.',
-    images: ['/work/branch-ai/workflows-overview.jpg'],
+      'Turning scattered AI use into governed workflows for product work at Branch.',
+    images: ['/work/branch-ai/three-ai-workflows.jpg'],
   },
 };
 

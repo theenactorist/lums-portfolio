@@ -3152,7 +3152,7 @@ main > .section:first-child {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 600;
-  margin: var(--space-sm) 0 0;
+  margin: var(--space-xl) 0 calc(var(--space-md) * -1);
 }
 
 .cs-feature__list {
@@ -3578,6 +3578,96 @@ main > .section:first-child {
   font-weight: 600;
 }
 
+.cs-data-table {
+  margin-top: var(--space-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.cs-data-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cs-data-table th,
+.cs-data-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.cs-data-table th {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cs-data-table td {
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.cs-data-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.cs-data-table td:first-child,
+.cs-data-table__strong {
+  color: var(--text-primary);
+  font-weight: 650;
+}
+
+.cs-data-table__muted {
+  color: var(--text-tertiary);
+}
+
+.cs-poll-callout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-lg);
+  align-items: center;
+  margin-top: var(--space-md);
+  padding: var(--space-lg);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-surface));
+}
+
+.cs-poll-callout span {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cs-poll-callout strong {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: 1.25;
+}
+
+.cs-poll-callout p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
 .cs-feature__cta {
   display: inline-flex;
   align-items: center;
@@ -3906,6 +3996,49 @@ main > .section:first-child {
     font-size: var(--text-xs);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+  .cs-data-table {
+    border: 0;
+    background: transparent;
+  }
+  .cs-data-table table,
+  .cs-data-table thead,
+  .cs-data-table tbody,
+  .cs-data-table tr,
+  .cs-data-table th,
+  .cs-data-table td {
+    display: block;
+  }
+  .cs-data-table thead {
+    display: none;
+  }
+  .cs-data-table tr {
+    margin-bottom: var(--space-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+  }
+  .cs-data-table td {
+    display: grid;
+    grid-template-columns: minmax(110px, 0.42fr) minmax(0, 1fr);
+    gap: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+  }
+  .cs-data-table td::before {
+    content: attr(data-label);
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .cs-data-table td:last-child {
+    border-bottom: 0;
+  }
+  .cs-poll-callout {
+    grid-template-columns: 1fr;
   }
 }
 
