@@ -340,7 +340,7 @@ export default function ShigaOnboardingCaseStudy() {
               >
                 <figure className="cs-feature__figure">
                   <iframe
-                    src="/work/shiga-onboarding/enta-prototype.html"
+                    src="/work/shiga-onboarding/prototype-v2/prototype.html"
                     width="100%"
                     height="800"
                     title="ENTA clickable prototype from Claude Design ideation"
@@ -353,7 +353,7 @@ export default function ShigaOnboardingCaseStudy() {
                   />
                 </figure>
                 <div className="cs-feature__footer">
-                  <p className="cs-feature__caption">Interactive prototype — Claude Design ideation</p>
+                  <p className="cs-feature__caption">Interactive prototype — Claude Design ideation v2</p>
                 </div>
               </div>
             </motion.div>
