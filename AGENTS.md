@@ -17,7 +17,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Read before changing the interface
 
-- Read `../PORTFOLIO_REFERENCE_SPEC.md`, `DESIGN.md`, and `PRODUCT.md` when they are present.
+- Read `../PORTFOLIO_REFERENCE_SPEC.md`, `CONTENT_STYLE_GUIDE.md`, `content/COPY_DECK.md`, `DESIGN.md`, and `PRODUCT.md` when they are present.
+- Treat approved files in `content/fact-sheets/` as the only authority for project claims, metrics, ownership, and attribution.
 - `../PORTFOLIO_REFERENCE_SPEC.md` contains useful reference research but may lag the latest approved decisions. Reconcile it before implementation; never silently choose between conflicts.
 - The user's explicit instructions and confirmed decisions take precedence over repository documentation.
 - Do not let generic UI guidance override the named visual references below.
