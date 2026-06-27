@@ -227,6 +227,8 @@ After approval, the copy can be mapped into the case-study components. Public ca
 - `52cae63` — Verified résumé source and reopened output-consistency title direction
 - `785ef12` — Recorded the latest content milestones
 - `d6b4e5b` — Approved Branch AI storyline and complete case-study draft
+- `7f5d198` — Recorded the Branch AI draft milestone
+- `1963dfe` — Removed the unnecessary retrospective prompt
 
 ## Next three actions
 
