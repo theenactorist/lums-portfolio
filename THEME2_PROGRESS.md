@@ -3,17 +3,17 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Branch AI visual-system reset
+Current stage: Branch AI visual pilot implementation
 
 ## Current gate
 
-**The first Branch AI visual treatment was rejected. The current gate is owner confirmation of the replacement hierarchy and connected progress rail.**
+**The replacement Branch AI direction is approved and implemented locally. The current gate is owner review of the rebuilt Theme 2 pilot.**
 
 Review: [Branch AI Visual System Reset](content/specs/BRANCH_AI_VISUAL_SYSTEM.md)
 
 Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai)
 
-The content flow remains approved. Confirmed corrections are now recorded: light mode is the default, the public `Recruiter TLDR` label is replaced by `Overview`, Product markets is removed from public metadata, Tools is ChatGPT / Claude / Figma Make, and Core users includes 500 other Branch employees. The existing Preview remains protected and noindex, but its visual treatment is superseded.
+The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi, a white canvas with warm-neutral chapter bands, a horizontal connected sticky progress rail, and a black active state. Country names appear only in Team locations. The existing Preview remains protected and noindex until this local rebuild is pushed.
 
 ## Status at a glance
 
@@ -22,7 +22,7 @@ The content flow remains approved. Confirmed corrections are now recorded: light
 | Theme 2 branch and worktree | Complete | Separate from `main` |
 | Theme 2 project guidance | Complete | `AGENTS.md` committed |
 | Master specification | Accepted for implementation | Stored at `../PORTFOLIO_REFERENCE_SPEC.md` |
-| Typeface foundation | Family verified; hierarchy reset proposed | Charlie's live system stack is correct, but the first weights, sizes, and spacing were not |
+| Typeface foundation | Satoshi trial implemented | One global `--font-family-sans` token controls all typography |
 | Local/Vercel environment variables | Complete | Secrets linked and gitignored |
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
@@ -30,10 +30,10 @@ The content flow remains approved. Confirmed corrections are now recorded: light
 | Branch AI complete copy | Approved; corrections recorded | Content flow remains approved; metadata and public labels updated from owner feedback |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
-| Full visual implementation | Reset required | First Branch AI treatment retained too much of the old portfolio shell |
+| Full visual implementation | Branch AI pilot complete locally | Approved replacement direction implemented |
 | Baseline build | Complete | Dependencies installed; lint and production build pass |
 | Vercel staging preview | Superseded | Protected noindex Preview exists, but the rejected visual treatment must be rebuilt |
-| Accessibility/performance QA | Previous pilot only | Repeat after the approved visual rebuild |
+| Accessibility/performance QA | Local implementation QA in progress | Lint/build and desktop/mobile browser checks pass |
 
 ## Completed work
 
@@ -112,6 +112,12 @@ The content flow remains approved. Confirmed corrections are now recorded: light
 - [x] Removed Product markets from public metadata.
 - [x] Updated Tools to ChatGPT, Claude, and Figma Make.
 - [x] Added 500 other Branch employees to Core users.
+- [x] Recorded owner approval of the split hero, connected horizontal rail, white/warm-neutral canvas, and black active state.
+- [x] Installed the supplied Satoshi variable webfont and retained the Fontshare license.
+- [x] Rebuilt the global navigation as a minimal editorial shell.
+- [x] Rebuilt Branch AI with open metrics, restrained rules, wide evidence, and warm chapter bands.
+- [x] Added scroll-aware `aria-current="step"` progress tracking and mobile active-step centring.
+- [x] Limited public market country names to Team locations.
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
@@ -148,7 +154,7 @@ The content flow remains approved. Confirmed corrections are now recorded: light
 - [x] Write the complete Branch AI case-study draft.
 - [x] Review and approve the subtitle, summary, complete wording, learning statements, and media captions.
 - [x] Map approved copy to existing media and captions.
-- [ ] Confirm the replacement type scale, section rhythm, connected progress rail, canvas treatment, and hero composition.
+- [x] Confirm the replacement type scale, section rhythm, connected progress rail, canvas treatment, and hero composition.
 
 #### Remaining pages and projects
 
@@ -167,7 +173,7 @@ The content flow remains approved. Confirmed corrections are now recorded: light
 - [ ] Implement the approved light and dark colour tokens.
 - [ ] Implement Charlie's complete type hierarchy using the global font token.
 - [ ] Implement primary and secondary CTA primitives.
-- [ ] Rebuild global navigation and mobile menu.
+- [x] Rebuild global navigation and mobile menu.
 - [ ] Place theme and music controls at the top-right.
 - [ ] Add skip link, focus styles, landmarks, and reduced-motion foundations.
 - [ ] Build reusable editorial layout and spacing primitives.
@@ -254,6 +260,6 @@ The content flow remains approved. Confirmed corrections are now recorded: light
 
 ## Next three actions
 
-1. Olumide confirms the four choices in the Branch AI visual-system reset.
-2. Rebuild Branch AI on the approved light-first system with the connected active progress rail.
-3. Repeat desktop/mobile/accessibility QA and replace the superseded Preview.
+1. Complete final local desktop/mobile/accessibility checks.
+2. Push the approved Theme 2 pilot and replace the superseded Preview.
+3. Review the rebuilt Branch AI staging page with Olumide.

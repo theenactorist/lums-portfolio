@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import PageTransition from '../../components/PageTransition';
 import ZoomableImage from '../../components/ZoomableImage';
+import CaseStudyProgressRail from './CaseStudyProgressRail';
 
 const phaseLinks = [
-  ['phase-drift', 'Why AI outputs kept drifting'],
-  ['phase-systems', 'Turning prompts into systems'],
-  ['phase-workflows', 'Three workflows in practice'],
-  ['phase-testing', 'Testing with the product team'],
-  ['phase-outcomes', 'Outcomes and learning'],
+  { id: 'phase-drift', label: 'The problem' },
+  { id: 'phase-systems', label: 'The system' },
+  { id: 'phase-workflows', label: 'The workflows' },
+  { id: 'phase-testing', label: 'The testing' },
+  { id: 'phase-outcomes', label: 'The outcomes' },
 ];
 
 function CaseImage({ src, alt, width, height, caption, priority = false }) {
@@ -86,8 +86,7 @@ function DataTable({ columns, rows, caption }) {
 
 export default function BranchAICaseStudy() {
   return (
-    <PageTransition>
-      <main className="cs-page branch-ai-case">
+    <main className="cs-page branch-ai-case">
         <nav className="cs-breadcrumb" aria-label="Breadcrumb">
           <div className="container cs-wide-container">
             <ol className="cs-breadcrumb__list">
@@ -116,7 +115,7 @@ export default function BranchAICaseStudy() {
                 </h1>
                 <p className="cs-hero__subtitle">
                   How I built reusable workflows for on-brand illustrations, market-aware
-                  product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
+                  product copy, and Neem-based prototypes for Branch’s product teams.
                 </p>
               </div>
 
@@ -164,20 +163,7 @@ export default function BranchAICaseStudy() {
           </div>
         </section>
 
-        <nav className="cs-phase-nav" aria-label="Case study phases">
-          <div className="container cs-wide-container cs-phase-nav__viewport" tabIndex={0}>
-            <ol className="cs-phase-nav__list">
-              {phaseLinks.map(([href, label], index) => (
-                <li key={href}>
-                  <a href={`#${href}`}>
-                    <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </nav>
+        <CaseStudyProgressRail phases={phaseLinks} />
 
         <section className="cs-prose section cs-tldr" aria-labelledby="branch-overview">
           <div className="container">
@@ -239,7 +225,7 @@ export default function BranchAICaseStudy() {
                 <h2>The outputs finally looked like one product</h2>
                 <p>
                   The most visible change is in Branch’s illustrations. A shared visual system
-                  is now live across India, Kenya, and Nigeria, giving the team a repeatable way
+                  is now live across Branch’s product markets, giving the team a repeatable way
                   to create images that belong to the same product family.
                 </p>
                 <p>
@@ -335,7 +321,7 @@ export default function BranchAICaseStudy() {
           </div>
         </section>
 
-        <section id="phase-systems" className="cs-prose section cs-anchor-section" aria-labelledby="phase-systems-title">
+        <section id="phase-systems" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="phase-systems-title">
           <div className="container">
             <div className="cs-phase-heading">
               <span>Phase 02</span>
@@ -558,16 +544,16 @@ export default function BranchAICaseStudy() {
                     components. The product team implemented 1,778 copy changes.
                   </p>
                   <p>
-                    India’s totals were audited. Figures for Kenya and Nigeria included
-                    directional estimates, so the case preserves that limitation rather than
-                    presenting every market number as equally precise.
+                    The most mature market totals were audited. Figures for the other markets
+                    included directional estimates, so the case preserves that limitation
+                    rather than presenting every market number as equally precise.
                   </p>
                   <p>
                     Human review measured accuracy moving from 95% to 99%. The workflow also
                     reduced copywriting turnaround, although no approved quantified turnaround
-                    figure is available. The product manager led rollout across India and
-                    African markets. The screen and component audit was a team workflow, not my
-                    sole output.
+                    figure is available. The product manager led rollout across Branch’s
+                    product markets. The screen and component audit was a team workflow, not
+                    my sole output.
                   </p>
                 </div>
 
@@ -576,7 +562,7 @@ export default function BranchAICaseStudy() {
                   alt="CopyGPT impact summary covering screens reviewed, components audited, changes implemented, and human-reviewed accuracy"
                   width={1672}
                   height={941}
-                  caption="India totals were audited; Kenya and Nigeria included directional estimates. The product team implemented the approved changes."
+                  caption="The most mature market totals were audited; other market figures included directional estimates. The product team implemented the approved changes."
                 />
               </div>
             </div>
@@ -645,7 +631,7 @@ export default function BranchAICaseStudy() {
           </article>
         </section>
 
-        <section id="phase-testing" className="cs-prose section cs-anchor-section" aria-labelledby="phase-testing-title">
+        <section id="phase-testing" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="phase-testing-title">
           <div className="container">
             <div className="cs-phase-heading">
               <span>Phase 04</span>
@@ -796,7 +782,6 @@ export default function BranchAICaseStudy() {
             <Link href="/work" className="cs-back-link">Back to selected work</Link>
           </div>
         </section>
-      </main>
-    </PageTransition>
+    </main>
   );
 }

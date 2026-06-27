@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Turning Fragmented AI Use Into Consistent Product Outputs at Branch',
   description:
-    'How Olumide built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.',
+    'How Olumide built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes for Branch’s product teams.',
   openGraph: {
     title: 'Turning Fragmented AI Use Into Consistent Product Outputs at Branch',
     description:

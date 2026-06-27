@@ -23,7 +23,7 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 
 ## Recommended subtitle
 
-> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
+> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes for Branch’s product teams.
 
 ## Recommended summary
 
@@ -40,7 +40,7 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 ## Case-card contract
 
 - Title: `Turning fragmented AI use into consistent product outputs at Branch`.
-- Subtitle: `How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.`
+- Subtitle: `How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes for Branch’s product teams.`
 - Labels: `Product Designer, AI Systems` · `2025–2026` · `AI systems / Fintech`
 - Visuals: one programme overview plus one strong example showing the three workflows or the unified illustration output
 - Keep the same card structure and metadata placement used by every other selected-work card.
@@ -188,14 +188,14 @@ Do not use the name `Veela`.
 - The system progressed through seven versions.
 - Human review measured accuracy moving from 95% to 99%.
 - The screen and component audit was a team workflow, not sole ownership.
-- The product manager led rollout across India and African markets.
+- The product manager led rollout across Branch’s product markets.
 
 #### Measured work
 
 - 530 screens reviewed
 - 4,390 components audited
 - 1,778 changes implemented by the product team
-- Preserve the limitation: India totals were audited while Kenya and Nigeria included directional estimates.
+- Preserve the limitation: the most mature market totals were audited while other market figures included directional estimates.
 
 ### Workflow 03 — Making PRDs tangible sooner
 

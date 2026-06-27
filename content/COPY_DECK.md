@@ -134,7 +134,7 @@ Approved title:
 
 Approved subtitle:
 
-> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
+> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes for Branch’s product teams.
 
 Working description:
 

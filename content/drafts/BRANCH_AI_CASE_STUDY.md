@@ -15,7 +15,7 @@ Approval record: Olumide approved the complete copy on 2026-06-27. Implement wit
 
 ### Description
 
-> I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
+> I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes for Branch’s product teams.
 
 ### Labels
 
@@ -39,7 +39,7 @@ Approval record: Olumide approved the complete copy on 2026-06-27. Implement wit
 
 ### Subtitle
 
-> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
+> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes for Branch’s product teams.
 
 ### Metadata
 
@@ -79,7 +79,7 @@ These are three distinct outcomes. They should not be presented as one combined 
 
 ## Opening — The outputs finally looked like one product
 
-The most visible change is in Branch's illustrations. A shared visual system is now live across India, Kenya, and Nigeria, giving the team a repeatable way to create images that belong to the same product family.
+The most visible change is in Branch's illustrations. A shared visual system is now live across Branch's product markets, giving the team a repeatable way to create images that belong to the same product family.
 
 But illustration was only one part of the programme. The same consistency problem appeared in product copy and prototypes: AI could produce something quickly, but it did not automatically know Branch's products, market language, component rules, or interaction patterns.
 
@@ -211,11 +211,11 @@ The system therefore needed versioning rather than a single “perfect” prompt
 
 The workflow supported a review of 530 screens and an audit of 4,390 components. The product team implemented 1,778 copy changes.
 
-India's totals were audited. Figures for Kenya and Nigeria included directional estimates, so the case study should preserve that limitation rather than presenting every market number as equally precise.
+The most mature market totals were audited. Figures for the other markets included directional estimates, so the case study should preserve that limitation rather than presenting every market number as equally precise.
 
 Human review measured accuracy moving from 95% to 99%. The workflow also reduced copywriting turnaround, although no approved quantified turnaround figure is available.
 
-The product manager led rollout across India and African markets. The screen and component audit was a team workflow, not my sole output.
+The product manager led rollout across Branch's product markets. The screen and component audit was a team workflow, not my sole output.
 
 ### Workflow 03 — Making product requirements tangible sooner
 
@@ -388,7 +388,7 @@ Alt text:
 
 Caption:
 
-> India totals were audited; Kenya and Nigeria included directional estimates. The product team implemented the approved changes.
+> The most mature market totals were audited; other market figures included directional estimates. The product team implemented the approved changes.
 
 ### PRD-to-prototype workflow
 

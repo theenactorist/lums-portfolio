@@ -89,7 +89,7 @@ Never add a metric simply because recruiters expect one. Use verified qualitativ
 ## Applied to Branch AI
 
 - Approved card/hero title: `Turning fragmented AI use into consistent product outputs at Branch`.
-- Subtitle: `How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.`
+- Subtitle: `How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes for Branch’s product teams.`
 - Place role, timeline, users, tools, and outcomes in a concise overview near the top.
 - Organise the problem around three visible failure lanes: illustration, product copy, and prototyping.
 - Give Illustration GPT the deepest visual and decision treatment.

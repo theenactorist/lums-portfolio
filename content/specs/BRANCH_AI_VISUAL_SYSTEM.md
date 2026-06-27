@@ -1,6 +1,6 @@
 # Branch AI Visual System Reset
 
-Status: Proposed for owner confirmation  
+Status: Approved and implemented for Branch AI pilot
 Last updated: 2026-06-27  
 Applies to: Active Theme 2 Branch AI case study
 
@@ -20,7 +20,7 @@ Verified on the live site:
 - The system is light-first: white canvas, near-black text, pale neutral supporting text, and black pill CTAs.
 - Colour comes mainly from project work rather than portfolio chrome.
 
-The Theme 2 font-family token already contains Charlie's live stack. The mismatch came from the old page's weights, sizes, line-height, spacing, colour system, and layout—not from a different font-family value.
+Theme 2 now uses the supplied Satoshi variable font as an owner-approved trial. The family remains controlled by the single `--font-family-sans` token so it can be changed globally from one location.
 
 ### Jessa Wolfe — case-study hierarchy reference
 
@@ -35,7 +35,7 @@ Useful patterns across the four supplied references:
 
 Use Jessa for hierarchy and editorial pacing only. Keep Charlie's typeface, neutral palette, and CTA language.
 
-## Proposed page character
+## Approved page character
 
 - Light by default; dark mode remains optional.
 - Pure white primary canvas with a restrained warm-neutral alternate section.
@@ -45,7 +45,7 @@ Use Jessa for hierarchy and editorial pacing only. Keep Charlie's typeface, neut
 - Project images provide the colour.
 - Generous editorial spacing and fewer simultaneous visual signals.
 
-## Proposed colour tokens
+## Approved colour tokens
 
 | Role | Light value | Dark equivalent |
 | --- | --- | --- |
@@ -57,15 +57,15 @@ Use Jessa for hierarchy and editorial pacing only. Keep Charlie's typeface, neut
 | Hairline | `#DFDFDC` | `#333333` |
 | Active progress | `#0A0A0A` | `#F2F2F2` |
 
-## Proposed typography
+## Approved typography
 
 All roles inherit the single `--font-family-sans` token.
 
 | Role | Desktop | Mobile | Weight | Line-height | Letter-spacing |
 | --- | --- | --- | --- | --- | --- |
-| Case title | 72px | 42px | 600 | .96 | -.03em |
-| Section title | 48px | 32px | 600 | 1.05 | -.025em |
-| Workflow title | 36px | 27px | 600 | 1.1 | -.02em |
+| Case title | 84px max | 57px max | 600 | .98 | -.05em |
+| Section title | 76px max | 48px | 600 | .98 | -.05em |
+| Workflow title | 68px max | 44px | 600 | 1.02 | -.045em |
 | Supporting heading | 24px | 21px | 600 | 1.25 | -.01em |
 | Lead paragraph | 22px | 19px | 400 | 1.5 | normal |
 | Body | 18px | 17px | 400 | 1.7 | normal |
@@ -81,7 +81,7 @@ Rules:
 - Remove 650 and 700 weights from the Branch case-study UI.
 - Avoid italic, serif, or monospace styling for structural labels.
 
-## Proposed spacing and width system
+## Approved spacing and width system
 
 | Role | Desktop | Mobile |
 | --- | --- | --- |
@@ -93,12 +93,11 @@ Rules:
 | Paragraph gap | 18px | 16px |
 | Evidence gap | 40px | 24px |
 
-## Proposed page structure
+## Approved page structure
 
 1. Minimal global navigation on a white canvas.
-2. Text-led hero: eyebrow, title, lead, and one concise outcome statement.
+2. Split hero: eyebrow, title, and lead beside the cover image.
 3. Five-column metadata row: Role, Initiative, Core users, Team locations, Tools.
-4. Full-width cover image below metadata.
 5. Overview and three unboxed outcome columns.
 6. Connected five-step sticky progress rail.
 7. The approved five-phase content flow.
@@ -112,7 +111,7 @@ Confirmed metadata changes:
 - Tools: ChatGPT, Claude, Figma Make.
 - Replace the public-facing `Recruiter TLDR` label with `Overview`.
 
-## Proposed connected progress rail
+## Approved connected progress rail
 
 Desktop:
 
@@ -122,7 +121,7 @@ Desktop:
 - Completed line segments and circles use primary text colour.
 - The current step is a filled circle with inverse text and a 600-weight label.
 - Future steps use the page background, muted border, and secondary text.
-- The active step updates through `IntersectionObserver` as each phase enters the reading zone.
+- The active step updates from scroll position as each phase enters the reading zone.
 - Clicking a step scrolls to the phase while preserving the sticky-nav offset.
 - The active link uses `aria-current="step"`.
 
@@ -143,13 +142,11 @@ Mobile:
 - Keep tables flat, with horizontal rules and no surrounding card.
 - Use alternate section backgrounds to create chapter rhythm instead of borders around every object.
 
-## Approval gate
+## Confirmed owner decisions
 
-Confirm before implementation:
-
-1. Horizontal connected sticky rail, as proposed, or a vertical desktop rail.
-2. Text-led hero with the cover image below metadata, as proposed, or a split hero.
-3. Pure white canvas with `#F6F5F2` alternate sections, as proposed, or white-only.
-4. Neutral black active progress state, as proposed, or Branch green.
-
-No visual rebuild begins until these four choices are confirmed.
+1. Horizontal connected sticky progress rail.
+2. Split hero.
+3. White canvas with occasional warm-neutral sections.
+4. Black active progress state.
+5. Country names appear only in Team locations on the public case-study page.
+6. Satoshi is the current Theme 2 typeface trial.
