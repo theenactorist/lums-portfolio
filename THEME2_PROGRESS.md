@@ -218,6 +218,9 @@ After approval, the next content step is the complete Branch AI case-study draft
 - `bb8a8dc` — Approved Branch AI facts and storyline draft
 - `5e1a358` — Visible Theme 2 progress dashboard
 - `853f2b1` — Recruiter-first case-study framing and UXfolio synthesis
+- `379dbb8` — Updated progress milestone and approval gate
+- `eba171f` — First output-purpose title revision
+- `52cae63` — Verified résumé source and reopened output-consistency title direction
 
 ## Next three actions
 
