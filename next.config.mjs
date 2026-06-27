@@ -1,10 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
+    const previewHeaders = process.env.VERCEL_ENV === 'preview'
+      ? [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive',
+          },
+        ]
+      : [];
+
     return [
       {
         source: '/(.*)',
         headers: [
+          ...previewHeaders,
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',

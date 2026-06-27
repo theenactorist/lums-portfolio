@@ -22,7 +22,7 @@ Status labels:
 | Home | Hero approved; supporting sections drafted below | Copy review |
 | About | Needs an About fact sheet before full rewrite | Fact approval |
 | Work index | Structure approved; project summaries need case facts | Project fact approvals |
-| Branch AI | Title and storyline approved; complete copy drafted | `content/drafts/BRANCH_AI_CASE_STUDY.md` |
+| Branch AI | Complete copy approved; implementation in progress | `content/drafts/BRANCH_AI_CASE_STUDY.md` |
 | Shiga | Existing copy retained until audit | Fact sheet |
 | Carbon | Existing copy retained until audit | Fact sheet |
 | Sabi | Existing copy retained until audit | Fact sheet |
@@ -126,13 +126,13 @@ Intro:
 
 #### AI & New Ventures
 
-Branch AI — **Title and storyline approved; complete copy ready for review**
+Branch AI — **Complete copy approved for implementation**
 
 Approved title:
 
 > Turning fragmented AI use into consistent product outputs at Branch
 
-Subtitle — **draft for review**
+Approved subtitle:
 
 > How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
 

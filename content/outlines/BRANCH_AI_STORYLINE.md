@@ -1,6 +1,6 @@
 # Branch AI Storyline and Phase Labels
 
-Status: Storyline approved; complete copy drafted for review
+Status: Storyline and complete copy approved for implementation
 Last updated: 2026-06-27
 Fact source: `content/fact-sheets/BRANCH_AI.md`
 
@@ -9,7 +9,7 @@ Fact source: `content/fact-sheets/BRANCH_AI.md`
 - Owner: Olumide Olusesi
 - Approved on: 2026-06-27
 - Approved: recommended title, narrative direction, story order, and five phase labels
-- Still requiring review: complete public copy, subtitle wording, and media captions
+- Complete public copy, subtitle wording, and media captions approved on 2026-06-27
 
 ## Narrative goal
 

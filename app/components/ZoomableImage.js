@@ -22,16 +22,19 @@ export default function ZoomableImage({
   const [mounted, setMounted] = useState(false);
   const [scale, setScale] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef({ dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 });
 
   useEffect(() => {
-    setMounted(true);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const close = useCallback(() => {
     setIsOpen(false);
     setScale(1);
     setOffset({ x: 0, y: 0 });
+    setIsDragging(false);
   }, []);
 
   const open = useCallback((e) => {
@@ -89,6 +92,7 @@ export default function ZoomableImage({
       originX: offset.x,
       originY: offset.y,
     };
+    setIsDragging(true);
   }, [scale, offset]);
 
   const onMouseMove = useCallback((e) => {
@@ -100,6 +104,7 @@ export default function ZoomableImage({
 
   const onMouseUp = useCallback(() => {
     dragRef.current.dragging = false;
+    setIsDragging(false);
   }, []);
 
   const onImageDoubleClick = useCallback(() => {
@@ -124,15 +129,19 @@ export default function ZoomableImage({
         onMouseLeave={onMouseUp}
         onClick={(e) => e.stopPropagation()}
       >
-        <img
+        <Image
           src={src}
           alt={alt || ''}
+          width={width}
+          height={height}
+          unoptimized={unoptimized}
+          sizes="100vw"
           draggable={false}
           className="zoom-image"
           onDoubleClick={onImageDoubleClick}
           style={{
             transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})`,
-            cursor: scale > 1 ? (dragRef.current.dragging ? 'grabbing' : 'grab') : 'zoom-in',
+            cursor: scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in',
           }}
         />
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useRef, useState, useEffect } from 'react';
+import { createContext, useCallback, useContext, useRef, useState, useEffect } from 'react';
 
 const AudioCtx = createContext(null);
 
@@ -12,7 +12,7 @@ export function AudioProvider({ children }) {
   const clickRef = useRef(null);
   const isPlayingRef = useRef(false);
 
-  const initAudio = () => {
+  const initAudio = useCallback(() => {
     if (!musicRef.current) {
       musicRef.current = new Audio('/audio/music.mp3');
       musicRef.current.loop = true;
@@ -22,14 +22,14 @@ export function AudioProvider({ children }) {
       clickRef.current = new Audio('/audio/ui-click.wav');
       clickRef.current.volume = 0.3;
     }
-  };
+  }, []);
 
-  const playClick = () => {
+  const playClick = useCallback(() => {
     if (!isPlayingRef.current) return;
     initAudio();
     clickRef.current.currentTime = 0;
     clickRef.current.play().catch(() => {});
-  };
+  }, [initAudio]);
 
   // Global hover listener — fires once per interactive element entry (not on every child re-enter)
   useEffect(() => {
@@ -45,7 +45,7 @@ export function AudioProvider({ children }) {
 
     document.addEventListener('mouseover', handleMouseOver);
     return () => document.removeEventListener('mouseover', handleMouseOver);
-  }, []);
+  }, [playClick]);
 
   const toggleMusic = () => {
     initAudio();

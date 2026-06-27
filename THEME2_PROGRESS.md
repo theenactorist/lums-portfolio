@@ -3,15 +3,15 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Branch AI complete-copy review
+Current stage: Branch AI implementation complete; staging deployment next
 
 ## Current gate
 
-**Waiting for Olumide's review of the complete Branch AI public-copy draft.**
+**Branch AI copy and local implementation are approved. The current gate is the first noindex Vercel Preview.**
 
 Review: [Branch AI Case Study Draft](content/drafts/BRANCH_AI_CASE_STUDY.md)
 
-After approval, the copy can be mapped into the case-study components. Public case-study code will not be changed before the draft is approved.
+The approved copy is now mapped into the live Branch AI route and existing evidence media. Local production QA is complete; staging review follows the Preview deployment.
 
 ## Status at a glance
 
@@ -19,19 +19,19 @@ After approval, the copy can be mapped into the case-study components. Public ca
 | --- | --- | --- |
 | Theme 2 branch and worktree | Complete | Separate from `main` |
 | Theme 2 project guidance | Complete | `AGENTS.md` committed |
-| Master specification | Ready for review | Stored at `../PORTFOLIO_REFERENCE_SPEC.md` |
+| Master specification | Accepted for implementation | Stored at `../PORTFOLIO_REFERENCE_SPEC.md` |
 | Typeface foundation | Complete | Charlie's system stack controlled by one CSS token |
 | Local/Vercel environment variables | Complete | Secrets linked and gitignored |
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
 | Branch AI storyline | Approved | Title, story order, and five phase labels confirmed |
-| Branch AI complete copy | Awaiting review | Full recruiter-first draft and media captions completed |
+| Branch AI complete copy | Approved and implemented | Full recruiter-first draft and media captions are live in the Theme 2 route |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
-| Full visual implementation | Not started | Only the global font token has changed |
-| Baseline build | Not started | Dependencies are not installed in this worktree |
+| Full visual implementation | In progress | Branch AI pilot is implemented; the global Theme 2 shell remains a later milestone |
+| Baseline build | Complete | Dependencies installed; lint and production build pass |
 | Vercel staging preview | Not created | Branch is local and has not been pushed |
-| Accessibility/performance QA | Not started | Final milestone |
+| Accessibility/performance QA | Pilot checks complete | Branch AI desktop/mobile, anchor navigation, image zoom, and browser logs verified locally; full-site QA remains |
 
 ## Completed work
 
@@ -94,6 +94,13 @@ After approval, the copy can be mapped into the case-study components. Public ca
 - [x] Approved `Turning fragmented AI use into consistent product outputs at Branch` as the case title.
 - [x] Approved the Branch AI narrative direction, story order, and five phase labels.
 - [x] Wrote the complete [Branch AI Case Study Draft](content/drafts/BRANCH_AI_CASE_STUDY.md).
+- [x] Received owner approval for the full Branch AI copy, subtitle, learning statements, and media captions.
+- [x] Implemented the approved recruiter-first story in the active Branch AI route.
+- [x] Mapped the approved copy to existing evidence media and corrected mismatched hero and illustration assets.
+- [x] Added accessible sticky phase navigation and preserved full-size image zoom.
+- [x] Updated the active Home card and Branch metadata with the approved title and framing.
+- [x] Verified the compiled production page on desktop and at 390px, including hash navigation and image zoom.
+- [x] Confirmed zero browser warnings/errors during the local production check.
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
@@ -101,11 +108,12 @@ After approval, the copy can be mapped into the case-study components. Public ca
 
 ### Milestone 1 — Finish setup and create staging
 
-- [ ] Confirm the master specification is accepted as the Theme 2 source of truth.
-- [ ] Transfer the approved starting snapshot from the original worktree: `DESIGN.md`, `PRODUCT.md`, relevant existing CSS changes, and supporting project context.
-- [ ] Install dependencies with `npm ci`.
-- [ ] Run the baseline `npm run lint` and `npm run build`.
-- [ ] Resolve any baseline errors without redesigning the interface.
+- [x] Confirm the master specification is accepted as the Theme 2 source of truth.
+- [x] Reconcile the original-worktree snapshot; exclude the conflicting legacy `DESIGN.md`, `PRODUCT.md`, and `.impeccable` output from Theme 2.
+- [x] Install dependencies with `npm ci`.
+- [x] Run the baseline `npm run lint` and `npm run build`.
+- [x] Resolve baseline lint errors without redesigning unrelated interfaces.
+- [x] Patch production dependency advisories and verify `npm audit --omit=dev` reports zero vulnerabilities.
 - [ ] Push `theme-2` to GitHub.
 - [ ] Create a Vercel Preview deployment.
 - [ ] Apply and verify `noindex` on Preview.
@@ -127,8 +135,8 @@ After approval, the copy can be mapped into the case-study components. Public ca
 - [x] Approve the five sticky phase labels.
 - [x] Approve the story order and chapter balance.
 - [x] Write the complete Branch AI case-study draft.
-- [ ] Review and approve the subtitle, summary, complete wording, learning statements, and media captions.
-- [ ] Map approved copy to existing media and captions.
+- [x] Review and approve the subtitle, summary, complete wording, learning statements, and media captions.
+- [x] Map approved copy to existing media and captions.
 
 #### Remaining pages and projects
 
@@ -169,10 +177,10 @@ After approval, the copy can be mapped into the case-study components. Public ca
 ### Milestone 5 — Case-study system and Branch AI
 
 - [ ] Build shared case-study hero, metadata, metrics, prose, quote, table, gallery, and next-project primitives.
-- [ ] Build accessible sticky project-specific phase navigation.
+- [x] Build accessible sticky project-specific phase navigation for the Branch AI pilot.
 - [ ] Build accessible scrollable device frames for genuinely long assets.
-- [ ] Preserve zoomable media and galleries.
-- [ ] Implement the approved Branch AI case study.
+- [x] Preserve zoomable media in the Branch AI pilot.
+- [x] Implement the approved Branch AI case study.
 - [ ] Review the Branch AI staging page with Olumide.
 
 ### Milestone 6 — Remaining case studies and utility routes
@@ -209,7 +217,7 @@ After approval, the copy can be mapped into the case-study components. Public ca
 | Required environment variables | Available for Preview |
 | Remote `theme-2` branch | Not pushed |
 | Preview deployment | Not created |
-| Preview `noindex` | Not configured |
+| Preview `noindex` | Implemented in code; deployment verification pending |
 | Staging URL | Not available yet |
 
 ## Milestone commits
@@ -229,9 +237,10 @@ After approval, the copy can be mapped into the case-study components. Public ca
 - `d6b4e5b` — Approved Branch AI storyline and complete case-study draft
 - `7f5d198` — Recorded the Branch AI draft milestone
 - `1963dfe` — Removed the unnecessary retrospective prompt
+- `a5157d7` — Recorded the approved retrospective decision
 
 ## Next three actions
 
-1. Olumide reviews the complete Branch AI draft, including the subtitle, recruiter TLDR, learning statements, and media captions.
-2. After copy approval, map the draft into the existing Branch AI components and media.
-3. After the master specification is confirmed, finish the baseline setup and create the first Vercel staging preview.
+1. Commit and push the approved Branch AI implementation to `theme-2`.
+2. Create and verify the first noindex Vercel Preview, then record its URL here.
+3. Review the staging page with Olumide before continuing the remaining global and case-study copy gates.

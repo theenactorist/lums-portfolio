@@ -47,8 +47,8 @@ export default function NotFound() {
         >
           <h2 className="cosmic-404__headline">Signal Lost</h2>
           <p className="cosmic-404__sub">
-            Unlike the Artemis II crew, it seems you're completely lost in space. 
-            The coordinates you entered don't exist in our known universe.
+            Unlike the Artemis II crew, it seems you’re completely lost in space.
+            The coordinates you entered don’t exist in our known universe.
           </p>
 
           <Link href="/" className="cosmic-404__cta">

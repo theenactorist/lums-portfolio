@@ -1,11 +1,11 @@
 # Branch AI Case Study Draft
 
-Status: Ready for owner copy review
+Status: Approved for implementation
 Last updated: 2026-06-27
 Fact source: `content/fact-sheets/BRANCH_AI.md`
 Approved outline: `content/outlines/BRANCH_AI_STORYLINE.md`
 
-This file contains the proposed public copy and media annotations. It is not approved for implementation until Olumide completes the copy review.
+Approval record: Olumide approved the complete copy on 2026-06-27. Implement without changing its meaning.
 
 ## Selected-work card
 
@@ -321,7 +321,7 @@ The illustration workflow could eventually support controlled external-agency ac
 
 ### Programme overview
 
-Asset: `three-ai-workflows.jpg`
+Asset: `cover.jpg`
 
 Alt text:
 

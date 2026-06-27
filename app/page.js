@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from './components/PageTransition';
 import BackgroundRipple from './components/BackgroundRipple';
@@ -14,14 +15,14 @@ import LogoTicker from './components/LogoTicker';
 const projects = [
   {
     id: 'branch-ai',
-    title: 'Three AIs, One Design System',
-    description: 'Turning scattered AI use into governed product workflows for illustration, copywriting, and prototyping.',
-    role: 'Product Designer',
+    title: 'Turning fragmented AI use into consistent product outputs at Branch',
+    description: 'Reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across three markets.',
+    role: 'Product Designer, AI Systems',
     period: 'Oct 2025 - Feb 2026',
     tags: ['AI', 'Design Systems', 'Fintech'],
     color: '#0a1628',
     accentColor: '#6CD2FF',
-    thumbnail: '/work/branch-ai/three-ai-workflows.jpg',
+    thumbnail: '/work/branch-ai/cover.jpg',
   },
   {
     id: 'shiga-onboarding',
@@ -345,10 +346,12 @@ export default function Home() {
                     {/* Image panel */}
                     <div className="project-entry__image" style={{ backgroundColor: project.color }}>
                       {project.thumbnail ? (
-                        <img
+                        <Image
                           src={project.thumbnail}
                           alt={project.title}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          style={{ objectFit: 'cover' }}
                         />
                       ) : (
                         <div className="project-entry__image-placeholder">

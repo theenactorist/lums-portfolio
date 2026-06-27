@@ -68,7 +68,10 @@ export default function BackgroundRipple({
   const tapTimerRef = useRef({});
   const rippleClearRef = useRef(null);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   // Get a non-repeating random fact
   const getRandomFact = useCallback(() => {

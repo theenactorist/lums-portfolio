@@ -57,8 +57,9 @@ export default function SparklesText({ children, className = '' }) {
 
   useEffect(() => {
     // Generate initial sparkles
-    const initial = Array.from({ length: 3 }, () => generateSparkle());
-    setSparkles(initial);
+    const frame = requestAnimationFrame(() => {
+      setSparkles(Array.from({ length: 3 }, () => generateSparkle()));
+    });
 
     // Continuously cycle sparkles — 50% slower interval
     const interval = setInterval(() => {
@@ -71,7 +72,10 @@ export default function SparklesText({ children, className = '' }) {
       });
     }, 1200); // 50% slower (was ~800ms)
 
-    return () => clearInterval(interval);
+    return () => {
+      cancelAnimationFrame(frame);
+      clearInterval(interval);
+    };
   }, []);
 
   return (

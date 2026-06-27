@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import ThemeProvider from "./components/ThemeProvider";
 import { AudioProvider } from "./components/AudioContext";
 
+const isPreview = process.env.VERCEL_ENV === 'preview';
+
 export const metadata = {
   metadataBase: new URL('https://olumideolusesi.com'),
   title: {
@@ -39,11 +41,11 @@ export const metadata = {
     description: "Senior Product Designer crafting intuitive digital experiences.",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: !isPreview,
+    follow: !isPreview,
     googleBot: {
-      index: true,
-      follow: true,
+      index: !isPreview,
+      follow: !isPreview,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,

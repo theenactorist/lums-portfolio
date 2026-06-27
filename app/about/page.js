@@ -99,12 +99,12 @@ export default function About() {
               
               <div className="about-lums-prose">
                 <p>
-                  I don't believe in rigid frameworks that stall momentum. Instead, I focus on shipping value safely and quickly. Here is how I think about building products:
+                  I don’t believe in rigid frameworks that stall momentum. Instead, I focus on shipping value safely and quickly. Here is how I think about building products:
                 </p>
                 <ul className="about-lums-list">
-                  <li><strong>Design isn't just screens, it's systems:</strong> I don't stop at the UI. I love digging into how components connect, scale, and behave across an entire ecosystem.</li>
-                  <li><strong>AI amplifies craft, it doesn't replace it:</strong> I leverage AI to handle the heavy lifting of zero-to-one exploration, giving me the mental space to obsess over human nuance, product strategy, and visual polish.</li>
-                  <li><strong>Iterate while the paint is still wet:</strong> I believe in putting ideas in front of users fast. We learn exponentially more from a broken prototype in a user's hands than a perfect file on a canvas.</li>
+                  <li><strong>Design isn’t just screens, it’s systems:</strong> I don’t stop at the UI. I love digging into how components connect, scale, and behave across an entire ecosystem.</li>
+                  <li><strong>AI amplifies craft, it doesn’t replace it:</strong> I leverage AI to handle the heavy lifting of zero-to-one exploration, giving me the mental space to obsess over human nuance, product strategy, and visual polish.</li>
+                  <li><strong>Iterate while the paint is still wet:</strong> I believe in putting ideas in front of users fast. We learn exponentially more from a broken prototype in a user’s hands than a perfect file on a canvas.</li>
                   <li><strong>Carry the engineers along:</strong> A design only matters if it ships. I design with the backend in mind, writing clear documentation and obsessing over clean handoffs so developers actually enjoy building what we design.</li>
                 </ul>
               </div>
@@ -154,7 +154,7 @@ export default function About() {
                 <div className="about-lums-loves__icon">📚</div>
                 <h3 className="about-lums-loves__title">Continuous Learning</h3>
                 <p className="about-lums-loves__desc">
-                  I dedicate at least 1 hour every single day to studying design trends. Currently, I'm deeply reading <em>Org Design for Design Orgs</em> and heavily researching Generative UI patterns for AI-forward products.
+                  I dedicate at least 1 hour every single day to studying design trends. Currently, I’m deeply reading <em>Org Design for Design Orgs</em> and heavily researching Generative UI patterns for AI-forward products.
                 </p>
               </motion.div>
             </motion.div>
