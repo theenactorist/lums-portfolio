@@ -1,7 +1,7 @@
 # Theme 2 Content Style Guide
 
 Status: Active editorial standard  
-Last updated: 2026-06-26  
+Last updated: 2026-06-27
 Applies to: Theme 2 public portfolio copy
 
 ## Purpose
@@ -75,7 +75,7 @@ Do not force these themes into a project when the evidence does not support them
 
 ### Use `I` for confirmed personal work
 
-- `I ran the product-team poll.`
+- `I wrote the system instructions and built the render pipeline.`
 - `I translated recurring feedback into system rules.`
 - `I designed and tested the workflow.`
 
@@ -86,7 +86,7 @@ Do not force these themes into a project when the evidence does not support them
 
 ### Name collaborators when their contribution matters
 
-- `Deovrat sponsored the programme and reviewed the direction.`
+- `Deovrat provided one-to-one check-ins that kept the work aligned with the objective.`
 - `I worked with product managers and engineers to validate the workflow.`
 
 These are structural examples only. Do not use them as project facts until the relevant fact sheet is approved.
@@ -131,6 +131,83 @@ unless the scope and attribution are verified.
 | Résumé | Factual and compact | High |
 | Ask Lums | Warm, concise, useful | Low to medium |
 | 404 | Brief and lightly playful | Very low |
+
+## Recruiter-first framing
+
+Treat the portfolio as a product and the recruiter or hiring manager as its primary user. Their first task is to decide quickly whether Olumide fits the role well enough to justify deeper reading.
+
+- Make role relevance visible before asking for a scroll.
+- Put the strongest and most relevant case study first.
+- Design every level as a decision point: card, hero, TLDR, phase heading, and section.
+- Let descriptive headings carry the story for visitors who only scan.
+- Show niche experience—fintech, AI systems, multi-market products—as a differentiator.
+- Remove background or process detail that does not change the reader's assessment of judgment, craft, collaboration, or impact.
+
+## Case-study card contract
+
+Every card should answer what the project was, why it mattered, and what Olumide's role was before it is opened.
+
+- Use an informative outcome- or scope-led title, not only a product name.
+- Add a subtitle that clarifies the product problem, scope, or impact.
+- Show scannable role, year, and platform labels.
+- Use one or two strong product screens in clean, consistent presentation.
+- Keep card layout consistent across projects to signal systems thinking.
+- Avoid presenting a card as a decorative poster with no useful premise.
+
+Recommended title pattern:
+
+> [Design action or transformation] for [product/team]: [scope, audience, or outcome]
+
+Use the pattern as a test, not a mandatory sentence formula.
+
+## Case-study opening contract
+
+Before the first long-form phase, include a short recruiter TLDR:
+
+- What was happening?
+- Who was affected?
+- Why did it matter?
+- What did Olumide personally own?
+- What solution was built?
+- What changed, quantitatively or qualitatively?
+
+Surface the most decision-useful outcomes near the top. Do not hide all evidence at the end.
+
+## Decision-driven process
+
+- Show only research and process activities that changed the solution or reduced a meaningful risk.
+- Focus on key decision moments instead of reproducing every design step.
+- Include failed or abandoned directions with the evidence and reasoning behind the decision to stop.
+- Treat a well-explained rejected path as a seniority signal.
+- Tease the solution in the problem section; do not make the reader wait for a reveal.
+
+## Visual evidence
+
+- Use approximately 70% visual and 30% text as a flexible section-level heuristic, not a rigid page quota.
+- Annotate screens to show what changed, why it changed, and which evidence informed it.
+- Explain before/after differences instead of relying on side-by-side images alone.
+- Crop or highlight the relevant insight from workshops, boards, surveys, and analytics.
+- Do not show unreadable zoomed-out artefacts as proof of process.
+- Use embedded prototypes or short recordings only when interaction materially strengthens the story.
+
+## Outcome ladder
+
+Use the strongest available evidence without inventing precision:
+
+1. Business metrics
+2. Product or behavioural metrics
+3. Task or usability results
+4. Operational and team-efficiency evidence
+5. Qualitative feedback, support patterns, or stakeholder observations
+
+When metrics are confidential or unavailable, state the qualitative improvement and its evidence. Never use missing metrics as a reason to omit the outcome.
+
+## Case-study length
+
+- Include only sections, artefacts, and experiments that shaped the final solution or prove a meaningful capability.
+- Keep paragraphs short and headings descriptive.
+- End with outcomes, what changed in Olumide's thinking, what he would do differently, and a route to the next case study.
+- Preserve project-specific phases rather than forcing every case into the same generic template.
 
 ## Case-study narrative pattern
 

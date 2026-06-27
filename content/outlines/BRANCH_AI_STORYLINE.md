@@ -1,18 +1,22 @@
 # Branch AI Storyline and Phase Labels
 
 Status: Ready for owner review
-Last updated: 2026-06-26
+Last updated: 2026-06-27
 Fact source: `content/fact-sheets/BRANCH_AI.md`
 
 ## Narrative goal
 
-Present Branch AI as a product-systems case study rather than a collection of AI experiments. The story should carry Charlie Hart's calm seniority, Lucas Barrientos's narrative tension, and Olumide's confirmed first-person ownership.
+Present Branch AI as a product-systems case study rather than a collection of AI experiments. A recruiter should understand the product-team problem, Olumide's role, the three systems, and the strongest outcomes before deciding whether to continue. The story should carry Charlie Hart's calm seniority, Lucas Barrientos's narrative tension, and Olumide's confirmed first-person ownership.
 
 The Substack article informs the rhythm—outcome, broken status quo, repeated failures, system architecture, pipeline, iteration, and future potential—but none of its prose should be copied.
 
 ## Recommended case title
 
-> Three AI workflows. One governed design system.
+> Building governed AI workflows for Branch's product team
+
+## Recommended subtitle
+
+> How I created reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping across India, Kenya, and Nigeria.
 
 ## Recommended summary
 
@@ -27,9 +31,17 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 - Core users: 5 designers, 4 UX researchers, 15 product managers
 - Tools: ChatGPT, Claude, Figma MCP, JSON rules
 
-## Outcome snapshot
+## Case-card contract
 
-Use these as distinct outcomes, never as one combined adoption claim:
+- Title: `Building governed AI workflows for Branch's product team`
+- Subtitle: `Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping.`
+- Labels: `Product Designer, AI Systems` · `2025–2026` · `AI systems / Fintech`
+- Visuals: one programme overview plus one strong example showing the three workflows or the unified illustration output
+- Keep the same card structure and metadata placement used by every other selected-work card.
+
+## Recruiter TLDR and outcome snapshot
+
+Place this immediately below the hero. Use scannable metadata, a short problem/solution statement, and these distinct outcomes—never one combined adoption claim:
 
 - Illustration GPT: more than 500 image-generation iterations; all product markets live.
 - CopyGPT: 530 screens reviewed, 4,390 components audited, 1,778 changes implemented, and 95% to 99% accuracy through human review.
@@ -39,11 +51,11 @@ Do not use an exact illustration total or a `500+ tool uses` claim.
 
 ## Sticky phase labels
 
-1. The inconsistency problem
-2. From prompts to systems
-3. Three governed workflows
-4. Human review at scale
-5. What changed
+1. Why AI outputs kept drifting
+2. Turning prompts into systems
+3. Three workflows in practice
+4. Testing with the product team
+5. Outcomes and hindsight
 
 These labels are specific to the Branch AI story and should not become a universal template for other case studies.
 
@@ -66,7 +78,7 @@ Purpose: begin with the changed state rather than the process.
 - Olumide reframed the opportunity as product infrastructure rather than prompt optimisation.
 - State personal and team ownership boundaries immediately.
 
-## Phase 1 — The inconsistency problem
+## Phase 1 — Why AI outputs kept drifting
 
 ### Fast outputs. Different versions of Branch.
 
@@ -95,7 +107,7 @@ Close the phase with the turning point:
 
 This line is a proposed narrative direction, not approved final copy.
 
-## Phase 2 — From prompts to systems
+## Phase 2 — Turning prompts into systems
 
 ### The system became the product
 
@@ -112,7 +124,7 @@ This line is a proposed narrative direction, not approved final copy.
 - Deovrat used one-to-one check-ins to maintain alignment with the objective.
 - Product managers, designers, researchers, developers, and stakeholders participated according to each workflow.
 
-## Phase 3 — Three governed workflows
+## Phase 3 — Three workflows in practice
 
 This is the longest phase. Give Illustration GPT the deepest treatment.
 
@@ -203,7 +215,7 @@ Do not use the name `Veela`.
 - Directional product-manager feedback suggested about 30% faster PRD evaluation.
 - Stakeholders could react to an interaction instead of only a written description.
 
-## Phase 4 — Human review at scale
+## Phase 4 — Testing with the product team
 
 ### Governance did not remove judgment
 
@@ -211,6 +223,15 @@ Do not use the name `Veela`.
 - Explain which decisions remained human: storytelling, abstraction, inclusivity, context, and final approval.
 - Contrast individual prompting with shared operating systems.
 - Do not imply autonomous production without review.
+
+### Iterations and abandoned paths
+
+- Show the illustration directions that failed and why they were abandoned.
+- Annotate the colour, material, camera, or consistency issue visible in each example.
+- Show how repeated failures became rules or negative constraints.
+- For CopyGPT, show how over-strict and under-specified rules produced different failure modes.
+- For prototyping, contrast a generic output with one that correctly used Neem patterns.
+- Include only iterations that changed the system; do not publish an exhaustive process archive.
 
 ### Team roles
 
@@ -224,7 +245,7 @@ Do not use the name `Veela`.
 
 Use Deovrat's approved comment as the only recommendation inside the case. Keep the quote separate from evidence and ownership claims.
 
-## Phase 5 — What changed
+## Phase 5 — Outcomes and hindsight
 
 ### Outcomes
 
@@ -267,14 +288,20 @@ Reuse the strongest current Branch AI assets, subject to layout review:
 - `ai-human-oversight-loop.jpg`
 - Deovrat recognition media
 
-Every image caption must explain the decision or evidence it represents rather than merely naming the image.
+Visual rules:
+
+- Use roughly 70% visual and 30% text within evidence-heavy sections as a flexible heuristic.
+- Annotate key screens and outputs rather than presenting context-free galleries.
+- Crop or enlarge the meaningful detail from workshops, diagrams, and reports.
+- Use before/after or failed/final comparisons only with an explanation of what changed and why.
+- Every caption must explain the decision or evidence represented rather than merely naming the image.
 
 ## Approval request
 
 Approve or correct:
 
-1. Case title
-2. Summary
+1. Case title and subtitle
+2. Summary and recruiter TLDR
 3. Five sticky phase labels
 4. Story order
 5. Depth balance: Illustration GPT as the longest chapter, CopyGPT and Neem DS Prototyper more compact

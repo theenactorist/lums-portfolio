@@ -130,7 +130,11 @@ Branch AI — **Facts approved; storyline under review**
 
 Working title:
 
-> Three AI workflows. One governed design system.
+> Building governed AI workflows for Branch's product team
+
+Working subtitle:
+
+> Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping.
 
 Working description:
 

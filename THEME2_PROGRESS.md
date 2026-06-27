@@ -7,7 +7,7 @@ Current stage: Content strategy and Branch AI approval workflow
 
 ## Current gate
 
-**Waiting for Olumide's review of the Branch AI storyline and phase labels.**
+**Waiting for Olumide's review of the recruiter-first Branch AI title, subtitle, storyline, and phase labels.**
 
 Review: [Branch AI Storyline and Phase Labels](content/outlines/BRANCH_AI_STORYLINE.md)
 
@@ -86,6 +86,8 @@ After approval, the next content step is the complete Branch AI case-study draft
 - [x] Removed the personal poll claim and retained only the approved team-poll result.
 - [x] Approved CopyGPT measurement and Neem's directional 30% faster-evaluation result.
 - [x] Created [Branch AI Storyline and Phase Labels](content/outlines/BRANCH_AI_STORYLINE.md).
+- [x] Synthesised the UXfolio webinar into recruiter-first card, TLDR, decision, visual-evidence, and outcome rules.
+- [x] Replaced the vague Branch AI working title with an informative title and subtitle.
 
 ## Remaining work
 
