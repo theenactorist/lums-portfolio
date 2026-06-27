@@ -3,15 +3,17 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Branch AI implementation complete; staging deployment next
+Current stage: First Branch AI staging review
 
 ## Current gate
 
-**Branch AI copy and local implementation are approved. The current gate is the first noindex Vercel Preview.**
+**The first protected, noindex Vercel Preview is ready for Olumide's Branch AI staging review.**
 
 Review: [Branch AI Case Study Draft](content/drafts/BRANCH_AI_CASE_STUDY.md)
 
-The approved copy is now mapped into the live Branch AI route and existing evidence media. Local production QA is complete; staging review follows the Preview deployment.
+Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-9c9dsy3sg-theenactorists-projects.vercel.app/work/branch-ai)
+
+The approved copy is mapped into the live Branch AI route and existing evidence media. Local production QA and authenticated deployment checks are complete. The Preview remains protected by Vercel authentication and blocked from indexing.
 
 ## Status at a glance
 
@@ -30,7 +32,7 @@ The approved copy is now mapped into the live Branch AI route and existing evide
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | In progress | Branch AI pilot is implemented; the global Theme 2 shell remains a later milestone |
 | Baseline build | Complete | Dependencies installed; lint and production build pass |
-| Vercel staging preview | Not created | Branch is local and has not been pushed |
+| Vercel staging preview | Ready for review | Protected Preview is deployed and verified |
 | Accessibility/performance QA | Pilot checks complete | Branch AI desktop/mobile, anchor navigation, image zoom, and browser logs verified locally; full-site QA remains |
 
 ## Completed work
@@ -114,10 +116,10 @@ The approved copy is now mapped into the live Branch AI route and existing evide
 - [x] Run the baseline `npm run lint` and `npm run build`.
 - [x] Resolve baseline lint errors without redesigning unrelated interfaces.
 - [x] Patch production dependency advisories and verify `npm audit --omit=dev` reports zero vulnerabilities.
-- [ ] Push `theme-2` to GitHub.
-- [ ] Create a Vercel Preview deployment.
-- [ ] Apply and verify `noindex` on Preview.
-- [ ] Add the staging URL to this document.
+- [x] Push `theme-2` to GitHub.
+- [x] Create a Vercel Preview deployment.
+- [x] Apply and verify `noindex` on Preview.
+- [x] Add the staging URL to this document.
 
 ### Milestone 2 — Finish approved copy before layout
 
@@ -215,10 +217,10 @@ The approved copy is now mapped into the live Branch AI route and existing evide
 | --- | --- |
 | Vercel project | `lums-portfolio` linked locally |
 | Required environment variables | Available for Preview |
-| Remote `theme-2` branch | Not pushed |
-| Preview deployment | Not created |
-| Preview `noindex` | Implemented in code; deployment verification pending |
-| Staging URL | Not available yet |
+| Remote `theme-2` branch | Pushed and tracking `origin/theme-2` |
+| Preview deployment | Ready; protected by Vercel authentication |
+| Preview `noindex` | Verified: response header plus `robots.txt` disallow |
+| Staging URL | [Theme 2 Branch AI Preview](https://lums-portfolio-9c9dsy3sg-theenactorists-projects.vercel.app/work/branch-ai) |
 
 ## Milestone commits
 
@@ -238,9 +240,10 @@ The approved copy is now mapped into the live Branch AI route and existing evide
 - `7f5d198` — Recorded the Branch AI draft milestone
 - `1963dfe` — Removed the unnecessary retrospective prompt
 - `a5157d7` — Recorded the approved retrospective decision
+- `45be3ae` — Implemented the approved Branch AI case study and preview foundations
 
 ## Next three actions
 
-1. Commit and push the approved Branch AI implementation to `theme-2`.
-2. Create and verify the first noindex Vercel Preview, then record its URL here.
-3. Review the staging page with Olumide before continuing the remaining global and case-study copy gates.
+1. Olumide reviews the Branch AI staging page and confirms the implemented story, hierarchy, and evidence sequence.
+2. Resolve any staging feedback without changing approved facts or ownership.
+3. Continue the remaining global copy gates, then implement the full Charlie-inspired Theme 2 shell.
