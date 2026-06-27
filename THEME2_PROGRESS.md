@@ -11,7 +11,7 @@ Current stage: First Branch AI staging review
 
 Review: [Branch AI Case Study Draft](content/drafts/BRANCH_AI_CASE_STUDY.md)
 
-Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-9c9dsy3sg-theenactorists-projects.vercel.app/work/branch-ai)
+Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai)
 
 The approved copy is mapped into the live Branch AI route and existing evidence media. Local production QA and authenticated deployment checks are complete. The Preview remains protected by Vercel authentication and blocked from indexing.
 
@@ -220,7 +220,7 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 | Remote `theme-2` branch | Pushed and tracking `origin/theme-2` |
 | Preview deployment | Ready; protected by Vercel authentication |
 | Preview `noindex` | Verified: response header plus `robots.txt` disallow |
-| Staging URL | [Theme 2 Branch AI Preview](https://lums-portfolio-9c9dsy3sg-theenactorists-projects.vercel.app/work/branch-ai) |
+| Staging URL | [Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai) |
 
 ## Milestone commits
 
