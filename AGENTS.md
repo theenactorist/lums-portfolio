@@ -87,7 +87,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Résumé and career source
 
-- Use the user-supplied updated résumé as the authoritative source for résumé and employment content.
+- Use the user-supplied résumé verified on 2026-06-27 and `content/fact-sheets/RESUME.md` as the authoritative source for résumé and employment content.
 - Keep the existing theme-responsive résumé page structure and update its content from that PDF.
 - Preserve Print and Download PDF behaviour, with printable output forced to the light theme.
 - Use `6+ years` consistently; remove conflicting `7+ years` and `8+ years` claims.

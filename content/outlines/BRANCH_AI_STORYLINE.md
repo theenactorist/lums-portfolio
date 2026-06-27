@@ -10,13 +10,25 @@ Present Branch AI as a product-systems case study rather than a collection of AI
 
 The Substack article informs the rhythm—outcome, broken status quo, repeated failures, system architecture, pipeline, iteration, and future potential—but none of its prose should be copied.
 
-## Recommended case title
+## Case-title direction
 
-> Building three AI workflows for consistent product design at Branch
+Status: Reopened after owner feedback. The final title requires confirmation.
+
+Recommended:
+
+> Turning fragmented AI use into consistent product outputs at Branch
+
+Alternative, more literal:
+
+> Building three AI workflows for consistent product outputs at Branch
+
+Alternative, more specific:
+
+> Creating consistent illustrations, product copy, and prototypes with AI at Branch
 
 ## Recommended subtitle
 
-> How I turned brand, market, and design-system rules into reusable systems for illustrations, product copy, and Neem-based prototyping across India, Kenya, and Nigeria.
+> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
 
 ## Recommended summary
 
@@ -33,8 +45,8 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 
 ## Case-card contract
 
-- Title: `Building three AI workflows for consistent product design at Branch`
-- Subtitle: `Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping across India, Kenya, and Nigeria.`
+- Title: pending owner selection from the three options above.
+- Subtitle: `How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.`
 - Labels: `Product Designer, AI Systems` · `2025–2026` · `AI systems / Fintech`
 - Visuals: one programme overview plus one strong example showing the three workflows or the unified illustration output
 - Keep the same card structure and metadata placement used by every other selected-work card.

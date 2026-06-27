@@ -1,7 +1,7 @@
 # Theme 2 Copy Deck
 
 Status: Draft for review  
-Last updated: 2026-06-26  
+Last updated: 2026-06-27
 Voice standard: `CONTENT_STYLE_GUIDE.md`
 
 ## How to use this file
@@ -128,13 +128,23 @@ Intro:
 
 Branch AI — **Facts approved; storyline under review**
 
-Working title:
+Title direction — **reopened after owner feedback**
 
-> Building three AI workflows for consistent product design at Branch
+Recommended:
+
+> Turning fragmented AI use into consistent product outputs at Branch
+
+Alternative, more literal:
+
+> Building three AI workflows for consistent product outputs at Branch
+
+Alternative, more specific:
+
+> Creating consistent illustrations, product copy, and prototypes with AI at Branch
 
 Working subtitle:
 
-> Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping across India, Kenya, and Nigeria.
+> How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
 
 Working description:
 
@@ -204,31 +214,31 @@ Card CTA:
 
 ### Career timeline
 
-**Draft based on updated résumé**
+**Draft based on the résumé verified on 2026-06-27**
 
 Shiga Onchain Banking  
 Senior Product Designer (Consultant)  
 May 2024–Present
 
-> Designing consumer, business, and merchant experiences across onchain banking, payments, and product systems.
+> Owns design strategy and operations across consumer wallet, corporate banking, and SaaS products, including Helium 2.0, complex payment flows, and AI-assisted design workflows.
 
 Branch International Financial Services  
 Senior Product Designer  
 October 2024–March 2026
 
-> Designed multi-market fintech experiences and built reusable AI workflows for product teams across four countries.
+> Designed mobile experiences across payments, onboarding, and lending while scaling Neem adoption, design operations, and AI workflows across four countries.
 
 Carbon Finance  
 Product Designer  
 June 2022–October 2024
 
-> Led product design across consumer banking and Carbon Business, the company's first SME lending product.
+> Owned product design and delivery across Carbon Business, onboarding, KYC, lending, payments, cards, and web experiences.
 
 United Bank for Africa Group  
 Product Designer  
 November 2019–June 2022
 
-> Designed consumer banking experiences and enterprise tools across mobile, ATM, kiosk, and HR systems.
+> Designed enterprise HR automation, internal tools, and consumer banking experiences, including a platform serving more than 10,000 employees.
 
 CTA:
 
@@ -283,7 +293,7 @@ Group projects using the same three categories as Home. Descriptions must match 
 
 **Source copy**
 
-Use the supplied updated PDF content in the existing theme-responsive résumé structure.
+Use the PDF verified on 2026-06-27 and the [Résumé Fact Sheet](fact-sheets/RESUME.md) in the existing theme-responsive résumé structure.
 
 Owner-approved correction: remove the PDF claim that the three Branch AI tools were used more than 500 times because usage cannot be proven. Keep 500+ illustration-generation iterations separate when discussing the Illustration GPT.
 

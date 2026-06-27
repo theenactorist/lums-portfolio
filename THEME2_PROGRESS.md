@@ -7,7 +7,7 @@ Current stage: Content strategy and Branch AI approval workflow
 
 ## Current gate
 
-**Waiting for Olumide's review of the recruiter-first Branch AI title, subtitle, storyline, and phase labels.**
+**Waiting for Olumide's selection or revision of the Branch AI output-consistency title direction, then review of the subtitle, storyline, and phase labels.**
 
 Review: [Branch AI Storyline and Phase Labels](content/outlines/BRANCH_AI_STORYLINE.md)
 
@@ -24,7 +24,8 @@ After approval, the next content step is the complete Branch AI case-study draft
 | Local/Vercel environment variables | Complete | Secrets linked and gitignored |
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
-| Branch AI storyline | Awaiting approval | Current gate |
+| Branch AI storyline | Awaiting approval | Title direction reopened around consistent outputs |
+| Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Not started | Only the global font token has changed |
 | Baseline build | Not started | Dependencies are not installed in this worktree |
@@ -88,6 +89,9 @@ After approval, the next content step is the complete Branch AI case-study draft
 - [x] Created [Branch AI Storyline and Phase Labels](content/outlines/BRANCH_AI_STORYLINE.md).
 - [x] Synthesised the UXfolio webinar into recruiter-first card, TLDR, decision, visual-evidence, and outcome rules.
 - [x] Replaced the vague Branch AI working title with an informative title and subtitle.
+- [x] Reopened the Branch AI title after owner feedback and documented three output-consistency directions.
+- [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
+- [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
 ## Remaining work
 
@@ -217,6 +221,6 @@ After approval, the next content step is the complete Branch AI case-study draft
 
 ## Next three actions
 
-1. Olumide reviews the Branch AI title, subtitle, recruiter TLDR, story order, and five phase labels.
+1. Olumide selects or revises the Branch AI title, then reviews the subtitle, recruiter TLDR, story order, and five phase labels.
 2. After approval, write the complete Branch AI copy in the copy deck.
 3. After the master specification is confirmed, finish the baseline setup and create the first Vercel staging preview.
