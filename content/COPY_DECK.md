@@ -22,7 +22,7 @@ Status labels:
 | Home | Hero approved; supporting sections drafted below | Copy review |
 | About | Needs an About fact sheet before full rewrite | Fact approval |
 | Work index | Structure approved; project summaries need case facts | Project fact approvals |
-| Branch AI | Needs fact and ownership approval | `content/fact-sheets/BRANCH_AI.md` |
+| Branch AI | Facts approved; storyline ready for review | `content/outlines/BRANCH_AI_STORYLINE.md` |
 | Shiga | Existing copy retained until audit | Fact sheet |
 | Carbon | Existing copy retained until audit | Fact sheet |
 | Sabi | Existing copy retained until audit | Fact sheet |
@@ -126,7 +126,7 @@ Intro:
 
 #### AI & New Ventures
 
-Branch AI — **Needs fact approval**
+Branch AI — **Facts approved; storyline under review**
 
 Working title:
 
@@ -136,7 +136,7 @@ Working description:
 
 > I built the core systems behind three governed workflows for illustration, product copy, and prototyping, working with the design team to translate Branch's product, market, and visual rules into tools the wider team could reuse.
 
-Do not add usage counts or illustration totals. The ownership sheet is partially approved, with remaining questions documented before full case-study prose.
+Do not add tool-usage counts or an exact illustration total. Use the approved storyline document before drafting full case-study prose.
 
 Shiga — **Existing claim; requires Shiga audit before case implementation**
 

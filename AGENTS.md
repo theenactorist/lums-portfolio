@@ -77,13 +77,12 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Adapt the narrative across Illustration GPT, CopyGPT, and Neem DS Prototyper.
 - Give Illustration GPT the deepest chapter; use a more compact equivalent arc for CopyGPT and Neem DS Prototyper.
 - Credit Deovrat as manager only for contributions Olumide confirms. Keep his recognition quote separate from ownership claims.
-- The fact sheet must reconcile rather than conflate:
-  - About 40 illustrations with 60% live versus 35 illustrations live.
-  - Six system versions versus 500+ illustration-generation iterations.
-  - The résumé claim that three AI tools were used 500+ times across six teams in four countries is unproven and must be removed from Theme 2 copy.
-  - More than 500 illustration-generation iterations is a separate candidate metric and must never be presented as tool usage.
-  - Personal work, management contribution, and wider-team contribution.
-  - Omit the name `Veela`; the four-layer terminology and external-release plans still require copy approval.
+- The approved Branch AI facts and ownership boundaries live in `content/fact-sheets/BRANCH_AI.md`; do not reintroduce rejected claims from older sources.
+- Never use the unproven claim that three tools were used 500+ times. More than 500 illustration-generation iterations is a separate approved metric.
+- Do not state an exact illustration total. All product markets are live.
+- Do not attribute the product-team poll to Olumide.
+- Omit the name `Veela`.
+- Use `content/outlines/BRANCH_AI_STORYLINE.md` only after Olumide approves its title, summary, phase labels, and story order.
 
 ## Résumé and career source
 
