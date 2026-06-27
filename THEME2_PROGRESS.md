@@ -225,6 +225,8 @@ After approval, the copy can be mapped into the case-study components. Public ca
 - `379dbb8` — Updated progress milestone and approval gate
 - `eba171f` — First output-purpose title revision
 - `52cae63` — Verified résumé source and reopened output-consistency title direction
+- `785ef12` — Recorded the latest content milestones
+- `d6b4e5b` — Approved Branch AI storyline and complete case-study draft
 
 ## Next three actions
 
