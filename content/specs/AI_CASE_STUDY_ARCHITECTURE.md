@@ -1,8 +1,8 @@
 # Independent AI Case Study Architecture
 
-Status: Standalone architecture and Illustration structure approved
+Status: Standalone architecture approved; Illustration narrative awaiting owner confirmation
 Last updated: 2026-06-27
-Fact source: `content/fact-sheets/BRANCH_AI.md`
+Fact sources: `content/fact-sheets/BRANCH_AI.md` and `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`
 
 ## Architecture decision
 
@@ -113,8 +113,11 @@ Approved by Olumide on 2026-06-27.
 ## Implementation status
 
 - The standalone Illustration route and five-step progress rail are implemented.
-- The route is intentionally not linked from the homepage while the narrative is incomplete.
-- The scaffold contains content-intake prompts instead of invented public copy.
+- The supplied archive has been analysed across all six documented versions.
+- The referenced article has been synthesised as structural context without transferring its ownership claims to Olumide.
+- A complete first-person narrative is implemented on the standalone route.
+- The route is intentionally not linked from the homepage until the facts, wording, and visual sequence are approved.
+- Open confirmation items are recorded in `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`.
 - The current combined case study remains available as an unlinked factual and visual reference.
 
 ## Metric hold for the copywriting case

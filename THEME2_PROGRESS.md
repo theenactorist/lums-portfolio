@@ -3,13 +3,17 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Independent AI case-study architecture
+Current stage: Illustration AI narrative review
 
 ## Current gate
 
-**The Illustration title, five-step structure, and standalone route are approved. The current gate is Olumide's expanded Illustration context and evidence.**
+**The Illustration title, five-step structure, and route are approved. The complete first narrative and six-version analysis are ready for Olumide's fact and voice review.**
 
 Review: [Independent AI Case Study Architecture](content/specs/AI_CASE_STUDY_ARCHITECTURE.md)
+
+Draft: [AI Illustration System Case Study](content/drafts/AI_ILLUSTRATION_SYSTEM_CASE_STUDY.md)
+
+Facts and open confirmations: [AI Illustration System Fact Sheet](content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md)
 
 Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai)
 
@@ -27,7 +31,7 @@ The current combined page remains available as a visual and factual reference. I
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
 | Combined Branch AI storyline | Superseded | Preserved as verified source material only |
-| Independent AI case studies | Illustration scaffold implemented | Illustration title and route approved; copywriting and prototyping remain pending |
+| Independent AI case studies | Illustration narrative implemented locally | Illustration fact and voice review pending; copywriting and prototyping remain pending |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Branch AI pilot complete locally | Approved replacement direction implemented |
@@ -133,6 +137,13 @@ The current combined page remains available as a visual and factual reference. I
 - [x] Created the independent `/work/ai-illustration-system` route.
 - [x] Added the approved five-step progress rail and content-intake scaffold.
 - [x] Kept the incomplete Illustration page off the homepage until its narrative is approved.
+- [x] Analysed the supplied Illustration GPT archive across all six documented versions.
+- [x] Recorded the material, governance, colour-system, and validation changes from v1 through v6.
+- [x] Synthesised the requested article sections while preserving Olumide's confirmed ownership boundaries.
+- [x] Created the standalone [AI Illustration System Fact Sheet](content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md).
+- [x] Wrote the complete [AI Illustration System Case Study Draft](content/drafts/AI_ILLUSTRATION_SYSTEM_CASE_STUDY.md).
+- [x] Replaced the Illustration scaffold with the complete five-step narrative and evidence sequence.
+- [x] Verified the Illustration page on desktop and mobile, including rail progress, overflow, and browser errors.
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
@@ -276,6 +287,6 @@ The current combined page remains available as a visual and factual reference. I
 
 ## Next three actions
 
-1. Review the rebuilt Branch AI staging page with Olumide.
-2. Record any owner feedback on hierarchy, type, rail behaviour, and section rhythm.
-3. Apply only confirmed revisions before using the system on the remaining case studies.
+1. Review and confirm the standalone Illustration narrative, facts, and visual sequence with Olumide.
+2. Resolve the six open confirmation items in the Illustration fact sheet.
+3. Link the approved case study from selected work, then begin the independent copywriting case study.
