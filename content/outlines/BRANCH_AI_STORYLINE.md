@@ -12,11 +12,11 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 
 ## Recommended case title
 
-> Building governed AI workflows for Branch's product team
+> Building three AI workflows for consistent product design at Branch
 
 ## Recommended subtitle
 
-> How I created reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping across India, Kenya, and Nigeria.
+> How I turned brand, market, and design-system rules into reusable systems for illustrations, product copy, and Neem-based prototyping across India, Kenya, and Nigeria.
 
 ## Recommended summary
 
@@ -33,8 +33,8 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 
 ## Case-card contract
 
-- Title: `Building governed AI workflows for Branch's product team`
-- Subtitle: `Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping.`
+- Title: `Building three AI workflows for consistent product design at Branch`
+- Subtitle: `Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping across India, Kenya, and Nigeria.`
 - Labels: `Product Designer, AI Systems` · `2025–2026` · `AI systems / Fintech`
 - Visuals: one programme overview plus one strong example showing the three workflows or the unified illustration output
 - Keep the same card structure and metadata placement used by every other selected-work card.

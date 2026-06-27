@@ -88,8 +88,8 @@ Never add a metric simply because recruiters expect one. Use verified qualitativ
 
 ## Applied to Branch AI
 
-- New card/hero title: `Building governed AI workflows for Branch's product team`.
-- Subtitle: `Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping.`
+- New card/hero title: `Building three AI workflows for consistent product design at Branch`.
+- Subtitle: `Reusable systems for on-brand illustrations, market-aware product copy, and Neem-based prototyping across India, Kenya, and Nigeria.`
 - Place role, timeline, markets, users, tools, and outcomes in a recruiter TLDR near the top.
 - Organise the problem around three visible failure lanes: illustration, product copy, and prototyping.
 - Give Illustration GPT the deepest visual and decision treatment.
