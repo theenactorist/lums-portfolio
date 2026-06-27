@@ -3,17 +3,17 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: First Branch AI staging review
+Current stage: Branch AI visual-system reset
 
 ## Current gate
 
-**The first protected, noindex Vercel Preview is ready for Olumide's Branch AI staging review.**
+**The first Branch AI visual treatment was rejected. The current gate is owner confirmation of the replacement hierarchy and connected progress rail.**
 
-Review: [Branch AI Case Study Draft](content/drafts/BRANCH_AI_CASE_STUDY.md)
+Review: [Branch AI Visual System Reset](content/specs/BRANCH_AI_VISUAL_SYSTEM.md)
 
 Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai)
 
-The approved copy is mapped into the live Branch AI route and existing evidence media. Local production QA and authenticated deployment checks are complete. The Preview remains protected by Vercel authentication and blocked from indexing.
+The content flow remains approved. Confirmed corrections are now recorded: light mode is the default, the public `Recruiter TLDR` label is replaced by `Overview`, Product markets is removed from public metadata, Tools is ChatGPT / Claude / Figma Make, and Core users includes 500 other Branch employees. The existing Preview remains protected and noindex, but its visual treatment is superseded.
 
 ## Status at a glance
 
@@ -22,18 +22,18 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 | Theme 2 branch and worktree | Complete | Separate from `main` |
 | Theme 2 project guidance | Complete | `AGENTS.md` committed |
 | Master specification | Accepted for implementation | Stored at `../PORTFOLIO_REFERENCE_SPEC.md` |
-| Typeface foundation | Complete | Charlie's system stack controlled by one CSS token |
+| Typeface foundation | Family verified; hierarchy reset proposed | Charlie's live system stack is correct, but the first weights, sizes, and spacing were not |
 | Local/Vercel environment variables | Complete | Secrets linked and gitignored |
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
 | Branch AI storyline | Approved | Title, story order, and five phase labels confirmed |
-| Branch AI complete copy | Approved and implemented | Full recruiter-first draft and media captions are live in the Theme 2 route |
+| Branch AI complete copy | Approved; corrections recorded | Content flow remains approved; metadata and public labels updated from owner feedback |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
-| Full visual implementation | In progress | Branch AI pilot is implemented; the global Theme 2 shell remains a later milestone |
+| Full visual implementation | Reset required | First Branch AI treatment retained too much of the old portfolio shell |
 | Baseline build | Complete | Dependencies installed; lint and production build pass |
-| Vercel staging preview | Ready for review | Protected Preview is deployed and verified |
-| Accessibility/performance QA | Pilot checks complete | Branch AI desktop/mobile, anchor navigation, image zoom, and browser logs verified locally; full-site QA remains |
+| Vercel staging preview | Superseded | Protected noindex Preview exists, but the rejected visual treatment must be rebuilt |
+| Accessibility/performance QA | Previous pilot only | Repeat after the approved visual rebuild |
 
 ## Completed work
 
@@ -90,7 +90,7 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 - [x] Removed the personal poll claim and retained only the approved team-poll result.
 - [x] Approved CopyGPT measurement and Neem's directional 30% faster-evaluation result.
 - [x] Created [Branch AI Storyline and Phase Labels](content/outlines/BRANCH_AI_STORYLINE.md).
-- [x] Synthesised the UXfolio webinar into recruiter-first card, TLDR, decision, visual-evidence, and outcome rules.
+- [x] Synthesised the UXfolio webinar into recruiter-first card, concise overview, decision, visual-evidence, and outcome rules.
 - [x] Replaced the vague Branch AI working title with an informative title and subtitle.
 - [x] Reopened the Branch AI title after owner feedback and documented three output-consistency directions.
 - [x] Approved `Turning fragmented AI use into consistent product outputs at Branch` as the case title.
@@ -103,6 +103,15 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 - [x] Updated the active Home card and Branch metadata with the approved title and framing.
 - [x] Verified the compiled production page on desktop and at 390px, including hash navigation and image zoom.
 - [x] Confirmed zero browser warnings/errors during the local production check.
+- [x] Recorded owner rejection of the first visual treatment without changing the approved content flow.
+- [x] Re-verified Charlie's live typeface, display weight, light canvas, and hierarchy.
+- [x] Studied the supplied Jessa case studies for type scale, editorial spacing, and evidence rhythm.
+- [x] Created the [Branch AI Visual System Reset](content/specs/BRANCH_AI_VISUAL_SYSTEM.md) for owner confirmation.
+- [x] Changed the Theme 2 default to light while preserving an optional persisted dark mode.
+- [x] Replaced the public `Recruiter TLDR` label with `Overview`.
+- [x] Removed Product markets from public metadata.
+- [x] Updated Tools to ChatGPT, Claude, and Figma Make.
+- [x] Added 500 other Branch employees to Core users.
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
@@ -139,6 +148,7 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 - [x] Write the complete Branch AI case-study draft.
 - [x] Review and approve the subtitle, summary, complete wording, learning statements, and media captions.
 - [x] Map approved copy to existing media and captions.
+- [ ] Confirm the replacement type scale, section rhythm, connected progress rail, canvas treatment, and hero composition.
 
 #### Remaining pages and projects
 
@@ -218,7 +228,7 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 | Vercel project | `lums-portfolio` linked locally |
 | Required environment variables | Available for Preview |
 | Remote `theme-2` branch | Pushed and tracking `origin/theme-2` |
-| Preview deployment | Ready; protected by Vercel authentication |
+| Preview deployment | Superseded visual treatment; protected by Vercel authentication |
 | Preview `noindex` | Verified: response header plus `robots.txt` disallow |
 | Staging URL | [Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai) |
 
@@ -231,7 +241,7 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 - `a24477a` — CopyGPT rollout ownership correction
 - `bb8a8dc` — Approved Branch AI facts and storyline draft
 - `5e1a358` — Visible Theme 2 progress dashboard
-- `853f2b1` — Recruiter-first case-study framing and UXfolio synthesis
+- `853f2b1` — Concise case-study framing and UXfolio synthesis
 - `379dbb8` — Updated progress milestone and approval gate
 - `eba171f` — First output-purpose title revision
 - `52cae63` — Verified résumé source and reopened output-consistency title direction
@@ -244,6 +254,6 @@ The approved copy is mapped into the live Branch AI route and existing evidence 
 
 ## Next three actions
 
-1. Olumide reviews the Branch AI staging page and confirms the implemented story, hierarchy, and evidence sequence.
-2. Resolve any staging feedback without changing approved facts or ownership.
-3. Continue the remaining global copy gates, then implement the full Charlie-inspired Theme 2 shell.
+1. Olumide confirms the four choices in the Branch AI visual-system reset.
+2. Rebuild Branch AI on the approved light-first system with the connected active progress rail.
+3. Repeat desktop/mobile/accessibility QA and replace the superseded Preview.

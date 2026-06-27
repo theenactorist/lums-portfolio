@@ -7,7 +7,7 @@ const phaseLinks = [
   ['phase-systems', 'Turning prompts into systems'],
   ['phase-workflows', 'Three workflows in practice'],
   ['phase-testing', 'Testing with the product team'],
-  ['phase-outcomes', 'Outcomes and hindsight'],
+  ['phase-outcomes', 'Outcomes and learning'],
 ];
 
 function CaseImage({ src, alt, width, height, caption, priority = false }) {
@@ -147,13 +147,9 @@ export default function BranchAICaseStudy() {
                 <dd className="cs-meta__value">October 2025–February 2026</dd>
               </div>
               <div className="cs-meta__item">
-                <dt className="cs-meta__label">Product markets</dt>
-                <dd className="cs-meta__value">India, Kenya, Nigeria</dd>
-              </div>
-              <div className="cs-meta__item">
                 <dt className="cs-meta__label">Core users</dt>
                 <dd className="cs-meta__value cs-meta__value--stack">
-                  5 designers<br />4 UX researchers<br />15 product managers
+                  5 designers<br />4 UX researchers<br />15 product managers<br />500 other Branch employees
                 </dd>
               </div>
               <div className="cs-meta__item">
@@ -162,7 +158,7 @@ export default function BranchAICaseStudy() {
               </div>
               <div className="cs-meta__item">
                 <dt className="cs-meta__label">Tools</dt>
-                <dd className="cs-meta__value">ChatGPT, Claude, Figma MCP, JSON rules</dd>
+                <dd className="cs-meta__value">ChatGPT, Claude, Figma Make</dd>
               </div>
             </dl>
           </div>
@@ -183,10 +179,10 @@ export default function BranchAICaseStudy() {
           </div>
         </nav>
 
-        <section className="cs-prose section cs-tldr" aria-labelledby="branch-tldr">
+        <section className="cs-prose section cs-tldr" aria-labelledby="branch-overview">
           <div className="container">
             <div className="cs-prose__row">
-              <div className="cs-prose__label"><span id="branch-tldr">Recruiter TLDR</span></div>
+              <div className="cs-prose__label"><span id="branch-overview">Overview</span></div>
               <div className="cs-prose__content">
                 <h2>The team did not need another prompt</h2>
                 <p>
@@ -599,7 +595,7 @@ export default function BranchAICaseStudy() {
                 <SnapshotGrid
                   items={[
                     { label: 'Input', value: 'PRD or product idea' },
-                    { label: 'System context', value: 'Figma MCP and Neem' },
+                    { label: 'System context', value: 'Figma Make and Neem' },
                     { label: 'Testers', value: 'PMs, designers, developers' },
                     { label: 'Directional impact', value: 'About 30% faster evaluation' },
                   ]}
@@ -615,7 +611,7 @@ export default function BranchAICaseStudy() {
                   <ol className="cs-numbered-list">
                     <li>A product requirements document or product idea.</li>
                     <li>Claude Skill interpretation.</li>
-                    <li>Figma MCP and Neem Design System context.</li>
+                    <li>Figma Make and Neem Design System context.</li>
                     <li>A token-compliant React prototype.</li>
                     <li>Stakeholder review of the interaction.</li>
                     <li>PRD refinement before high-fidelity design.</li>
@@ -628,7 +624,7 @@ export default function BranchAICaseStudy() {
 
                 <CaseImage
                   src="/work/branch-ai/prd-to-prototype-workflow.jpg"
-                  alt="Workflow connecting a product requirements document to Claude interpretation, Figma MCP context, a Neem-aware React prototype, stakeholder review, and PRD refinement"
+                  alt="Workflow connecting a product requirements document to Claude interpretation, Figma Make context, a Neem-aware React prototype, stakeholder review, and PRD refinement"
                   width={1672}
                   height={941}
                   caption="The workflow made product requirements interactive earlier, giving stakeholders something concrete to evaluate before high-fidelity design."
@@ -728,7 +724,7 @@ export default function BranchAICaseStudy() {
           <div className="container">
             <div className="cs-phase-heading">
               <span>Phase 05</span>
-              <h2 id="phase-outcomes-title">Outcomes and hindsight</h2>
+              <h2 id="phase-outcomes-title">Outcomes and learning</h2>
               <p>Less dependence on each person reconstructing Branch context from scratch.</p>
             </div>
 

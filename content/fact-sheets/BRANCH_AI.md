@@ -21,8 +21,8 @@ All previously open candidate facts were confirmed by Olumide. The rejected and 
 | Initiative timeline | October 2025–February 2026 |
 | Product markets | India, Kenya, Nigeria |
 | Team locations | Nigeria, Kenya, India, United States |
-| Core users | 5 designers, 4 UX researchers, 15 product managers |
-| Tools | ChatGPT, Claude, Figma MCP, JSON rules |
+| Core users | 5 designers, 4 UX researchers, 15 product managers, and 500 other Branch employees |
+| Tools | ChatGPT, Claude, Figma Make |
 
 Employment dates remain October 2024–March 2026 and should not be confused with the initiative timeline.
 
@@ -107,7 +107,7 @@ Employment dates remain October 2024–March 2026 and should not be confused wit
 ## Neem DS Prototyper facts
 
 - Generic Claude prototypes did not understand Branch UX patterns or Neem components.
-- Olumide created the workflow connecting PRDs, Claude Skill interpretation, Figma MCP context, Neem component mapping, token-compliant React prototypes, stakeholder review, and PRD refinement.
+- Olumide created the workflow connecting PRDs, Claude Skill interpretation, Figma Make context, Neem component mapping, token-compliant React prototypes, stakeholder review, and PRD refinement.
 - Product managers, designers, and developers tested the workflow.
 - General product-manager feedback suggested about a 30% reduction in PRD evaluation time.
 - Interactive prototypes made stakeholder feedback more concrete than a written PRD alone.

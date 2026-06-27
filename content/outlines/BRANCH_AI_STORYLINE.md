@@ -33,10 +33,9 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 
 - Role: Product Designer, AI Systems
 - Initiative: October 2025–February 2026
-- Product markets: India, Kenya, Nigeria
 - Team locations: Nigeria, Kenya, India, United States
-- Core users: 5 designers, 4 UX researchers, 15 product managers
-- Tools: ChatGPT, Claude, Figma MCP, JSON rules
+- Core users: 5 designers, 4 UX researchers, 15 product managers, and 500 other Branch employees
+- Tools: ChatGPT, Claude, Figma Make
 
 ## Case-card contract
 
@@ -46,7 +45,7 @@ The Substack article informs the rhythm—outcome, broken status quo, repeated f
 - Visuals: one programme overview plus one strong example showing the three workflows or the unified illustration output
 - Keep the same card structure and metadata placement used by every other selected-work card.
 
-## Recruiter TLDR and outcome snapshot
+## Overview and outcome snapshot
 
 Place this immediately below the hero. Use scannable metadata, a short problem/solution statement, and these distinct outcomes—never one combined adoption claim:
 
@@ -62,7 +61,7 @@ Do not use an exact illustration total or a `500+ tool uses` claim.
 2. Turning prompts into systems
 3. Three workflows in practice
 4. Testing with the product team
-5. Outcomes and hindsight
+5. Outcomes and learning
 
 These labels are specific to the Branch AI story and should not become a universal template for other case studies.
 
@@ -211,7 +210,7 @@ Do not use the name `Veela`.
 
 - PRD or product idea
 - Claude Skill interpretation
-- Figma MCP and Neem context
+- Figma Make and Neem context
 - Token-compliant React prototype
 - Stakeholder review
 - PRD refinement before high-fidelity design
@@ -252,7 +251,7 @@ Do not use the name `Veela`.
 
 Use Deovrat's approved comment as the only recommendation inside the case. Keep the quote separate from evidence and ownership claims.
 
-## Phase 5 — Outcomes and hindsight
+## Phase 5 — Outcomes and learning
 
 ### Outcomes
 
@@ -308,7 +307,7 @@ Visual rules:
 The approved storyline has been expanded in `content/drafts/BRANCH_AI_CASE_STUDY.md`. Review or correct:
 
 1. Subtitle and card description
-2. Summary and recruiter TLDR wording
+2. Summary and overview wording
 3. First-person ownership language
 4. Learning statements
 5. Media selection and caption direction

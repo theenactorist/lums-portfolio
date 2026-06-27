@@ -47,12 +47,11 @@ Approval record: Olumide approved the complete copy on 2026-06-27. Implement wit
 | --- | --- |
 | Role | Product Designer, AI Systems |
 | Initiative | October 2025–February 2026 |
-| Product markets | India, Kenya, Nigeria |
-| Core users | 5 designers, 4 UX researchers, 15 product managers |
+| Core users | 5 designers, 4 UX researchers, 15 product managers, and 500 other Branch employees |
 | Team locations | Nigeria, Kenya, India, United States |
-| Tools | ChatGPT, Claude, Figma MCP, JSON rules |
+| Tools | ChatGPT, Claude, Figma Make |
 
-## Recruiter TLDR
+## Overview
 
 ### The situation
 
@@ -228,7 +227,7 @@ I created a workflow that moved through six connected stages:
 
 1. A product requirements document or product idea.
 2. Claude Skill interpretation.
-3. Figma MCP and Neem Design System context.
+3. Figma Make and Neem Design System context.
 4. A token-compliant React prototype.
 5. Stakeholder review of the interaction.
 6. PRD refinement before high-fidelity design.
@@ -274,7 +273,7 @@ Each comparison should explain what changed and why the abandoned path was not s
 
 This quote is recognition of the work, not evidence for a product outcome.
 
-## Phase 5 — Outcomes and hindsight
+## Phase 5 — Outcomes and learning
 
 ### What changed
 
@@ -397,7 +396,7 @@ Asset: `prd-to-prototype-workflow.jpg`
 
 Alt text:
 
-> Workflow connecting a product requirements document to Claude interpretation, Figma MCP context, a Neem-aware React prototype, stakeholder review, and PRD refinement.
+> Workflow connecting a product requirements document to Claude interpretation, Figma Make context, a Neem-aware React prototype, stakeholder review, and PRD refinement.
 
 Caption:
 
@@ -432,7 +431,7 @@ Caption:
 Confirm or correct:
 
 1. Card description and hero subtitle.
-2. Recruiter TLDR wording.
+2. Overview wording.
 3. First-person ownership language.
 4. The explanation of each workflow and its outcome.
 5. Learning statements.
