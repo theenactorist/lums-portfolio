@@ -1,14 +1,12 @@
 # Branch AI Fact and Ownership Sheet
 
-Status: Needs owner approval  
+Status: Partially approved; remaining items listed below
 Last updated: 2026-06-26  
 Project: Branch AI — Illustration GPT, CopyGPT, and Neem DS Prototyper
 
 ## Purpose
 
-This sheet separates verified source statements from unresolved claims before the Branch AI case study is rewritten. Approval means confirming the fact, the wording boundary, and who owned the work.
-
-No disputed number or ownership statement should enter public copy until this sheet is approved.
+This sheet separates approved facts from unresolved claims before the Branch AI case study is rewritten. No disputed number or ownership statement should enter public copy until the remaining questions are resolved.
 
 ## Sources audited
 
@@ -18,151 +16,149 @@ No disputed number or ownership statement should enter public copy until this sh
 4. Updated 2026 résumé PDF supplied by Olumide
 5. Deovrat Dwivedi's Substack article, `Building a Custom GPT for Brand-Consistent AI Illustrations`
 6. Existing Branch AI diagrams, screenshots, iteration tables, and recognition media
+7. Olumide's fact and ownership corrections supplied on 2026-06-26
 
-## Project framing
+## Confirmed project framing
 
-| Field | Current evidence | Status |
+| Field | Approved fact | Status |
 | --- | --- | --- |
 | Company | Branch International Financial Services | Confirmed |
-| Programme | Three internal AI-assisted product workflows: Illustration GPT, CopyGPT, Neem DS Prototyper | Confirm in this wording |
-| Employment role | Updated résumé: Senior Product Designer | Confirmed for employment |
-| Current case-study role | Product Designer | Conflict; use employment title or a project-specific role label |
+| Programme | Three internal AI-assisted product workflows: Illustration GPT, CopyGPT, Neem DS Prototyper | Wording still needs copy approval |
+| Case-study role | Product Designer, AI Systems | Confirmed |
 | Employment dates | October 2024–March 2026 | Confirmed from updated résumé |
-| Homepage project period | October 2025–February 2026 | Possible initiative timeline; needs confirmation |
-| Product markets | Current case: India, Kenya, Nigeria | Needs confirmation |
-| Team-usage countries | Updated résumé: Nigeria, Kenya, India, United States | Needs distinction from product markets |
-| Core users | Current case: 5 designers, 4 UX researchers, 15 product managers | Needs confirmation |
-| Tools | ChatGPT, Claude, Figma MCP, JSON rules | Needs final tool list |
+| Initiative timeline | October 2025–February 2026 | Confirmed |
+| Product markets | India, Kenya, Nigeria | Confirmed |
+| Team locations | Nigeria, Kenya, India, United States | Confirmed as team context, not product-market scope |
+| Core users | Current case states 5 designers, 4 UX researchers, and 15 product managers | Still needs confirmation |
+| Tools | Current case states ChatGPT, Claude, Figma MCP, and JSON rules | Final tool list still needs confirmation |
 
-## Programme-level claims
+## Programme-level facts
 
-| ID | Candidate fact | Source | Ownership/attribution | Status |
-| --- | --- | --- | --- | --- |
-| BA-01 | AI was already being used across the product team; the problem was reliability rather than adoption. | Current case study | Strategic framing attributed to Olumide | Confirm |
-| BA-02 | Olumide ran a product-team copywriting poll with full-team participation. | Current case study | Personal action | Confirm |
-| BA-03 | Poll results: 65% used ChatGPT, 20% used Claude, and others used Gemini. | Current case study | Research result | Confirm sample size and whether percentages can be public |
-| BA-04 | More than 50 people contributed through interviews, Slack messages, reviews, presentations, FigJam voting, and direct testing. | Current case study | Research and alignment led by Olumide | Confirm participant count and wording |
-| BA-05 | Olumide treated each workflow as an internal product with users, failure modes, rules, testing, and approval points. | Current case study | Personal strategic approach | Confirm |
-| BA-06 | Olumide built three AI design tools. | Updated résumé and current case | Personal action | Confirm exact ownership and whether `built` is accurate for all three |
-| BA-07 | The three tools were used more than 500 times by six teams in four countries. | Updated résumé | Programme usage | Confirm measurement source, period, and whether `uses` or `adoption` is accurate |
-| BA-08 | The programme reduced copywriting turnaround and eased illustration sourcing. | Updated résumé | Directional outcome | Confirm whether these can be quantified |
-| BA-09 | The programme moved the team from individual prompting to governed, Branch-specific workflows. | Current case study | Programme outcome | Confirm |
-
-## Illustration GPT claims
-
-| ID | Candidate fact | Source | Ownership/attribution | Status |
-| --- | --- | --- | --- | --- |
-| IL-01 | Branch illustrations mixed 3D, line, and softer Notion-like styles and did not feel like one system. | Current case | Problem evidence | Confirm wording |
-| IL-02 | Olumide created an Illustration GPT using structured rules for colour, materials, lighting, perspective, composition, output quality, and market adaptability. | Current case | Personal action | Confirm |
-| IL-03 | Olumide ran three public review sessions and a FigJam vote with designers, PMs, researchers, and stakeholders. | Current case | Personal facilitation | Confirm |
-| IL-04 | Repeated feedback became system rules while isolated preferences were not over-weighted. | Current case | Decision principle | Confirm |
-| IL-05 | The illustration system progressed through six major documented versions. | Current case | Iteration history | Confirm |
-| IL-06 | Around 40 illustrations were created across markets; all were ready and about 60% were live. | Current case | Result | Conflicts with IL-07 and IL-08 |
-| IL-07 | Thirty-five illustrations were live. | Substack article | Latest published result from manager | Confirm whether this supersedes IL-06 |
-| IL-08 | Thirty illustrations were produced for India and scaled to African markets for a Q2 2026 handoff. | Knowledge base | Result and rollout | Conflicts with IL-06/IL-07; confirm or remove |
-| IL-09 | More than 500 image-generation iterations were completed, often 10–15 per final illustration. | Substack article | Iteration volume | Do not confuse with BA-07; confirm public use |
-| IL-10 | The system used one instruction layer and three knowledge files: instructions, manifest, rules, and materials. | Substack article | Architecture | Confirm Olumide's ownership and whether the four-layer model is portfolio-safe |
-| IL-11 | The rules included a 60/25/10/5 colour system. | Substack article | System detail | Confirm accuracy and ownership |
-| IL-12 | The material catalogue contained 15 defined materials. | Substack article | System detail | Confirm accuracy and whether this detail adds value |
-| IL-13 | The workflow supported Render Mode and Ideation Mode. | Substack article | System behaviour | Confirm terminology and ownership |
-| IL-14 | A material-realism quality gate could rerender up to twice before escalating to a person. | Substack article | Quality-control behaviour | Confirm whether implemented or conceptual |
-| IL-15 | The custom GPT was called `Veela`. | Substack article | Product name | Confirm whether to use publicly |
-| IL-16 | Future plans included external access for marketing and brand agencies. | Substack article | Future direction | Confirm whether still accurate and public |
-
-## Illustration ownership conflict
-
-The Substack article frequently uses first-person authorship from Deovrat's perspective, including language equivalent to `I built the system`. Olumide has stated that Deovrat was the manager and that Olumide performed most of the hands-on project work.
-
-Before rewriting, confirm the ownership of each area:
-
-| Work area | Olumide | Deovrat | Wider team | Notes required |
-| --- | --- | --- | --- | --- |
-| Identifying the illustration consistency problem | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Exploring visual directions | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Running review sessions | Candidate personal ownership | Unconfirmed | Participants | Confirm |
-| Running the FigJam vote | Candidate personal ownership | Unconfirmed | Participants | Confirm |
-| Defining the colour system | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Writing the system instructions | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Building the manifest | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Writing the rules JSON | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Building the materials catalogue | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Designing the render pipeline | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Generating and refining illustrations | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Quality review and final selection | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Product rollout | Unconfirmed | Unconfirmed | Unconfirmed | |
-| Management direction and sponsorship | Unconfirmed | Candidate manager ownership | Unconfirmed | Confirm |
-
-## CopyGPT claims
-
-| ID | Candidate fact | Source | Ownership/attribution | Status |
-| --- | --- | --- | --- | --- |
-| CP-01 | Generic AI copy lacked Branch product truth, market nuance, voice, and component context. | Current case | Problem evidence | Confirm |
-| CP-02 | Olumide built a versioned rule system covering brand voice, market terminology, product rules, components, heuristics, linting, materials, and workflow guidance. | Current case | Personal action | Confirm |
-| CP-03 | The system progressed through seven documented versions. | Current case | Iteration history | Confirm |
-| CP-04 | The workflow reviewed 530 screens and audited 4,390 components. | Current case | Work volume | Confirm source and whether all markets are measured |
-| CP-05 | 1,778 copy changes were implemented. | Current case | Result | Confirm source and timeframe |
-| CP-06 | India totals were audited while Kenya and Nigeria figures included directional estimates. | Current case caption | Measurement limitation | Confirm exact limitation |
-| CP-07 | CopyGPT accuracy improved from 95% to 99%. | Knowledge base | Quality metric | No supporting detail in current case or résumé; confirm method or remove |
-| CP-08 | The workflow was live in India and African markets. | Knowledge base | Rollout | Confirm markets and date |
-| CP-09 | The system reduced copywriting turnaround. | Updated résumé | Outcome | Confirm evidence and preferred wording |
-
-## CopyGPT ownership
-
-| Work area | Proposed owner | Status |
+| ID | Candidate fact | Decision |
 | --- | --- | --- |
-| Poll and research | Olumide | Confirm |
-| Brand and market rules | Olumide | Confirm |
-| Component and lint rules | Olumide | Confirm |
-| Version tuning | Olumide | Confirm |
-| Screen and component audit | Olumide or team | Clarify |
-| Implementation of 1,778 changes | Product/design/engineering team | Clarify Olumide's contribution |
-| Rollout and adoption | Olumide, management, or team | Clarify |
+| BA-01 | AI was already being used across the product team; the problem was reliability rather than adoption. | Retain for copy review |
+| BA-02 | Olumide ran a product-team copywriting poll with full-team participation. | Still needs confirmation |
+| BA-03 | Poll results: 65% used ChatGPT, 20% used Claude, and others used Gemini. | Sample size and permission to publish still needed |
+| BA-04 | More than 50 people contributed to the programme. | Rejected by Olumide; do not use |
+| BA-05 | Olumide treated each workflow as an internal product with users, failure modes, rules, testing, and approval points. | Retain for copy review |
+| BA-06 | Olumide built the core systems behind three AI workflows. | Supported by the ownership corrections below; final wording needs approval |
+| BA-07 | The three tools were used more than 500 times by six teams in four countries. | Cannot be proven; remove from the portfolio and web résumé |
+| BA-08 | The programme reduced copywriting turnaround and eased illustration sourcing. | Directional outcome; quantify only if evidence is supplied |
+| BA-09 | The programme moved the team from individual prompting to governed, Branch-specific workflows. | Retain for copy review |
 
-## Neem DS Prototyper claims
+## Illustration GPT facts
 
-| ID | Candidate fact | Source | Ownership/attribution | Status |
-| --- | --- | --- | --- | --- |
-| NP-01 | Generic Claude prototypes did not understand Branch UX patterns or Neem components. | Current case | Problem evidence | Confirm |
-| NP-02 | Olumide created a workflow connecting PRDs, Claude Skill interpretation, Figma MCP context, Neem component mapping, token-compliant React prototypes, stakeholder review, and PRD refinement. | Current case | Personal action | Confirm |
-| NP-03 | PMs, designers, and developers tested the workflow. | Current case | Testing | Confirm participant scope |
-| NP-04 | General PM feedback suggested about a 30% reduction in PRD evaluation time. | Current case | Directional outcome | Confirm wording and source |
-| NP-05 | PRD-to-prototype time fell from three weeks to three days. | Knowledge base | Time metric | Conflicts with NP-04; confirm definition or remove |
-| NP-06 | The tool made stakeholder feedback more concrete by providing an interaction instead of only a written PRD. | Current case | Qualitative outcome | Confirm |
+| ID | Candidate fact | Ownership/decision |
+| --- | --- | --- |
+| IL-01 | Branch illustrations mixed several visual styles and did not feel like one system. | Other designers helped identify the consistency problem; final wording needs review |
+| IL-02 | Olumide wrote the system instructions. | Confirmed personal ownership |
+| IL-03 | Olumide built the manifest. | Confirmed personal ownership |
+| IL-04 | Olumide wrote the JSON rules. | Confirmed personal ownership |
+| IL-05 | Olumide built the material catalogue. | Confirmed personal ownership; exact material count still unconfirmed |
+| IL-06 | Olumide built and implemented the render pipeline. | Confirmed personal ownership |
+| IL-07 | Olumide generated and refined the illustrations. | Confirmed personal ownership |
+| IL-08 | Olumide explored the visual direction with co-designer Arushi. | Confirmed shared ownership |
+| IL-09 | Arushi ran the FigJam vote. | Confirmed; do not attribute the vote to Olumide |
+| IL-10 | The design team defined the colour system. | Confirmed team ownership |
+| IL-11 | Quality review and final selection were completed by the team. | Confirmed team ownership |
+| IL-12 | All product markets are now live. | Confirmed current rollout status |
+| IL-13 | Previous sources state 40 total/60% live, 35 live, or 30 plus later handoff. | Superseded/conflicting; omit counts until a final total is confirmed |
+| IL-14 | More than 500 image-generation iterations were completed, often 10–15 per final illustration. | Confirmed as separate from the rejected tool-usage claim |
+| IL-15 | The system used instructions, a manifest, rules, and materials. | Architecture supported; public four-layer wording still needs copy review |
+| IL-16 | The system used a 60/25/10/5 colour structure. | Colour system was team-defined; exact structure still needs confirmation |
+| IL-17 | The material catalogue contained 15 materials. | Olumide built the catalogue; count still needs confirmation |
+| IL-18 | The workflow supported Render Mode and Ideation Mode. | Terminology still needs confirmation |
+| IL-19 | The material-realism gate could rerender up to twice before escalating to a person. | Confirmed as implemented; pipeline owned by Olumide |
+| IL-20 | The custom GPT was called `Veela`. | Omit at Olumide's request |
+| IL-21 | Future plans included external access for agencies. | Still needs confirmation; omit unless approved |
+
+## Illustration ownership record
+
+| Work area | Approved owner/contribution |
+| --- | --- |
+| Identifying the consistency problem | Olumide and other designers contributed |
+| Exploring visual directions | Olumide and Arushi |
+| Running the FigJam vote | Arushi |
+| Defining the colour system | Design team |
+| Writing the system instructions | Olumide |
+| Building the manifest | Olumide |
+| Writing the JSON rules | Olumide |
+| Building the material catalogue | Olumide |
+| Designing and implementing the render pipeline | Olumide |
+| Generating and refining illustrations | Olumide |
+| Quality review and final selection | Design team |
+| Management alignment | Deovrat provided one-to-one check-ins to keep the work aligned with the objective |
+| Running the three public review sessions | Unresolved |
+| Product rollout | All markets are live; individual rollout ownership remains unresolved |
+
+## CopyGPT facts
+
+| ID | Candidate fact | Ownership/decision |
+| --- | --- | --- |
+| CP-01 | Generic AI copy lacked Branch product truth, market nuance, voice, and component context. | Retain for copy review |
+| CP-02 | CopyGPT used a versioned rule system across brand, market, product, component, heuristic, lint, material, and workflow guidance. | Brand and market rules were team-defined; remaining rule ownership needs clarification |
+| CP-03 | The system progressed through seven documented versions. | Still needs confirmation |
+| CP-04 | The workflow reviewed 530 screens and audited 4,390 components. | Confirmed as measured; source/timeframe still required for final caption |
+| CP-05 | 1,778 copy changes were implemented. | Confirmed as measured; implementation ownership still needs clarification |
+| CP-06 | India totals were audited while Kenya and Nigeria figures included directional estimates. | Exact limitation still needs confirmation |
+| CP-07 | CopyGPT accuracy improved from 95% to 99%. | Confirmed as assessed through human review; review sample and period remain open |
+| CP-08 | CopyGPT was rolled out by Olumide. | Confirmed personal ownership; exact markets and date remain open |
+| CP-09 | The system reduced copywriting turnaround. | Directional outcome; evidence and wording still needed |
+
+## CopyGPT ownership record
+
+| Work area | Approved owner/status |
+| --- | --- |
+| Brand and market rules | Team |
+| Rollout | Olumide |
+| Poll and research | Unresolved |
+| Component and lint rules | Unresolved |
+| Version tuning | Unresolved |
+| Screen and component audit | Unresolved |
+| Implementation of 1,778 changes | Unresolved; likely shared delivery but must be confirmed |
+
+## Neem DS Prototyper facts
+
+| ID | Candidate fact | Ownership/decision |
+| --- | --- | --- |
+| NP-01 | Generic Claude prototypes did not understand Branch UX patterns or Neem components. | Retain for copy review |
+| NP-02 | The workflow connected PRDs, Claude Skill interpretation, Figma MCP context, Neem component mapping, token-compliant React prototypes, stakeholder review, and PRD refinement. | Personal ownership still needs explicit confirmation |
+| NP-03 | PMs, designers, and developers tested the workflow. | Participant scope still needs confirmation |
+| NP-04 | General PM feedback suggested about a 30% reduction in PRD evaluation time. | Confirmed as the metric to use |
+| NP-05 | PRD-to-prototype time fell from three weeks to three days. | Rejected in favour of the 30% evaluation metric; do not use |
+| NP-06 | Interactive prototypes made stakeholder feedback more concrete than a written PRD alone. | Retain for copy review |
 
 ## Programme recognition
 
-| ID | Candidate fact | Source | Status |
-| --- | --- | --- | --- |
-| RC-01 | Deovrat described Olumide as an AI-native builder with a designer's eye and a PM's brain. | Current recommendation and recognition media | Approved quote wording should remain unchanged |
-| RC-02 | Branch colleagues credited Olumide with influencing how they approached AI and automation. | Existing recommendations | Confirm which quotes belong on the case versus Home |
+| ID | Candidate fact | Decision |
+| --- | --- | --- |
+| RC-01 | Deovrat described Olumide as an AI-native builder with a designer's eye and a PM's brain. | Use as the case-study recognition quote with approved original wording |
+| RC-02 | Other Branch colleagues credited Olumide with influencing how they approached AI and automation. | Keep outside the case unless separately approved |
 
-## Proposed factual premise
+## Draft factual premise
 
-Do not approve this paragraph until the tables above are resolved:
+Wording still needs approval:
 
-> Branch's product team was already using AI, but every person brought different context, prompts, and quality standards. I designed three governed workflows for illustration, product copy, and prototyping, translating Branch's product, market, and design-system rules into tools the wider team could reuse.
+> Branch's product team was already using AI, but every person brought different context, prompts, and quality standards. I built the core systems behind three governed workflows for illustration, product copy, and prototyping, working with the design team to translate Branch's product, market, and visual rules into tools the wider team could reuse.
 
-## Approval questions
+## Remaining approval questions
 
-1. Was the Branch AI initiative itself October 2025–February 2026, or should the case use another timeline?
-2. Should the case role read `Senior Product Designer`, `Product Designer`, or a project-specific role such as `Product Designer, AI Systems`?
-3. Are the product markets India, Kenya, and Nigeria while the United States is a team-usage location?
-4. Is `50+ people consulted` accurate and publicly supportable?
-5. Is `500+ uses across six teams in four countries` accurate, and how was usage counted?
-6. Which illustration total and rollout statement is current: 40/60% live, 35 live, or 30 plus later market handoff?
-7. Is `500+ illustration iterations` separate from `500+ tool uses`?
-8. Which four-layer architecture elements did Olumide personally create?
-9. What direction, sponsorship, review, or system work did Deovrat contribute?
-10. Should the public case use the name `Veela`?
-11. Was the self-correction gate actually implemented, or was it a designed operating rule?
-12. Are the CopyGPT counts and 1,778 implemented changes measured results?
-13. How was the claimed 95% to 99% CopyGPT accuracy measured?
-14. Which prototyping metric is correct: about 30% faster evaluation or three weeks to three days?
-15. Which Branch colleague quotes should appear inside the case study rather than only on Home?
+1. What exact illustration count should be stated, or should the case say only that all markets are live?
+2. Are the current core-user counts—5 designers, 4 UX researchers, and 15 product managers—accurate?
+3. Can the poll percentages be published, and what was the sample size?
+4. Did Olumide lead the three public review sessions described in the current case?
+5. Are six major illustration-system versions accurate?
+6. Is the 60/25/10/5 colour structure accurate, and is the 15-material count accurate?
+7. Should Render Mode and Ideation Mode be named publicly?
+8. Should the external agency-release plan be omitted or described as future potential?
+9. Who owned CopyGPT's component rules, lint rules, version tuning, screen audit, and implementation of the approved changes?
+10. What review sample and period support the 95% to 99% human-review result?
+11. Which exact markets were live for CopyGPT, and when?
+12. Who participated in Neem DS Prototyper testing, and did Olumide personally own the full workflow described in NP-02?
 
 ## Approval record
 
 Owner: Olumide Olusesi  
-Approval status: Pending  
-Approved on: —  
-Corrections and notes: —
+Approval status: Partial approval received
+Approved on: 2026-06-26
+Corrections and notes: Owner responses incorporated; remaining questions above must be resolved before final prose.

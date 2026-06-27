@@ -80,9 +80,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - The fact sheet must reconcile rather than conflate:
   - About 40 illustrations with 60% live versus 35 illustrations live.
   - Six system versions versus 500+ illustration-generation iterations.
-  - The separate résumé claim that three AI tools were used 500+ times across six teams in four countries.
+  - The résumé claim that three AI tools were used 500+ times across six teams in four countries is unproven and must be removed from Theme 2 copy.
+  - More than 500 illustration-generation iterations is a separate candidate metric and must never be presented as tool usage.
   - Personal work, management contribution, and wider-team contribution.
-  - Whether `Veela`, the four-layer terminology, and external-release plans belong in the portfolio.
+  - Omit the name `Veela`; the four-layer terminology and external-release plans still require copy approval.
 
 ## Résumé and career source
 

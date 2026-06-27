@@ -134,9 +134,9 @@ Working title:
 
 Working description:
 
-> I turned scattered AI use into reusable workflows for illustration, product copy, and prototyping across Branch's product organisation.
+> I built the core systems behind three governed workflows for illustration, product copy, and prototyping, working with the design team to translate Branch's product, market, and visual rules into tools the wider team could reuse.
 
-Do not implement this description until the Branch AI ownership sheet is approved.
+Do not add usage counts or illustration totals. The ownership sheet is partially approved, with remaining questions documented before full case-study prose.
 
 Shiga — **Existing claim; requires Shiga audit before case implementation**
 
@@ -280,6 +280,8 @@ Group projects using the same three categories as Home. Descriptions must match 
 **Source copy**
 
 Use the supplied updated PDF content in the existing theme-responsive résumé structure.
+
+Owner-approved correction: remove the PDF claim that the three Branch AI tools were used more than 500 times because usage cannot be proven. Keep 500+ illustration-generation iterations separate when discussing the Illustration GPT.
 
 Actions:
 
