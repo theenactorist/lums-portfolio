@@ -1,8 +1,15 @@
 # Branch AI Storyline and Phase Labels
 
-Status: Ready for owner review
+Status: Storyline approved; complete copy drafted for review
 Last updated: 2026-06-27
 Fact source: `content/fact-sheets/BRANCH_AI.md`
+
+## Approval record
+
+- Owner: Olumide Olusesi
+- Approved on: 2026-06-27
+- Approved: recommended title, narrative direction, story order, and five phase labels
+- Still requiring review: complete public copy, subtitle wording, reflections, and media captions
 
 ## Narrative goal
 
@@ -10,21 +17,9 @@ Present Branch AI as a product-systems case study rather than a collection of AI
 
 The Substack article informs the rhythm—outcome, broken status quo, repeated failures, system architecture, pipeline, iteration, and future potential—but none of its prose should be copied.
 
-## Case-title direction
-
-Status: Reopened after owner feedback. The final title requires confirmation.
-
-Recommended:
+## Approved case title
 
 > Turning fragmented AI use into consistent product outputs at Branch
-
-Alternative, more literal:
-
-> Building three AI workflows for consistent product outputs at Branch
-
-Alternative, more specific:
-
-> Creating consistent illustrations, product copy, and prototypes with AI at Branch
 
 ## Recommended subtitle
 
@@ -45,7 +40,7 @@ Alternative, more specific:
 
 ## Case-card contract
 
-- Title: pending owner selection from the three options above.
+- Title: `Turning fragmented AI use into consistent product outputs at Branch`.
 - Subtitle: `How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.`
 - Labels: `Product Designer, AI Systems` · `2025–2026` · `AI systems / Fintech`
 - Visuals: one programme overview plus one strong example showing the three workflows or the unified illustration output
@@ -308,14 +303,13 @@ Visual rules:
 - Use before/after or failed/final comparisons only with an explanation of what changed and why.
 - Every caption must explain the decision or evidence represented rather than merely naming the image.
 
-## Approval request
+## Complete-copy review
 
-Approve or correct:
+The approved storyline has been expanded in `content/drafts/BRANCH_AI_CASE_STUDY.md`. Review or correct:
 
-1. Case title and subtitle
-2. Summary and recruiter TLDR
-3. Five sticky phase labels
-4. Story order
-5. Depth balance: Illustration GPT as the longest chapter, CopyGPT and Neem DS Prototyper more compact
-6. Proposed learning themes
-7. Use of external agency access as future potential
+1. Subtitle and card description
+2. Summary and recruiter TLDR wording
+3. First-person ownership language
+4. Learning statements
+5. One genuine “what I would change next” reflection
+6. Media selection and caption direction

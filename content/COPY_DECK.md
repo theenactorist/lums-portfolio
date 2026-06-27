@@ -22,7 +22,7 @@ Status labels:
 | Home | Hero approved; supporting sections drafted below | Copy review |
 | About | Needs an About fact sheet before full rewrite | Fact approval |
 | Work index | Structure approved; project summaries need case facts | Project fact approvals |
-| Branch AI | Facts approved; storyline ready for review | `content/outlines/BRANCH_AI_STORYLINE.md` |
+| Branch AI | Title and storyline approved; complete copy drafted | `content/drafts/BRANCH_AI_CASE_STUDY.md` |
 | Shiga | Existing copy retained until audit | Fact sheet |
 | Carbon | Existing copy retained until audit | Fact sheet |
 | Sabi | Existing copy retained until audit | Fact sheet |
@@ -126,23 +126,13 @@ Intro:
 
 #### AI & New Ventures
 
-Branch AI — **Facts approved; storyline under review**
+Branch AI — **Title and storyline approved; complete copy ready for review**
 
-Title direction — **reopened after owner feedback**
-
-Recommended:
+Approved title:
 
 > Turning fragmented AI use into consistent product outputs at Branch
 
-Alternative, more literal:
-
-> Building three AI workflows for consistent product outputs at Branch
-
-Alternative, more specific:
-
-> Creating consistent illustrations, product copy, and prototypes with AI at Branch
-
-Working subtitle:
+Subtitle — **draft for review**
 
 > How I built reusable workflows for on-brand illustrations, market-aware product copy, and Neem-based prototypes across India, Kenya, and Nigeria.
 
@@ -150,7 +140,9 @@ Working description:
 
 > I built the core systems behind three governed workflows for illustration, product copy, and prototyping, working with the design team to translate Branch's product, market, and visual rules into tools the wider team could reuse.
 
-Do not add tool-usage counts or an exact illustration total. Use the approved storyline document before drafting full case-study prose.
+Do not add tool-usage counts or an exact illustration total. Use the approved fact sheet and complete copy draft during implementation.
+
+Complete public-copy draft: [Branch AI Case Study Draft](drafts/BRANCH_AI_CASE_STUDY.md)
 
 Shiga — **Existing claim; requires Shiga audit before case implementation**
 

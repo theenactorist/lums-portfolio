@@ -3,15 +3,15 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Content strategy and Branch AI approval workflow
+Current stage: Branch AI complete-copy review
 
 ## Current gate
 
-**Waiting for Olumide's selection or revision of the Branch AI output-consistency title direction, then review of the subtitle, storyline, and phase labels.**
+**Waiting for Olumide's review of the complete Branch AI public-copy draft.**
 
-Review: [Branch AI Storyline and Phase Labels](content/outlines/BRANCH_AI_STORYLINE.md)
+Review: [Branch AI Case Study Draft](content/drafts/BRANCH_AI_CASE_STUDY.md)
 
-After approval, the next content step is the complete Branch AI case-study draft. Public case-study code will not be changed before the draft is approved.
+After approval, the copy can be mapped into the case-study components. Public case-study code will not be changed before the draft is approved.
 
 ## Status at a glance
 
@@ -24,7 +24,8 @@ After approval, the next content step is the complete Branch AI case-study draft
 | Local/Vercel environment variables | Complete | Secrets linked and gitignored |
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
-| Branch AI storyline | Awaiting approval | Title direction reopened around consistent outputs |
+| Branch AI storyline | Approved | Title, story order, and five phase labels confirmed |
+| Branch AI complete copy | Awaiting review | Full recruiter-first draft and media captions completed |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Not started | Only the global font token has changed |
@@ -90,6 +91,9 @@ After approval, the next content step is the complete Branch AI case-study draft
 - [x] Synthesised the UXfolio webinar into recruiter-first card, TLDR, decision, visual-evidence, and outcome rules.
 - [x] Replaced the vague Branch AI working title with an informative title and subtitle.
 - [x] Reopened the Branch AI title after owner feedback and documented three output-consistency directions.
+- [x] Approved `Turning fragmented AI use into consistent product outputs at Branch` as the case title.
+- [x] Approved the Branch AI narrative direction, story order, and five phase labels.
+- [x] Wrote the complete [Branch AI Case Study Draft](content/drafts/BRANCH_AI_CASE_STUDY.md).
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
@@ -119,11 +123,11 @@ After approval, the next content step is the complete Branch AI case-study draft
 
 #### Branch AI pilot
 
-- [ ] Approve the Branch AI title and summary.
-- [ ] Approve the five sticky phase labels.
-- [ ] Approve the story order and chapter balance.
-- [ ] Write the complete Branch AI case-study draft.
-- [ ] Review and approve the complete draft.
+- [x] Approve the Branch AI title.
+- [x] Approve the five sticky phase labels.
+- [x] Approve the story order and chapter balance.
+- [x] Write the complete Branch AI case-study draft.
+- [ ] Review and approve the subtitle, summary, complete wording, reflections, and media captions.
 - [ ] Map approved copy to existing media and captions.
 
 #### Remaining pages and projects
@@ -224,6 +228,6 @@ After approval, the next content step is the complete Branch AI case-study draft
 
 ## Next three actions
 
-1. Olumide selects or revises the Branch AI title, then reviews the subtitle, recruiter TLDR, story order, and five phase labels.
-2. After approval, write the complete Branch AI copy in the copy deck.
+1. Olumide reviews the complete Branch AI draft, including the subtitle, recruiter TLDR, reflections, and media captions.
+2. After copy approval, map the draft into the existing Branch AI components and media.
 3. After the master specification is confirmed, finish the baseline setup and create the first Vercel staging preview.
