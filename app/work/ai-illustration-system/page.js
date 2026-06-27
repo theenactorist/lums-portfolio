@@ -19,7 +19,7 @@ const systemVersions = [
   {
     version: 'v2',
     change: 'Added natural-material handling and stronger failure exclusions.',
-    value: 'Expanded the range of scenes the system could describe.',
+    value: 'Added explicit rules for skin, fur, and grass alongside hard product objects.',
   },
   {
     version: 'v3',
@@ -116,8 +116,8 @@ export default function AIIllustrationSystemCaseStudy() {
               <dd className="cs-meta__value">Product Designer, AI Systems</dd>
             </div>
             <div className="cs-meta__item">
-              <dt className="cs-meta__label">Initiative</dt>
-              <dd className="cs-meta__value">Oct 2025 to Feb 2026</dd>
+              <dt className="cs-meta__label">Programme window</dt>
+              <dd className="cs-meta__value">Oct 2025–Feb 2026</dd>
             </div>
             <div className="cs-meta__item">
               <dt className="cs-meta__label">Collaboration</dt>
@@ -125,11 +125,11 @@ export default function AIIllustrationSystemCaseStudy() {
             </div>
             <div className="cs-meta__item">
               <dt className="cs-meta__label">Tools</dt>
-              <dd className="cs-meta__value">ChatGPT, FigJam, Figma</dd>
+              <dd className="cs-meta__value">ChatGPT, FigJam</dd>
             </div>
             <div className="cs-meta__item">
               <dt className="cs-meta__label">Outcome</dt>
-              <dd className="cs-meta__value">Live across product markets</dd>
+              <dd className="cs-meta__value">Illustration system live</dd>
             </div>
           </dl>
         </div>
@@ -239,7 +239,7 @@ export default function AIIllustrationSystemCaseStudy() {
           <div className="cs-prose__row">
             <div className="cs-prose__content">
               <p>
-                Other designers and I first identified the consistency problem. Arushi and I explored visual directions, I led three open review sessions, and Arushi ran the FigJam vote.
+                Other designers and I first identified the consistency problem. Arushi and I explored visual directions, I led three public review sessions, and Arushi ran the FigJam vote.
               </p>
               <p>
                 The selected direction used rounded 3D objects to describe the core action. It gave us enough realism to make materials and actions recognisable without the visual density of character-led scenes.
@@ -331,10 +331,10 @@ export default function AIIllustrationSystemCaseStudy() {
             <div className="cs-prose__content">
               <h3 className="illustration-subheading">The stronger idea was to make the rules reusable.</h3>
               <p>
-                I proposed a Custom GPT that colleagues could brief in natural language. Instead of asking every person to rebuild the visual context, the system would supply it.
+                I proposed a Custom GPT that anyone with access could brief in natural language. Instead of asking every person to rebuild the visual context, the system would supply it.
               </p>
               <p>
-                In the tools I evaluated, Claude did not give me the raster control I needed, while Gemini Nano Banana did not meet the transparent-alpha requirement. ChatGPT combined image generation, transparent-background output, and a Custom GPT interface that could carry the shared rules.
+                I chose ChatGPT as the harness because it combined image generation, transparent-background output, and a shareable Custom GPT interface. The decision let me focus on the harder question: which instructions, rules, materials, and checks would help the visual language survive every generation?
               </p>
             </div>
           </div>
@@ -454,7 +454,7 @@ export default function AIIllustrationSystemCaseStudy() {
           <div className="cs-prose__row">
             <div className="cs-prose__content">
               <p>
-                The illustration system is now live across Branch product markets. It gives colleagues a shared starting point for new product visuals and gives reviewers a clearer standard for deciding what belongs in the library.
+                The illustration system is now live across Branch product markets. It established a shared starting point for new product visuals and a clearer standard for deciding what belongs in the library.
               </p>
               <p>
                 I generated and refined the illustrations. The design team owned quality review and final selection. The Custom GPT carried the repeatable rules, while people still decided what each illustration should communicate and whether it was right for the product moment.
@@ -505,7 +505,7 @@ export default function AIIllustrationSystemCaseStudy() {
               <ul className="cs-detail-list">
                 <li>Convert selected raster illustrations into SVGs and motion-ready assets.</li>
                 <li>Extend controlled access to marketing and other teams for presentations and internal projects.</li>
-                <li>Package the same instruction and validation logic for another image-generation harness, such as a Codex skill.</li>
+                <li>Package the same instruction and validation logic for another image-generation harness.</li>
                 <li>Add a critique layer before human review.</li>
                 <li>Improve related-state generation so geometry, lighting, and materials remain even closer across a family.</li>
               </ul>

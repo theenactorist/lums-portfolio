@@ -1,6 +1,6 @@
 # AI Illustration System Case Study Draft
 
-Status: Working narrative for confirmation
+Status: Ready for copy review; unresolved facts are omitted from public copy
 Last updated: 2026-06-27
 Fact source: `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`
 
@@ -17,7 +17,7 @@ Fact source: `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`
 ### Labels
 
 - Product Designer, AI Systems
-- 2025 to 2026
+- 2025–2026
 - AI systems / Design systems
 
 ## Hero
@@ -39,9 +39,9 @@ Fact source: `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`
 | Field | Public copy |
 | --- | --- |
 | Role | Product Designer, AI Systems |
-| Initiative window | October 2025 to February 2026 |
+| Programme window | October 2025–February 2026 |
 | Collaboration | Product design team, product managers, UX researchers |
-| Tools | ChatGPT, FigJam, Figma |
+| Tools | ChatGPT, FigJam |
 | Scope | Visual direction, system architecture, generation, and iteration |
 
 ## Overview
@@ -80,7 +80,7 @@ That changed my brief. I was not designing a set of illustrations. I was designi
 
 ### We aligned on the visual language before automating it
 
-Other designers and I first identified the consistency problem. Arushi and I explored visual directions, I led three open review sessions, and Arushi ran the FigJam vote.
+Other designers and I first identified the consistency problem. Arushi and I explored visual directions, I led three public review sessions, and Arushi ran the FigJam vote.
 
 The selected direction used rounded 3D objects to describe the core action. It gave us enough realism to make materials and actions recognisable, without the visual density of character-led scenes.
 
@@ -168,7 +168,7 @@ I responded by turning recurring feedback into system rules. Negative instructio
 | Version | System change | Why it mattered |
 | --- | --- | --- |
 | v1 | Locked camera, lighting, output, material recognition, and an initial realism gate. | Created the first repeatable production contract. |
-| v2 | Added natural-material handling and stronger failure exclusions. | Expanded the range of scenes the system could describe. |
+| v2 | Added natural-material handling and stronger failure exclusions. | Added explicit rules for skin, fur, and grass alongside hard product objects. |
 | v3 | Separated instructions, tightened material selection, and added reproducibility fields. | Reduced duplicated rules and made failures easier to trace. |
 | v4 | Added precedence, provenance, version compatibility, and stricter interaction behaviour. | Stopped runtime requests and duplicated defaults from weakening the visual rules. |
 | v5 | Introduced colour roles, ratios, part assignments, and ratio validation. | Addressed the largest source of library-wide drift. |
@@ -180,7 +180,7 @@ The system passed through more than 500 image-generation iterations, often 10 to
 
 ### The team gained a system, not a folder of finished assets
 
-The illustration system is now live across Branch product markets. It gives colleagues a shared starting point for new product visuals and gives reviewers a clearer standard for deciding what belongs in the library.
+The illustration system is now live across Branch product markets. It established a shared starting point for new product visuals and a clearer standard for deciding what belongs in the library.
 
 The Custom GPT carries the repeatable context. People still decide what the illustration should communicate, whether it is appropriate for the screen, and which result is ready to ship. I generated and refined the illustrations, while the design team owned quality review and final selection.
 
@@ -206,4 +206,3 @@ Four lessons stayed with me:
 - Improve the generation of related states so geometry, lighting, and materials stay even closer across a family.
 
 The larger opportunity is to make the visual language portable without making it rigid. The system should carry Branch's standards. People should continue to carry the story.
-

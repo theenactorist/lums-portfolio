@@ -1,6 +1,6 @@
 # Independent AI Case Study Architecture
 
-Status: Standalone architecture approved; Illustration narrative awaiting owner confirmation
+Status: Standalone architecture approved; Illustration narrative QA passed and awaiting owner confirmation
 Last updated: 2026-06-27
 Fact sources: `content/fact-sheets/BRANCH_AI.md` and `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`
 
@@ -116,6 +116,7 @@ Approved by Olumide on 2026-06-27.
 - The supplied archive has been analysed across all six documented versions.
 - The referenced article has been synthesised as structural context without transferring its ownership claims to Olumide.
 - A complete first-person narrative is implemented on the standalone route.
+- Copy, content, responsive layout, navigation, accessibility, and build QA are documented in `content/reviews/AI_ILLUSTRATION_QA.md`.
 - The route is intentionally not linked from the homepage until the facts, wording, and visual sequence are approved.
 - Open confirmation items are recorded in `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`.
 - The current combined case study remains available as an unlinked factual and visual reference.

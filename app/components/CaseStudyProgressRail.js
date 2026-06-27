@@ -11,30 +11,55 @@ export default function CaseStudyProgressRail({ phases }) {
   );
 
   useEffect(() => {
+    const targetId = window.location.hash.slice(1);
+    if (!targetId || !phases.some((phase) => phase.id === targetId)) return undefined;
+
+    let cancelled = false;
+    const alignHashTarget = () => {
+      const target = document.getElementById(targetId);
+      if (!cancelled && target) target.scrollIntoView({ block: 'start', behavior: 'auto' });
+    };
+
+    const alignAfterLayout = () => {
+      requestAnimationFrame(() => requestAnimationFrame(alignHashTarget));
+    };
+
+    if (document.readyState === 'complete') {
+      alignAfterLayout();
+    } else {
+      window.addEventListener('load', alignAfterLayout, { once: true });
+    }
+
+    document.fonts?.ready.then(alignAfterLayout);
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener('load', alignAfterLayout);
+    };
+  }, [phases]);
+
+  useEffect(() => {
     const sections = phases
       .map((phase) => document.getElementById(phase.id))
       .filter(Boolean);
 
     if (!sections.length) return undefined;
 
-    const updateActiveSection = () => {
-      const marker = window.innerHeight * 0.34;
-      let current = sections[0];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const activeEntry = entries.find((entry) => entry.isIntersecting);
+        if (activeEntry) setActiveId(activeEntry.target.id);
+      },
+      {
+        rootMargin: '-34% 0px -65% 0px',
+        threshold: 0,
+      },
+    );
 
-      sections.forEach((section) => {
-        if (section.getBoundingClientRect().top <= marker) current = section;
-      });
-
-      setActiveId(current.id);
-    };
-
-    updateActiveSection();
-    window.addEventListener('scroll', updateActiveSection, { passive: true });
-    window.addEventListener('resize', updateActiveSection);
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      window.removeEventListener('scroll', updateActiveSection);
-      window.removeEventListener('resize', updateActiveSection);
+      observer.disconnect();
     };
   }, [phases]);
 

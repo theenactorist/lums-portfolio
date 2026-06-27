@@ -35,7 +35,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 - Light theme: `#FFFFFF` background and `#0A0A0A` foreground.
 - Dark theme: `#111111` background, `#1F1F1F` surface, `#F2F2F2` primary text, `#B3B3B3` secondary text, `#7A7A7A` muted text, and `#333333` borders.
-- Match Charlie's system sans stack: `ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`.
+- Use the owner-supplied Satoshi variable font, with Charlie's system sans stack as the fallback: `"Satoshi", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`.
 - Define that stack once as a global CSS custom property named `--font-family-sans` in `app/globals.css`, apply it at the root, and make all interface typography inherit it. Do not repeat font-family declarations in components; changing this one token must change the typeface everywhere.
 - Remove Playfair Display, JetBrains Mono, and the existing rust accent from the themed public UI.
 - Follow Charlie's large editorial type hierarchy and black-pill primary CTA treatment.
@@ -55,7 +55,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Use only Olumide's own approved company/client brands already present in the current portfolio. Charlie's clients are layout references only and must never appear as Olumide's experience.
 - Client marquee order begins Shiga, Branch, Carbon, Sabi, UBA, followed by Olumide's remaining existing approved brands. Pause on hover/focus and provide a static reduced-motion fallback.
 - Work groups:
-  - AI & New Ventures: Branch AI and Shiga.
+  - AI & New Ventures: AI illustration system, AI copywriting review, AI prototyping system, and Shiga.
   - Growth & Core Experiences: Carbon.
   - Platforms at Scale: Sabi and UBA.
 - Recommendations are a manually browsed editorial quote sequence led by Deovrat Dwivedi. Do not autoplay and do not add a follow-on CTA.
@@ -65,25 +65,26 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 - Do not invent, infer, combine, or silently resolve facts, metrics, dates, ownership, team roles, or causation.
 - For every case study, follow this gate: fact sheet approval, storyline/phase-label approval, rewritten-copy approval, then implementation approval.
-- Process case studies in this order: Branch AI, Shiga, Carbon, Sabi, UBA.
+- Process case studies in this order: AI illustration system, AI copywriting review, AI prototyping system, Shiga, Carbon, Sabi, UBA.
 - Use Canadian English.
 - Use `I` only for confirmed personal work. Use `we` only for confirmed team decisions or shared outcomes.
 - Credit managers and collaborators only for confirmed direction, sponsorship, review, or delivery contributions.
 - Preserve uncertainty and attribution limitations instead of overstating impact.
 - Do not force all case studies into the same phase labels. Shared components may support page-specific structures.
 
-## Branch AI pilot
+## Independent Branch AI case studies
 
-- Use Deovrat Dwivedi's Substack article about the Branch Illustration GPT as a storyline reference for the complete Branch AI case study, not as a wording source.
-- Adapt the narrative across Illustration GPT, CopyGPT, and Neem DS Prototyper.
-- Give Illustration GPT the deepest chapter; use a more compact equivalent arc for CopyGPT and Neem DS Prototyper.
+- Illustration, copywriting, and prototyping are independent public case studies. Do not nest them beneath a public Branch AI parent route.
+- Keep the combined Branch AI page and draft as unlinked factual and visual source material.
+- Use Deovrat Dwivedi's Substack article about the Branch Illustration GPT as a storyline reference for the standalone Illustration case study, not as a wording source.
 - Credit Deovrat as manager only for contributions Olumide confirms. Keep his recognition quote separate from ownership claims.
 - The approved Branch AI facts and ownership boundaries live in `content/fact-sheets/BRANCH_AI.md`; do not reintroduce rejected claims from older sources.
+- The standalone Illustration facts, archive analysis, and open confirmation items live in `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`.
 - Never use the unproven claim that three tools were used 500+ times. More than 500 illustration-generation iterations is a separate approved metric.
 - Do not state an exact illustration total. All product markets are live.
 - Do not attribute the product-team poll to Olumide.
 - Omit the name `Veela`.
-- Use `content/outlines/BRANCH_AI_STORYLINE.md` only after Olumide approves its title, summary, phase labels, and story order.
+- Keep each standalone route off Selected Work until its facts, storyline, copy, and preview are approved.
 
 ## Résumé and career source
 

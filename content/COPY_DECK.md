@@ -22,7 +22,10 @@ Status labels:
 | Home | Hero approved; supporting sections drafted below | Copy review |
 | About | Needs an About fact sheet before full rewrite | Fact approval |
 | Work index | Structure approved; project summaries need case facts | Project fact approvals |
-| Branch AI | Complete copy approved; implementation in progress | `content/drafts/BRANCH_AI_CASE_STUDY.md` |
+| AI illustration system | Complete draft implemented on an unlinked preview route | Fact and copy approval |
+| AI copywriting review | Standalone case confirmed; facts and title still pending | Fact approval |
+| AI prototyping system | Standalone case confirmed; facts and title still pending | Fact approval |
+| Combined Branch AI | Superseded as a public case; retained as source material | No public implementation |
 | Shiga | Existing copy retained until audit | Fact sheet |
 | Carbon | Existing copy retained until audit | Fact sheet |
 | Sabi | Existing copy retained until audit | Fact sheet |
@@ -122,11 +125,35 @@ Heading:
 
 Intro:
 
-> Five projects where product strategy, systems thinking, and interface craft changed how teams worked and how customers moved through complex products.
+> Seven projects where product strategy, systems thinking, and interface craft changed how teams worked and how customers moved through complex products.
 
 #### AI & New Ventures
 
-Branch AI — **Complete copy approved for implementation**
+AI illustration system — **Draft for review**
+
+Working title:
+
+> Building an AI illustration system for consistent, on-brand product visuals at Branch
+
+Working description:
+
+> I turned a fragmented illustration library into a reusable system with explicit colour, camera, material, and quality rules.
+
+The complete draft is implemented on an unlinked preview route so Olumide can review the copy in context. It must not be linked from Selected Work until the open fact items and wording are approved.
+
+Fact sheet: [AI Illustration System Fact Sheet](fact-sheets/AI_ILLUSTRATION_SYSTEM.md)
+
+Complete public-copy draft: [AI Illustration System Case Study Draft](drafts/AI_ILLUSTRATION_SYSTEM_CASE_STUDY.md)
+
+AI copywriting review — **Needs fact approval**
+
+The `over 10,000 text components` and `within five days` ideas remain unverified and must not be used as public claims.
+
+AI prototyping system — **Needs fact approval**
+
+The independent title and fact sheet have not been approved.
+
+Combined Branch AI — **Superseded public direction**
 
 Approved title:
 
@@ -140,9 +167,9 @@ Working description:
 
 > I built the core systems behind three governed workflows for illustration, product copy, and prototyping, working with the design team to translate Branch's product, market, and visual rules into tools the wider team could reuse.
 
-Do not add tool-usage counts or an exact illustration total. Use the approved fact sheet and complete copy draft during implementation.
+Do not add tool-usage counts or an exact illustration total. Use the combined case only as a verified source for the independent case studies.
 
-Complete public-copy draft: [Branch AI Case Study Draft](drafts/BRANCH_AI_CASE_STUDY.md)
+Archived combined-copy draft: [Branch AI Case Study Draft](drafts/BRANCH_AI_CASE_STUDY.md)
 
 Shiga — **Existing claim; requires Shiga audit before case implementation**
 

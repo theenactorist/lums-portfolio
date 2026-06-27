@@ -1,6 +1,6 @@
 # AI Illustration System Fact and Ownership Sheet
 
-Status: Working draft for confirmation
+Status: Needs fact approval for the open items below
 Last updated: 2026-06-27
 Project: Standalone Illustration AI case study
 
@@ -9,15 +9,17 @@ Project: Standalone Illustration AI case study
 | Field | Current fact |
 | --- | --- |
 | Company | Branch International Financial Services |
-| Working title | Building an AI illustration system for consistent, on-brand product visuals at Branch |
+| Approved title | Building an AI illustration system for consistent, on-brand product visuals at Branch |
 | Case-study role | Product Designer, AI Systems |
-| Initiative window | October 2025 to February 2026 |
+| Programme window | October 2025–February 2026 |
 | Public route | `/work/ai-illustration-system` |
 | Primary harness | ChatGPT with image generation enabled through a Custom GPT |
-| Collaboration tools | FigJam and Figma |
+| Confirmed tools | ChatGPT and FigJam |
 | Markets | The resulting illustration system is live across Branch product markets |
 
 The initiative window currently comes from the approved Branch AI programme fact sheet. It should not be described as an illustration-only timeline unless Olumide confirms that the dates match this workstream.
+
+Public copy may use the dates only as the wider programme window. It must omit the unresolved competitor, company-access, Codex-testing, style-name, and triggering-screen details until Olumide confirms them.
 
 ## Problem
 
@@ -97,6 +99,8 @@ The render pipeline uses the same quality sequence whether the input begins as a
 
 The v5 and v6 JSON files are materially the same apart from version references. The v6 improvement is concentrated in the system prompt's pre-delivery validation behaviour.
 
+The archive contains 18 material IDs in v1 and 22 in v2 through v6. The earlier approved Branch AI fact sheet records a 15-material catalogue. This conflict is intentionally unresolved, and the public case study does not state a material count.
+
 ## Repeated failure modes
 
 - Exact brand colours drifted between outputs.
@@ -148,4 +152,4 @@ The v5 and v6 JSON files are materially the same apart from version references. 
 4. Whether “available company-wide” means published to Branch's ChatGPT workspace or shared through another access model.
 5. Whether a Codex version is a future concept or something already tested.
 6. Which product requests or screens first made the illustration inconsistency urgent.
-
+7. Whether the public material count should be 15, 18, 22, or omitted permanently.

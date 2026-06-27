@@ -5650,7 +5650,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   color: var(--branch-muted);
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -5725,15 +5725,15 @@ body:has([data-theme="dark"] .branch-ai-case) {
   color: var(--branch-muted);
   font-family: var(--font-sans);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
 .branch-ai-case .cs-meta__value {
   color: var(--branch-ink);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   line-height: 1.45;
 }
 
@@ -5832,6 +5832,14 @@ body:has([data-theme="dark"] .branch-ai-case) {
   line-height: 1;
 }
 
+.cs-phase-nav__list a .cs-phase-nav__label {
+  color: inherit;
+}
+
+.cs-phase-nav__list a .cs-phase-nav__number {
+  color: var(--branch-muted, var(--text-secondary));
+}
+
 .cs-phase-nav__list li.is-complete .cs-phase-nav__number,
 .cs-phase-nav__list li.is-active .cs-phase-nav__number {
   border-color: var(--branch-ink, var(--text-primary));
@@ -5878,7 +5886,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   padding-top: 0;
   color: var(--branch-muted);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.11em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -5904,7 +5912,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
 .branch-ai-case .cs-detail-list li,
 .branch-ai-case .cs-system-steps p {
   color: var(--branch-copy);
-  font-size: clamp(1.125rem, 1.45vw, 1.25rem);
+  font-size: 1.25rem;
   line-height: 1.62;
 }
 
@@ -5938,7 +5946,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   content: counter(workflow, decimal-leading-zero);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
 }
 
@@ -6023,7 +6031,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   max-width: 52ch;
   margin-top: 1.25rem;
   color: var(--branch-copy);
-  font-size: clamp(1.125rem, 1.45vw, 1.25rem);
+  font-size: 1.25rem;
   line-height: 1.6;
 }
 
@@ -6193,7 +6201,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
 .branch-ai-case .cs-initiative-snapshot__item dd {
   color: var(--branch-ink);
   font-size: 1rem;
-  font-weight: 650;
+  font-weight: 600;
   line-height: 1.4;
 }
 
@@ -6273,7 +6281,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   margin-bottom: 1rem;
   color: var(--branch-muted);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -6494,6 +6502,16 @@ body:has([data-theme="dark"] .branch-ai-case) {
   .branch-ai-case .cs-data-table {
     margin-inline: -1.25rem;
   }
+
+  .branch-ai-case .cs-prose__content p,
+  .branch-ai-case .cs-feature__intro,
+  .branch-ai-case .cs-feature-copy p,
+  .branch-ai-case .cs-numbered-list li,
+  .branch-ai-case .cs-detail-list li,
+  .branch-ai-case .cs-system-steps p,
+  .branch-ai-case .cs-phase-heading p {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -6639,7 +6657,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   display: block;
   margin-bottom: 0.25rem;
   color: var(--branch-ink);
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .illustration-system-case .cs-data-table {
@@ -6654,7 +6672,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
 .illustration-system-case .cs-data-table td:first-child {
   width: 5rem;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .illustration-system-case .illustration-output-grid {
@@ -6697,5 +6715,20 @@ body:has([data-theme="dark"] .branch-ai-case) {
   .illustration-system-case .cs-hero__title {
     font-size: 2.5rem;
     line-height: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -7,13 +7,15 @@ Current stage: Illustration AI narrative review
 
 ## Current gate
 
-**The Illustration title, five-step structure, and route are approved. The complete first narrative and six-version analysis are ready for Olumide's fact and voice review.**
+**The Illustration title, five-step structure, and route are approved. The complete first narrative, six-version analysis, and documented QA pass are ready for Olumide's fact and voice review.**
 
 Review: [Independent AI Case Study Architecture](content/specs/AI_CASE_STUDY_ARCHITECTURE.md)
 
 Draft: [AI Illustration System Case Study](content/drafts/AI_ILLUSTRATION_SYSTEM_CASE_STUDY.md)
 
 Facts and open confirmations: [AI Illustration System Fact Sheet](content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md)
+
+QA: [AI Illustration Case Study QA Report](content/reviews/AI_ILLUSTRATION_QA.md)
 
 Staging: [Open the Theme 2 Illustration AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/ai-illustration-system)
 
@@ -144,6 +146,10 @@ The current combined page remains available as a visual and factual reference. I
 - [x] Wrote the complete [AI Illustration System Case Study Draft](content/drafts/AI_ILLUSTRATION_SYSTEM_CASE_STUDY.md).
 - [x] Replaced the Illustration scaffold with the complete five-step narrative and evidence sequence.
 - [x] Verified the Illustration page on desktop and mobile, including rail progress, overflow, and browser errors.
+- [x] Audited the Illustration page against `AGENTS.md`, the master specification, content style guide, copy deck, visual specification, fact sheets, and copy draft.
+- [x] Removed unresolved public claims and documented the material-count conflict.
+- [x] Corrected body size, metadata size, weight hierarchy, rail contrast, initial hash positioning, image-viewer focus management, and reduced-motion behaviour.
+- [x] Published the [AI Illustration Case Study QA Report](content/reviews/AI_ILLUSTRATION_QA.md).
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
@@ -172,15 +178,17 @@ The current combined page remains available as a visual and factual reference. I
 - [ ] Review and approve contact copy.
 - [ ] Confirm the remaining logo order after UBA.
 
-#### Branch AI pilot
+#### Independent Branch AI case studies
 
-- [x] Approve the Branch AI title.
-- [x] Approve the five sticky phase labels.
-- [x] Approve the story order and chapter balance.
-- [x] Write the complete Branch AI case-study draft.
-- [x] Review and approve the subtitle, summary, complete wording, learning statements, and media captions.
-- [x] Map approved copy to existing media and captions.
-- [x] Confirm the replacement type scale, section rhythm, connected progress rail, canvas treatment, and hero composition.
+- [x] Replace the combined Branch AI public architecture with three independent cases.
+- [x] Approve the Illustration AI title and five progress labels.
+- [x] Write and implement the complete Illustration AI narrative.
+- [x] Analyse the six supplied Illustration GPT system versions.
+- [x] Map the Illustration AI copy to the supplied media and captions.
+- [x] Implement and QA the Illustration AI type scale, section rhythm, connected progress rail, canvas treatment, hero composition, deep links, and image viewer.
+- [ ] Review and approve the remaining Illustration AI facts, wording, and visual sequence.
+- [ ] Create and approve the copywriting case fact sheet, title, narrative, and preview.
+- [ ] Create and approve the prototyping case fact sheet, title, narrative, and preview.
 
 #### Remaining pages and projects
 

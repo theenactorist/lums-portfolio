@@ -24,6 +24,9 @@ export default function ZoomableImage({
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef({ dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 });
+  const triggerRef = useRef(null);
+  const overlayRef = useRef(null);
+  const closeButtonRef = useRef(null);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));
@@ -35,6 +38,7 @@ export default function ZoomableImage({
     setScale(1);
     setOffset({ x: 0, y: 0 });
     setIsDragging(false);
+    requestAnimationFrame(() => triggerRef.current?.focus());
   }, []);
 
   const open = useCallback((e) => {
@@ -66,11 +70,27 @@ export default function ZoomableImage({
       if (e.key === '+' || e.key === '=') zoomIn();
       if (e.key === '-' || e.key === '_') zoomOut();
       if (e.key === '0') resetZoom();
+      if (e.key === 'Tab') {
+        const focusable = [...(overlayRef.current?.querySelectorAll('button:not([disabled])') ?? [])];
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
+    const focusFrame = requestAnimationFrame(() => closeButtonRef.current?.focus());
     window.addEventListener('keydown', onKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
+      cancelAnimationFrame(focusFrame);
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = prevOverflow;
     };
@@ -119,6 +139,7 @@ export default function ZoomableImage({
       aria-modal="true"
       aria-label={alt || 'Image viewer'}
       onClick={close}
+      ref={overlayRef}
     >
       <div
         className="zoom-stage"
@@ -164,7 +185,7 @@ export default function ZoomableImage({
         </button>
       </div>
 
-      <button type="button" className="zoom-close" onClick={close} aria-label="Close viewer">
+      <button type="button" className="zoom-close" onClick={close} aria-label="Close viewer" ref={closeButtonRef}>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <line x1="6" y1="6" x2="18" y2="18" />
           <line x1="6" y1="18" x2="18" y2="6" />
@@ -180,6 +201,7 @@ export default function ZoomableImage({
         onClick={open}
         className={`zoom-trigger ${className || ''}`}
         aria-label={`View ${alt || 'image'} in full size`}
+        ref={triggerRef}
       >
         <Image
           src={src}
