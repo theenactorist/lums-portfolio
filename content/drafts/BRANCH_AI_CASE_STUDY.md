@@ -1,11 +1,11 @@
 # Branch AI Case Study Draft
 
-Status: Approved for implementation
+Status: Superseded as a combined public case study; preserved as a content source
 Last updated: 2026-06-27
 Fact source: `content/fact-sheets/BRANCH_AI.md`
 Approved outline: `content/outlines/BRANCH_AI_STORYLINE.md`
 
-Approval record: Olumide approved the complete copy on 2026-06-27. Implement without changing its meaning.
+Approval record: Olumide approved the complete copy on 2026-06-27. On the same date, he replaced the combined structure with three independent case studies. Reuse only verified facts and ownership details when writing the new standalone cases.
 
 ## Selected-work card
 

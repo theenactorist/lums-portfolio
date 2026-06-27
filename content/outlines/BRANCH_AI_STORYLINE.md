@@ -1,6 +1,6 @@
 # Branch AI Storyline and Phase Labels
 
-Status: Storyline and complete copy approved for implementation
+Status: Superseded as a public case-study structure; preserved as source material
 Last updated: 2026-06-27
 Fact source: `content/fact-sheets/BRANCH_AI.md`
 
@@ -10,6 +10,8 @@ Fact source: `content/fact-sheets/BRANCH_AI.md`
 - Approved on: 2026-06-27
 - Approved: recommended title, narrative direction, story order, and five phase labels
 - Complete public copy, subtitle wording, and media captions approved on 2026-06-27
+- Architecture superseded on 2026-06-27 when the owner split the work into three independent case studies.
+- Do not continue implementing this combined storyline as the active public structure.
 
 ## Narrative goal
 

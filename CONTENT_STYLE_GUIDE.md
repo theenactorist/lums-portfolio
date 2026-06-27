@@ -140,7 +140,7 @@ Treat the portfolio as a product and the recruiter or hiring manager as its prim
 - Put the strongest and most relevant case study first.
 - Design every level as a decision point: card, hero, TLDR, phase heading, and section.
 - Let descriptive headings carry the story for visitors who only scan.
-- Show niche experience—fintech, AI systems, multi-market products—as a differentiator.
+- Show niche experience in fintech, AI systems, and multi-market products as a differentiator.
 - Remove background or process detail that does not change the reader's assessment of judgment, craft, collaboration, or impact.
 
 ## Case-study card contract
@@ -235,7 +235,22 @@ Project-specific phase labels must be approved before prose is implemented.
 - Avoid starting consecutive paragraphs with `I`.
 - Keep text links descriptive.
 - Spell out unfamiliar acronyms on first use.
-- Use en dashes for ranges and em dashes sparingly for emphasis.
+- Use en dashes for numeric and date ranges.
+- Do not use em dashes anywhere in public portfolio copy.
+- Replace an em dash with a full stop, colon, comma, or parentheses according to the sentence.
+
+## Emotional clarity
+
+Case-study writing should make Olumide's care, judgment, and depth visible without becoming dramatic or long.
+
+- Create emotion through real stakes, friction, decisions, and breakthroughs.
+- Show passion through specificity and ownership, not praise words.
+- Explain the reasoning behind a decision before showing the output.
+- Keep one main idea per sentence whenever possible.
+- Keep paragraphs to two or three sentences unless evidence requires more.
+- Remove repeated context, repeated metrics, and repeated conclusions.
+- Prefer a short sentence at an important turning point.
+- Make the section heading communicate the point for readers who only scan.
 
 ## Canadian English
 

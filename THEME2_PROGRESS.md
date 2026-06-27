@@ -3,17 +3,17 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Branch AI visual pilot implementation
+Current stage: Independent AI case-study architecture
 
 ## Current gate
 
-**The replacement Branch AI direction is approved and published to the protected Preview. The current gate is owner review of the rebuilt Theme 2 pilot.**
+**The combined Branch AI case study is superseded as the future public structure. The current gate is approval of the Illustration title, five-step structure, and expanded facts.**
 
-Review: [Branch AI Visual System Reset](content/specs/BRANCH_AI_VISUAL_SYSTEM.md)
+Review: [Independent AI Case Study Architecture](content/specs/AI_CASE_STUDY_ARCHITECTURE.md)
 
 Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai)
 
-The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi, a white canvas with warm-neutral chapter bands, a horizontal connected sticky progress rail, and a black active state. Country names appear only in Team locations. The updated Preview is Ready, protected by Vercel authentication, and returns `X-Robots-Tag: noindex, nofollow, noarchive`.
+The current combined page remains available as a visual and factual reference. It will not define the final information architecture. Illustration, copywriting, and prototyping will become independent case studies with distinct titles, routes, homepage cards, and five-step narratives.
 
 ## Status at a glance
 
@@ -26,8 +26,8 @@ The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi,
 | Local/Vercel environment variables | Complete | Secrets linked and gitignored |
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
-| Branch AI storyline | Approved | Title, story order, and five phase labels confirmed |
-| Branch AI complete copy | Approved; corrections recorded | Content flow remains approved; metadata and public labels updated from owner feedback |
+| Combined Branch AI storyline | Superseded | Preserved as verified source material only |
+| Independent AI case studies | Standalone architecture approved | Illustration is first; five-step labels, titles, and routes remain pending |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Branch AI pilot complete locally | Approved replacement direction implemented |
@@ -124,6 +124,11 @@ The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi,
 - [x] Reworked narrative sections into Jessa's single-column reading pattern with a 760px measure.
 - [x] Increased desktop body copy to 20px and reduced section-heading scale to approximately 54px.
 - [x] Corrected the overview workflow list so each description uses the full row width.
+- [x] Replaced the combined public-case direction with three independent AI case studies.
+- [x] Defined the Illustration case study as a five-step narrative.
+- [x] Recorded the emotional writing standard, short-form requirement, and no-em-dash rule.
+- [x] Preserved the combined case study as source material instead of deleting it.
+- [x] Flagged the new `10,000 text components` and `five days` claims for fact confirmation.
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 
