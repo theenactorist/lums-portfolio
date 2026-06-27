@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ZoomableImage from '../../components/ZoomableImage';
-import CaseStudyProgressRail from './CaseStudyProgressRail';
+import CaseStudyProgressRail from '../../components/CaseStudyProgressRail';
 
 const phaseLinks = [
   { id: 'phase-drift', label: 'The problem' },

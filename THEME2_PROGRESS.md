@@ -7,7 +7,7 @@ Current stage: Independent AI case-study architecture
 
 ## Current gate
 
-**The combined Branch AI case study is superseded as the future public structure. The current gate is approval of the Illustration title, five-step structure, and expanded facts.**
+**The Illustration title, five-step structure, and standalone route are approved. The current gate is Olumide's expanded Illustration context and evidence.**
 
 Review: [Independent AI Case Study Architecture](content/specs/AI_CASE_STUDY_ARCHITECTURE.md)
 
@@ -27,7 +27,7 @@ The current combined page remains available as a visual and factual reference. I
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
 | Combined Branch AI storyline | Superseded | Preserved as verified source material only |
-| Independent AI case studies | Standalone architecture approved | Illustration is first; five-step labels, titles, and routes remain pending |
+| Independent AI case studies | Illustration scaffold implemented | Illustration title and route approved; copywriting and prototyping remain pending |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Branch AI pilot complete locally | Approved replacement direction implemented |
@@ -129,6 +129,10 @@ The current combined page remains available as a visual and factual reference. I
 - [x] Recorded the emotional writing standard, short-form requirement, and no-em-dash rule.
 - [x] Preserved the combined case study as source material instead of deleting it.
 - [x] Flagged the new `10,000 text components` and `five days` claims for fact confirmation.
+- [x] Approved `Building an AI illustration system for consistent, on-brand product visuals at Branch`.
+- [x] Created the independent `/work/ai-illustration-system` route.
+- [x] Added the approved five-step progress rail and content-intake scaffold.
+- [x] Kept the incomplete Illustration page off the homepage until its narrative is approved.
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 

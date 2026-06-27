@@ -1,6 +1,6 @@
 # Independent AI Case Study Architecture
 
-Status: Standalone architecture approved; five-step structure, titles, and routes pending owner confirmation
+Status: Standalone architecture and Illustration structure approved
 Last updated: 2026-06-27
 Fact source: `content/fact-sheets/BRANCH_AI.md`
 
@@ -18,7 +18,7 @@ The illustration, copywriting, and prototyping work will become three independen
 
 | Case study | Public purpose | Route | Title status |
 | --- | --- | --- | --- |
-| AI illustration system | Consistent, on-brand product illustrations | Pending title approval | Pending |
+| AI illustration system | Consistent, on-brand product illustrations | `/work/ai-illustration-system` | Approved |
 | AI-assisted copywriting review | Product- and market-aware interface copy at scale | Pending fact and title approval | Pending |
 | AI-assisted prototyping | Neem-aware prototypes from product requirements | Pending title approval | Pending |
 
@@ -102,15 +102,20 @@ The illustration case study must feel passionate, informed, simple, and concise.
 - Do not use em dashes.
 - Do not invent a metric, timeframe, role, or outcome.
 
-## Working title directions
+## Approved Illustration title
 
-These are options for owner review, not approved copy:
+`Building an AI illustration system for consistent, on-brand product visuals at Branch`
 
-1. `Building an AI illustration system for consistent, on-brand product visuals at Branch`
-2. `How I used AI to create consistent, on-brand illustrations at Branch`
-3. `Turning inconsistent AI images into one illustration language at Branch`
+Approved by Olumide on 2026-06-27.
 
 `Automated` is not recommended in the illustration title. The workflow still depended on design decisions, iteration, quality review, and final human selection.
+
+## Implementation status
+
+- The standalone Illustration route and five-step progress rail are implemented.
+- The route is intentionally not linked from the homepage while the narrative is incomplete.
+- The scaffold contains content-intake prompts instead of invented public copy.
+- The current combined case study remains available as an unlinked factual and visual reference.
 
 ## Metric hold for the copywriting case
 

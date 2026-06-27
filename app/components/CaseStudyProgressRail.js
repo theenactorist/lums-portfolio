@@ -9,6 +9,7 @@ export default function CaseStudyProgressRail({ phases }) {
     () => Math.max(0, phases.findIndex((phase) => phase.id === activeId)),
     [activeId, phases],
   );
+
   useEffect(() => {
     const sections = phases
       .map((phase) => document.getElementById(phase.id))
