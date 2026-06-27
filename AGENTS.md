@@ -17,7 +17,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Read before changing the interface
 
-- Read `../PORTFOLIO_REFERENCE_SPEC.md`, `CONTENT_STYLE_GUIDE.md`, `content/COPY_DECK.md`, `DESIGN.md`, and `PRODUCT.md` when they are present.
+- Read `THEME2_PROGRESS.md`, `../PORTFOLIO_REFERENCE_SPEC.md`, `CONTENT_STYLE_GUIDE.md`, `content/COPY_DECK.md`, `DESIGN.md`, and `PRODUCT.md` when they are present.
+- Update `THEME2_PROGRESS.md` after every meaningful milestone, approval, deployment, or change in blocker status so the owner can see current state without reading thread history.
 - Treat approved files in `content/fact-sheets/` as the only authority for project claims, metrics, ownership, and attribution.
 - `../PORTFOLIO_REFERENCE_SPEC.md` contains useful reference research but may lag the latest approved decisions. Reconcile it before implementation; never silently choose between conflicts.
 - The user's explicit instructions and confirmed decisions take precedence over repository documentation.
