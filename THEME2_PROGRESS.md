@@ -7,13 +7,13 @@ Current stage: Branch AI visual pilot implementation
 
 ## Current gate
 
-**The replacement Branch AI direction is approved and implemented locally. The current gate is owner review of the rebuilt Theme 2 pilot.**
+**The replacement Branch AI direction is approved and published to the protected Preview. The current gate is owner review of the rebuilt Theme 2 pilot.**
 
 Review: [Branch AI Visual System Reset](content/specs/BRANCH_AI_VISUAL_SYSTEM.md)
 
 Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai)
 
-The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi, a white canvas with warm-neutral chapter bands, a horizontal connected sticky progress rail, and a black active state. Country names appear only in Team locations. The existing Preview remains protected and noindex until this local rebuild is pushed.
+The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi, a white canvas with warm-neutral chapter bands, a horizontal connected sticky progress rail, and a black active state. Country names appear only in Team locations. The updated Preview is Ready, protected by Vercel authentication, and returns `X-Robots-Tag: noindex, nofollow, noarchive`.
 
 ## Status at a glance
 
@@ -32,7 +32,7 @@ The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi,
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Branch AI pilot complete locally | Approved replacement direction implemented |
 | Baseline build | Complete | Dependencies installed; lint and production build pass |
-| Vercel staging preview | Superseded | Protected noindex Preview exists, but the rejected visual treatment must be rebuilt |
+| Vercel staging preview | Ready | Rebuilt Branch AI pilot is protected and noindex |
 | Accessibility/performance QA | Local implementation QA in progress | Lint/build and desktop/mobile browser checks pass |
 
 ## Completed work
@@ -234,7 +234,7 @@ The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi,
 | Vercel project | `lums-portfolio` linked locally |
 | Required environment variables | Available for Preview |
 | Remote `theme-2` branch | Pushed and tracking `origin/theme-2` |
-| Preview deployment | Superseded visual treatment; protected by Vercel authentication |
+| Preview deployment | Rebuilt Theme 2 pilot; Ready and protected by Vercel authentication |
 | Preview `noindex` | Verified: response header plus `robots.txt` disallow |
 | Staging URL | [Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai) |
 
@@ -257,9 +257,10 @@ The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi,
 - `1963dfe` — Removed the unnecessary retrospective prompt
 - `a5157d7` — Recorded the approved retrospective decision
 - `45be3ae` — Implemented the approved Branch AI case study and preview foundations
+- `c34ed78` — Rebuilt Branch AI with Satoshi and the approved editorial visual system
 
 ## Next three actions
 
-1. Complete final local desktop/mobile/accessibility checks.
-2. Push the approved Theme 2 pilot and replace the superseded Preview.
-3. Review the rebuilt Branch AI staging page with Olumide.
+1. Review the rebuilt Branch AI staging page with Olumide.
+2. Record any owner feedback on hierarchy, type, rail behaviour, and section rhythm.
+3. Apply only confirmed revisions before using the system on the remaining case studies.
