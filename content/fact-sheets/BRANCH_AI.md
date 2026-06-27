@@ -102,7 +102,7 @@ This sheet separates approved facts from unresolved claims before the Branch AI 
 | CP-05 | 1,778 copy changes were implemented. | Confirmed as measured; implementation ownership still needs clarification |
 | CP-06 | India totals were audited while Kenya and Nigeria figures included directional estimates. | Exact limitation still needs confirmation |
 | CP-07 | CopyGPT accuracy improved from 95% to 99%. | Confirmed as assessed through human review; review sample and period remain open |
-| CP-08 | CopyGPT was rolled out by Olumide. | Confirmed personal ownership; exact markets and date remain open |
+| CP-08 | CopyGPT was rolled out by the product manager. | Confirmed product-manager ownership; exact markets and date remain open |
 | CP-09 | The system reduced copywriting turnaround. | Directional outcome; evidence and wording still needed |
 
 ## CopyGPT ownership record
@@ -110,7 +110,7 @@ This sheet separates approved facts from unresolved claims before the Branch AI 
 | Work area | Approved owner/status |
 | --- | --- |
 | Brand and market rules | Team |
-| Rollout | Olumide |
+| Rollout | Product manager |
 | Poll and research | Unresolved |
 | Component and lint rules | Unresolved |
 | Version tuning | Unresolved |
