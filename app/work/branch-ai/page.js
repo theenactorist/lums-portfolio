@@ -95,7 +95,7 @@ export default function BranchAICaseStudy() {
               </li>
               <li className="cs-breadcrumb__sep" aria-hidden="true">/</li>
               <li className="cs-breadcrumb__item">
-                <Link href="/work" className="cs-breadcrumb__link">Selected work</Link>
+                <Link href="/#featured-work" className="cs-breadcrumb__link">Selected work</Link>
               </li>
               <li className="cs-breadcrumb__sep" aria-hidden="true">/</li>
               <li className="cs-breadcrumb__item cs-breadcrumb__item--current" aria-current="page">
@@ -256,7 +256,7 @@ export default function BranchAICaseStudy() {
         <section id="phase-drift" className="cs-prose section cs-anchor-section" aria-labelledby="phase-drift-title">
           <div className="container">
             <div className="cs-phase-heading">
-              <span>Phase 01</span>
+              <span>The problem</span>
               <h2 id="phase-drift-title">Why AI outputs kept drifting</h2>
               <p>Fast outputs. Different versions of Branch.</p>
             </div>
@@ -324,7 +324,7 @@ export default function BranchAICaseStudy() {
         <section id="phase-systems" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="phase-systems-title">
           <div className="container">
             <div className="cs-phase-heading">
-              <span>Phase 02</span>
+              <span>The system</span>
               <h2 id="phase-systems-title">Turning prompts into systems</h2>
               <p>The system became the product.</p>
             </div>
@@ -383,7 +383,7 @@ export default function BranchAICaseStudy() {
         <section id="phase-workflows" className="section cs-anchor-section" aria-labelledby="phase-workflows-title">
           <div className="container">
             <div className="cs-phase-heading">
-              <span>Phase 03</span>
+              <span>The workflows</span>
               <h2 id="phase-workflows-title">Three workflows in practice</h2>
               <p>One reliability problem, solved through three different systems.</p>
             </div>
@@ -634,7 +634,7 @@ export default function BranchAICaseStudy() {
         <section id="phase-testing" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="phase-testing-title">
           <div className="container">
             <div className="cs-phase-heading">
-              <span>Phase 04</span>
+              <span>The testing</span>
               <h2 id="phase-testing-title">Testing with the product team</h2>
               <p>Governance did not remove judgment.</p>
             </div>
@@ -709,7 +709,7 @@ export default function BranchAICaseStudy() {
         <section id="phase-outcomes" className="cs-prose section cs-anchor-section" aria-labelledby="phase-outcomes-title">
           <div className="container">
             <div className="cs-phase-heading">
-              <span>Phase 05</span>
+              <span>The outcomes</span>
               <h2 id="phase-outcomes-title">Outcomes and learning</h2>
               <p>Less dependence on each person reconstructing Branch context from scratch.</p>
             </div>
@@ -779,7 +779,7 @@ export default function BranchAICaseStudy() {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <Link href="/work" className="cs-back-link">Back to selected work</Link>
+            <Link href="/#featured-work" className="cs-back-link">Back to selected work</Link>
           </div>
         </section>
     </main>

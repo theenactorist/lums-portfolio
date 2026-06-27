@@ -118,6 +118,12 @@ The content flow remains approved. The rebuilt pilot uses a split hero, Satoshi,
 - [x] Rebuilt Branch AI with open metrics, restrained rules, wide evidence, and warm chapter bands.
 - [x] Added scroll-aware `aria-current="step"` progress tracking and mobile active-step centring.
 - [x] Limited public market country names to Team locations.
+- [x] Routed Selected work breadcrumbs and `/work` to the landing-page `#featured-work` section.
+- [x] Constrained the progress line between steps 1 and 5 and moved the rail onto the warm-neutral canvas.
+- [x] Replaced numbered phase eyebrows with semantic chapter labels.
+- [x] Reworked narrative sections into Jessa's single-column reading pattern with a 760px measure.
+- [x] Increased desktop body copy to 20px and reduced section-heading scale to approximately 54px.
+- [x] Corrected the overview workflow list so each description uses the full row width.
 - [x] Extracted and visually verified the updated three-page résumé supplied on 2026-06-27.
 - [x] Created the [Résumé Fact Sheet](content/fact-sheets/RESUME.md) as the new career source.
 

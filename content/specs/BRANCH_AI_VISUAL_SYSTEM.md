@@ -64,18 +64,18 @@ All roles inherit the single `--font-family-sans` token.
 | Role | Desktop | Mobile | Weight | Line-height | Letter-spacing |
 | --- | --- | --- | --- | --- | --- |
 | Case title | 84px max | 57px max | 600 | .98 | -.05em |
-| Section title | 76px max | 48px | 600 | .98 | -.05em |
-| Workflow title | 68px max | 44px | 600 | 1.02 | -.045em |
+| Section title | 54px max | 44px | 600 | 1.02 | -.045em |
+| Workflow title | 54px max | 40px | 600 | 1.02 | -.045em |
 | Supporting heading | 24px | 21px | 600 | 1.25 | -.01em |
 | Lead paragraph | 22px | 19px | 400 | 1.5 | normal |
-| Body | 18px | 17px | 400 | 1.7 | normal |
+| Body | 20px | 18px | 400 | 1.62 | normal |
 | Metadata value | 16px | 16px | 500 | 1.45 | normal |
 | Eyebrow/label | 12px | 12px | 600 | 1.35 | .1em |
 | Metric | 48px | 38px | 600 | 1 | -.025em |
 
 Rules:
 
-- Body measure: 680–720px.
+- Body measure: 704–760px.
 - Display measure: 12–15 words per line where possible.
 - Use 400 for reading copy, 500 for metadata, and 600 for hierarchy.
 - Remove 650 and 700 weights from the Branch case-study UI.
@@ -86,9 +86,9 @@ Rules:
 | Role | Desktop | Mobile |
 | --- | --- | --- |
 | Wide page width | 1280px | viewport minus 24px gutters |
-| Reading width | 720px | full available width |
-| Major section padding | 120px | 72px |
-| Workflow separation | 144px | 88px |
+| Reading width | 760px | full available width |
+| Major section padding | 104px | 72px |
+| Workflow separation | 104px | 72px |
 | Heading to lead | 24px | 18px |
 | Paragraph gap | 18px | 16px |
 | Evidence gap | 40px | 24px |
@@ -117,6 +117,8 @@ Desktop:
 
 - Sticky directly below the global navigation.
 - Five equal-width steps connected by one continuous 1px line.
+- The line begins at the centre of step 1 and ends at the centre of step 5; it never extends beyond the end steps.
+- The rail uses the warm-neutral canvas so it remains visible against white content sections.
 - Each step has a numbered 32px circle and a short label.
 - Completed line segments and circles use primary text colour.
 - The current step is a filled circle with inverse text and a 600-weight label.
@@ -150,3 +152,11 @@ Mobile:
 4. Black active progress state.
 5. Country names appear only in Team locations on the public case-study page.
 6. Satoshi is the current Theme 2 typeface trial.
+
+## Owner refinement pass
+
+- Selected work links now target the landing-page `#featured-work` section; `/work` redirects there.
+- Phase chapter eyebrows use semantic labels such as `The problem` and `The system`, not `Phase 01` or `Phase 02`.
+- Narrative sections follow Jessa's single-column reading pattern instead of a left-label/right-body grid.
+- Section headings are capped at approximately 54px and body copy is 20px on desktop.
+- The overview's numbered workflow list uses a full-width text row so descriptions do not collapse into narrow columns.

@@ -5749,7 +5749,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   border: 0;
   border-top: 1px solid var(--branch-rule, var(--border));
   border-bottom: 1px solid var(--branch-rule, var(--border));
-  background: var(--branch-canvas, var(--bg-primary));
+  background: var(--branch-warm, var(--bg-secondary));
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
@@ -5765,7 +5765,6 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .cs-phase-nav__list {
-  --rail-inset: 3rem;
   position: relative;
   display: flex;
   width: max(720px, 100%);
@@ -5774,20 +5773,8 @@ body:has([data-theme="dark"] .branch-ai-case) {
   padding: 1rem 0 0.875rem;
 }
 
-.cs-phase-nav__list::before {
-  position: absolute;
-  top: 1.8125rem;
-  left: var(--rail-inset);
-  height: 1px;
-  content: '';
-  pointer-events: none;
-  right: var(--rail-inset);
-  background: var(--branch-rule, var(--border));
-}
-
 .cs-phase-nav__list li {
   position: relative;
-  z-index: 1;
   display: block;
   flex: 1 0 0;
   min-width: 138px;
@@ -5795,12 +5782,12 @@ body:has([data-theme="dark"] .branch-ai-case) {
 
 .cs-phase-nav__list li::after {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   top: 0.8125rem;
   left: 50%;
   width: 100%;
   height: 1px;
-  background: transparent;
+  background: var(--branch-rule, var(--border));
   content: '';
 }
 
@@ -5813,6 +5800,8 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .cs-phase-nav__list a {
+  position: relative;
+  z-index: 1;
   display: flex;
   min-height: 0;
   flex-direction: column;
@@ -5836,7 +5825,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
   justify-content: center;
   border: 1px solid var(--branch-rule, var(--border));
   border-radius: 50%;
-  background: var(--branch-canvas, var(--bg-primary));
+  background: var(--branch-warm, var(--bg-secondary));
   color: var(--branch-muted, var(--text-secondary));
   font-size: 0.625rem;
   font-variant-numeric: tabular-nums;
@@ -5871,7 +5860,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
 
 .branch-ai-case .section,
 .branch-ai-case .cs-prose {
-  padding: clamp(5.5rem, 10vw, 9rem) 0;
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0;
 }
 
 .branch-ai-case .cs-section--warm {
@@ -5879,12 +5868,14 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-prose__row {
-  grid-template-columns: minmax(150px, 0.24fr) minmax(0, 0.76fr);
-  gap: clamp(2.5rem, 6vw, 7rem);
+  display: block;
+  width: min(100%, 760px);
+  margin-inline: auto;
 }
 
 .branch-ai-case .cs-prose__label {
-  padding-top: 0.35rem;
+  margin-bottom: 1.25rem;
+  padding-top: 0;
   color: var(--branch-muted);
   font-size: 0.75rem;
   font-weight: 700;
@@ -5894,13 +5885,13 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-prose__content {
-  max-width: 780px;
+  max-width: 760px;
 }
 
 .branch-ai-case .cs-prose__content h2 {
   margin: 0 0 1.75rem;
   color: var(--branch-ink);
-  font-size: clamp(2.5rem, 4vw, 3.625rem);
+  font-size: clamp(2.5rem, 4vw, 3.4rem);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.02;
@@ -5913,8 +5904,8 @@ body:has([data-theme="dark"] .branch-ai-case) {
 .branch-ai-case .cs-detail-list li,
 .branch-ai-case .cs-system-steps p {
   color: var(--branch-copy);
-  font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
-  line-height: 1.68;
+  font-size: clamp(1.125rem, 1.45vw, 1.25rem);
+  line-height: 1.62;
 }
 
 .branch-ai-case .cs-prose__content p {
@@ -5931,15 +5922,18 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-numbered-list li {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 1rem;
-  padding: 1.125rem 0;
+  position: relative;
+  display: block;
+  min-height: 3.75rem;
+  padding: 1.125rem 0 1.125rem 3.5rem;
   border-bottom: 1px solid var(--branch-rule);
   counter-increment: workflow;
 }
 
 .branch-ai-case .cs-numbered-list li::before {
+  position: absolute;
+  top: 1.45rem;
+  left: 0;
   color: var(--branch-muted);
   content: counter(workflow, decimal-leading-zero);
   font-size: 0.75rem;
@@ -5951,7 +5945,8 @@ body:has([data-theme="dark"] .branch-ai-case) {
 .branch-ai-case .cs-impact-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
-  margin-top: clamp(4rem, 7vw, 6.5rem);
+  width: min(100%, 960px);
+  margin: clamp(3.5rem, 6vw, 5rem) auto 0;
   border-top: 1px solid var(--branch-rule);
   border-bottom: 1px solid var(--branch-rule);
 }
@@ -6001,14 +5996,16 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-phase-heading {
-  grid-template-columns: minmax(150px, 0.24fr) minmax(0, 0.76fr);
-  gap: 0.75rem clamp(2.5rem, 6vw, 7rem);
-  margin-bottom: clamp(4rem, 7vw, 6rem);
+  display: block;
+  width: min(100%, 760px);
+  margin: 0 auto clamp(3.5rem, 6vw, 5rem);
   padding-top: 0;
   border: 0;
 }
 
 .branch-ai-case .cs-phase-heading > span {
+  display: block;
+  margin-bottom: 1rem;
   color: var(--branch-muted);
   font-size: 0.75rem;
   letter-spacing: 0.11em;
@@ -6016,24 +6013,25 @@ body:has([data-theme="dark"] .branch-ai-case) {
 
 .branch-ai-case .cs-phase-heading h2 {
   color: var(--branch-ink);
-  font-size: clamp(3rem, 5vw, 4.75rem);
+  font-size: clamp(2.75rem, 4.2vw, 3.4rem);
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 0.98;
 }
 
 .branch-ai-case .cs-phase-heading p {
-  max-width: 40ch;
-  margin-top: 0.5rem;
+  max-width: 52ch;
+  margin-top: 1.25rem;
   color: var(--branch-copy);
-  font-size: 1.125rem;
-  line-height: 1.55;
+  font-size: clamp(1.125rem, 1.45vw, 1.25rem);
+  line-height: 1.6;
 }
 
 .branch-ai-case .cs-issue-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
-  margin-top: clamp(4rem, 8vw, 7rem);
+  width: min(100%, 960px);
+  margin: clamp(3.5rem, 6vw, 5rem) auto 0;
   border-top: 1px solid var(--branch-rule);
   border-bottom: 1px solid var(--branch-rule);
 }
@@ -6082,10 +6080,10 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-case-pullquote {
-  max-width: 24ch;
-  margin-top: clamp(5rem, 9vw, 9rem);
+  max-width: 760px;
+  margin: clamp(4rem, 7vw, 6rem) auto 0;
   color: var(--branch-ink);
-  font-size: clamp(2.25rem, 4.5vw, 4.25rem);
+  font-size: clamp(2.25rem, 3.8vw, 3.4rem);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.04;
@@ -6095,7 +6093,8 @@ body:has([data-theme="dark"] .branch-ai-case) {
 .branch-ai-case .cs-system-steps {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 clamp(2rem, 5vw, 5rem);
-  margin-top: clamp(4rem, 7vw, 6rem);
+  width: min(100%, 960px);
+  margin: clamp(3.5rem, 6vw, 5rem) auto 0;
   border-color: var(--branch-rule);
 }
 
@@ -6112,7 +6111,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-prose__row--spaced {
-  margin-top: clamp(4.5rem, 8vw, 7rem);
+  margin-top: clamp(3.5rem, 6vw, 5rem);
 }
 
 .branch-ai-case .cs-detail-list {
@@ -6134,7 +6133,7 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-feature {
-  padding: clamp(5.5rem, 10vw, 9rem) 0;
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0;
 }
 
 .branch-ai-case .cs-feature + .cs-feature {
@@ -6146,28 +6145,33 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-workflow-index {
-  margin: 0 0 0.25rem;
+  width: min(100%, 760px);
+  margin: 0 auto 0.75rem;
 }
 
 .branch-ai-case .cs-feature__title {
-  max-width: 18ch;
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin-inline: auto;
   color: var(--branch-ink);
-  font-size: clamp(2.75rem, 4.5vw, 4.25rem);
+  font-size: clamp(2.5rem, 4vw, 3.4rem);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.02;
 }
 
 .branch-ai-case .cs-feature__intro {
-  max-width: 46ch;
-  margin-top: 0;
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .branch-ai-case .cs-initiative-snapshot {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   max-width: none;
-  margin: clamp(2.5rem, 5vw, 4.5rem) 0;
+  width: min(100%, 960px);
+  margin: clamp(2.5rem, 5vw, 4.5rem) auto;
   border-top: 1px solid var(--branch-rule);
   border-bottom: 1px solid var(--branch-rule);
 }
@@ -6194,13 +6198,15 @@ body:has([data-theme="dark"] .branch-ai-case) {
 }
 
 .branch-ai-case .cs-feature-copy {
-  max-width: 780px;
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin-inline: auto;
 }
 
 .branch-ai-case .cs-feature-copy h4 {
-  margin: clamp(3.5rem, 7vw, 6rem) 0 1.25rem;
+  margin: clamp(3rem, 5vw, 4.5rem) 0 1.25rem;
   color: var(--branch-ink);
-  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  font-size: clamp(1.75rem, 2.5vw, 2.125rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.1;
@@ -6241,8 +6247,9 @@ body:has([data-theme="dark"] .branch-ai-case) {
 
 .branch-ai-case .cs-status-card {
   gap: 0.75rem;
-  max-width: 780px;
-  margin-top: clamp(3rem, 6vw, 5rem);
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: clamp(3rem, 6vw, 5rem) auto 0;
   padding: 0 0 0 1.5rem;
   border: 0;
   border-left: 2px solid var(--branch-ink);
