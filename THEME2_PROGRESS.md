@@ -212,9 +212,11 @@ After approval, the next content step is the complete Branch AI case-study draft
 - `e5eca43` — Branch AI ownership corrections
 - `a24477a` — CopyGPT rollout ownership correction
 - `bb8a8dc` — Approved Branch AI facts and storyline draft
+- `5e1a358` — Visible Theme 2 progress dashboard
+- `853f2b1` — Recruiter-first case-study framing and UXfolio synthesis
 
 ## Next three actions
 
-1. Olumide reviews the Branch AI storyline, title, summary, and five phase labels.
+1. Olumide reviews the Branch AI title, subtitle, recruiter TLDR, story order, and five phase labels.
 2. After approval, write the complete Branch AI copy in the copy deck.
-3. In parallel with copy review, finish the baseline setup and create the first Vercel staging preview.
+3. After the master specification is confirmed, finish the baseline setup and create the first Vercel staging preview.
