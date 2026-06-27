@@ -127,7 +127,7 @@ After approval, the copy can be mapped into the case-study components. Public ca
 - [x] Approve the five sticky phase labels.
 - [x] Approve the story order and chapter balance.
 - [x] Write the complete Branch AI case-study draft.
-- [ ] Review and approve the subtitle, summary, complete wording, reflections, and media captions.
+- [ ] Review and approve the subtitle, summary, complete wording, learning statements, and media captions.
 - [ ] Map approved copy to existing media and captions.
 
 #### Remaining pages and projects
@@ -230,6 +230,6 @@ After approval, the copy can be mapped into the case-study components. Public ca
 
 ## Next three actions
 
-1. Olumide reviews the complete Branch AI draft, including the subtitle, recruiter TLDR, reflections, and media captions.
+1. Olumide reviews the complete Branch AI draft, including the subtitle, recruiter TLDR, learning statements, and media captions.
 2. After copy approval, map the draft into the existing Branch AI components and media.
 3. After the master specification is confirmed, finish the baseline setup and create the first Vercel staging preview.

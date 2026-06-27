@@ -9,7 +9,7 @@ Fact source: `content/fact-sheets/BRANCH_AI.md`
 - Owner: Olumide Olusesi
 - Approved on: 2026-06-27
 - Approved: recommended title, narrative direction, story order, and five phase labels
-- Still requiring review: complete public copy, subtitle wording, reflections, and media captions
+- Still requiring review: complete public copy, subtitle wording, and media captions
 
 ## Narrative goal
 
@@ -311,5 +311,4 @@ The approved storyline has been expanded in `content/drafts/BRANCH_AI_CASE_STUDY
 2. Summary and recruiter TLDR wording
 3. First-person ownership language
 4. Learning statements
-5. One genuine “what I would change next” reflection
-6. Media selection and caption direction
+5. Media selection and caption direction

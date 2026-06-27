@@ -56,7 +56,7 @@ This complements the existing Theme 2 direction:
 
 - Use quantitative evidence where it is verified.
 - Use qualitative evidence when metrics are unavailable or confidential.
-- Close with what changed, what Olumide learned, and what he would do differently.
+- Close with what changed and what Olumide learned. A “what I would do differently” reflection is optional and should appear only when it adds something specific and owner-confirmed.
 - Link to the next relevant case study.
 
 ## Adapt rather than enforce literally

@@ -206,7 +206,8 @@ When metrics are confidential or unavailable, state the qualitative improvement 
 
 - Include only sections, artefacts, and experiments that shaped the final solution or prove a meaningful capability.
 - Keep paragraphs short and headings descriptive.
-- End with outcomes, what changed in Olumide's thinking, what he would do differently, and a route to the next case study.
+- End with outcomes, what changed in Olumide's thinking, and a route to the next case study.
+- Include a “what I would do differently” reflection only when Olumide confirms that it adds something specific and useful; it is not a required section.
 - Preserve project-specific phases rather than forcing every case into the same generic template.
 
 ## Case-study narrative pattern

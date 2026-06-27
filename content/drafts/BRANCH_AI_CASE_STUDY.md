@@ -308,10 +308,6 @@ I also learned that guardrails need active tuning. Too little structure produces
 
 Most importantly, building internal AI tools required the same product thinking as customer-facing work: understand the user, make failure visible, test with real tasks, define ownership, and keep judgment at the right point in the system.
 
-### What I would change next
-
-**Owner input required before approval:** add one specific decision Olumide would make differently if he started the initiative again. This should be a genuine personal reflection, not an inferred process recommendation.
-
 ### Future potential
 
 The illustration workflow could eventually support controlled external-agency access. That remains future potential, not a shipped capability or commitment.
@@ -440,5 +436,4 @@ Confirm or correct:
 3. First-person ownership language.
 4. The explanation of each workflow and its outcome.
 5. Learning statements.
-6. One genuine “what I would change next” reflection.
-7. Media selection, alt text, and caption direction.
+6. Media selection, alt text, and caption direction.
