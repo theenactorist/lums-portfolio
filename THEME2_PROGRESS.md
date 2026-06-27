@@ -15,7 +15,7 @@ Draft: [AI Illustration System Case Study](content/drafts/AI_ILLUSTRATION_SYSTEM
 
 Facts and open confirmations: [AI Illustration System Fact Sheet](content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md)
 
-Staging: [Open the Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai)
+Staging: [Open the Theme 2 Illustration AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/ai-illustration-system)
 
 The current combined page remains available as a visual and factual reference. It will not define the final information architecture. Illustration, copywriting, and prototyping will become independent case studies with distinct titles, routes, homepage cards, and five-step narratives.
 
@@ -260,9 +260,9 @@ The current combined page remains available as a visual and factual reference. I
 | Vercel project | `lums-portfolio` linked locally |
 | Required environment variables | Available for Preview |
 | Remote `theme-2` branch | Pushed and tracking `origin/theme-2` |
-| Preview deployment | Rebuilt Theme 2 pilot; Ready and protected by Vercel authentication |
+| Preview deployment | Standalone Illustration AI narrative; Ready and protected by Vercel authentication |
 | Preview `noindex` | Verified: response header plus `robots.txt` disallow |
-| Staging URL | [Theme 2 Branch AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/branch-ai) |
+| Staging URL | [Theme 2 Illustration AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/ai-illustration-system) |
 
 ## Milestone commits
 
@@ -284,6 +284,7 @@ The current combined page remains available as a visual and factual reference. I
 - `a5157d7` — Recorded the approved retrospective decision
 - `45be3ae` — Implemented the approved Branch AI case study and preview foundations
 - `c34ed78` — Rebuilt Branch AI with Satoshi and the approved editorial visual system
+- `9ab9a1b` — Built the standalone Illustration AI case study and six-version evidence narrative
 
 ## Next three actions
 
