@@ -3,11 +3,11 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Illustration AI implementation QA
+Current stage: Illustration AI staging review
 
 ## Current gate
 
-**The revised five-anchor Illustration structure and source copy are approved. The approved narrative is implemented locally and is undergoing final desktop and mobile QA before the staging preview is refreshed.**
+**The revised five-anchor Illustration structure and source copy are approved, implemented, and published to the protected Theme 2 staging preview for visual review.**
 
 Review: [Independent AI Case Study Architecture](content/specs/AI_CASE_STUDY_ARCHITECTURE.md)
 
@@ -33,7 +33,7 @@ The current combined page remains available as a visual and factual reference. I
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
 | Combined Branch AI storyline | Superseded | Preserved as verified source material only |
-| Independent AI case studies | Illustration source copy approved and implemented locally | Final visual QA and staging refresh remain; copywriting and prototyping are pending |
+| Independent AI case studies | Illustration source copy approved, implemented, QA-checked, and published to staging | Owner visual review remains; copywriting and prototyping are pending |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Branch AI pilot complete locally | Approved replacement direction implemented |
@@ -196,7 +196,7 @@ The current combined page remains available as a visual and factual reference. I
 - [x] Review and approve the revised Illustration AI wording and visual sequence.
 - [x] Implement the approved rewrite on the public route.
 - [x] Complete final desktop and mobile visual QA for the approved rewrite.
-- [ ] Refresh the staging preview with approval.
+- [x] Refresh the protected staging preview and verify the approved copy, anchors, code evidence, and six iterations on the Ready deployment.
 - [ ] Create and approve the copywriting case fact sheet, title, narrative, and preview.
 - [ ] Create and approve the prototyping case fact sheet, title, narrative, and preview.
 
@@ -278,7 +278,7 @@ The current combined page remains available as a visual and factual reference. I
 | Vercel project | `lums-portfolio` linked locally |
 | Required environment variables | Available for Preview |
 | Remote `theme-2` branch | Pushed and tracking `origin/theme-2` |
-| Preview deployment | Standalone Illustration AI narrative; Ready and protected by Vercel authentication |
+| Preview deployment | Approved standalone Illustration AI narrative; Ready and protected by Vercel authentication |
 | Preview `noindex` | Verified: response header plus `robots.txt` disallow |
 | Staging URL | [Theme 2 Illustration AI Preview](https://lums-portfolio-git-theme-2-theenactorists-projects.vercel.app/work/ai-illustration-system) |
 
@@ -306,6 +306,6 @@ The current combined page remains available as a visual and factual reference. I
 
 ## Next three actions
 
-1. Complete desktop and mobile visual QA for the approved Illustration case study.
-2. Refresh the protected staging preview with Olumide's approval.
-3. Link the approved case study from selected work, then begin the independent copywriting case study.
+1. Complete Olumide's visual review of the protected Illustration staging page.
+2. Link the approved case study from Selected Work.
+3. Begin the independent copywriting case study.
