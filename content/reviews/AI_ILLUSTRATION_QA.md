@@ -1,15 +1,15 @@
 # AI Illustration Case Study QA Report
 
-Status: Passed for owner fact and copy review
+Status: Approved source copy implemented locally and passed implementation QA
 Date: 2026-06-27
 Route: `/work/ai-illustration-system`
 Branch: `theme-2`
 
 ## Verdict
 
-The standalone Illustration AI case study is structurally, technically, and visually ready for Olumide's review.
+The approved standalone Illustration AI narrative is implemented on the local route and passes content, build, desktop, and mobile checks.
 
-It is intentionally not linked from Selected Work. Seven factual items still require owner confirmation, and the public wording remains in copy-review status.
+It remains intentionally unlinked from Selected Work until the final visual sequence is approved and the protected staging preview is refreshed.
 
 ## Sources checked
 
@@ -36,13 +36,13 @@ It is intentionally not linked from Selected Work. Seven factual items still req
 | Team and collaborator attribution | Pass; Arushi, the design team, product managers, and UX researchers retain their stated contributions |
 | Unsupported metrics | Pass; no tool-usage count, exact illustration total, or unsupported adoption figure appears |
 | Unconfirmed public claims | Pass after correction; competitor names, Codex testing, company-access details, material count, unnamed styles, and triggering screens are omitted |
-| Programme dates | Pass with limitation; labelled as the wider programme window, not the illustration-only timeline |
+| Illustration dates | Pass; December 2025 to February 2026 |
 | Canadian English | Pass |
 | Em dashes | Pass; none appear in public case-study copy |
 | Prohibited wording | Pass; no `Veela`, `Recruiter TLDR`, numbered phase labels, or country-level Product markets metadata |
-| Copy density | Pass for review; 1,553 words, 43 paragraphs, and no paragraph above 46 words |
+| Copy density | Pass; the approved source document contains 2,323 words including headings, evidence notes, and metadata |
 | Headings | Pass; one H1, descriptive H2 phase headings, and supporting H3 headings with no level skips |
-| Visual evidence | Pass for review; seven evidence images plus one colour-system figure, each with contextual captions or labels |
+| Visual evidence | Pass; seven evidence images plus one colour-system figure, each with contextual captions or labels |
 | Reference-article use | Pass; structure and failure categories were synthesised without transferring Deovrat's ownership or copying long passages |
 
 ## Layout and visual-system audit
@@ -57,10 +57,10 @@ It is intentionally not linked from Selected Work. Seven factual items still req
 | Metadata | Pass after correction; 16px, weight 500 |
 | Reading measure | Pass; 760px desktop and full available mobile width |
 | Heading and label weights | Pass after correction; no 650 or 700 weights remain in the active Branch case-study CSS |
-| Responsive widths | Pass at 360px, 390px, 768px, 1280px, and 1440px |
+| Responsive widths | Pass for the approved rewrite at 390px and 1440px; earlier system checks also covered 360px, 768px, and 1280px |
 | Page overflow | Pass; no document-level horizontal overflow at tested widths |
 | Evidence media | Pass; wide, zoomable, lazy-loaded Next.js images with intrinsic dimensions |
-| Dark mode | Pass; optional dark tokens remain legible and light mode was restored after testing |
+| Default theme | Pass; the case study opens on the approved light canvas |
 
 ## Progress rail audit
 
@@ -95,7 +95,8 @@ It is intentionally not linked from Selected Work. Seven factual items still req
 - `npm run lint`: pass
 - `npm run build`: pass
 - Next.js static route generation: pass
-- Browser console warnings and errors: none
+- App-owned browser console warnings and errors: none observed
+- Existing Google Identity Services FedCM warning and token-retrieval error remain external to the case-study implementation
 - Broken internal phase anchors: none
 - Duplicate IDs: none
 - Metadata title, description, Open Graph title, description, and image: present
@@ -103,30 +104,22 @@ It is intentionally not linked from Selected Work. Seven factual items still req
 
 ## Corrections made during QA
 
-1. Removed unconfirmed Claude and Gemini claims from public copy.
-2. Removed the unconfirmed Codex-specific future claim from public copy.
-3. Reworded company access so it does not imply adoption or company-wide usage.
-4. Clarified that October 2025–February 2026 is the wider programme window.
-5. Removed unconfirmed Figma from the Illustration tools list.
-6. Reconciled the independent-case architecture across `AGENTS.md`, the copy deck, and the master specification.
-7. Reconciled the Satoshi decision across guidance and implementation.
-8. Recorded the unresolved 15 versus 18 versus 22 material-count conflict and kept all counts out of public copy.
-9. Corrected desktop body size, metadata size, and typography weights to match the approved visual system.
-10. Replaced scroll-event progress tracking with Intersection Observer.
-11. Fixed fresh mobile hash positioning after layout and font loading.
-12. Fixed inactive rail contrast.
-13. Added image-viewer focus management and focus return.
-14. Added the global reduced-motion fallback.
+1. Replaced the earlier public draft with the approved five-anchor source narrative.
+2. Updated the illustration timeline to December 2025 through February 2026.
+3. Updated the tools to ChatGPT, FigJam, and Figma.
+4. Removed unverified competitor, adoption, material-count, tolerance, and exact-output claims.
+5. Added the verified four-layer code evidence from the supplied v1.6 files.
+6. Replaced the previous iteration table with six readable, evidence-backed iteration narratives.
+7. Added the approved manager-recognition evidence without extracting conflicting figures from the screenshot.
+8. Standardised the case-study typography to the agreed 8-grid-compatible sizes.
+9. Kept every chapter heading left aligned at the same mobile inset.
+10. Reworked the selected-approach callout to remove the 2px decorative side stripe.
+11. Confirmed the connected rail starts at step 1, ends at step 5, and activates the deep-linked section.
+12. Confirmed no page-level horizontal overflow at 390px or 1440px.
 
-## Remaining owner confirmations
+## Remaining release decision
 
-1. The names of the three visual styles reviewed alongside Notion-style illustration.
-2. Whether October 2025–February 2026 also describes the Illustration workstream itself.
-3. Whether Claude and Gemini Nano Banana should be named publicly as evaluated alternatives.
-4. What `available company-wide` specifically means.
-5. Whether a Codex version was tested or remains future potential.
-6. Which product requests or screens first made the illustration problem urgent.
-7. Whether the public material count should be 15, 18, 22, or omitted permanently.
+The source copy is approved. The remaining owner decision is whether to refresh the protected staging preview and link the case study from Selected Work.
 
 ## Final-release checks still scheduled
 
@@ -137,4 +130,3 @@ These are not blockers for copy review, but they remain required before producti
 - Lighthouse performance measurement
 - Cross-browser checks in Safari and Firefox
 - Full 200% browser-zoom reflow review
-

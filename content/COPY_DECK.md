@@ -137,7 +137,7 @@ Working title:
 
 Working description:
 
-> I turned a fragmented illustration library into a reusable system with explicit colour, camera, material, and quality rules.
+> Designing a reusable AI illustration workflow that used a Custom GPT to turn natural-language requests into consistent 3D illustrations for Branch’s mobile products.
 
 The complete draft is implemented on an unlinked preview route so Olumide can review the copy in context. It must not be linked from Selected Work until the open fact items and wording are approved.
 

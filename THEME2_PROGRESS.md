@@ -3,11 +3,11 @@
 Last updated: 2026-06-27  
 Branch: `theme-2`  
 Worktree: `Theme 2/lums-portfolio`  
-Current stage: Illustration AI narrative review
+Current stage: Illustration AI implementation QA
 
 ## Current gate
 
-**The Illustration title, five-step structure, and route are approved. The complete first narrative, six-version analysis, and documented QA pass are ready for Olumide's fact and voice review.**
+**The revised five-anchor Illustration structure and source copy are approved. The approved narrative is implemented locally and is undergoing final desktop and mobile QA before the staging preview is refreshed.**
 
 Review: [Independent AI Case Study Architecture](content/specs/AI_CASE_STUDY_ARCHITECTURE.md)
 
@@ -33,7 +33,7 @@ The current combined page remains available as a visual and factual reference. I
 | Content style system | Complete | Voice guide and copy deck created |
 | Branch AI fact sheet | Approved | Rejected claims and ownership boundaries recorded |
 | Combined Branch AI storyline | Superseded | Preserved as verified source material only |
-| Independent AI case studies | Illustration narrative implemented locally | Illustration fact and voice review pending; copywriting and prototyping remain pending |
+| Independent AI case studies | Illustration source copy approved and implemented locally | Final visual QA and staging refresh remain; copywriting and prototyping are pending |
 | Updated résumé source | Captured | PDF extracted, rendered, and recorded in a fact sheet |
 | Other case-study copy | Not started | Follows Branch AI pilot |
 | Full visual implementation | Branch AI pilot complete locally | Approved replacement direction implemented |
@@ -144,6 +144,13 @@ The current combined page remains available as a visual and factual reference. I
 - [x] Synthesised the requested article sections while preserving Olumide's confirmed ownership boundaries.
 - [x] Created the standalone [AI Illustration System Fact Sheet](content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md).
 - [x] Wrote the complete [AI Illustration System Case Study Draft](content/drafts/AI_ILLUSTRATION_SYSTEM_CASE_STUDY.md).
+- [x] Approved the revised anchors: The missing layer, Finding a visual language, From assets to a system, Making consistency enforceable, and What shipped.
+- [x] Rewrote the Illustration source copy around the approved anchors, the clarified Neem context, verified v1.6 code evidence, and six evidence-backed iterations.
+- [x] Limited the revised narrative to three first-person pronouns and removed unresolved access, competitor, material-count, and tolerance claims.
+- [x] Corrected the Illustration workstream timeline to December 2025 through February 2026.
+- [x] Corrected the Illustration tools to ChatGPT, FigJam, and Figma.
+- [x] Reframed the opening ownership paragraph around uncertainty, research, failed outputs, design QA, and review before the final architecture emerged.
+- [x] Approved and applied the Illustration subtitle describing the reusable AI workflow, Custom GPT, natural-language requests, and consistent 3D outputs.
 - [x] Replaced the Illustration scaffold with the complete five-step narrative and evidence sequence.
 - [x] Verified the Illustration page on desktop and mobile, including rail progress, overflow, and browser errors.
 - [x] Audited the Illustration page against `AGENTS.md`, the master specification, content style guide, copy deck, visual specification, fact sheets, and copy draft.
@@ -181,12 +188,15 @@ The current combined page remains available as a visual and factual reference. I
 #### Independent Branch AI case studies
 
 - [x] Replace the combined Branch AI public architecture with three independent cases.
-- [x] Approve the Illustration AI title and five progress labels.
-- [x] Write and implement the complete Illustration AI narrative.
+- [x] Approve the Illustration AI title and revised five progress labels.
+- [x] Write the complete revised Illustration AI source narrative.
 - [x] Analyse the six supplied Illustration GPT system versions.
 - [x] Map the Illustration AI copy to the supplied media and captions.
 - [x] Implement and QA the Illustration AI type scale, section rhythm, connected progress rail, canvas treatment, hero composition, deep links, and image viewer.
-- [ ] Review and approve the remaining Illustration AI facts, wording, and visual sequence.
+- [x] Review and approve the revised Illustration AI wording and visual sequence.
+- [x] Implement the approved rewrite on the public route.
+- [x] Complete final desktop and mobile visual QA for the approved rewrite.
+- [ ] Refresh the staging preview with approval.
 - [ ] Create and approve the copywriting case fact sheet, title, narrative, and preview.
 - [ ] Create and approve the prototyping case fact sheet, title, narrative, and preview.
 
@@ -296,6 +306,6 @@ The current combined page remains available as a visual and factual reference. I
 
 ## Next three actions
 
-1. Review and confirm the standalone Illustration narrative, facts, and visual sequence with Olumide.
-2. Resolve the six open confirmation items in the Illustration fact sheet.
+1. Complete desktop and mobile visual QA for the approved Illustration case study.
+2. Refresh the protected staging preview with Olumide's approval.
 3. Link the approved case study from selected work, then begin the independent copywriting case study.

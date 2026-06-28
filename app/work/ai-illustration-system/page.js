@@ -3,43 +3,153 @@ import CaseStudyProgressRail from '../../components/CaseStudyProgressRail';
 import ZoomableImage from '../../components/ZoomableImage';
 
 const phases = [
-  { id: 'the-problem', label: 'The problem' },
-  { id: 'defining-consistency', label: 'Defining consistency' },
-  { id: 'choosing-a-direction', label: 'Choosing a direction' },
-  { id: 'building-the-system', label: 'Building the system' },
-  { id: 'what-changed', label: 'What changed' },
+  { id: 'the-missing-layer', label: 'The missing layer' },
+  { id: 'finding-a-visual-language', label: 'Finding a visual language' },
+  { id: 'from-assets-to-a-system', label: 'From assets to a system' },
+  { id: 'making-consistency-enforceable', label: 'Making consistency enforceable' },
+  { id: 'what-shipped', label: 'What shipped' },
 ];
 
 const systemVersions = [
   {
-    version: 'v1',
-    change: 'Locked the camera, lighting, output, material recognition, and the first realism gate.',
-    value: 'Created the first repeatable production contract.',
+    version: 'Iteration 1',
+    title: 'Establish the render contract',
+    description: 'The first version fixed the camera, lighting, transparent output, material recognition, and material-realism gate. A visual preference became an initial production contract.',
   },
   {
-    version: 'v2',
-    change: 'Added natural-material handling and stronger failure exclusions.',
-    value: 'Added explicit rules for skin, fur, and grass alongside hard product objects.',
+    version: 'Iteration 2',
+    title: 'Expand the material language',
+    description: 'Natural materials and stronger failure exclusions were added. The system learned that identifying a surface was only useful when it also knew how that surface should behave and what it must not become.',
   },
   {
-    version: 'v3',
-    change: 'Separated instructions, tightened material selection, and added reproducibility fields.',
-    value: 'Reduced duplicated rules and made failures easier to trace.',
+    version: 'Iteration 3',
+    title: 'Separate the system into layers',
+    description: 'Instructions, structured ideation, reproducibility fields, and material guardrails were separated. Routing, visual rules, and material recipes stopped competing as duplicated sources of authority.',
   },
   {
-    version: 'v4',
-    change: 'Added precedence, provenance, version compatibility, and stricter interaction behaviour.',
-    value: 'Stopped runtime requests and duplicated defaults from weakening the rules.',
+    version: 'Iteration 4',
+    title: 'Make the system governable',
+    description: 'Precedence, provenance, compatibility, and a one-question clarification policy were introduced. A render could be traced to the file versions and settings that produced it.',
   },
   {
-    version: 'v5',
-    change: 'Introduced colour roles, ratios, part assignments, and ratio validation.',
-    value: 'Addressed the largest source of library-wide drift.',
+    version: 'Iteration 5',
+    title: 'Turn colour into a system',
+    description: 'Approved hex values became defined roles, surface-area targets, contextual limits, part assignments, and ratio validation. The system moved from having the right colours to using them in the right hierarchy.',
   },
   {
-    version: 'v6',
-    change: 'Made pre-delivery colour validation mandatory.',
-    value: 'Turned colour guidance into a release gate.',
+    version: 'Iteration 6',
+    title: 'Make validation mandatory',
+    description: 'Pre-delivery colour validation became required. Outputs outside the accepted allocation were corrected and rerendered before human review for meaning and final selection.',
+  },
+];
+
+const systemLayers = [
+  {
+    number: '01',
+    title: 'Instructions',
+    role: 'The system contract',
+    filename: 'system_prompt_v1.6.md',
+    language: 'Markdown',
+    description: 'Routes the request, applies the non-negotiables, and controls when the system should ideate, render, validate, or ask a question.',
+    code: `IDEA SCOUT (when no image attached)
+1. Propose 8-10 ideas across: Product hardware, UI-on-device,
+   Payment/fintech, Compliance/KYC, Support/ops,
+   Abstract brand, Seasonal/Travel
+2. Each idea: Title (≤7 words), one-line story, camera,
+   lighting, parts list, color assignments, candidate materials
+3. User picks 1-3 ideas → render
+
+MATERIAL ASSIGNMENT
+- Segment parts → apply part_defaults → apply domain_overrides
+- Apply color_system (hierarchy → part_type → area)
+- Stylize ALL materials to 60/25/10/5 palette
+
+Guardrails:
+- Glass panels → Blue content
+- Paper → Grey with Navy print
+- Rubber → Navy (not black)`,
+  },
+  {
+    number: '02',
+    title: 'Manifest',
+    role: 'The operating map',
+    filename: 'illustration_gpt_manifest_v1.6.json',
+    language: 'JSON',
+    description: 'Points to the authoritative knowledge files and defines the default output contract used by every render.',
+    code: `"render_defaults": {
+  "lighting": "From rules_branch_v1.6.json style profile",
+  "camera_view": "From rules_branch_v1.6.json style profile",
+  "aspect_ratio": "1:1",
+  "resolution_min": "2048x2048",
+  "resolution": "4096x4096",
+  "background": "transparent-with-soft-ground-shadow",
+  "output_format": "PNG",
+  "alpha_required": true,
+  "seed": "auto",
+  "variant_count": 1,
+  "export_naming": "branch_modular_icons/<slug>_v{version}_{resolution}_s{seed}_{style}.png",
+  "sampler": "auto",
+  "steps": "auto"
+}`,
+  },
+  {
+    number: '03',
+    title: 'Rules',
+    role: 'The visual system',
+    filename: 'rules_branch_v1.6.json',
+    language: 'JSON',
+    description: 'Defines the palette boundaries and the constraints that stop colour and rendering decisions from drifting.',
+    code: `"constraints": {
+  "no_pure_black": {
+    "forbidden": "#000000",
+    "reason": "Maintains controlled aesthetic"
+  },
+  "no_pure_white": {
+    "forbidden": "#FFFFFF",
+    "reason": "Maintains controlled aesthetic"
+  },
+  "saturation_ceiling": {
+    "max_percent": 70,
+    "reason": "Prevents accents from overpowering the palette"
+  },
+  "contextual_budget": {
+    "max_percent": 5,
+    "reason": "Keeps contextual colors subordinate to core palette"
+  }
+}`,
+  },
+  {
+    number: '04',
+    title: 'Materials',
+    role: 'The surface recipes',
+    filename: 'materials_branch_v1.6.json',
+    language: 'JSON',
+    description: 'Turns a material into physical properties, prompting language, exclusions, and an approved colour treatment.',
+    code: `"polycarbonate_matte": {
+  "pbr": {
+    "metalness": 0.0,
+    "roughness": 0.45,
+    "specular": 0.25,
+    "ior": 1.58
+  },
+  "prompt": {
+    "positive": [
+      "matte polycarbonate shell",
+      "soft microtexture"
+    ],
+    "negative": [
+      "gloss coat",
+      "brushed metal"
+    ]
+  },
+  "stylization": {
+    "primary_color": "grey",
+    "primary_hex": "#D9D9D9",
+    "accent_color": "blue",
+    "accent_hex": "#187BC2",
+    "notes": "Bodies in Grey; buttons/accents in Blue"
+  }
+}`,
   },
 ];
 
@@ -56,6 +166,99 @@ function CaseStudyFigure({ src, alt, width, height, caption, sizes = '100vw' }) 
       />
       {caption ? <figcaption className="cs-feature__caption">{caption}</figcaption> : null}
     </figure>
+  );
+}
+
+function highlightJsonLine(line, lineIndex) {
+  const tokens = [];
+  const tokenPattern = /("(?:\\.|[^"\\])*")(?=\s*:)|("(?:\\.|[^"\\])*")|(-?\d+(?:\.\d+)?)|\b(true|false|null)\b|([{}\[\],:])/g;
+  let cursor = 0;
+  let match;
+  let tokenIndex = 0;
+
+  while ((match = tokenPattern.exec(line)) !== null) {
+    if (match.index > cursor) tokens.push(line.slice(cursor, match.index));
+
+    let className = 'syntax-punctuation';
+    if (match[1]) className = 'syntax-key';
+    if (match[2]) className = 'syntax-string';
+    if (match[3]) className = 'syntax-number';
+    if (match[4]) className = 'syntax-literal';
+
+    tokens.push(
+      <span className={className} key={`${lineIndex}-${tokenIndex}`}>
+        {match[0]}
+      </span>,
+    );
+    cursor = tokenPattern.lastIndex;
+    tokenIndex += 1;
+  }
+
+  if (cursor < line.length) tokens.push(line.slice(cursor));
+  return tokens;
+}
+
+function highlightMarkdownLine(line, lineIndex) {
+  if (/^[A-Z][A-Z\s]+(?:\s\([^)]*\))?$/.test(line)) {
+    return <span className="syntax-heading">{line}</span>;
+  }
+
+  const tokens = [];
+  const tokenPattern = /(^\s*(?:\d+\.|-))|(→|≤)|(#(?:[0-9A-Fa-f]{6}))/g;
+  let cursor = 0;
+  let match;
+  let tokenIndex = 0;
+
+  while ((match = tokenPattern.exec(line)) !== null) {
+    if (match.index > cursor) tokens.push(line.slice(cursor, match.index));
+    const className = match[1] ? 'syntax-marker' : match[2] ? 'syntax-operator' : 'syntax-colour';
+    tokens.push(
+      <span className={className} key={`${lineIndex}-${tokenIndex}`}>
+        {match[0]}
+      </span>,
+    );
+    cursor = tokenPattern.lastIndex;
+    tokenIndex += 1;
+  }
+
+  if (cursor < line.length) tokens.push(line.slice(cursor));
+  return tokens;
+}
+
+function HighlightedCode({ code, language }) {
+  return (
+    <code>
+      {code.split('\n').map((line, lineIndex) => (
+        <span className="syntax-line" key={`${language}-${lineIndex}`}>
+          {language === 'JSON' ? highlightJsonLine(line, lineIndex) : highlightMarkdownLine(line, lineIndex)}
+        </span>
+      ))}
+    </code>
+  );
+}
+
+function SystemLayer({ layer }) {
+  return (
+    <article className="illustration-code-layer">
+      <div className="illustration-code-layer__intro">
+        <span className="illustration-code-layer__number">Layer {layer.number}</span>
+        <div>
+          <p className="illustration-code-layer__role">{layer.role}</p>
+          <h3>{layer.title}</h3>
+          <p>{layer.description}</p>
+        </div>
+      </div>
+
+      <div className="illustration-code-window">
+        <div className="illustration-code-window__bar">
+          <span>{layer.filename}</span>
+          <span>{layer.language} · verified v1.6 excerpt</span>
+        </div>
+        <pre tabIndex="0" aria-label={`${layer.title} code excerpt from ${layer.filename}`}>
+          <HighlightedCode code={layer.code} language={layer.language} />
+        </pre>
+      </div>
+    </article>
   );
 }
 
@@ -89,7 +292,7 @@ export default function AIIllustrationSystemCaseStudy() {
                 Building an AI illustration system for consistent, on-brand product visuals at Branch
               </h1>
               <p className="cs-hero__subtitle">
-                I translated a team-defined visual direction into a Custom GPT that could turn natural-language briefs into reusable product illustrations, while keeping people responsible for meaning and final quality.
+                Designing a reusable AI illustration workflow that used a Custom GPT to turn natural-language requests into consistent 3D illustrations for Branch&apos;s mobile products.
               </p>
             </div>
 
@@ -116,8 +319,8 @@ export default function AIIllustrationSystemCaseStudy() {
               <dd className="cs-meta__value">Product Designer, AI Systems</dd>
             </div>
             <div className="cs-meta__item">
-              <dt className="cs-meta__label">Programme window</dt>
-              <dd className="cs-meta__value">Oct 2025–Feb 2026</dd>
+              <dt className="cs-meta__label">Illustration work</dt>
+              <dd className="cs-meta__value">Dec 2025–Feb 2026</dd>
             </div>
             <div className="cs-meta__item">
               <dt className="cs-meta__label">Collaboration</dt>
@@ -125,11 +328,11 @@ export default function AIIllustrationSystemCaseStudy() {
             </div>
             <div className="cs-meta__item">
               <dt className="cs-meta__label">Tools</dt>
-              <dd className="cs-meta__value">ChatGPT, FigJam</dd>
+              <dd className="cs-meta__value">ChatGPT, FigJam, Figma</dd>
             </div>
             <div className="cs-meta__item">
               <dt className="cs-meta__label">Outcome</dt>
-              <dd className="cs-meta__value">Illustration system live</dd>
+              <dd className="cs-meta__value">Illustrations shipped</dd>
             </div>
           </dl>
         </div>
@@ -140,56 +343,47 @@ export default function AIIllustrationSystemCaseStudy() {
           <div className="cs-prose__row">
             <div className="cs-prose__content">
               <p className="cs-prose__label">Overview</p>
-              <h2 id="overview-title">Branch needed the next illustration to feel like it belonged.</h2>
+              <h2 id="overview-title">The product had one interface system and several illustration languages.</h2>
               <p>
-                Branch did not need another way to generate a single attractive image. It needed a way to create the next illustration, and the one after that, without losing the visual language of the product.
+                Branch had already invested in making its mobile product feel like one system. Neem, the company&apos;s internal design system, was created in Figma, translated into matching front-end components with engineers, and connected to code through Figma Code Connect. Existing screens across products and markets had been redesigned around the same components, colour tokens, and dark-theme support.
+              </p>
+              <p className="cs-turning-line">Illustrations were the exception.</p>
+              <p>
+                The design system standardised the Image and Illustration Blocks, but it did not govern the artwork placed inside them. When a new flow needed an illustration, designers often searched Google or Freepik and selected whatever worked for the immediate screen.
               </p>
               <p>
-                I worked with the design team to define that language, then built the system that could apply it repeatedly. I wrote the instructions and JSON rules, built the manifest, material catalogue, and render pipeline, and generated and refined the outputs through six major versions.
+                That inconsistency weakened the wider migration and would become harder to correct as the app grew. The response was a Custom GPT that turned a natural-language request into a constrained product illustration, checked the output against shared visual rules, and returned it for human review.
               </p>
               <p>
-                The design team defined the colour system and retained final quality review. Arushi and I explored the visual direction, and she ran the FigJam vote.
+                My role began with a question: could the team&apos;s chosen visual direction become a system another designer could use? The answer emerged through research, failed outputs, design QA, and feedback from product managers and researchers. Across six documented versions and more than 500 image-generation iterations, that work grew into instructions, JSON rules, a manifest, material catalogue, and render pipeline. The design team retained final quality review and selection.
               </p>
             </div>
-          </div>
-
-          <div className="cs-impact-grid" aria-label="Project evidence">
-            <article className="cs-impact-card">
-              <span className="cs-impact-card__label">System</span>
-              <strong>6</strong>
-              <p>Major documented versions</p>
-            </article>
-            <article className="cs-impact-card">
-              <span className="cs-impact-card__label">Testing</span>
-              <strong>500+</strong>
-              <p>Image-generation iterations</p>
-            </article>
-            <article className="cs-impact-card">
-              <span className="cs-impact-card__label">Quality gate</span>
-              <strong>2×</strong>
-              <p>Automatic rerenders before human escalation</p>
-            </article>
           </div>
         </div>
       </section>
 
       <CaseStudyProgressRail phases={phases} />
 
-      <section id="the-problem" className="cs-prose section cs-anchor-section" aria-labelledby="the-problem-title">
+      <section id="the-missing-layer" className="cs-prose section cs-anchor-section" aria-labelledby="the-missing-layer-title">
         <div className="container">
           <div className="cs-phase-heading">
-            <span>The problem</span>
-            <h2 id="the-problem-title">One design system. Several illustration languages.</h2>
-            <p>The interface was becoming more coherent, but the artwork still changed from screen to screen.</p>
+            <span>The missing layer</span>
+            <h2 id="the-missing-layer-title">The interface had a system. The artwork inside it did not.</h2>
           </div>
 
           <div className="cs-prose__row">
             <div className="cs-prose__content">
               <p>
-                The work began as an extension of Branch&apos;s Neem Design System migration. Some illustrations used heavy strokes. Others relied on soft shading or detailed characters. Angles and layouts shifted. A few images were highly detailed while others were extremely simple.
+                Neem gave designers and engineers a shared way to build product screens. Its components controlled layout, behaviour, typography, colour, and theme. The illustration component controlled where an image appeared, but not what that image looked like.
               </p>
               <p>
-                Each image could work alone, but together they did not feel like one product. The inconsistency also made the library difficult to extend because every request reopened the same decisions about style, colour, perspective, and level of detail.
+                That gap became visible whenever a designer needed artwork for a feature or product state. One screen might use a detailed character scene, another a flat object, and another a heavily shaded graphic. Strokes, camera angles, colour balance, composition, and complexity changed from one request to the next.
+              </p>
+              <p>
+                Each image could work on its own. Together, they made the product feel assembled from different visual systems.
+              </p>
+              <p>
+                The cost went beyond appearance. Every request reopened decisions the design system was supposed to make reusable. As the app expanded, the illustration debt would expand with it.
               </p>
             </div>
           </div>
@@ -200,49 +394,39 @@ export default function AIIllustrationSystemCaseStudy() {
               alt="Eight Branch app screens showing different illustration styles, character treatments, colours, and levels of detail"
               width={2036}
               height={1812}
-              caption="The interface used several illustration styles, from dense character scenes to simple object graphics. The issue was visible across strokes, shading, perspective, and complexity."
+              caption="The surrounding interface followed Neem, while the illustrations varied in strokes, shading, character treatment, perspective, and complexity."
             />
           </div>
 
-          <div className="cs-issue-grid" aria-label="Why the illustration library needed to change">
-            <article>
-              <span>01</span>
-              <h3>Visual drift</h3>
-              <p>Strokes, shading, character details, viewing angles, and layouts changed between screens.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Uneven complexity</h3>
-              <p>Some scenes were highly detailed while others were too simple to feel related.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Limited scalability</h3>
-              <p>Every new request required the team to reinterpret the visual language from the beginning.</p>
-            </article>
+          <div className="cs-prose__row cs-prose__row--spaced">
+            <div className="cs-prose__content">
+              <h3 className="illustration-subheading">The brief changed from replacing images to defining a language.</h3>
+              <p>
+                A fixed asset library would solve only the screens already known. The real requirement was a method that another designer could use for a new feature, product state, or market without restarting the art direction.
+              </p>
+              <ol className="cs-numbered-list illustration-inline-questions">
+                <li>What makes an illustration recognisably part of this product?</li>
+                <li>How can those decisions survive the next generation request?</li>
+              </ol>
+            </div>
           </div>
-
-          <blockquote className="cs-case-pullquote">
-            I was not designing a set of illustrations. I was designing the system that could keep producing them.
-          </blockquote>
         </div>
       </section>
 
-      <section id="defining-consistency" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="defining-consistency-title">
+      <section id="finding-a-visual-language" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="finding-a-visual-language-title">
         <div className="container">
           <div className="cs-phase-heading">
-            <span>Defining consistency</span>
-            <h2 id="defining-consistency-title">We aligned on the visual language before automating it.</h2>
-            <p>A system could only be as coherent as the decisions encoded inside it.</p>
+            <span>Finding a visual language</span>
+            <h2 id="finding-a-visual-language-title">Consistency had to be defined before it could be generated.</h2>
           </div>
 
           <div className="cs-prose__row">
             <div className="cs-prose__content">
               <p>
-                Other designers and I first identified the consistency problem. Arushi and I explored visual directions, I led three public review sessions, and Arushi ran the FigJam vote.
+                The design team explored four broad directions: Notion-style line art, character-led cartoons, abstract geometric scenes, and object-led 3D. A FigJam vote and three wider review sessions helped compare them against the product rather than personal preference.
               </p>
               <p>
-                The selected direction used rounded 3D objects to describe the core action. It gave us enough realism to make materials and actions recognisable without the visual density of character-led scenes.
+                Object-led 3D gave the strongest balance of clarity, inclusiveness, and repeatability. Keeping people out of the scene reduced dependence on skin depiction across different markets. Rounded objects felt welcoming, complemented Neem&apos;s visual direction, and kept attention on the product action. During the project, ChatGPT also reproduced this treatment more reliably than the other explored styles.
               </p>
             </div>
           </div>
@@ -253,11 +437,11 @@ export default function AIIllustrationSystemCaseStudy() {
               alt="A colourful hand-drawn phone beside a controlled isometric 3D phone"
               width={1024}
               height={1024}
-              caption="Two ends of the exploration: a loose expressive treatment and the more controlled, object-led 3D direction."
+              caption="Four visual directions were compared before the system work began. The selected direction used rounded 3D objects to describe the core action without relying on character-led scenes."
             />
           </div>
 
-          <div className="cs-issue-grid" aria-label="Principles behind the selected direction">
+          <div className="cs-issue-grid illustration-direction-principles" aria-label="Principles behind the selected direction">
             <article>
               <span>01</span>
               <h3>Object-led</h3>
@@ -277,9 +461,12 @@ export default function AIIllustrationSystemCaseStudy() {
 
           <div className="cs-prose__row cs-prose__row--spaced">
             <div className="cs-prose__content">
-              <h3 className="illustration-subheading">Colour needed a job, not just a hex value.</h3>
+              <h3 className="illustration-subheading">The visual direction became a set of fixed decisions.</h3>
               <p>
-                The design team defined a 60/25/10/5 structure. The ratio told the model which surfaces each colour belonged to and how much visual space it could occupy.
+                The selected style was still too broad for reliable generation. It had to be described through variables that could be checked: object shape, camera, lighting, composition, background, material behaviour, colour role, and colour allocation.
+              </p>
+              <p>
+                The design team defined a 60/25/10/5 colour structure. The ratios gave each colour a job. Approved hex values alone could not prevent a render from becoming mostly blue or placing contextual colours on the wrong surfaces.
               </p>
             </div>
           </div>
@@ -298,43 +485,52 @@ export default function AIIllustrationSystemCaseStudy() {
               <span><b>5%</b> Contextual states</span>
             </figcaption>
           </figure>
+
+          <div className="cs-prose__row cs-prose__row--spaced">
+            <div className="cs-prose__content">
+              <p>
+                Product-manager reviews exposed the same problem in other variables. Related illustrations changed camera angle, lighting, or material sheen. In some cases, the image was visually polished but did not communicate the intended product meaning clearly enough.
+              </p>
+              <p className="cs-turning-line">Those were not isolated mistakes. They were requirements the system had not captured yet.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="choosing-a-direction" className="cs-prose section cs-anchor-section" aria-labelledby="choosing-a-direction-title">
+      <section id="from-assets-to-a-system" className="cs-prose section cs-anchor-section" aria-labelledby="from-assets-to-a-system-title">
         <div className="container">
           <div className="cs-phase-heading">
-            <span>Choosing a direction</span>
-            <h2 id="choosing-a-direction-title">I tested three shortcuts before proposing a system.</h2>
-            <p>The fastest-looking options solved an immediate asset, but not the next request.</p>
+            <span>From assets to a system</span>
+            <h2 id="from-assets-to-a-system-title">Three quicker approaches still left the next request unsolved.</h2>
           </div>
 
           <div className="cs-issue-grid illustration-decision-grid" aria-label="Approaches explored before the Custom GPT">
             <article>
               <span>01</span>
-              <h3>Buy an illustration pack</h3>
-              <p>A stock library could look consistent quickly, but it would not extend Neem or give Branch reusable visual rules.</p>
+              <h3>Purchase an illustration pack</h3>
+              <p>A stock pack could create immediate visual consistency. It could not extend Neem, encode Branch&apos;s colour logic, or give the team control over how the language evolved.</p>
             </article>
             <article>
               <span>02</span>
-              <h3>Image plus JSON</h3>
-              <p>A detailed specification added control but created a separate maintenance burden for every illustration.</p>
+              <h3>Use one JSON specification per image</h3>
+              <p>A detailed JSON prompt added control to one image. Maintaining a separate specification for every asset would create another library to update and another source of inconsistency.</p>
             </article>
             <article>
               <span>03</span>
-              <h3>Image to image</h3>
-              <p>Retexturing a reference still allowed materials, colour balance, and camera treatment to drift.</p>
+              <h3>Retexture one image from another</h3>
+              <p>Repeated generations still changed materials, colour balance, camera treatment, and composition. The reference helped the current render without protecting the next one.</p>
             </article>
           </div>
 
           <div className="cs-prose__row cs-prose__row--spaced">
             <div className="cs-prose__content">
-              <h3 className="illustration-subheading">The stronger idea was to make the rules reusable.</h3>
+              <p className="cs-turning-line">The reusable output had to be the rules, not the image.</p>
+              <h3 className="illustration-subheading">A Custom GPT made those rules available at the point of creation.</h3>
               <p>
-                I proposed a Custom GPT that anyone with access could brief in natural language. Instead of asking every person to rebuild the visual context, the system would supply it.
+                ChatGPT was selected as the harness because it combined the required raster image generation, transparent-background output, reusable knowledge files, and a shareable Custom GPT interface. A colleague could describe the product moment in natural language while the system supplied the visual context they should not have to reconstruct.
               </p>
               <p>
-                I chose ChatGPT as the harness because it combined image generation, transparent-background output, and a shareable Custom GPT interface. The decision let me focus on the harder question: which instructions, rules, materials, and checks would help the visual language survive every generation?
+                Ideation Mode turned a product need into several structured visual concepts before rendering. Render Mode accepted a reference image, identified its parts, and rebuilt it through the same visual system. Both modes entered one shared quality pipeline.
               </p>
             </div>
           </div>
@@ -342,18 +538,24 @@ export default function AIIllustrationSystemCaseStudy() {
           <aside className="cs-status-card" aria-label="Selected approach">
             <span className="cs-status-card__label">Selected approach</span>
             <p>
-              A Custom GPT with natural-language input, reusable knowledge files, explicit visual rules, and a quality pipeline that escalated final judgment to people.
+              A Custom GPT with natural-language input, reusable knowledge files, explicit visual rules, and a validation pipeline that returned final judgment to people.
             </p>
           </aside>
         </div>
       </section>
 
-      <section id="building-the-system" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="building-the-system-title">
+      <section id="making-consistency-enforceable" className="cs-prose section cs-anchor-section cs-section--warm" aria-labelledby="making-consistency-enforceable-title">
         <div className="container">
           <div className="cs-phase-heading">
-            <span>Building the system</span>
-            <h2 id="building-the-system-title">I structured it like a design system with an AI renderer.</h2>
-            <p>Each layer had one job, one source of truth, and a clear place to absorb feedback.</p>
+            <span>Making consistency enforceable</span>
+            <h2 id="making-consistency-enforceable-title">Every recurring failure needed a home in the system.</h2>
+            <p>The architecture was organised like a design system. Each layer owned a different kind of decision, which made feedback easier to place and failures easier to trace.</p>
+          </div>
+
+          <div className="illustration-code-layers" aria-label="Four verified layers of the illustration system">
+            {systemLayers.map((layer) => (
+              <SystemLayer key={layer.number} layer={layer} />
+            ))}
           </div>
 
           <div className="illustration-figure--wide">
@@ -362,25 +564,18 @@ export default function AIIllustrationSystemCaseStudy() {
               alt="Illustration system architecture showing flexible inputs, intelligent processing, stylisation, quality gates, and a standardised output"
               width={1672}
               height={941}
-              caption="Reference images and natural-language briefs entered the same processor. The system assigned parts and materials, applied the colour logic, validated the render, and prepared a consistent PNG for review."
+              caption="The architecture separated input, processing, visual rules, quality checks, and output so that each failure could be corrected in the layer responsible for it."
             />
           </div>
 
-          <ol className="cs-system-steps" aria-label="Four layers of the illustration system">
-            <li><span>01</span><p><strong>Instructions</strong> controlled behaviour, selected ideation or render mode, and locked the non-negotiables.</p></li>
-            <li><span>02</span><p><strong>Manifest</strong> orchestrated the sequence and pointed to the correct knowledge files.</p></li>
-            <li><span>03</span><p><strong>Rules</strong> defined colour, camera, lighting, composition, prompt contracts, and thresholds.</p></li>
-            <li><span>04</span><p><strong>Materials</strong> described surface recipes, required tokens, and failure patterns to block.</p></li>
-          </ol>
-
           <div className="cs-prose__row cs-prose__row--spaced">
             <div className="cs-prose__content">
-              <h3 className="illustration-subheading">Two ways in, one quality pipeline.</h3>
+              <h3 className="illustration-subheading">Two inputs entered one render and validation pipeline.</h3>
               <p>
-                Ideation Mode turned a natural-language need into structured concepts. Render Mode used a reference image to identify parts and materials. Both then moved through the same sequence: interpret, assign, colour, generate, validate, and deliver for review.
+                A natural-language request or reference image moved through the same sequence: interpret the request, segment the parts, assign materials, apply colour roles, generate, validate, and deliver for human review.
               </p>
               <p>
-                The material-realism gate checked whether surfaces behaved as intended. If metal looked like plastic or rubber became glossy, the system added targeted corrections and rerendered. It could try twice before escalating to a person.
+                The material-realism gate checked whether surfaces behaved as intended. When a failure was detected, the system added targeted corrections and rerendered up to twice before escalating to a person.
               </p>
             </div>
           </div>
@@ -396,7 +591,7 @@ export default function AIIllustrationSystemCaseStudy() {
                 <li>Camera angle, centring, shadows, and lighting shifted.</li>
               </ul>
               <p className="cs-turning-line">
-                Repeated feedback became a rule. The goal was to make every failure teach the system something reusable.
+                The useful result was not the lucky render. It was the rule that reduced the chance of repeating the same failure.
               </p>
             </div>
           </div>
@@ -407,57 +602,50 @@ export default function AIIllustrationSystemCaseStudy() {
               alt="A large review board showing many illustration variants across product tasks and states"
               width={6971}
               height={6237}
-              caption="The review board shows how one product request could produce several materially different outputs. Feedback from these comparisons tightened the rules in the next version."
+              caption="Repeated comparisons exposed colour, camera, material, and interpretation failures. Design QA and review feedback determined which failures became system rules in the next version."
             />
           </div>
 
           <div className="cs-prose__row cs-prose__row--spaced">
             <div className="cs-prose__content">
-              <h3 className="illustration-subheading">Six versions made the rules enforceable.</h3>
+              <h3 className="illustration-subheading">Six iterations turned feedback into governance.</h3>
               <p>
-                The system passed through more than 500 image-generation iterations, often 10 to 15 for a final illustration. The volume was not about chasing a lucky result. It was how I found the failures that were repeatable enough to become rules.
+                More than 500 image-generation iterations exposed failure patterns that a small set of polished outputs would have hidden. A final illustration often took 10 to 15 generations.
+              </p>
+              <p>
+                Four inputs shaped the versions: output analysis, design QA, product-manager reviews, and design-team feedback. Each recurring problem moved into the instruction, manifest, rule, material, or validation layer responsible for preventing it.
               </p>
             </div>
           </div>
 
-          <div className="cs-data-table" tabIndex="0" role="region" aria-label="Illustration system version changes">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Version</th>
-                  <th scope="col">What changed</th>
-                  <th scope="col">What improved</th>
-                </tr>
-              </thead>
-              <tbody>
-                {systemVersions.map((item) => (
-                  <tr key={item.version}>
-                    <td>{item.version}</td>
-                    <td>{item.change}</td>
-                    <td>{item.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="illustration-iterations" aria-label="Six documented system iterations">
+            {systemVersions.map((item) => (
+              <article className="illustration-iteration" key={item.version}>
+                <p className="illustration-iteration__label">{item.version}</p>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="what-changed" className="cs-prose section cs-anchor-section" aria-labelledby="what-changed-title">
+      <section id="what-shipped" className="cs-prose section cs-anchor-section" aria-labelledby="what-shipped-title">
         <div className="container">
           <div className="cs-phase-heading">
-            <span>What changed</span>
-            <h2 id="what-changed-title">The team gained a system, not a folder of finished assets.</h2>
-            <p>The repeatable context moved into the workflow. Meaning and final quality stayed with people.</p>
+            <span>What shipped</span>
+            <h2 id="what-shipped-title">The result was a reusable way to create and review illustrations.</h2>
           </div>
 
           <div className="cs-prose__row">
             <div className="cs-prose__content">
               <p>
-                The illustration system is now live across Branch product markets. It established a shared starting point for new product visuals and a clearer standard for deciding what belongs in the library.
+                The finished workflow accepted a request or reference image, applied the same visual and material rules, validated the output, and handed the result to a person. The design team still decided whether the illustration communicated the right idea and belonged in the product.
               </p>
               <p>
-                I generated and refined the illustrations. The design team owned quality review and final selection. The Custom GPT carried the repeatable rules, while people still decided what each illustration should communicate and whether it was right for the product moment.
+                The resulting illustrations now appear in shipped production screens in the Branch mobile app across product markets. Employees responded positively to the vibrancy they added, while directional customer feedback indicated that the new illustrations were clearer to understand.
               </p>
             </div>
           </div>
@@ -468,7 +656,7 @@ export default function AIIllustrationSystemCaseStudy() {
               alt="Nine Branch illustrations for identity, customer support, email, repayment, biometric login, and status feedback"
               width={2367}
               height={1692}
-              caption="A shared camera, restrained palette, and object-led language created a recognisable family across different jobs."
+              caption="A shared camera, restrained palette, material language, and object-led composition created one recognisable family across different product jobs and states."
               sizes="(max-width: 900px) 100vw, 50vw"
             />
             <CaseStudyFigure
@@ -476,44 +664,47 @@ export default function AIIllustrationSystemCaseStudy() {
               alt="Nine Branch illustrations covering loan states, rewards, investments, loans, wallet, success, and waiting"
               width={2367}
               height={1692}
-              caption="Contextual colours remained available for state and meaning while the core grey, blue, and navy system stayed dominant."
+              caption="Contextual colours remained available for state and meaning while the core grey, blue, and navy roles stayed dominant."
               sizes="(max-width: 900px) 100vw, 50vw"
+            />
+          </div>
+
+          <div className="illustration-figure--wide illustration-recognition">
+            <CaseStudyFigure
+              src="/work/branch-ai/kudos.jpeg"
+              alt="Recognition from design manager Deovrat Dwivedi describing the patience, precision, and iteration behind the Illustration GPT project"
+              width={1439}
+              height={1443}
+              caption="Deovrat Dwivedi, the design manager for this work, recognised the patience, precision, and iteration behind the Illustration GPT project."
             />
           </div>
 
           <div className="cs-prose__row cs-prose__row--spaced">
             <div className="cs-prose__content">
-              <h3 className="illustration-subheading">What I learned</h3>
+              <h3 className="illustration-subheading">What the work taught me</h3>
               <p>
-                I started this project without knowing whether I could make the idea work. I knew I was comfortable with complex problems, so I relied on the design process: understand the need, explore alternatives, build a small system, test it, and let evidence shape the next version.
+                The project began without a guarantee that the idea could be made reliable. Research and design thinking made the uncertainty manageable: define one decision, test it, examine the failure, and move what was learned into the system.
               </p>
-              <p>
-                Research gave me the first direction. Feedback from product managers, UX researchers, and designers gave the system more clarity as I moved forward.
-              </p>
+              <p>Three lessons stayed with me:</p>
               <ol className="cs-numbered-list">
                 <li>AI systems improve when context, constraints, and failure conditions are explicit.</li>
-                <li>Human judgment is part of the architecture, especially for meaning, inclusivity, and final quality.</li>
-                <li>Complex AI work becomes manageable when it is modular, like design-system primitives, tokens, components, and patterns.</li>
-                <li>A good system does not remove iteration. It makes each iteration teach the next one.</li>
+                <li>Human judgment belongs inside the architecture, especially for meaning, inclusiveness, and final quality.</li>
+                <li>Complex AI work becomes easier to build and debug when it is modular, like design-system primitives, tokens, components, and patterns.</li>
               </ol>
             </div>
           </div>
 
           <div className="cs-prose__row cs-prose__row--spaced">
             <div className="cs-prose__content">
-              <h3 className="illustration-subheading">Where I would take it next</h3>
-              <ul className="cs-detail-list">
-                <li>Convert selected raster illustrations into SVGs and motion-ready assets.</li>
-                <li>Extend controlled access to marketing and other teams for presentations and internal projects.</li>
-                <li>Package the same instruction and validation logic for another image-generation harness.</li>
-                <li>Add a critique layer before human review.</li>
-                <li>Improve related-state generation so geometry, lighting, and materials remain even closer across a family.</li>
-              </ul>
+              <h3 className="illustration-subheading">One useful next step</h3>
+              <p>
+                Convert selected raster outputs into SVG and motion-ready assets. The illustration system already governs how the visual language is created. Extending it into motion would let the same language support richer product feedback without reopening the art direction.
+              </p>
             </div>
           </div>
 
           <blockquote className="cs-case-pullquote illustration-closing-quote">
-            The system should carry Branch&apos;s standards. People should continue to carry the story.
+            The workflow carries the repeatable decisions. People remain responsible for what each illustration means.
           </blockquote>
         </div>
       </section>

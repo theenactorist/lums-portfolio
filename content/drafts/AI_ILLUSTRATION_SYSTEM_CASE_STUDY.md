@@ -1,208 +1,306 @@
-# AI Illustration System Case Study Draft
+# Building an AI illustration system for consistent, on-brand product visuals at Branch
 
-Status: Ready for copy review; unresolved facts are omitted from public copy
+Status: Source copy approved and implemented locally
+
 Last updated: 2026-06-27
-Fact source: `content/fact-sheets/AI_ILLUSTRATION_SYSTEM.md`
 
-## Selected-work card
-
-### Title
-
-> Building an AI illustration system for consistent, on-brand product visuals at Branch
-
-### Description
-
-> I turned a fragmented illustration library into a reusable system with explicit colour, camera, material, and quality rules.
-
-### Labels
-
-- Product Designer, AI Systems
-- 2025–2026
-- AI systems / Design systems
+Public route: `/work/ai-illustration-system`
 
 ## Hero
 
-### Eyebrow
+**Eyebrow**
 
-> Branch International · AI illustration system
+Branch International · AI illustration system
 
-### Title
+**Title**
 
-> Building an AI illustration system for consistent, on-brand product visuals at Branch
+Building an AI illustration system for consistent, on-brand product visuals at Branch
 
-### Subtitle
+**Subtitle**
 
-> I translated a team-defined visual direction into a Custom GPT that could turn natural-language briefs into reusable product illustrations, while keeping people responsible for meaning and final quality.
+Designing a reusable AI illustration workflow that used a Custom GPT to turn natural-language requests into consistent 3D illustrations for Branch’s mobile products.
 
-### Metadata
+**Metadata**
 
-| Field | Public copy |
-| --- | --- |
-| Role | Product Designer, AI Systems |
-| Programme window | October 2025–February 2026 |
-| Collaboration | Product design team, product managers, UX researchers |
-| Tools | ChatGPT, FigJam |
-| Scope | Visual direction, system architecture, generation, and iteration |
+- Role: Product Designer, AI Systems
+- Illustration work: December 2025 to February 2026
+- Collaboration: Product design, product management, UX research
+- Tools: ChatGPT, FigJam, Figma
+- Outcome: Illustrations shipped in production mobile-app screens across Branch product markets
 
 ## Overview
 
-Branch did not need another way to generate a single attractive image. It needed a way to create the next illustration, and the one after that, without losing the visual language of the product.
+Branch had already invested in making its mobile product feel like one system. Neem, the company’s internal design system, was created in Figma, translated into matching front-end components with engineers, and connected to code through Figma Code Connect. Existing screens across products and markets had been redesigned around the same components, colour tokens, and dark-theme support.
 
-I worked with the design team to define that language, then built the system that could apply it repeatedly. I wrote the instructions and JSON rules, built the manifest, material catalogue, and render pipeline, and generated and refined the outputs through six major versions.
+Illustrations were the exception.
 
-The design team defined the colour system and retained final quality review. Arushi and I explored the visual direction, and she ran the FigJam vote.
+The design system standardised the Image and Illustration Blocks, but it did not govern the artwork placed inside them. When a new flow needed an illustration, designers often searched Google or Freepik and selected whatever worked for the immediate screen. The product gained one interface language and kept several illustration languages.
 
-### The result at a glance
+That inconsistency weakened the wider migration and would become harder to correct as the app grew. The response was a Custom GPT that turned a natural-language brief into a constrained product illustration, checked the output against the same visual rules, and returned it for human review.
 
-- Six documented system versions.
-- More than 500 image-generation iterations.
-- One shared 60/25/10/5 colour logic.
-- A material-realism gate with up to two automatic rerenders.
-- A system now live across Branch product markets.
+My role began with a question: could the team’s chosen visual direction become a system another designer could use? The answer emerged through research, failed outputs, design QA, and feedback from product managers and researchers. Across six documented versions and more than 500 image-generation iterations, that work grew into instructions, JSON rules, a manifest, material catalogue, and render pipeline. The design team retained final quality review and selection.
 
-## 1. The problem
+This case study follows how a subjective visual direction became explicit enough to repeat.
 
-### The product had one design system and several illustration languages
+## 1. The missing layer
 
-The illustration work began as an extension of Branch's Neem Design System migration. The interface was becoming more coherent, but the illustrations still varied from screen to screen.
+### The interface had a system. The artwork inside it did not.
 
-Some used heavy strokes. Others relied on soft shading or detailed characters. Angles and layouts shifted. A few images were highly detailed while others were extremely simple. Each could work alone, but together they did not feel like one product.
+Neem gave designers and engineers a shared way to build product screens. Its components controlled layout, behaviour, typography, colour, and theme. The illustration component controlled where an image appeared, but not what that image looked like.
 
-The inconsistency also made the library difficult to extend. Every new request reopened the same decisions about style, colour, perspective, and level of detail.
+That gap became visible whenever a designer needed artwork for a feature or product state. One screen might use a detailed character scene, another a flat object, and another a heavily shaded graphic. Strokes, camera angles, colour balance, composition, and complexity changed from one request to the next.
 
-### The real problem was repeatability
+Each image could work on its own. Together, they made the product feel assembled from different visual systems.
 
-Generating one good image was not enough. The team needed a visual language that could survive a new use case, a new product surface, and a new person making the request months later.
+The cost went beyond appearance. Every request reopened decisions the design system was supposed to make reusable. As the app expanded, the illustration debt would expand with it.
 
-That changed my brief. I was not designing a set of illustrations. I was designing the system that could keep producing them.
+**Evidence: Existing product screens with unrelated illustration styles**
 
-## 2. Defining consistency
+Caption: The surrounding interface followed Neem, while the illustrations varied in strokes, shading, character treatment, perspective, and complexity.
 
-### We aligned on the visual language before automating it
+### The brief changed from replacing images to defining a language.
 
-Other designers and I first identified the consistency problem. Arushi and I explored visual directions, I led three public review sessions, and Arushi ran the FigJam vote.
+A fixed asset library would solve only the screens already known. The real requirement was a method that another designer could use for a new feature, product state, or market without restarting the art direction.
 
-The selected direction used rounded 3D objects to describe the core action. It gave us enough realism to make materials and actions recognisable, without the visual density of character-led scenes.
+The system therefore needed to answer two questions:
 
-Three principles shaped the direction:
+1. What makes an illustration recognisably part of this product?
+2. How can those decisions survive the next generation request?
 
-1. Object-led scenes reduced dependence on skin depiction across Branch's markets.
-2. A smaller palette made the library easier to extend.
-3. Rounded forms made financial actions feel more welcoming.
+## 2. Finding a visual language
 
-### Colour needed a job, not just a hex value
+### Consistency had to be defined before it could be generated.
 
-The design team defined a 60/25/10/5 structure:
+The design team explored four broad directions: Notion-style line art, character-led cartoons, abstract geometric scenes, and object-led 3D. A FigJam vote and three wider review sessions helped compare them against the product rather than personal preference.
 
-- 60% grey for the primary form and largest surfaces.
-- 25% blue for interactive and attention-drawing elements.
-- 10% navy for anchoring details such as bezels, cables, and connectors.
-- Up to 5% contextual colour for states such as success, error, warning, currency, or foliage.
+Object-led 3D gave the strongest balance of clarity, inclusiveness, and repeatability. Keeping people out of the scene reduced dependence on skin depiction across different markets. Rounded objects felt welcoming, complemented Neem’s visual direction, and kept attention on the product action. During the project, ChatGPT also reproduced this treatment more reliably than the other explored styles.
 
-The ratio gave the model more than a palette. It gave every colour a role and a limit.
+**Evidence: Visual-direction exploration**
 
-Consistency also meant fixing the variables most likely to drift: a 45-degree isometric camera, soft top-left lighting, centred composition, rounded geometry, transparent backgrounds, and a restrained material language.
+Caption: Four visual directions were compared before the system work began. The selected direction used rounded 3D objects to describe the core action without relying on character-led scenes.
 
-## 3. Choosing a direction
+### The visual direction became a set of fixed decisions.
 
-### I tested three shortcuts before proposing a system
+The selected style was still too broad for reliable generation. It had to be described through variables that could be checked: object shape, camera, lighting, composition, background, material behaviour, colour role, and colour allocation.
 
-The first options appeared faster, but each solved only the immediate asset.
+The design team defined a 60/25/10/5 colour structure:
 
-#### Buying an illustration pack
+- 60% grey for primary forms
+- 25% blue for interaction and emphasis
+- 10% navy for anchors and contrast
+- Up to 5% contextual colour for states such as success, error, warning, currency, or foliage
 
-A stock library could improve visual consistency quickly. It could not extend Neem or give Branch a rule set for future product-specific scenes.
+The ratios gave each colour a job. Approved hex values alone could not prevent a render from becoming mostly blue or placing contextual colours on the wrong surfaces.
 
-#### Re-rendering every image from JSON
+Product-manager reviews exposed the same problem in other variables. Related illustrations changed camera angle, lighting, or material sheen. In some cases, the image was visually polished but did not communicate the intended product meaning clearly enough.
 
-An image and a detailed JSON specification gave more control, but it created a maintenance problem. Every new asset needed its own specification, and the context was difficult for colleagues to reuse.
+Those were not isolated mistakes. They were requirements the system had not captured yet.
 
-#### Copying a reference image through image-to-image generation
+## 3. From assets to a system
 
-Retexturing a source image looked promising. Repeated tests showed that the model still changed materials, colour balance, and camera treatment between outputs.
+### Three quicker approaches still left the next request unsolved.
 
-### The stronger idea was to make the rules reusable
+#### Purchase an illustration pack
 
-I proposed a Custom GPT that anyone with access could brief in natural language. Instead of asking every person to rebuild the visual context, the system would supply it.
+A stock pack could create immediate visual consistency. It could not extend Neem, encode Branch’s colour logic, or give the team control over how the language evolved.
 
-I chose ChatGPT as the harness because it combined image generation, transparent-background output, and a shareable Custom GPT interface. The decision let me focus on the harder question: what instructions, rules, materials, and checks were required for the same visual language to survive every generation?
+#### Re-render each source image with its own JSON specification
 
-## 4. Building the system
+A detailed JSON prompt added control to one image. Maintaining a separate specification for every asset would create another library to update and another source of inconsistency.
 
-### I structured it like a design system with an AI renderer
+#### Retexture one image from another
 
-One long prompt would have been difficult to debug. I split the system into four responsibilities.
+Image-to-image tests appeared closer to the target, but repeated generations still changed materials, colour balance, camera treatment, and composition. The reference helped the current render without protecting the next one.
 
-1. **Instructions** controlled behaviour, selected ideation or render mode, and locked the non-negotiables.
-2. **Manifest** orchestrated the sequence and pointed to the correct knowledge files.
-3. **Rules** defined colour, camera, lighting, composition, prompt contracts, and quality thresholds.
-4. **Materials** described how each surface should look, what language produced it, and which failure patterns to block.
+The reusable output had to be the rules, not the image.
 
-This separation gave the system a clear source of truth. A camera problem belonged in the rules. A plastic-looking metal belonged in the materials catalogue. A routing problem belonged in the manifest.
+### A Custom GPT made the rules available at the point of creation.
 
-### Two ways in, one quality pipeline
+ChatGPT was selected as the harness because it combined the required raster image generation, transparent-background output, reusable knowledge files, and a shareable Custom GPT interface. A colleague could describe the product moment in natural language while the system supplied the visual context they should not have to reconstruct.
 
-The workflow supported two starting points:
+Two entry points supported different needs:
 
-- Ideation Mode turned a natural-language need into structured concepts.
-- Render Mode used a reference image to identify parts and materials.
+- Ideation Mode turned a product need into several structured visual concepts before rendering.
+- Render Mode accepted a reference image, identified its parts, and rebuilt it through the same visual system.
 
-Both entered the same sequence: understand the object, assign parts and materials, apply colour roles, build the render prompt, generate, validate, and then deliver for human review.
+Both modes entered one shared quality pipeline. That made the delivery mechanism convenient without allowing convenience to define the visual language.
 
-The material-realism gate checked whether surfaces behaved as intended. If metal looked like plastic or rubber became glossy, the system added targeted corrections and rerendered. It could try twice before escalating to a person.
+**Selected approach**
 
-### What kept breaking
+A Custom GPT with natural-language input, reusable knowledge files, explicit visual rules, and a validation pipeline that returned final judgment to people.
 
-Five failures appeared repeatedly:
+## 4. Making consistency enforceable
 
-- Brand colours drifted between generations.
-- Correct colours appeared in the wrong proportions.
-- Related states changed lighting, material sheen, or colour balance.
-- Surfaces defaulted to chrome, photorealism, plastic, or clay.
-- Camera angle, centring, shadows, and lighting shifted.
+### Every recurring failure needed a home in the system.
 
-I responded by turning recurring feedback into system rules. Negative instructions became as important as positive ones. “Use navy for rubber” was not enough. The system also needed “no pure black” and “no glossy rubber.”
+The architecture was organised like a design system. Each layer owned a different kind of decision, which made feedback easier to place and failures easier to trace.
 
-### Six versions made the rules enforceable
+### Layer 1: Instructions controlled behaviour
 
-| Version | System change | Why it mattered |
-| --- | --- | --- |
-| v1 | Locked camera, lighting, output, material recognition, and an initial realism gate. | Created the first repeatable production contract. |
-| v2 | Added natural-material handling and stronger failure exclusions. | Added explicit rules for skin, fur, and grass alongside hard product objects. |
-| v3 | Separated instructions, tightened material selection, and added reproducibility fields. | Reduced duplicated rules and made failures easier to trace. |
-| v4 | Added precedence, provenance, version compatibility, and stricter interaction behaviour. | Stopped runtime requests and duplicated defaults from weakening the visual rules. |
-| v5 | Introduced colour roles, ratios, part assignments, and ratio validation. | Addressed the largest source of library-wide drift. |
-| v6 | Made pre-delivery colour validation mandatory. | Turned colour guidance into a release gate. |
+The instruction layer decided whether to ideate, render, validate, or ask for clarification. It also held the non-negotiable requirements that had to survive every request.
 
-The system passed through more than 500 image-generation iterations, often 10 to 15 for a final illustration. The purpose of that volume was not to chase a lucky result. It was to discover which failures were repeatable enough to become rules.
+Verified excerpt from `system_prompt_v1.6.md`:
 
-## 5. What changed
+```text
+IDEA SCOUT (when no image attached)
+1. Propose 8-10 ideas across: Product hardware, UI-on-device,
+   Payment/fintech, Compliance/KYC, Support/ops,
+   Abstract brand, Seasonal/Travel
+2. Each idea: Title (≤7 words), one-line story, camera,
+   lighting, parts list, color assignments, candidate materials
+3. User picks 1-3 ideas → render
 
-### The team gained a system, not a folder of finished assets
+MATERIAL ASSIGNMENT
+- Segment parts → apply part_defaults → apply domain_overrides
+- Apply color_system (hierarchy → part_type → area)
+- Stylize ALL materials to 60/25/10/5 palette
+```
 
-The illustration system is now live across Branch product markets. It established a shared starting point for new product visuals and a clearer standard for deciding what belongs in the library.
+### Layer 2: The manifest orchestrated the workflow
 
-The Custom GPT carries the repeatable context. People still decide what the illustration should communicate, whether it is appropriate for the screen, and which result is ready to ship. I generated and refined the illustrations, while the design team owned quality review and final selection.
+The manifest pointed to the authoritative files, defined render defaults, and kept the pipeline order in one place. It prevented each request from inventing its own output format or execution sequence.
 
-### What I learned
+Verified excerpt from `illustration_gpt_manifest_v1.6.json`:
 
-I started this project without knowing whether I could make the idea work. I knew I was comfortable with complex problems, so I relied on the design process: understand the need, explore alternatives, build a small system, test it, and let evidence shape the next version.
+```json
+"render_defaults": {
+  "camera_view": "From rules_branch_v1.6.json style profile",
+  "aspect_ratio": "1:1",
+  "resolution": "4096x4096",
+  "background": "transparent-with-soft-ground-shadow",
+  "output_format": "PNG",
+  "alpha_required": true,
+  "variant_count": 1
+}
+```
 
-Research gave me the first direction. Feedback from product managers, UX researchers, and designers gave the work more clarity as I moved forward.
+### Layer 3: The rules protected the visual language
 
-Four lessons stayed with me:
+The rules file defined camera, lighting, composition, colour roles, part assignment, negative constraints, and quality thresholds. It converted the selected direction into conditions that could be checked rather than remembered.
+
+Verified excerpt from `rules_branch_v1.6.json`:
+
+```json
+"constraints": {
+  "no_pure_black": {
+    "forbidden": "#000000",
+    "reason": "Maintains controlled aesthetic"
+  },
+  "saturation_ceiling": {
+    "max_percent": 70,
+    "reason": "Prevents accents from overpowering the palette"
+  },
+  "contextual_budget": {
+    "max_percent": 5,
+    "reason": "Keeps contextual colors subordinate to core palette"
+  }
+}
+```
+
+### Layer 4: The material catalogue described how surfaces should behave
+
+Material names were not enough. Each recipe combined physical properties, positive prompting language, failure exclusions, and an approved colour treatment. That distinction helped prevent rubber from becoming glossy, metal from becoming generic chrome, or every object from collapsing into the same plastic surface.
+
+Verified excerpt from `materials_branch_v1.6.json`:
+
+```json
+"polycarbonate_matte": {
+  "pbr": {
+    "metalness": 0.0,
+    "roughness": 0.45,
+    "specular": 0.25,
+    "ior": 1.58
+  },
+  "prompt": {
+    "positive": ["matte polycarbonate shell", "soft microtexture"],
+    "negative": ["gloss coat", "brushed metal"]
+  },
+  "stylization": {
+    "primary_color": "grey",
+    "accent_color": "blue"
+  }
+}
+```
+
+### Two inputs entered one render and validation pipeline.
+
+A natural-language brief or reference image moved through the same sequence: interpret the request, segment the parts, assign materials, apply colour roles, generate, validate, and deliver for human review.
+
+The material-realism gate checked whether surfaces behaved as intended. When a failure was detected, the system added targeted corrections and rerendered up to twice before escalating to a person.
+
+**Evidence: Illustration GPT architecture**
+
+Caption: The architecture separated input, processing, visual rules, quality checks, and output so that each failure could be corrected in the layer responsible for it.
+
+### Six iterations turned feedback into governance.
+
+More than 500 image-generation iterations exposed failure patterns that a small set of polished outputs would have hidden. A final illustration often took 10 to 15 generations. The useful result was not the lucky render. It was the rule that reduced the chance of repeating the same failure.
+
+Four inputs shaped the versions: output analysis, design QA, product-manager reviews, and design-team feedback. Each recurring problem moved into the instruction, manifest, rule, material, or validation layer responsible for preventing it.
+
+#### Iteration 1: Establish the render contract
+
+The first version fixed the camera, lighting, transparent output, material recognition, and material-realism gate. A visual preference became an initial production contract.
+
+#### Iteration 2: Expand the material language
+
+Natural materials and stronger failure exclusions were added. The system learned that identifying skin, fur, grass, or metal was only useful when it also knew how each surface should behave and what it must not become.
+
+#### Iteration 3: Separate the system into layers
+
+Instructions, structured ideation, reproducibility fields, and material guardrails were separated from one another. Routing, visual rules, and material recipes stopped competing as duplicated sources of authority.
+
+#### Iteration 4: Make the system governable
+
+Precedence, provenance, compatibility, and a one-question clarification policy were introduced. Rules became authoritative over manifest defaults and runtime requests, and a render could be traced back to the file versions and settings that produced it.
+
+#### Iteration 5: Turn colour into a system
+
+Colour was the hardest recurring failure. Approved hex values became defined roles, surface-area targets, contextual limits, part assignments, and ratio validation. This was the shift from having the right colours to using them in the right visual hierarchy.
+
+#### Iteration 6: Make validation mandatory
+
+Pre-delivery colour validation became a required step. Outputs outside the accepted allocation were corrected and rerendered before delivery, while human review remained responsible for meaning and final selection.
+
+**Evidence: Iteration review board**
+
+Caption: Repeated comparisons exposed colour, camera, material, and interpretation failures. Design QA and review feedback determined which failures became system rules in the next version.
+
+## 5. What shipped
+
+### The result was a reusable way to create and review illustrations.
+
+The finished workflow accepted a brief or reference image, applied the same visual and material rules, validated the output, and handed the result to a person. The design team still decided whether the illustration communicated the right idea and belonged in the product.
+
+The resulting illustrations now appear in shipped production screens in the Branch mobile app across product markets. Employees responded positively to the vibrancy they added, while directional customer feedback indicated that the new illustrations were clearer to understand.
+
+**Evidence: Final illustration families**
+
+Caption: A shared camera, restrained palette, material language, and object-led composition created one recognisable family across different product jobs and states.
+
+**Evidence: Manager recognition**
+
+Caption: Deovrat Dwivedi, the design manager for this work, recognised the patience, precision, and iteration behind the Illustration GPT project.
+
+### What the work taught me
+
+The project began without a guarantee that the idea could be made reliable. Research and design thinking made the uncertainty manageable: define one decision, test it, examine the failure, and move what was learned into the system.
+
+Three lessons stayed with me:
 
 1. AI systems improve when context, constraints, and failure conditions are explicit.
-2. Human judgment is part of the architecture, especially for meaning, inclusivity, and final quality.
-3. Complex AI work becomes more manageable when it is modular, like design-system primitives, tokens, components, and patterns.
-4. A good system does not remove iteration. It makes each iteration teach the next one.
+2. Human judgment belongs inside the architecture, especially for meaning, inclusiveness, and final quality.
+3. Complex AI work becomes easier to build and debug when it is modular, like design-system primitives, tokens, components, and patterns.
 
-### Where I would take it next
+### One useful next step
 
-- Convert selected raster illustrations into SVGs and motion-ready assets.
-- Extend controlled access to marketing and other teams for presentations and internal projects.
-- Package the same instruction and validation logic for another image-generation harness.
-- Add a critique layer before human review.
-- Improve the generation of related states so geometry, lighting, and materials stay even closer across a family.
+Convert selected raster outputs into SVG and motion-ready assets. The illustration system already governs how the visual language is created. Extending it into motion would let the same language support richer product feedback without reopening the art direction.
 
-The larger opportunity is to make the visual language portable without making it rigid. The system should carry Branch's standards. People should continue to carry the story.
+## Closing line
+
+The workflow carries the repeatable decisions. People remain responsible for what each illustration means.
+
+## Navigation
+
+- Back to selected work
+- Next case study →
