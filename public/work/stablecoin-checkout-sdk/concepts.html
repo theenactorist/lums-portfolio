@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-visual-variant="revolut">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#eef0f5" />
+    <link rel="icon" href="./assets/asset-usdc.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./variants/revolut.css" />
+    <link rel="stylesheet" href="./variants/wise.css" />
+    <link rel="stylesheet" href="./concepts.css" />
+    <title>Crypto checkout concept studio</title>
+  </head>
+  <body>
+    <div class="host-app" id="hostApp">
+      <header class="host-topbar">
+        <a class="host-brand" href="#" aria-label="Northstar home">
+          <span class="host-brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3 14.5 9.5 21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" /></svg>
+          </span>
+          <span>Northstar</span>
+        </a>
+        <nav class="host-nav" aria-label="Primary navigation">
+          <a href="#">Home</a>
+          <a class="is-active" href="#">Invest</a>
+          <a href="#">Wallet</a>
+          <a href="#">Activity</a>
+        </nav>
+        <button class="host-avatar" type="button" aria-label="Open profile">AO</button>
+      </header>
+
+      <main class="host-main">
+        <p class="host-breadcrumb">Invest <span>/</span> Treasury bills</p>
+        <div class="host-product-head">
+          <div>
+            <span class="host-kicker">Nigerian treasury bills</span>
+            <h1>Dangote T-Bill</h1>
+            <p>91-day fixed income with a predictable return.</p>
+          </div>
+          <span class="host-status"><i></i> Open</span>
+        </div>
+
+        <div class="host-grid">
+          <section class="host-order" aria-labelledby="host-order-title">
+            <span>Investment amount</span>
+            <h2 id="host-order-title">Invest ₦1,000,000</h2>
+            <div class="host-instrument">
+              <span class="host-instrument__mark" aria-hidden="true">D</span>
+              <div><strong>Dangote T-Bill</strong><span>91 days</span></div>
+            </div>
+            <dl class="host-inline-metrics">
+              <div><dt>Settlement</dt><dd>T+1 business day</dd></div>
+              <div><dt>Estimated return</dt><dd>₦42,323.29</dd></div>
+            </dl>
+            <div class="host-funding"><span>Payment method</span><strong>Crypto</strong></div>
+            <button class="host-primary" id="openCheckout" type="button">
+              <span>Pay with crypto</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+            </button>
+          </section>
+
+          <aside class="host-summary" aria-labelledby="host-summary-title">
+            <h2 id="host-summary-title">Order summary</h2>
+            <dl>
+              <div><dt>Instrument</dt><dd>Dangote T-Bill</dd></div>
+              <div><dt>Principal</dt><dd>₦1,000,000</dd></div>
+              <div><dt>Term</dt><dd>91 days</dd></div>
+              <div><dt>Annual return</dt><dd>17.25%</dd></div>
+              <div class="host-summary__total"><dt>Total at maturity</dt><dd>₦1,042,323.29</dd></div>
+            </dl>
+            <div class="host-assurance">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.7 8-7 10-4.3-2-7-5.4-7-10V6l7-3Z" /><path d="m9 12 2 2 4-4" /></svg>
+              <p><strong>Order protected</strong><span>Your rate locks after payment details are created.</span></p>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="sdk-dialog concept-dialog" id="checkoutDialog" aria-labelledby="sdkDialogTitle" aria-describedby="sdkDialogDescription">
+      <div class="sdk-stage concept-stage">
+        <nav class="concept-switcher" role="tablist" aria-label="Checkout concepts">
+          <button class="is-selected" id="conceptTabA" type="button" role="tab" aria-label="Concept A: Accordion" aria-selected="true" aria-controls="screenStack" data-concept="a"><b>A</b><span>Accordion</span></button>
+          <button id="conceptTabB" type="button" role="tab" aria-label="Concept B: Payment sheet" aria-selected="false" aria-controls="screenStack" data-concept="b"><b>B</b><span>Payment sheet</span></button>
+          <button id="conceptTabC" type="button" role="tab" aria-label="Concept C: Guided" aria-selected="false" aria-controls="screenStack" data-concept="c"><b>C</b><span>Guided</span></button>
+          <button id="conceptTabD" type="button" role="tab" aria-label="Concept D: Live ticket" aria-selected="false" aria-controls="screenStack" data-concept="d"><b>D</b><span>Live ticket</span></button>
+        </nav>
+
+        <details class="lab-settings" id="labSettings">
+          <summary aria-label="Prototype settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z" /></svg>
+            <span>Prototype</span>
+          </summary>
+          <div class="lab-settings__panel">
+            <fieldset class="lab-setting">
+              <legend>Visual study</legend>
+              <div class="lab-segmented">
+                <input checked id="styleRevolut" name="ui-style" type="radio" value="revolut" />
+                <label for="styleRevolut">Revolut</label>
+                <input id="styleWise" name="ui-style" type="radio" value="wise" />
+                <label for="styleWise">Wise</label>
+              </div>
+            </fieldset>
+            <fieldset class="lab-setting">
+              <legend>Partner theme</legend>
+              <div class="lab-segmented">
+                <input checked id="themeNorthstar" name="partner-theme" type="radio" value="northstar" />
+                <label for="themeNorthstar"><i class="theme-dot theme-dot--northstar"></i>Northstar</label>
+                <input id="themeCedar" name="partner-theme" type="radio" value="cedar" />
+                <label for="themeCedar"><i class="theme-dot theme-dot--cedar"></i>Cedar</label>
+              </div>
+            </fieldset>
+            <div class="lab-setting lab-setting--states">
+              <div><span>Payment state</span><button type="button" data-action="reset">Reset</button></div>
+              <div class="lab-state-grid">
+                <button type="button" data-force="detected">Detected</button>
+                <button type="button" data-force="underpaid">Underpaid</button>
+                <button type="button" data-force="overpaid">Overpaid</button>
+                <button type="button" data-force="expired">Expired</button>
+                <button type="button" data-force="hold">Screening hold</button>
+                <button type="button" data-force="failed">Failed</button>
+                <button type="button" data-force="complete">Complete</button>
+              </div>
+            </div>
+            <small>Prototype only. Never send funds to these details.</small>
+          </div>
+        </details>
+
+        <article class="checkout-shell concept-shell" id="checkoutShell" data-concept="a">
+          <header class="sdk-header">
+            <span aria-hidden="true"></span>
+            <button class="icon-button" id="closeCheckout" type="button" aria-label="Close checkout">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+            </button>
+            <h1 class="sr-only" id="sdkDialogTitle">Pay with crypto for Dangote T-Bill</h1>
+            <p class="sr-only" id="sdkDialogDescription">Compare four ways to choose a crypto route and complete payment for the order.</p>
+          </header>
+
+          <div class="flow-progress" id="flowProgress" aria-hidden="true"><span class="is-active"></span><span></span></div>
+
+          <section class="checkout-context" aria-label="Order being paid">
+            <div><span>Pay with crypto</span><strong id="sdkOrderItem">Dangote T-Bill</strong></div>
+            <b id="sdkOrderAmount">₦1,000,000</b>
+          </section>
+
+          <main class="screen-stack concept-screen-stack" id="screenStack" role="tabpanel" aria-labelledby="conceptTabA" aria-busy="true"></main>
+
+          <footer class="sdk-footer concept-footer">
+            <span class="sdk-footer__provider">Secured by <strong><i aria-hidden="true"></i>Pulse</strong></span>
+            <span class="sdk-footer__meta"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="3" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg><span>Encrypted</span><code id="sdkOrderReference">DTB-8X4J2</code></span>
+          </footer>
+          <div class="sr-only" id="liveRegion" role="status" aria-live="polite" aria-atomic="true"></div>
+        </article>
+      </div>
+    </dialog>
+
+    <script>
+      window.PULSE_CHECKOUT_CONFIG = {
+        order: {
+          id: "DTB-8X4J2",
+          itemName: "Dangote T-Bill",
+          amount: { minorUnits: 100000000, currency: "NGN", locale: "en-NG" },
+          quoteTtlSeconds: 600
+        },
+        theme: { logoText: "Northstar", accentColor: "#635BFF", cornerRadius: 28 }
+      };
+    </script>
+    <script type="module" src="./concepts.js"></script>
+  </body>
+</html>

@@ -13,17 +13,6 @@ import LogoTicker from './components/LogoTicker';
    ============================================ */
 const projects = [
   {
-    id: 'branch-ai',
-    title: 'Three AIs, One Design System',
-    description: 'Turning scattered AI use into governed product workflows for illustration, copywriting, and prototyping.',
-    role: 'Product Designer',
-    period: 'Oct 2025 - Feb 2026',
-    tags: ['AI', 'Design Systems', 'Fintech'],
-    color: '#0a1628',
-    accentColor: '#6CD2FF',
-    thumbnail: '/work/branch-ai/three-ai-workflows.jpg',
-  },
-  {
     id: 'shiga-onboarding',
     title: 'Cutting Time to Value with a Passkey-Led Onboarding',
     description: 'Rebuilding ENTA\'s sign-up around passkeys and deferred KYC to get users to their dashboard in under a minute.',
@@ -44,6 +33,17 @@ const projects = [
     color: '#1a1a2e',
     accentColor: '#e07b3c',
     thumbnail: '/work/carbon/Revamping Fintech Home screen Experience.jpg',
+  },
+  {
+    id: 'branch-ai',
+    title: 'Three AIs, One Design System',
+    description: 'Turning scattered AI use into governed product workflows for illustration, copywriting, and prototyping.',
+    role: 'Product Designer',
+    period: 'Oct 2025 - Feb 2026',
+    tags: ['AI', 'Design Systems', 'Fintech'],
+    color: '#0a1628',
+    accentColor: '#6CD2FF',
+    thumbnail: '/work/branch-ai/three-ai-workflows.jpg',
   },
   {
     id: 'sabi',

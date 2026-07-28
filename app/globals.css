@@ -78,10 +78,10 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 24px rgba(224, 123, 60, 0.15);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-glow: none;
 
   /* Transitions */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -124,10 +124,11 @@
   --gradient-card: linear-gradient(145deg, #ffffff 0%, #f5f4f0 100%);
   --gradient-accent: linear-gradient(135deg, #c96b30 0%, #b85a22 100%);
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 24px rgba(201, 107, 48, 0.1);
+  /* Shadows */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-glow: none;
 }
 
 /* --- Reset & Base --- */
@@ -3241,6 +3242,7 @@ main > .section:first-child {
   border-radius: inherit;
   overflow: hidden;
   transition: transform var(--transition-base);
+  box-shadow: none !important;
 }
 .zoom-trigger:hover {
   transform: scale(1.01);
@@ -3593,7 +3595,7 @@ main > .section:first-child {
 
 .cs-data-table th,
 .cs-data-table td {
-  padding: var(--space-md);
+  padding: var(--space-lg) var(--space-md);
   border-bottom: 1px solid var(--border);
   text-align: left;
   vertical-align: top;

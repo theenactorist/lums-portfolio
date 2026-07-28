@@ -9,16 +9,6 @@ import PageTransition from '../components/PageTransition';
    ============================================ */
 const allProjects = [
   {
-    id: 'branch-ai',
-    title: 'Three AIs, One Design System',
-    description: 'Researching informal AI use and designing governed workflows with Branch context, market rules, and human review.',
-    role: 'Product Designer',
-    period: 'Oct 2025 - Feb 2026',
-    tags: ['AI', 'Design Systems', 'Fintech'],
-    category: 'product',
-    color: '#0a1628',
-  },
-  {
     id: 'shiga-onboarding',
     title: 'Cutting Time to Value with a Passkey-Led Onboarding',
     description: 'Rebuilding ENTA\'s sign-up around passkeys and deferred KYC to get users to their dashboard in under a minute.',
@@ -37,6 +27,16 @@ const allProjects = [
     tags: ['Mobile', 'Fintech', 'UX Research'],
     category: 'product',
     color: '#1a1a2e',
+  },
+  {
+    id: 'branch-ai',
+    title: 'Three AIs, One Design System',
+    description: 'Researching informal AI use and designing governed workflows with Branch context, market rules, and human review.',
+    role: 'Product Designer',
+    period: 'Oct 2025 - Feb 2026',
+    tags: ['AI', 'Design Systems', 'Fintech'],
+    category: 'product',
+    color: '#0a1628',
   },
   {
     id: 'sabi',

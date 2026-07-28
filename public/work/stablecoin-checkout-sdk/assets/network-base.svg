@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="base-title">
+  <title id="base-title">Base</title>
+  <circle cx="16" cy="16" r="16" fill="#0052FF"/>
+  <path d="M16.08 26.93c6.08 0 11.01-4.91 11.01-10.97C27.09 9.91 22.16 5 16.08 5 10.31 5 5.58 9.42 5.11 15.04h14.55v1.84H5.11c.47 5.63 5.2 10.05 10.97 10.05Z" fill="#fff"/>
+</svg>

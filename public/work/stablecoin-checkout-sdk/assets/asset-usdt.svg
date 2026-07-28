@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="usdt-title">
+  <title id="usdt-title">USDT</title>
+  <circle cx="16" cy="16" r="16" fill="#26A17B"/>
+  <path fill="#fff" fill-rule="evenodd" d="M8 7.25h16v4.05h-5.95v2.08c4.18.19 6.95 1.02 6.95 2.01 0 1-2.77 1.82-6.95 2.02V25h-4.1v-7.59C9.77 17.21 7 16.39 7 15.39c0-.99 2.77-1.82 6.95-2.01V11.3H8V7.25Zm5.95 7.59c-2.62.14-4.37.5-5.08.79.71.29 2.46.65 5.08.79v-1.58Zm4.1 1.58c2.62-.14 4.37-.5 5.08-.79-.71-.29-2.46-.65-5.08-.79v1.58Z"/>
+</svg>

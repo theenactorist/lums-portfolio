@@ -58,11 +58,7 @@ export default function ShigaOnboardingCaseStudy() {
                   surface. The company is backed by Tether and is a member of the Visa
                   Accelerator program.
                 </p>
-                <p className="cs-hero__subtitle" style={{ marginTop: 'var(--space-sm)' }}>
-                  This case study covers the individual onboarding flow. The business
-                  onboarding has its own case study, since the constraints, persona, and KYC
-                  weight are different.
-                </p>
+
               </div>
 
               <figure className="cs-hero__cover">

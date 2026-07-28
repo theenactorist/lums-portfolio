@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-07T00:37:12Z",
+  "title": "Design System: Lums Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Warm Rust" },
+      "neutral-bg": { "role": "neutral", "displayName": "Deep Void" },
+      "neutral-surface": { "role": "neutral", "displayName": "Surface Dark" },
+      "neutral-text": { "role": "neutral", "displayName": "Crisp Paper" },
+      "neutral-muted": { "role": "neutral", "displayName": "Muted Ash" },
+      "border": { "role": "neutral", "displayName": "Structural Line" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines only." },
+      "headline": { "displayName": "Headline", "purpose": "Section intros and narrative breaks." },
+      "title": { "displayName": "Title", "purpose": "Card titles and component headers." },
+      "body": { "displayName": "Body", "purpose": "Long-form reading and descriptions." },
+      "label": { "displayName": "Mono Label", "purpose": "Technical metadata and tags." }
+    }
+  },
+  "components": [
+    {
+      "name": "Nav Theme Toggle",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "Interactive theme toggle from the top navigation.",
+      "html": "<button class=\"ds-theme-toggle\">★</button>",
+      "css": ".ds-theme-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 9999px; border: 1px solid #2a2a30; background: #141419; color: #999999; cursor: pointer; transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-theme-toggle:hover { border-color: #e07b3c; color: #e07b3c; background: rgba(224, 123, 60, 0.15); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Precision Engineer",
+    "overview": "This system is modern yet recognizable, built to reflect a thoughtful, un-rushed approach to interface creation. It avoids unnecessary decoration, letting the structure and typography do the heavy lifting. The copywriting is simple to understand but precise, using the right jargon where necessary to signal expertise. We explicitly reject \"AI slop\"—thoughtlessly generated templates, generic SaaS tropes, or chaotic overstuffed layouts.",
+    "keyCharacteristics": [
+      "Restrained and deliberate",
+      "High-contrast, dark-immersive default",
+      "Flat by default (no shadows)",
+      "Purposeful use of technical monospaced accents"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Warm Rust is the only brand color. Never introduce secondary or tertiary hues. If it's not Warm Rust, it's a neutral.", "section": "colors" },
+      { "name": "The Mono Metadata Rule", "body": "Dates, technical tags, and code-adjacent labels must use JetBrains Mono to reinforce the \"precision engineer\" aesthetic.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Depth is conveyed entirely through tonal shifts and structural borders, never through drop shadows or blurs.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do ensure every element on the screen earns its place. Precision over noise.",
+      "Do use typography scale and weight contrast (not color) to establish hierarchy.",
+      "Do write copy that is simple, yet technically precise."
+    ],
+    "donts": [
+      "Don't use drop shadows. The system is flat.",
+      "Don't use generic SaaS tropes or chaotic overstuffed layouts (\"AI slop\").",
+      "Don't use glassmorphism as a default decoration (only functional blurs, like the sticky nav)."
+    ]
+  }
+}

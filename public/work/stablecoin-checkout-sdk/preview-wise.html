@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-visual-variant="wise">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#eef0f5" />
+    <link rel="icon" href="./assets/asset-usdc.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./variants/wise.css" />
+    <title>Northstar crypto payment — Wise study</title>
+  </head>
+  <body>
+    <div class="host-app" id="hostApp">
+      <header class="host-topbar">
+        <a class="host-brand" href="#" aria-label="Northstar home">
+          <span class="host-brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3 14.5 9.5 21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" /></svg>
+          </span>
+          <span>Northstar</span>
+        </a>
+        <nav class="host-nav" aria-label="Primary navigation">
+          <a href="#">Home</a>
+          <a class="is-active" href="#">Invest</a>
+          <a href="#">Wallet</a>
+          <a href="#">Activity</a>
+        </nav>
+        <button class="host-avatar" type="button" aria-label="Open profile">AO</button>
+      </header>
+
+      <main class="host-main">
+        <p class="host-breadcrumb">Invest <span>/</span> Treasury bills</p>
+        <div class="host-product-head">
+          <div>
+            <span class="host-kicker">Nigerian treasury bills</span>
+            <h1>Dangote T-Bill</h1>
+            <p>91-day fixed income with a predictable return.</p>
+          </div>
+          <span class="host-status"><i></i> Open</span>
+        </div>
+
+        <div class="host-grid">
+          <section class="host-order" aria-labelledby="host-order-title">
+            <span>Investment amount</span>
+            <h2 id="host-order-title">Invest ₦1,000,000</h2>
+            <div class="host-instrument">
+              <span class="host-instrument__mark" aria-hidden="true">D</span>
+              <div><strong>Dangote T-Bill</strong><span>91 days</span></div>
+            </div>
+            <dl class="host-inline-metrics">
+              <div><dt>Settlement</dt><dd>T+1 business day</dd></div>
+              <div><dt>Estimated return</dt><dd>₦42,323.29</dd></div>
+            </dl>
+            <div class="host-funding"><span>Payment method</span><strong>Crypto</strong></div>
+            <button class="host-primary" id="openCheckout" type="button">
+              <span>Pay with crypto</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+            </button>
+          </section>
+
+          <aside class="host-summary" aria-labelledby="host-summary-title">
+            <h2 id="host-summary-title">Order summary</h2>
+            <dl>
+              <div><dt>Instrument</dt><dd>Dangote T-Bill</dd></div>
+              <div><dt>Principal</dt><dd>₦1,000,000</dd></div>
+              <div><dt>Term</dt><dd>91 days</dd></div>
+              <div><dt>Annual return</dt><dd>17.25%</dd></div>
+              <div class="host-summary__total"><dt>Total at maturity</dt><dd>₦1,042,323.29</dd></div>
+            </dl>
+            <div class="host-assurance">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.7 8-7 10-4.3-2-7-5.4-7-10V6l7-3Z" /><path d="m9 12 2 2 4-4" /></svg>
+              <p><strong>Order protected</strong><span>Your rate locks after payment details are created.</span></p>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="sdk-dialog" id="checkoutDialog" aria-labelledby="sdkDialogTitle" aria-describedby="sdkDialogDescription">
+      <div class="sdk-stage">
+        <aside class="prototype-controls" aria-label="Prototype controls">
+          <fieldset class="theme-switcher">
+            <legend>Host app, Company B</legend>
+            <div>
+              <input checked id="themeNorthstar" name="partner-theme" type="radio" value="northstar" />
+              <label for="themeNorthstar"><span class="theme-dot theme-dot--northstar"></span>Northstar</label>
+              <input id="themeCedar" name="partner-theme" type="radio" value="cedar" />
+              <label for="themeCedar"><span class="theme-dot theme-dot--cedar"></span>Cedar</label>
+            </div>
+          </fieldset>
+        </aside>
+
+        <article class="checkout-shell" id="checkoutShell">
+          <header class="sdk-header">
+            <span aria-hidden="true"></span>
+            <button class="icon-button" id="closeCheckout" type="button" aria-label="Close checkout">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+            </button>
+            <h1 class="sr-only" id="sdkDialogTitle">Pay with crypto for Dangote T-Bill</h1>
+            <p class="sr-only" id="sdkDialogDescription">Choose a crypto route and send payment for the Dangote T-Bill order.</p>
+          </header>
+
+          <div class="flow-progress" id="flowProgress" aria-hidden="true">
+            <span class="is-active"></span><span></span>
+          </div>
+
+          <section class="checkout-context" aria-label="Order being paid">
+            <div>
+              <span>Pay with crypto</span>
+              <strong id="sdkOrderItem">Dangote T-Bill</strong>
+            </div>
+            <b id="sdkOrderAmount">₦1,000,000</b>
+          </section>
+
+          <main class="screen-stack" id="screenStack" aria-busy="true">
+            <div class="bootstrap-skeleton" aria-label="Preparing checkout">
+              <span class="skeleton skeleton--short"></span>
+              <span class="skeleton skeleton--title"></span>
+              <span class="skeleton skeleton--search"></span>
+              <span class="skeleton skeleton--row"></span>
+              <span class="skeleton skeleton--row"></span>
+              <span class="skeleton skeleton--row"></span>
+            </div>
+          </main>
+
+          <footer class="sdk-footer">
+            <span class="sdk-footer__provider">Payments by <strong><i aria-hidden="true"></i>Relay</strong></span>
+            <span class="sdk-footer__meta"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="3" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg><span>Encrypted</span><code id="sdkOrderReference">DTB-8X4J2</code></span>
+          </footer>
+          <div class="sr-only" id="liveRegion" aria-live="polite" aria-atomic="true"></div>
+        </article>
+
+        <details class="dev-panel" id="devPanel">
+          <summary><span aria-hidden="true">{ }</span><b>Dev states</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg></summary>
+          <div class="dev-panel__body">
+            <div class="dev-panel__head">
+              <div><strong>Relay simulator</strong><span id="forcedStateLabel">Live flow</span></div>
+              <button type="button" data-action="reset">Reset</button>
+            </div>
+            <button class="dev-run" type="button" data-action="run-happy">Run happy path</button>
+            <p>Force payment state</p>
+            <div class="dev-grid">
+              <button type="button" data-force="detected">Deposit detected</button>
+              <button type="button" data-force="underpaid">Underpaid</button>
+              <button type="button" data-force="overpaid">Overpaid</button>
+              <button type="button" data-force="expired">Quote expired</button>
+              <button type="button" data-force="hold">Screening hold</button>
+              <button type="button" data-force="failed">Payment failed</button>
+              <button type="button" data-force="complete">Payment complete</button>
+            </div>
+            <small>Demo only. Never send funds to these details.</small>
+          </div>
+        </details>
+      </div>
+    </dialog>
+
+    <script>
+      window.RELAY_CHECKOUT_CONFIG = {
+        order: {
+          id: "DTB-8X4J2",
+          itemName: "Dangote T-Bill",
+          amount: { minorUnits: 100000000, currency: "NGN", locale: "en-NG" },
+          quoteTtlSeconds: 600
+        },
+        theme: { logoText: "Northstar", accentColor: "#635BFF", cornerRadius: 28 }
+      };
+    </script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

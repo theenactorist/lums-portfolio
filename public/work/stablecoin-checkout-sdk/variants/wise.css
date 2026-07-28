@@ -1,0 +1,399 @@
+/* Wise study: candid hierarchy, roomy grouped rows, theme-safe colour. */
+
+html[data-visual-variant="wise"] {
+  --host-canvas: oklch(96.5% 0.01 92);
+  --host-surface: oklch(98.8% 0.007 92);
+  --host-ink: oklch(19% 0.018 114);
+  --host-muted: oklch(46% 0.015 114);
+  --host-line: oklch(88% 0.012 92);
+}
+
+html[data-visual-variant="wise"] body {
+  font-family: Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+
+html[data-visual-variant="wise"] .sdk-dialog {
+  --ink-1: oklch(18% 0.02 115);
+  --ink-2: oklch(36% 0.018 115);
+  --ink-3: oklch(50% 0.015 115);
+  --ink-4: var(--ink-3);
+  --paper: var(--partner-background, oklch(99% 0.008 92));
+  --paper-raised: color-mix(in oklch, var(--paper) 95%, white);
+  --paper-inset: color-mix(in oklch, var(--paper) 91%, oklch(87% 0.025 105));
+  --paper-hover: color-mix(in oklch, var(--paper) 87%, oklch(84% 0.03 105));
+  --line-soft: color-mix(in oklch, var(--paper) 82%, oklch(58% 0.018 105));
+  --line: color-mix(in oklch, var(--paper) 72%, oklch(46% 0.02 105));
+  --line-strong: color-mix(in oklch, var(--paper) 52%, oklch(34% 0.02 105));
+  --partner-soft: color-mix(in oklch, var(--partner-accent) 7%, var(--paper-raised));
+  --partner-soft-strong: color-mix(in oklch, var(--partner-accent) 12%, var(--paper-raised));
+  --partner-line: color-mix(in oklch, var(--partner-accent) 34%, var(--line));
+  --variant-cta: var(--partner-cta, var(--partner-accent));
+  --control-radius: clamp(12px, calc(var(--partner-radius) - 14px), 14px);
+  --section-radius: clamp(16px, calc(var(--partner-radius) - 10px), 18px);
+}
+
+html[data-visual-variant="wise"] .sdk-dialog::backdrop {
+  background: oklch(18% 0.02 112 / 0.55);
+}
+
+html[data-visual-variant="wise"] .checkout-shell {
+  border-color: var(--line-soft);
+  background: var(--paper);
+  box-shadow: 0 20px 64px oklch(18% 0.02 112 / 0.2);
+}
+
+html[data-visual-variant="wise"] .sdk-header {
+  min-height: 58px;
+  padding-inline: 24px 10px;
+  background: var(--paper);
+}
+
+html[data-visual-variant="wise"] .flow-progress {
+  height: 3px;
+  gap: 4px;
+  padding-inline: 24px;
+  background: var(--paper);
+}
+
+html[data-visual-variant="wise"] .checkout-context {
+  min-height: 82px;
+  padding: 14px 24px 16px;
+  background: var(--paper);
+}
+
+html[data-visual-variant="wise"] .checkout-context span {
+  font-size: 0.72rem;
+  font-weight: 560;
+  letter-spacing: 0;
+}
+
+html[data-visual-variant="wise"] .checkout-context strong {
+  font-size: 1.06rem;
+  line-height: 1.22;
+  font-weight: 680;
+}
+
+html[data-visual-variant="wise"] .checkout-context > b {
+  font-size: 1rem;
+  font-weight: 680;
+}
+
+html[data-visual-variant="wise"] .screen-stack,
+html[data-visual-variant="wise"] .screen-layer {
+  background: var(--paper);
+}
+
+html[data-visual-variant="wise"] .screen-body {
+  padding-inline: 24px;
+}
+
+html[data-visual-variant="wise"] .composer-body,
+html[data-visual-variant="wise"] .payment-body {
+  padding-block-start: 20px;
+}
+
+html[data-visual-variant="wise"] .route-search {
+  height: 58px;
+  margin-block: 0 22px;
+  border-color: transparent;
+  border-radius: 13px;
+  background: var(--paper-inset);
+  box-shadow: none;
+}
+
+html[data-visual-variant="wise"] .route-search:focus-within {
+  border-color: var(--partner-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--partner-accent) 13%, transparent);
+}
+
+html[data-visual-variant="wise"] .route-search__field input {
+  font-size: 0.94rem;
+  font-weight: 460;
+}
+
+html[data-visual-variant="wise"] .route-search__field label {
+  font-size: 0.79rem;
+  font-weight: 560;
+}
+
+html[data-visual-variant="wise"] .result-label {
+  margin-block-end: 6px;
+  padding-inline: 4px;
+  font-size: 0.72rem;
+  font-weight: 620;
+}
+
+html[data-visual-variant="wise"] .route-list {
+  border-block-start: 0;
+}
+
+html[data-visual-variant="wise"] .asset-group {
+  border-color: var(--line-soft);
+}
+
+html[data-visual-variant="wise"] .asset-trigger {
+  min-height: 74px;
+  grid-template-columns: 42px minmax(0, 1fr) auto 22px;
+  gap: 12px;
+  padding: 12px 4px;
+  border-radius: 12px;
+}
+
+html[data-visual-variant="wise"] .asset-trigger[aria-expanded="true"] {
+  background: var(--partner-soft);
+}
+
+html[data-visual-variant="wise"] .asset-trigger.is-selected {
+  color: var(--ink-1);
+}
+
+html[data-visual-variant="wise"] .asset-icon,
+html[data-visual-variant="wise"] .asset-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+html[data-visual-variant="wise"] .asset-copy strong {
+  font-size: 0.98rem;
+  font-weight: 680;
+}
+
+html[data-visual-variant="wise"] .asset-copy span {
+  font-size: 0.73rem;
+}
+
+html[data-visual-variant="wise"] .asset-quote {
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+html[data-visual-variant="wise"] .asset-quote span {
+  font-size: 0.67rem;
+}
+
+html[data-visual-variant="wise"] .network-chooser {
+  margin: 4px 0 14px;
+  padding: 14px;
+  border-radius: var(--section-radius);
+  background: var(--paper-inset);
+}
+
+html[data-visual-variant="wise"] .network-chooser__head {
+  margin-block-end: 12px;
+  padding-inline: 2px;
+}
+
+html[data-visual-variant="wise"] .network-chooser__head strong {
+  font-size: 0.76rem;
+  font-weight: 660;
+}
+
+html[data-visual-variant="wise"] .network-chooser__head span {
+  font-size: 0.68rem;
+}
+
+html[data-visual-variant="wise"] .network-grid {
+  gap: 8px;
+}
+
+html[data-visual-variant="wise"] .network-option {
+  min-height: 52px;
+  padding: 9px 11px;
+  border-color: transparent;
+  border-radius: 11px;
+  background: var(--paper-raised);
+  font-size: 0.75rem;
+  font-weight: 620;
+}
+
+html[data-visual-variant="wise"] .network-option.is-selected,
+html[data-visual-variant="wise"] .network-input:checked + .network-option {
+  border-color: var(--partner-line);
+  color: var(--ink-1);
+  background: var(--partner-soft-strong);
+}
+
+html[data-visual-variant="wise"] .screen-actions {
+  gap: 10px;
+  padding: 14px 24px max(16px, env(safe-area-inset-bottom));
+  border-color: var(--line-soft);
+  background: var(--paper-raised);
+}
+
+html[data-visual-variant="wise"] .route-choice-summary {
+  min-height: 44px;
+  font-size: 0.7rem;
+}
+
+html[data-visual-variant="wise"] .route-choice-summary strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+html[data-visual-variant="wise"] .button-primary,
+html[data-visual-variant="wise"] .button-secondary {
+  min-height: 56px;
+  border-radius: 13px;
+  font-size: 0.94rem;
+  font-weight: 680;
+}
+
+html[data-visual-variant="wise"] .button-primary {
+  border-color: color-mix(in oklch, var(--variant-cta) 82%, black);
+  background: var(--variant-cta);
+  box-shadow: none;
+}
+
+html[data-visual-variant="wise"] .button-secondary {
+  background: var(--paper-inset);
+}
+
+html[data-visual-variant="wise"] .screen-heading--payment {
+  margin-block-end: 18px;
+}
+
+html[data-visual-variant="wise"] .screen-heading--payment .screen-title {
+  font-size: 1.18rem;
+  font-weight: 680;
+}
+
+html[data-visual-variant="wise"] .deposit-panel {
+  border-color: var(--line-soft);
+  background: var(--paper-raised);
+  box-shadow: none;
+}
+
+html[data-visual-variant="wise"] .qr-toggle {
+  min-height: 52px;
+  color: var(--ink-1);
+  background: var(--paper-inset);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+html[data-visual-variant="wise"] .deposit-row {
+  min-height: 76px;
+}
+
+html[data-visual-variant="wise"] .deposit-row--amount .deposit-row__copy strong {
+  font-size: 1.28rem;
+  line-height: 1.15;
+  font-weight: 720;
+}
+
+html[data-visual-variant="wise"] .deposit-row__copy > span {
+  font-size: 0.7rem;
+  font-weight: 550;
+}
+
+html[data-visual-variant="wise"] .copy-control {
+  border-color: transparent;
+  border-radius: 11px;
+  background: var(--paper-inset);
+  font-weight: 650;
+}
+
+html[data-visual-variant="wise"] .wallet-help {
+  border-block-start: 0;
+}
+
+html[data-visual-variant="wise"] .wallet-help summary {
+  min-height: 56px;
+  padding-inline: 2px;
+  font-size: 0.78rem;
+  font-weight: 620;
+}
+
+html[data-visual-variant="wise"] .payment-dock {
+  border-color: var(--line-soft);
+}
+
+html[data-visual-variant="wise"] .dock-status {
+  gap: 14px;
+}
+
+html[data-visual-variant="wise"] .dock-status__symbol {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+}
+
+html[data-visual-variant="wise"] .dock-status__head strong {
+  font-size: 0.94rem;
+  font-weight: 680;
+}
+
+html[data-visual-variant="wise"] .dock-status__head p {
+  font-size: 0.74rem;
+}
+
+html[data-visual-variant="wise"] .dock-metrics {
+  border-radius: 14px;
+}
+
+html[data-visual-variant="wise"] .dock-metrics div {
+  padding: 10px 12px;
+}
+
+html[data-visual-variant="wise"] .sdk-footer {
+  min-height: 44px;
+  border-color: var(--line-soft);
+  background: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-visual-variant="wise"] .asset-trigger:hover {
+    background: var(--paper-hover);
+  }
+
+  html[data-visual-variant="wise"] .network-option:hover {
+    border-color: var(--line);
+    background: var(--paper-raised);
+  }
+}
+
+@media (max-width: 370px) {
+  html[data-visual-variant="wise"] .sdk-header,
+  html[data-visual-variant="wise"] .flow-progress,
+  html[data-visual-variant="wise"] .checkout-context,
+  html[data-visual-variant="wise"] .screen-body,
+  html[data-visual-variant="wise"] .screen-actions,
+  html[data-visual-variant="wise"] .sdk-footer {
+    padding-inline: 16px;
+  }
+
+  html[data-visual-variant="wise"] .asset-trigger {
+    grid-template-columns: 40px minmax(0, 1fr) 20px;
+  }
+}
+
+@media (min-width: 720px) {
+  html[data-visual-variant="wise"] .checkout-shell {
+    width: min(500px, calc(100vw - 48px));
+    height: min(780px, calc(100dvh - 48px));
+  }
+}
+
+@media (forced-colors: active) {
+  html[data-visual-variant="wise"] .route-search,
+  html[data-visual-variant="wise"] .network-option,
+  html[data-visual-variant="wise"] .deposit-panel,
+  html[data-visual-variant="wise"] .button-primary,
+  html[data-visual-variant="wise"] .button-secondary {
+    border: 1px solid CanvasText;
+  }
+
+  html[data-visual-variant="wise"] .network-option.is-selected {
+    outline: 3px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-visual-variant="wise"] .asset-trigger,
+  html[data-visual-variant="wise"] .network-option,
+  html[data-visual-variant="wise"] .route-search,
+  html[data-visual-variant="wise"] .button-primary,
+  html[data-visual-variant="wise"] .button-secondary {
+    transition-duration: 1ms;
+  }
+}

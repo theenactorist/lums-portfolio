@@ -1,0 +1,385 @@
+/* Revolut study: compact native hierarchy, continuous grouped surfaces, theme-safe colour. */
+
+html[data-visual-variant="revolut"] {
+  --host-canvas: oklch(95.8% 0.006 264);
+  --host-surface: oklch(98.5% 0.004 264);
+  --host-ink: oklch(18% 0.012 264);
+  --host-muted: oklch(47% 0.012 264);
+  --host-line: oklch(88% 0.008 264);
+}
+
+html[data-visual-variant="revolut"] body {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+html[data-visual-variant="revolut"] .sdk-dialog {
+  --ink-1: oklch(16.5% 0.014 264);
+  --ink-2: oklch(36% 0.014 264);
+  --ink-3: oklch(51% 0.012 264);
+  --ink-4: var(--ink-3);
+  --paper: var(--partner-background, oklch(98.6% 0.004 264));
+  --paper-raised: color-mix(in oklch, var(--paper) 96%, white);
+  --paper-inset: color-mix(in oklch, var(--paper) 94%, oklch(88% 0.01 264));
+  --paper-hover: color-mix(in oklch, var(--paper) 91%, oklch(84% 0.012 264));
+  --line-soft: color-mix(in oklch, var(--paper) 84%, oklch(58% 0.012 264));
+  --line: color-mix(in oklch, var(--paper) 75%, oklch(46% 0.014 264));
+  --line-strong: color-mix(in oklch, var(--paper) 55%, oklch(36% 0.014 264));
+  --partner-soft: color-mix(in oklch, var(--partner-accent) 8%, var(--paper-raised));
+  --partner-soft-strong: color-mix(in oklch, var(--partner-accent) 13%, var(--paper-raised));
+  --partner-line: color-mix(in oklch, var(--partner-accent) 36%, var(--line));
+  --variant-cta: var(--partner-cta, var(--partner-accent));
+  --control-radius: clamp(12px, calc(var(--partner-radius) - 12px), 16px);
+  --section-radius: clamp(14px, calc(var(--partner-radius) - 10px), 18px);
+}
+
+html[data-visual-variant="revolut"] .sdk-dialog::backdrop {
+  background: oklch(13% 0.016 264 / 0.68);
+}
+
+html[data-visual-variant="revolut"] .checkout-shell {
+  border-color: color-mix(in oklch, var(--line) 78%, transparent);
+  background: var(--paper);
+  box-shadow: 0 24px 72px oklch(9% 0.015 264 / 0.28);
+}
+
+html[data-visual-variant="revolut"] .sdk-header {
+  min-height: 54px;
+  padding-inline: 20px 8px;
+  background: var(--paper);
+}
+
+html[data-visual-variant="revolut"] .icon-button,
+html[data-visual-variant="revolut"] .screen-back {
+  color: var(--ink-1);
+}
+
+html[data-visual-variant="revolut"] .flow-progress {
+  height: 2px;
+  gap: 2px;
+  padding-inline: 20px;
+  background: var(--paper);
+}
+
+html[data-visual-variant="revolut"] .flow-progress span,
+html[data-visual-variant="revolut"] .flow-progress span::after {
+  height: 2px;
+}
+
+html[data-visual-variant="revolut"] .checkout-context {
+  min-height: 72px;
+  padding: 12px 20px 14px;
+  background: var(--paper);
+}
+
+html[data-visual-variant="revolut"] .checkout-context span {
+  font-size: 0.69rem;
+  font-weight: 560;
+  letter-spacing: 0;
+}
+
+html[data-visual-variant="revolut"] .checkout-context strong {
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+html[data-visual-variant="revolut"] .checkout-context > b {
+  font-size: 0.96rem;
+  font-weight: 650;
+}
+
+html[data-visual-variant="revolut"] .screen-stack,
+html[data-visual-variant="revolut"] .screen-layer {
+  background: var(--paper);
+}
+
+html[data-visual-variant="revolut"] .screen-body {
+  padding-inline: 20px;
+}
+
+html[data-visual-variant="revolut"] .composer-body,
+html[data-visual-variant="revolut"] .payment-body {
+  padding-block-start: 16px;
+}
+
+html[data-visual-variant="revolut"] .route-search {
+  height: 56px;
+  margin-block: 0 18px;
+  border-color: transparent;
+  border-radius: 16px;
+  background: var(--paper-inset);
+  box-shadow: none;
+}
+
+html[data-visual-variant="revolut"] .route-search:focus-within {
+  border-color: var(--partner-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--partner-accent) 14%, transparent);
+}
+
+html[data-visual-variant="revolut"] .route-search__field input {
+  font-size: 0.9rem;
+  font-weight: 450;
+}
+
+html[data-visual-variant="revolut"] .route-search__field label {
+  font-size: 0.76rem;
+  font-weight: 540;
+}
+
+html[data-visual-variant="revolut"] .result-label {
+  margin-block-end: 8px;
+  padding-inline: 2px;
+  font-size: 0.71rem;
+  font-weight: 560;
+}
+
+html[data-visual-variant="revolut"] .route-list {
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--section-radius);
+  background: var(--paper-raised);
+}
+
+html[data-visual-variant="revolut"] .asset-group {
+  border-color: var(--line-soft);
+}
+
+html[data-visual-variant="revolut"] .asset-group:last-child {
+  border-block-end: 0;
+}
+
+html[data-visual-variant="revolut"] .asset-trigger {
+  min-height: 70px;
+  grid-template-columns: 40px minmax(0, 1fr) auto 20px;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--paper-raised);
+}
+
+html[data-visual-variant="revolut"] .asset-trigger[aria-expanded="true"] {
+  background: var(--partner-soft);
+}
+
+html[data-visual-variant="revolut"] .asset-trigger.is-selected {
+  color: var(--ink-1);
+}
+
+html[data-visual-variant="revolut"] .asset-copy strong {
+  font-size: 0.93rem;
+  font-weight: 650;
+}
+
+html[data-visual-variant="revolut"] .asset-copy span,
+html[data-visual-variant="revolut"] .asset-quote span {
+  font-size: 0.69rem;
+}
+
+html[data-visual-variant="revolut"] .asset-quote {
+  font-size: 0.72rem;
+  font-weight: 560;
+}
+
+html[data-visual-variant="revolut"] .network-chooser {
+  margin: 0;
+  padding: 13px 14px 15px 68px;
+  border-block-start: 1px solid var(--line-soft);
+  border-radius: 0;
+  background: var(--paper-inset);
+}
+
+html[data-visual-variant="revolut"] .network-chooser__head {
+  margin-block-end: 10px;
+}
+
+html[data-visual-variant="revolut"] .network-chooser__head strong {
+  font-size: 0.72rem;
+  font-weight: 620;
+}
+
+html[data-visual-variant="revolut"] .network-chooser__head span {
+  font-size: 0.65rem;
+}
+
+html[data-visual-variant="revolut"] .network-grid {
+  gap: 8px;
+}
+
+html[data-visual-variant="revolut"] .network-option {
+  min-height: 48px;
+  grid-template-columns: 24px minmax(0, 1fr) 18px;
+  padding: 8px 10px;
+  border-color: transparent;
+  border-radius: 12px;
+  background: var(--paper-raised);
+  font-size: 0.72rem;
+  font-weight: 580;
+}
+
+html[data-visual-variant="revolut"] .network-option.is-selected,
+html[data-visual-variant="revolut"] .network-input:checked + .network-option {
+  border-color: var(--partner-line);
+  color: var(--ink-1);
+  background: var(--partner-soft-strong);
+}
+
+html[data-visual-variant="revolut"] .screen-actions {
+  gap: 8px;
+  padding: 12px 20px max(14px, env(safe-area-inset-bottom));
+  background: var(--paper-raised);
+}
+
+html[data-visual-variant="revolut"] .route-choice-summary {
+  min-height: 42px;
+  font-size: 0.67rem;
+}
+
+html[data-visual-variant="revolut"] .route-choice-summary strong {
+  font-size: 0.95rem;
+  font-weight: 680;
+}
+
+html[data-visual-variant="revolut"] .button-primary,
+html[data-visual-variant="revolut"] .button-secondary {
+  min-height: 54px;
+  border-radius: 14px;
+  font-size: 0.91rem;
+  font-weight: 620;
+}
+
+html[data-visual-variant="revolut"] .button-primary {
+  border-color: color-mix(in oklch, var(--variant-cta) 82%, black);
+  background: var(--variant-cta);
+  box-shadow: 0 5px 14px color-mix(in oklch, var(--variant-cta) 20%, transparent);
+}
+
+html[data-visual-variant="revolut"] .button-secondary {
+  background: var(--paper-inset);
+}
+
+html[data-visual-variant="revolut"] .screen-heading--payment {
+  margin-block-end: 14px;
+}
+
+html[data-visual-variant="revolut"] .screen-heading--payment .screen-title {
+  font-size: 1.08rem;
+  font-weight: 650;
+}
+
+html[data-visual-variant="revolut"] .deposit-panel {
+  border-color: var(--line-soft);
+  background: var(--paper-raised);
+  box-shadow: none;
+}
+
+html[data-visual-variant="revolut"] .qr-toggle {
+  color: var(--ink-1);
+  background: var(--paper-inset);
+  font-weight: 580;
+}
+
+html[data-visual-variant="revolut"] .deposit-row--amount .deposit-row__copy strong {
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+
+html[data-visual-variant="revolut"] .deposit-row__copy > span {
+  font-size: 0.68rem;
+  font-weight: 520;
+}
+
+html[data-visual-variant="revolut"] .copy-control {
+  border-color: transparent;
+  border-radius: 10px;
+  background: var(--paper-inset);
+  font-weight: 600;
+}
+
+html[data-visual-variant="revolut"] .wallet-help {
+  border-block-start: 0;
+}
+
+html[data-visual-variant="revolut"] .wallet-help summary {
+  min-height: 52px;
+  padding-inline: 2px;
+  font-size: 0.76rem;
+  font-weight: 580;
+}
+
+html[data-visual-variant="revolut"] .payment-dock {
+  border-color: var(--line-soft);
+}
+
+html[data-visual-variant="revolut"] .dock-status__symbol {
+  border-radius: 13px;
+}
+
+html[data-visual-variant="revolut"] .dock-status__head strong {
+  font-size: 0.91rem;
+  font-weight: 650;
+}
+
+html[data-visual-variant="revolut"] .dock-metrics {
+  border-color: var(--line-soft);
+  border-radius: 12px;
+}
+
+html[data-visual-variant="revolut"] .sdk-footer {
+  min-height: 42px;
+  border-color: var(--line-soft);
+  background: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-visual-variant="revolut"] .asset-trigger:hover {
+    background: var(--paper-hover);
+  }
+
+  html[data-visual-variant="revolut"] .network-option:hover {
+    border-color: var(--line);
+    background: var(--paper-raised);
+  }
+}
+
+@media (max-width: 370px) {
+  html[data-visual-variant="revolut"] .checkout-context,
+  html[data-visual-variant="revolut"] .screen-body,
+  html[data-visual-variant="revolut"] .screen-actions,
+  html[data-visual-variant="revolut"] .sdk-footer {
+    padding-inline: 16px;
+  }
+
+  html[data-visual-variant="revolut"] .network-chooser {
+    padding-inline: 56px 12px;
+  }
+}
+
+@media (min-width: 720px) {
+  html[data-visual-variant="revolut"] .checkout-shell {
+    width: min(500px, calc(100vw - 48px));
+    height: min(780px, calc(100dvh - 48px));
+  }
+}
+
+@media (forced-colors: active) {
+  html[data-visual-variant="revolut"] .route-list,
+  html[data-visual-variant="revolut"] .route-search,
+  html[data-visual-variant="revolut"] .network-option,
+  html[data-visual-variant="revolut"] .deposit-panel,
+  html[data-visual-variant="revolut"] .button-primary,
+  html[data-visual-variant="revolut"] .button-secondary {
+    border: 1px solid CanvasText;
+  }
+
+  html[data-visual-variant="revolut"] .network-option.is-selected {
+    outline: 3px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-visual-variant="revolut"] .asset-trigger,
+  html[data-visual-variant="revolut"] .network-option,
+  html[data-visual-variant="revolut"] .route-search,
+  html[data-visual-variant="revolut"] .button-primary,
+  html[data-visual-variant="revolut"] .button-secondary {
+    transition-duration: 1ms;
+  }
+}
