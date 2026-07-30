@@ -67,28 +67,19 @@ His Civil Engineering degree taught him systems thinking, precision, and problem
 
 ### Shiga Onchain Banking — Senior Product Designer (Consultant) | May 2024 – Present
 *(Digital Banking, Crypto/Web3, Cross-border Payments, Product-led)*
-- Translated founders' vision into three platforms: ENTA (consumer wallet), FORGE (corporate banking), Telegram Mini-app
-- Directly contributed to securing $1.2M in funding from Tether and acceptance into the Visa Accelerator program
-- Architected Helium 2.0 design system from scratch: 263 color variables, typography, spacing, radius tokens across light and dark modes, production-ready for Android, iOS, and web
-- Simplified crypto payment flows (Swap, Onramp, Offramp, Currency Conversion) — estimated 40% reduction in payment-related errors
-- Shipped a Telegram Mini-App POS (built with Gemini and Claude), which directly secured funding from Telegram (TON)
-- Designed Payment Links, Rate Calculator, and crypto invoice page — expanding product surface beyond core wallet
-- Built segmented MailerLite email automation: onboarding, post-KYC, and win-back sequences — achieving 73% open rate on reactivation campaign
-- Spearheading KYC redesign and multi-factor Transaction Authentication (PIN, Passkey, Authenticator, Email OTP)
+- Leading design strategy and operations across Shiga's crypto banking ecosystem & B2B SaaS payment product for embedded checkout, developer tooling, partner operations, and internal systems. Managing two designers while partnering cross-functionally.
+- Directly contributed to turning ambiguous requirements into human-centred products, which led to Shiga raising over $4M from Tether and Visa.
+- Architected Helium 2.0 design system from scratch in Figma, React & Storybook: variables, tokens, reusable component specs, micro-interactions across Android, iOS, web, and light/dark modes.
+- Simplified complex crypto payment flows (Swap, Onramp, Offramp, Currency Conversion) — reduced payment-related errors by 40%.
+- Used AI workflows in Gemini CLI, Claude, Codex, and Antigravity IDE to design developer, partner, and internal operations experiences (React/React Native/Vanilla JS SDKs, API keys, sandbox testing, webhooks, KYB, reconciliation, compliance, and support tooling).
+- Built segmented MailerLite lifecycle journeys for onboarding, post-KYC, and win-back campaigns — achieving a 73% reactivation open rate.
 
 ### Branch International Financial Services — Senior Product Designer | Oct 2024 – Mar 2026
 *(Fintech, Lending, Product-led)*
-- Led migration of wallet, rewards, home screen, loan, and KYC modules across Kenya, India, and Nigeria to Branch's Neem Design System — 100% visual and functional consistency across 5 modules
-- Designed the Branch credit and debit card experience — covering card application, physical and virtual card management, transaction history, spend controls, and card-linked rewards across Kenya, India, and Nigeria
-- Redesigned KYC onboarding with OTP-based pre-fill: approval rates increased from 42% to 56%, manual data entry errors reduced by 35%
-- Built three AI-powered design tools adopted 500+ times across 6 teams in 4 countries:
-  - **Illustrations GPT:** 500+ iterations to produce 30 consistent illustrations for India; scaled to Africa markets (Q2 2026 handoff)
-  - **CopyGPT (Copywriting Skill):** Claude-based skill pushed from 95% to 99% accuracy; live in India and Africa markets
-  - **Neem DS Prototyper:** PRD-to-prototype time reduced from 3 weeks to 3 days
-- Created unified Figma IA, reducing designer search time by 30% across 200+ prototypes
-- Adapted mobile design system to web using tokens and Code Connect — 20% faster design-to-delivery
-- Designed security features (masked balances, transaction history) and multi-variant onboarding experiments
-- Extended impact to People Ops and Marketing: employee recognition badge system, hiring fair visual assets
+- Owned migration of payments, onboarding, lending, and dashboard products across Kenya, India, and Nigeria into Branch's mobile Neem Design System.
+- Redesigned KYC onboarding with OTP-based pre-fill: approval rates increased from 42% to 56%, manual data entry errors reduced by 35%.
+- Owned AI design workflows (agentic prototyping, copywriting automation with ChatGPT, illustration generation using custom GPTs, versioning practices, and knowledge-sharing deep dives).
+- Designed cross-functional assets for marketing, HR/people ops, and business development (internship campaign visuals, branded merchandise, sales pitch decks, and printed sales flyers).
 
 ---
 
@@ -105,10 +96,11 @@ Lums has also done work with or for:
 
 ## 4. Education & Certifications
 
+- **Diploma, Web Design** — Academy of Learning Career College (2027)
 - **B.Sc. Civil Engineering** — Obafemi Awolowo University, 2017 | CGPA: 4.01/5
-- **Information Technology Professional (ITP) Canada** — ICTC-CTIC, 2025
+- **Information Technology Professional (ITP)** — The Information and Communications Technology Council of Canada (ICTC), 2025
 - **AI in UX/UI Design** — Uxcel, 2023
-- **Design Mentor** — ADPList, 2023–Present | 1,200+ minutes across 41+ sessions
+- **ADPList Design Mentor** — 1,200+ minutes of mentorship across 41+ sessions (2023–Present)
 
 ---
 
