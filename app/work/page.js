@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
@@ -8,6 +9,17 @@ import PageTransition from '../components/PageTransition';
    All Projects Data
    ============================================ */
 const allProjects = [
+  {
+    id: 'pulse',
+    title: 'Pulse: Embedded Crypto Payments',
+    description: 'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
+    role: 'Product Designer & Front-end Developer (Payments, SaaS)',
+    period: 'Jul 2026 · 5 days',
+    tags: ['Fintech', 'Web3', 'B2B SaaS'],
+    category: 'product',
+    color: '#101116',
+    thumbnail: '/work/pulse/thumbnail.png',
+  },
   {
     id: 'shiga-onboarding',
     title: 'Cutting Time to Value with a Passkey-Led Onboarding',
@@ -126,9 +138,19 @@ export default function WorkPage() {
                     id={`work-project-${project.id}`}
                   >
                     <div className="work-page__card-image" style={{ backgroundColor: project.color }}>
-                      <div className="work-page__card-placeholder">
-                        <span>{project.title}</span>
-                      </div>
+                      {project.thumbnail ? (
+                        <Image
+                          src={project.thumbnail}
+                          alt=""
+                          fill
+                          sizes={i === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 100vw, 33vw'}
+                          style={{ objectFit: 'cover' }}
+                        />
+                      ) : (
+                        <div className="work-page__card-placeholder">
+                          <span>{project.title}</span>
+                        </div>
+                      )}
                       <div className="work-page__card-arrow">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="7" y1="17" x2="17" y2="7"/>

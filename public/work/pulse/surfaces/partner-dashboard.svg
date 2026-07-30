@@ -1,0 +1,74 @@
+<svg width="252" height="172" viewBox="0 0 252 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Partner dashboard</title>
+  <g opacity="0.58" filter="url(#dashboardGlow)">
+    <rect x="2" y="42" width="84" height="108" rx="10" fill="url(#dashboardGlass)"/>
+    <rect x="174" y="34" width="76" height="112" rx="10" fill="url(#dashboardGlass)"/>
+  </g>
+  <g filter="url(#dashboardPanel)">
+    <rect x="24" y="14" width="204" height="144" rx="10" fill="url(#dashboardGlass)"/>
+    <rect x="24.5" y="14.5" width="203" height="143" rx="9.5" stroke="#54536C" stroke-opacity="0.06"/>
+    <path d="M24 24C24 18.4772 28.4772 14 34 14H218C223.523 14 228 18.4772 228 24V30H24V24Z" fill="white" fill-opacity="0.54"/>
+    <circle cx="33" cy="22" r="1.5" fill="#77759A" fill-opacity="0.12"/>
+    <circle cx="39" cy="22" r="1.5" fill="#77759A" fill-opacity="0.12"/>
+    <circle cx="45" cy="22" r="1.5" fill="#77759A" fill-opacity="0.12"/>
+    <rect x="82" y="19" width="88" height="6" rx="3" fill="#77759A" fill-opacity="0.08"/>
+    <circle cx="218" cy="22" r="1.5" fill="#77759A" fill-opacity="0.12"/>
+
+    <rect x="24" y="30" width="45" height="128" fill="#F4F3F8" fill-opacity="0.58"/>
+    <circle cx="36" cy="43" r="4" fill="#8C8BA4"/>
+    <rect x="43" y="40" width="17" height="5" rx="2.5" fill="#8C8BA4" fill-opacity="0.62"/>
+    <rect x="33" y="56" width="27" height="4" rx="2" fill="#68658F" fill-opacity="0.10"/>
+    <rect x="33" y="67" width="22" height="4" rx="2" fill="#68658F" fill-opacity="0.10"/>
+    <rect x="33" y="78" width="25" height="4" rx="2" fill="#68658F" fill-opacity="0.10"/>
+    <rect x="33" y="97" width="20" height="4" rx="2" fill="#68658F" fill-opacity="0.10"/>
+    <rect x="33" y="108" width="26" height="4" rx="2" fill="#68658F" fill-opacity="0.10"/>
+    <rect x="33" y="132" width="24" height="4" rx="2" fill="#68658F" fill-opacity="0.10"/>
+
+    <rect x="79" y="40" width="58" height="7" rx="3.5" fill="#8C8BA4"/>
+    <rect x="79" y="52" width="82" height="3" rx="1.5" fill="#77759A" fill-opacity="0.08"/>
+
+    <rect x="79" y="66" width="42" height="27" rx="6" fill="#F4F3F8"/>
+    <rect x="127" y="66" width="42" height="27" rx="6" fill="#F4F3F8"/>
+    <rect x="175" y="66" width="42" height="27" rx="6" fill="#F4F3F8"/>
+    <rect x="85" y="72" width="13" height="3" rx="1.5" fill="#54536C" fill-opacity="0.12"/>
+    <rect x="85" y="80" width="25" height="7" rx="3.5" fill="#8C8BA4" fill-opacity="0.72"/>
+    <rect x="133" y="72" width="13" height="3" rx="1.5" fill="#54536C" fill-opacity="0.12"/>
+    <rect x="133" y="80" width="21" height="7" rx="3.5" fill="#C3C1E2"/>
+    <rect x="181" y="72" width="13" height="3" rx="1.5" fill="#54536C" fill-opacity="0.12"/>
+    <rect x="181" y="80" width="24" height="7" rx="3.5" fill="#86B3BC" fill-opacity="0.24"/>
+
+    <rect x="79" y="101" width="91" height="45" rx="6" fill="#F7F7FC"/>
+    <path d="M88 136V128H96V136H88Z" fill="#C3C1E2" fill-opacity="0.52"/>
+    <path d="M101 136V116H109V136H101Z" fill="#918DC5" fill-opacity="0.42"/>
+    <path d="M114 136V122H122V136H114Z" fill="#86B3BC" fill-opacity="0.28"/>
+    <path d="M127 136V109H135V136H127Z" fill="#C79BC1" fill-opacity="0.24"/>
+    <path d="M140 136V119H148V136H140Z" fill="#C3C1E2" fill-opacity="0.52"/>
+    <path d="M153 136V113H161V136H153Z" fill="#8C8BA4" fill-opacity="0.38"/>
+    <path d="M87 129C99 123 105 125 116 119C126 114 134 118 144 111C151 107 157 108 163 105" stroke="#918DC5" stroke-opacity="0.56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="177" y="101" width="40" height="45" rx="6" fill="#F7F7FC"/>
+    <circle cx="187" cy="112" r="3.5" fill="#C3C1E2"/>
+    <rect x="194" y="109" width="16" height="3" rx="1.5" fill="#54536C" fill-opacity="0.14"/>
+    <rect x="194" y="115" width="12" height="2" rx="1" fill="#54536C" fill-opacity="0.08"/>
+    <circle cx="187" cy="128" r="3.5" fill="#86B3BC" fill-opacity="0.34"/>
+    <rect x="194" y="125" width="16" height="3" rx="1.5" fill="#54536C" fill-opacity="0.14"/>
+    <rect x="194" y="131" width="10" height="2" rx="1" fill="#54536C" fill-opacity="0.08"/>
+
+    <rect x="190" y="44" width="27" height="10" rx="5" fill="#C3C1E2"/>
+    <circle cx="211" cy="49" r="2" fill="white"/>
+  </g>
+  <defs>
+    <filter id="dashboardGlow" x="-24" y="10" width="300" height="172" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#68658F" flood-opacity="0.12"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#54536C" flood-opacity="0.08"/>
+    </filter>
+    <filter id="dashboardPanel" x="0" y="-2" width="252" height="184" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#68658F" flood-opacity="0.12"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#54536C" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="dashboardGlass" x1="126" y1="14" x2="126" y2="158" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0.74"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.97"/>
+    </linearGradient>
+  </defs>
+</svg>

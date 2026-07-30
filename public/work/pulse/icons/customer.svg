@@ -1,0 +1,23 @@
+<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Customer</title>
+  <g filter="url(#customerShadow)">
+    <rect x="3.66016" y="2.43945" width="68.298" height="68.298" rx="14.6353" fill="url(#customerTile)"/>
+    <circle cx="37.81" cy="36.59" r="24.39" fill="#5E5E6B"/>
+    <circle cx="37.81" cy="36.59" r="23.17" stroke="black" stroke-opacity="0.1" stroke-width="2.43922"/>
+    <circle cx="37.81" cy="29.13" r="8.05" fill="white"/>
+    <path d="M22.81 51.2C24.37 42.77 29.94 38.16 37.81 38.16C45.68 38.16 51.25 42.77 52.81 51.2C48.55 55.37 43.38 57.45 37.81 57.45C32.24 57.45 27.07 55.37 22.81 51.2Z" fill="white"/>
+    <circle cx="37.81" cy="29.13" r="8.05" stroke="black" stroke-opacity="0.1" stroke-width="2.1"/>
+    <path d="M22.81 51.2C24.37 42.77 29.94 38.16 37.81 38.16C45.68 38.16 51.25 42.77 52.81 51.2" stroke="black" stroke-opacity="0.1" stroke-width="2.1" stroke-linecap="round"/>
+  </g>
+  <defs>
+    <filter id="customerShadow" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="1.21961" stdDeviation="1.21961" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="1.21961" stdDeviation="1.82941" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="0.609804" flood-opacity="0.04"/>
+    </filter>
+    <linearGradient id="customerTile" x1="37.8092" y1="2.43945" x2="37.8092" y2="70.7375" gradientUnits="userSpaceOnUse">
+      <stop offset="0.25" stop-color="white"/>
+      <stop offset="1" stop-color="#F9FAFB"/>
+    </linearGradient>
+  </defs>
+</svg>

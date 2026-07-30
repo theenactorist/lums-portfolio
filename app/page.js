@@ -13,6 +13,17 @@ import LogoTicker from './components/LogoTicker';
    ============================================ */
 const projects = [
   {
+    id: 'pulse',
+    title: 'Pulse: Embedded Crypto Payments',
+    description: 'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
+    role: 'Product Designer & Front-end Developer (Payments, SaaS)',
+    period: 'Jul 2026 · 5 days',
+    tags: ['Fintech', 'Web3', 'B2B SaaS'],
+    color: '#101116',
+    accentColor: '#e07b3c',
+    thumbnail: '/work/pulse/thumbnail.png',
+  },
+  {
     id: 'shiga-onboarding',
     title: 'Cutting Time to Value with a Passkey-Led Onboarding',
     description: 'Rebuilding ENTA\'s sign-up around passkeys and deferred KYC to get users to their dashboard in under a minute.',

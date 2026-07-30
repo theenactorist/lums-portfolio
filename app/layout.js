@@ -8,7 +8,7 @@ import { AudioProvider } from "./components/AudioContext";
 export const metadata = {
   metadataBase: new URL('https://olumideolusesi.com'),
   title: {
-    default: "Lums — Product Designer | Olumide Olusesi",
+    default: "Lums - Product Designer | Olumide Olusesi",
     template: "%s | Lums",
   },
   description:
@@ -24,7 +24,7 @@ export const metadata = {
   ],
   openGraph: {
     title: {
-      default: "Lums — Product Designer | Olumide Olusesi",
+      default: "Lums - Product Designer | Olumide Olusesi",
       template: "%s | Lums",
     },
     description:
@@ -36,7 +36,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lums — Product Designer",
+    title: "Lums - Product Designer",
     description: "Senior Product Designer crafting intuitive digital experiences.",
   },
   robots: {

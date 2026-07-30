@@ -1,0 +1,23 @@
+<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Viewer</title>
+  <g filter="url(#viewerShadow)">
+    <rect x="3.66016" y="2.43945" width="68.298" height="68.298" rx="14.6353" fill="url(#viewerTile)"/>
+    <path d="M12.91 36.59C18.77 25.49 28.25 19.49 37.81 19.49C47.37 19.49 56.85 25.49 62.71 36.59C56.85 47.69 47.37 53.69 37.81 53.69C28.25 53.69 18.77 47.69 12.91 36.59Z" fill="#5E5E6B"/>
+    <path d="M15.69 36.59C20.94 27.52 29.26 22.18 37.81 22.18C46.36 22.18 54.68 27.52 59.93 36.59C54.68 45.66 46.36 51 37.81 51C29.26 51 20.94 45.66 15.69 36.59Z" stroke="black" stroke-opacity="0.1" stroke-width="2.43922"/>
+    <circle cx="37.81" cy="36.59" r="12.4" fill="#B9BAC0"/>
+    <circle cx="37.81" cy="36.59" r="8.35" fill="white"/>
+    <circle cx="37.81" cy="36.59" r="4.2" fill="#5E5E6B"/>
+    <circle cx="39.3" cy="35.07" r="1.45" fill="white"/>
+  </g>
+  <defs>
+    <filter id="viewerShadow" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="1.21961" stdDeviation="1.21961" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="1.21961" stdDeviation="1.82941" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="0.609804" flood-opacity="0.04"/>
+    </filter>
+    <linearGradient id="viewerTile" x1="37.8092" y1="2.43945" x2="37.8092" y2="70.7375" gradientUnits="userSpaceOnUse">
+      <stop offset="0.25" stop-color="white"/>
+      <stop offset="1" stop-color="#F9FAFB"/>
+    </linearGradient>
+  </defs>
+</svg>
