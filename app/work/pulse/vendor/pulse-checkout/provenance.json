@@ -1,0 +1,364 @@
+{
+  "sourcePath": "/Users/olumide/Documents/Vibe coding/Shiga Projects/Pulse/src/App.jsx",
+  "sourceSha256": "907b18e62a012bf277e1e63df0909bd784cbd1e97fbacf6f2dec5a9c2fec63bd",
+  "componentPath": "/Users/olumide/Documents/Vibe coding/Portfolio/Portfolio Presentation Reviews/Clariti/react-presentation/src/vendor/pulse-checkout/PulseCheckoutPreview.jsx",
+  "componentSha256": "979231eb4204a8526770f13bab0e52f89336eced9bea93389af7ff51f592b586",
+  "declarations": [
+    "ASSETS",
+    "CANCEL_REASONS",
+    "CSS_EMBEDDED_PREVIEW",
+    "CSS_POPUP",
+    "Coin",
+    "DESTINATIONS",
+    "DISPLAY_SYMBOLS",
+    "DemoPopup",
+    "HELIUM_CURRENCY_ASSETS",
+    "HeliumAlert",
+    "HeliumCurrency",
+    "HeliumLoadingIndicator",
+    "HeliumToast",
+    "HeliumTokenAvatar",
+    "HeliumWizardSteps",
+    "I",
+    "IDEATIONS",
+    "IconBack",
+    "IconCheck",
+    "IconChevron",
+    "IconClose",
+    "IconCopy",
+    "IconSearch",
+    "NETWORKS",
+    "Net",
+    "ORDER",
+    "PARTNER",
+    "POPUP_INITIAL_FLOW",
+    "PopupCancel",
+    "PopupCancelConfirmation",
+    "PopupCopy",
+    "PopupHeader",
+    "PopupStatus",
+    "PseudoQR",
+    "PulseCheckoutPreview",
+    "TOAST_ENTER_MS",
+    "TOAST_EXIT_MS",
+    "TOAST_HOLD_MS",
+    "ceilDivide",
+    "destinationData",
+    "displaySymbol",
+    "formatClock",
+    "formatTokenUnits",
+    "networkDescriptor",
+    "quoteData",
+    "resolveSdkSizePreset",
+    "routeData",
+    "routeParts",
+    "searchAssetsAndNetworks",
+    "validRoute"
+  ],
+  "declarationRanges": [
+    {
+      "startLine": 13,
+      "endLine": 23
+    },
+    {
+      "startLine": 25,
+      "endLine": 30
+    },
+    {
+      "startLine": 32,
+      "endLine": 32
+    },
+    {
+      "startLine": 33,
+      "endLine": 33
+    },
+    {
+      "startLine": 35,
+      "endLine": 39
+    },
+    {
+      "startLine": 41,
+      "endLine": 51
+    },
+    {
+      "startLine": 53,
+      "endLine": 64
+    },
+    {
+      "startLine": 66,
+      "endLine": 66
+    },
+    {
+      "startLine": 71,
+      "endLine": 77
+    },
+    {
+      "startLine": 81,
+      "endLine": 84
+    },
+    {
+      "startLine": 85,
+      "endLine": 88
+    },
+    {
+      "startLine": 89,
+      "endLine": 93
+    },
+    {
+      "startLine": 100,
+      "endLine": 100
+    },
+    {
+      "startLine": 101,
+      "endLine": 107
+    },
+    {
+      "startLine": 110,
+      "endLine": 127
+    },
+    {
+      "startLine": 129,
+      "endLine": 133
+    },
+    {
+      "startLine": 139,
+      "endLine": 139
+    },
+    {
+      "startLine": 145,
+      "endLine": 145
+    },
+    {
+      "startLine": 180,
+      "endLine": 182
+    },
+    {
+      "startLine": 184,
+      "endLine": 184
+    },
+    {
+      "startLine": 185,
+      "endLine": 185
+    },
+    {
+      "startLine": 186,
+      "endLine": 186
+    },
+    {
+      "startLine": 187,
+      "endLine": 187
+    },
+    {
+      "startLine": 188,
+      "endLine": 188
+    },
+    {
+      "startLine": 196,
+      "endLine": 196
+    },
+    {
+      "startLine": 206,
+      "endLine": 218
+    },
+    {
+      "startLine": 220,
+      "endLine": 224
+    },
+    {
+      "startLine": 226,
+      "endLine": 228
+    },
+    {
+      "startLine": 230,
+      "endLine": 236
+    },
+    {
+      "startLine": 239,
+      "endLine": 267
+    },
+    {
+      "startLine": 1017,
+      "endLine": 1288
+    },
+    {
+      "startLine": 1775,
+      "endLine": 1775
+    },
+    {
+      "startLine": 1776,
+      "endLine": 1776
+    },
+    {
+      "startLine": 1777,
+      "endLine": 1777
+    },
+    {
+      "startLine": 1778,
+      "endLine": 1778
+    },
+    {
+      "startLine": 1780,
+      "endLine": 1813
+    },
+    {
+      "startLine": 1815,
+      "endLine": 1869
+    },
+    {
+      "startLine": 1874,
+      "endLine": 1888
+    },
+    {
+      "startLine": 1890,
+      "endLine": 1917
+    },
+    {
+      "startLine": 1919,
+      "endLine": 1926
+    },
+    {
+      "startLine": 1928,
+      "endLine": 1935
+    },
+    {
+      "startLine": 1937,
+      "endLine": 1953
+    },
+    {
+      "startLine": 1955,
+      "endLine": 1960
+    },
+    {
+      "startLine": 1962,
+      "endLine": 1983
+    },
+    {
+      "startLine": 1985,
+      "endLine": 2013
+    },
+    {
+      "startLine": 2015,
+      "endLine": 2040
+    },
+    {
+      "startLine": 2042,
+      "endLine": 2056
+    },
+    {
+      "startLine": 2058,
+      "endLine": 2438
+    },
+    {
+      "startLine": 2440,
+      "endLine": 2461
+    },
+    {
+      "startLine": 2468,
+      "endLine": 2502
+    }
+  ],
+  "importedHooks": [
+    "useCallback",
+    "useEffect",
+    "useId",
+    "useRef",
+    "useState"
+  ],
+  "assets": [
+    {
+      "name": "arb.svg",
+      "sha256": "2c0e36e7e5cd17957f55f6d02fdd33090f8ede683377d9b955e9fbf7bd3f70ec"
+    },
+    {
+      "name": "base.svg",
+      "sha256": "b3d6e889fe4abc703f8649f1c1985e02da60606e1e010aea52c14fe022824db5"
+    },
+    {
+      "name": "btc.svg",
+      "sha256": "cca342c52cdf4f9ae04265547469afe494d64e863efe0bd0988a086de2645323"
+    },
+    {
+      "name": "celo.svg",
+      "sha256": "e369b717bb1f3545145da6038589e8ec58dab3eb68654f45f0e6c85894b335df"
+    },
+    {
+      "name": "eth.svg",
+      "sha256": "67d1c89ce9eb7aa7e4fda37fde98d5d731156d4fc067c0f109a0e946c89cab86"
+    },
+    {
+      "name": "opt.svg",
+      "sha256": "a3b3c5eb841ec3c4d37f39c4798cdf9c0a5b84cdce6ce39af52fc474f2fd75d9"
+    },
+    {
+      "name": "pol.svg",
+      "sha256": "5003d0d68d2c4b6711cffff9b5ecfbffb5bd9f8000b47d052df6fb3611ec91a7"
+    },
+    {
+      "name": "usdc.svg",
+      "sha256": "910bd90269a5a6d2240da5a09805e36d43036aa8d92f9870d1d6ce77ed5af70f"
+    },
+    {
+      "name": "usdt.svg",
+      "sha256": "d809ca5ebcccb9e2c8e25cb1fd5ae8a8a28f5e483eed3554c5f3d90439565aeb"
+    },
+    {
+      "name": "xaut.svg",
+      "sha256": "98d57efd837f1a85e276aada0346f8c4506a5c63d24c090c202456ebac6e8f1e"
+    },
+    {
+      "name": "xpl.svg",
+      "sha256": "51a1dd72513248437a1e0d9ac9c9912cca9aaa20684aa81c271c9f64b891be10"
+    }
+  ],
+  "font": {
+    "path": "/Users/olumide/Documents/Vibe coding/Portfolio/Portfolio Presentation Reviews/Clariti/react-presentation/public/fonts/InstrumentSans-Variable.ttf",
+    "sha256": "71aa14511d44f3a1656b280caa9338840a319c1fba9a837bf50b9f9dca1234bc"
+  },
+  "adapterChanges": [
+    "Optional onClose callback passed through to DemoPopup, invoked on completed payment Close or confirmed cancellation; reset preserved when absent.",
+    "Currency asset paths resolved through module-local new URL imports.",
+    "Available viewport height is inherited via --pulse-sdk-available-height.",
+    "Checkout-only Instrument Sans @font-face imported without global Pulse application resets.",
+    "Completion helper copy removes the redirect claim.",
+    "Internal close aria-label is Close checkout.",
+    "Behavior-neutral lint cleanup: remove unused QR local and unused PopupStatus prop binding; express backdrop action as equivalent if/else."
+  ],
+  "capturedAt": "2026-09-08T23:16:24.449Z",
+  "portfolioAdapter": {
+    "adaptedAt": "2026-09-15T01:12:30.074170+00:00",
+    "upstream": "/Users/olumide/Documents/Vibe coding/Portfolio/Portfolio Presentation Reviews/Clariti/react-presentation/src/vendor/pulse-checkout",
+    "upstreamComponentSha256": "979231eb4204a8526770f13bab0e52f89336eced9bea93389af7ff51f592b586",
+    "componentSha256": "2f19a959e7e4146f1015427dcc3db0b48ec169dda96870fee53544415c99fa04",
+    "changes": [
+      "Next client directive added.",
+      "Vite asset URL resolution replaced with root-relative portfolio public paths.",
+      "PulseLogo type annotations removed for the JavaScript project; SVG geometry unchanged.",
+      "Font URL now points to the scoped checkout-assets folder.",
+      "No changes to source data, states, interactions, completion copy or onClose behavior.",
+      "Equivalent deterministic QR random steps are evaluated directly in the render loop, avoiding a mutating closure flagged by Next lint.",
+      "The initial clock uses a lazy state initializer; subsequent clock behavior is unchanged.",
+      "Narrow lint exceptions preserve the original prop-driven toast drag, activation and toast reset timing.",
+      "Committed-state refs now synchronize in a layout effect rather than during rendering; Escape handling reads the same committed state."
+    ],
+    "publicAssets": {
+      "InstrumentSans-Variable.ttf": "71aa14511d44f3a1656b280caa9338840a319c1fba9a837bf50b9f9dca1234bc",
+      "arb.svg": "2c0e36e7e5cd17957f55f6d02fdd33090f8ede683377d9b955e9fbf7bd3f70ec",
+      "base.svg": "b3d6e889fe4abc703f8649f1c1985e02da60606e1e010aea52c14fe022824db5",
+      "btc.svg": "cca342c52cdf4f9ae04265547469afe494d64e863efe0bd0988a086de2645323",
+      "celo.svg": "e369b717bb1f3545145da6038589e8ec58dab3eb68654f45f0e6c85894b335df",
+      "eth.svg": "67d1c89ce9eb7aa7e4fda37fde98d5d731156d4fc067c0f109a0e946c89cab86",
+      "opt.svg": "a3b3c5eb841ec3c4d37f39c4798cdf9c0a5b84cdce6ce39af52fc474f2fd75d9",
+      "pol.svg": "5003d0d68d2c4b6711cffff9b5ecfbffb5bd9f8000b47d052df6fb3611ec91a7",
+      "usdc.svg": "910bd90269a5a6d2240da5a09805e36d43036aa8d92f9870d1d6ce77ed5af70f",
+      "usdt.svg": "d809ca5ebcccb9e2c8e25cb1fd5ae8a8a28f5e483eed3554c5f3d90439565aeb",
+      "xaut.svg": "98d57efd837f1a85e276aada0346f8c4506a5c63d24c090c202456ebac6e8f1e",
+      "xpl.svg": "51a1dd72513248437a1e0d9ac9c9912cca9aaa20684aa81c271c9f64b891be10"
+    }
+  },
+  "dialogOnlyReuse": {
+    "restoredAt": "2026-09-15T02:04:06.016764+00:00",
+    "source": "/Users/olumide/Documents/Vibe coding/Portfolio/Portfolio Presentation Reviews/Clariti/design-references/portfolio-rollback-20260914/rejected-version/app/work/pulse/vendor/pulse-checkout",
+    "wrapper": "app/work/pulse/PulseDialogs.js",
+    "componentBytesUnchanged": true
+  }
+}

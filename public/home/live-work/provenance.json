@@ -1,0 +1,106 @@
+{
+  "purpose": "Production thumbnail snapshots and subsequent owner-approved Home overrides; existing draft and main assets remain unchanged.",
+  "approved_overrides": [
+    {
+      "file": "pulse-layered.png",
+      "replaces_on_home": "pulse.png",
+      "source_url": "https://www.figma.com/design/8q9aVlUSSCjrLpUaThnKh7/Olumide-Olusesi-Porfolio?node-id=3962-13549",
+      "source_node": "3962:13549",
+      "approved_on": "2026-09-17",
+      "content_type": "image/png",
+      "bytes": 309103,
+      "sha256": "1dbdc618bbf53904f0a2b4ee52e8df032febc3cd194a4b974402946c092b8006",
+      "width": 1600,
+      "height": 900,
+      "decoded_format": "png",
+      "background": "#E5C5F5",
+      "notes": "Unmodified export of the approved three-layer composition using the current Figma frame's lavender fill. Original production snapshot retained."
+    }
+  ],
+  "assets": [
+    {
+      "file": "pulse.png",
+      "source_url": "https://olumideolusesi.com/work/pulse/thumbnail.png",
+      "final_url": "https://olumideolusesi.com/work/pulse/thumbnail.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 272901,
+      "sha256": "b78196cf1f40d7df6c339838b801660d12cf208ae5d3cc066327b6ac5b751334",
+      "retrieved_at": "2026-09-17T05:00:03.377944+00:00",
+      "matches_main_bytes": true,
+      "width": 2048,
+      "height": 1293,
+      "decoded_format": "png"
+    },
+    {
+      "file": "shiga-onboarding.jpg",
+      "source_url": "https://olumideolusesi.com/work/shiga-onboarding/thumbnail.jpg",
+      "final_url": "https://olumideolusesi.com/work/shiga-onboarding/thumbnail.jpg",
+      "http_status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 250078,
+      "sha256": "77e0a985f2e0142397203db594ba278941ad3bf41f1b47c847cf2cafff746c13",
+      "retrieved_at": "2026-09-17T05:00:03.637951+00:00",
+      "matches_main_bytes": true,
+      "width": 2048,
+      "height": 1186,
+      "decoded_format": "jpeg"
+    },
+    {
+      "file": "carbon.jpg",
+      "source_url": "https://olumideolusesi.com/work/carbon/Revamping%20Fintech%20Home%20screen%20Experience.jpg",
+      "final_url": "https://olumideolusesi.com/work/carbon/Revamping%20Fintech%20Home%20screen%20Experience.jpg",
+      "http_status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 419889,
+      "sha256": "6eeba9809cdebef6168be041d3c0f3e2bb91bfd7b697f7462b38267e848aff0d",
+      "retrieved_at": "2026-09-17T05:00:03.833204+00:00",
+      "matches_main_bytes": true,
+      "width": 1768,
+      "height": 1024,
+      "decoded_format": "jpeg"
+    },
+    {
+      "file": "branch-ai.jpg",
+      "source_url": "https://olumideolusesi.com/work/branch-ai/three-ai-workflows.jpg",
+      "final_url": "https://olumideolusesi.com/work/branch-ai/three-ai-workflows.jpg",
+      "http_status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 823804,
+      "sha256": "90f73cf70e248fc81a5e5706e5ea3400ce7757409fd1a94010979a3d4eff9e16",
+      "retrieved_at": "2026-09-17T05:00:04.161559+00:00",
+      "matches_main_bytes": true,
+      "width": 1672,
+      "height": 941,
+      "decoded_format": "jpeg"
+    },
+    {
+      "file": "sabi.jpg",
+      "source_url": "https://olumideolusesi.com/work/sabi/Navigating%20Complexity_%20Revolutionizing%20Supply%20Chain%20Logistics%20for%20African%20SMEs.jpg",
+      "final_url": "https://olumideolusesi.com/work/sabi/Navigating%20Complexity_%20Revolutionizing%20Supply%20Chain%20Logistics%20for%20African%20SMEs.jpg",
+      "http_status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 406088,
+      "sha256": "065ac142b65d249a3140e591b7ff47e337e2ad8b46fce76a41f9343cd06a0429",
+      "retrieved_at": "2026-09-17T05:00:04.347613+00:00",
+      "matches_main_bytes": true,
+      "width": 1768,
+      "height": 1024,
+      "decoded_format": "jpeg"
+    },
+    {
+      "file": "uba.jpg",
+      "source_url": "https://olumideolusesi.com/work/uba/Concept%20to%20Production_%20Human%20Resource%20Management%20System.jpg",
+      "final_url": "https://olumideolusesi.com/work/uba/Concept%20to%20Production_%20Human%20Resource%20Management%20System.jpg",
+      "http_status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 536836,
+      "sha256": "da12be77b1e769f99e90c9150171b1302954c0cf41010fa5746565d40176f08e",
+      "retrieved_at": "2026-09-17T05:00:04.560223+00:00",
+      "matches_main_bytes": true,
+      "width": 1768,
+      "height": 1024,
+      "decoded_format": "jpeg"
+    }
+  ]
+}

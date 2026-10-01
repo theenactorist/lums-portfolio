@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from '../../components/PageTransition';
 import ZoomableImage from '../../components/ZoomableImage';
+import EntaDemo from './EntaDemo';
+import DeliverGallery from './DeliverGallery';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -327,31 +328,11 @@ export default function ShigaOnboardingCaseStudy() {
                 Interactive Prototype
               </h3>
               <p className="cs-feature__body">
-                Clickable prototype from the Claude Design ideation stage. Tap through to
-                feel the flow.
+                Explore the latest individual and business onboarding screens, then switch
+                to the dashboards to try the wallet flows. Open any view in a new tab for
+                the full-screen demo.
               </p>
-              <div
-                className="cs-feature__gallery cs-feature__gallery--single cs-feature__gallery--wide"
-                style={{ marginTop: 'var(--space-lg)' }}
-              >
-                <figure className="cs-feature__figure">
-                  <iframe
-                    src="/work/shiga-onboarding/prototype-v2/prototype.html"
-                    width="100%"
-                    height="800"
-                    title="ENTA clickable prototype from Claude Design ideation"
-                    loading="lazy"
-                    style={{
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      borderRadius: '12px',
-                      background: '#0a0a14',
-                    }}
-                  />
-                </figure>
-                <div className="cs-feature__footer">
-                  <p className="cs-feature__caption">Interactive prototype — Claude Design ideation v2</p>
-                </div>
-              </div>
+              <EntaDemo />
             </motion.div>
           </div>
         </section>
@@ -371,86 +352,7 @@ export default function ShigaOnboardingCaseStudy() {
                 QA cycle ran in parallel with copy review.
               </p>
 
-              {/* Sign-up and Passkey setup */}
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height" style={{ marginTop: 'var(--space-lg)' }}>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/shiga-onboarding/sign-up-landing.jpg"
-                    alt="Sign-up landing page"
-                    width={2400}
-                    height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/shiga-onboarding/passkey-setup-desktop.jpg"
-                    alt="Passkey setup on desktop"
-                    width={2400}
-                    height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-              </div>
-
-              {/* Mac passkey and Sign in */}
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height" style={{ marginTop: 'var(--space-lg)' }}>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/shiga-onboarding/passkey-setup-mac.jpg"
-                    alt="Mac passkey dialog during setup"
-                    width={2400}
-                    height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/shiga-onboarding/sign-in-passkey.jpg"
-                    alt="User taps sign in with passkey"
-                    width={2400}
-                    height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-              </div>
-
-              {/* Home screen states */}
-              <div className="cs-feature__gallery cs-feature__gallery--single" style={{ marginTop: 'var(--space-lg)' }}>
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/shiga-onboarding/home-individual.jpg"
-                    alt="First-time home screen — individual user"
-                    width={2400}
-                    height={1400}
-                    className="cs-feature__image"
-                  />
-                </figure>
-                <div className="cs-feature__footer">
-                  <p className="cs-feature__caption">First-time home screen — individual user</p>
-                </div>
-              </div>
-
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide cs-feature__gallery--equal-height" style={{ marginTop: 'var(--space-lg)' }}>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/shiga-onboarding/home-verification-hold.jpg"
-                    alt="First-time home screen — verification on hold"
-                    width={2400}
-                    height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-                <figure className="cs-feature__figure cs-feature__figure--fill">
-                  <ZoomableImage
-                    src="/work/shiga-onboarding/home-tier2-unlocked.jpg"
-                    alt="First-time home screen — Tier 2 unlocked"
-                    width={2400}
-                    height={1200}
-                    className="cs-feature__image cs-feature__image--cover"
-                  />
-                </figure>
-              </div>
+              <DeliverGallery />
             </motion.div>
           </div>
         </section>

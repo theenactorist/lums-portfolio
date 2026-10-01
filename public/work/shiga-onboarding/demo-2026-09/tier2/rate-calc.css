@@ -1,0 +1,152 @@
+/* Rate calculator — Figma "Calculator Modal on the home screen"
+   (cGDUUzfQq0W3u4YjIA9Ut0, node 17731:8334).
+
+   Values are Helium tokens, taken from the design context rather than picked
+   by eye: spacing xs 4 / sm 6 / md 8 / lg 12 / xl 16 / 2xl 20 / 3xl 24,
+   radius md 8 / xl 12 / full, text-xs 12/18, text-sm 14/20, text-md 16/24,
+   display-xs 24/32.
+
+   This module is still vanilla (the surrounding page is), so the tokens are
+   inlined as literals. Kept in one place at the top so they're greppable if
+   this ever moves into the Helium island. */
+
+#rate-calc-root { position: fixed; inset: 0; z-index: 800; pointer-events: none; font-family: "Instrument Sans",system-ui,sans-serif; }
+#rate-calc-root * { box-sizing: border-box; }
+
+/* ---- Window (Figma 17731:8644 "Default") ---------------------------------
+   412 wide, p-20, gap-24 between the two blocks, bg-secondary on a
+   border-secondary hairline, shadow-xl. */
+.rc-win {
+  position: fixed;
+  width: 412px;
+  display: flex;
+  flex-direction: column;
+  /* Figma: 16 between header and body, 24 before the footer block. */
+  gap: 16px;
+  padding: 20px;
+  pointer-events: auto;
+  border: 1px solid #E4E7EC;
+  border-radius: 12px;
+  background: #F9FAFB;
+  color: #101828;
+  box-shadow: 0 20px 24px -4px rgba(16,24,40,.08), 0 8px 8px -4px rgba(16,24,40,.03);
+  /* Match the canvas scale so the modal keeps the 412/1440 proportion the
+     Figma reference shows, instead of staying 412 CSS px on a shrunken page. */
+  transform: scale(var(--canvas-scale, 1));
+  transform-origin: top left;
+  animation: rc-in 180ms cubic-bezier(.22, 1, .36, 1) both;
+}
+/* Opacity only — the element's own transform carries the canvas scale. */
+@keyframes rc-in { from { opacity: 0; } }
+
+/* ---- Header --------------------------------------------------------------
+   No rule beneath it in Figma; the card's own gap does the separating. */
+.rc-head { display: flex; align-items: center; justify-content: space-between; cursor: move; user-select: none; }
+.rc-head-l { display: flex; align-items: center; gap: 8px; }
+.rc-head-ic { display: inline-flex; color: #101828; }
+.rc-head-ic svg { width: 16px; height: 16px; display: block; }
+.rc-head-t { font-size: 16px; line-height: 24px; font-weight: 600; color: #101828; }
+.rc-x { display: inline-flex; align-items: center; justify-content: center; padding: 6px; border: 0; border-radius: 8px; background: transparent; color: #667085; cursor: pointer; }
+.rc-x svg { width: 20px; height: 20px; display: block; }
+.rc-x:hover { background: #F2F4F7; color: #101828; }
+
+/* ---- Body ----------------------------------------------------------------
+   Figma has no inner panel: the From/To rows sit directly on the card,
+   separated by one full-width hairline. */
+.rc-body { display: flex; flex-direction: column; gap: 16px; }
+.rc-pairs { position: relative; display: flex; flex-direction: column; gap: 12px; }
+
+.rc-line { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; }
+.rc-line-l { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 112px; }
+.rc-line-lbl { color: #344054; font-size: 12px; line-height: 18px; font-weight: 400; }
+
+/* Selector pill — transparent chrome, only the coin + ticker + caret read. */
+.rc-pill { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 0; border: 0; border-radius: 9999px; background: transparent; color: #101828; cursor: pointer; font-family: inherit; }
+.rc-pill-lbl { font-size: 14px; line-height: 20px; font-weight: 600; color: #101828; }
+.rc-pill-caret { display: inline-flex; color: #101828; }
+.rc-pill-caret svg { width: 20px; height: 20px; display: block; }
+
+/* Amount. The chip only shows once the field is focused or carries a value —
+   in Figma the resting From field is bg-secondary on a bg-secondary card, so
+   it reads as no chip at all, while the active/filled states show one. */
+.rc-amtbox { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; height: 60px; padding: 4px 8px; border-radius: 8px; background: transparent; transition: background-color 120ms ease; }
+.rc-amtbox.is-filled, .rc-amtbox.is-focus { background: #F2F4F7; }
+.rc-amt { width: 100%; padding: 0; border: 0; outline: none; background: transparent; color: #101828; font: 600 24px/32px "Instrument Sans",system-ui,sans-serif; text-align: right; font-variant-numeric: tabular-nums; }
+.rc-amt::placeholder { color: #667085; }
+
+/* position:relative so the swap can centre itself on the rule rather than on
+   a hardcoded offset that drifts when the rows change height. */
+.rc-divider { position: relative; height: 1px; background: #E4E7EC; }
+
+/* Swap — brand-solid circle centred on the divider, knocked out of the rule
+   by a card-coloured collar (Figma 17731:8684). */
+.rc-swap { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; padding: 6px; border: 4px solid #F9FAFB; border-radius: 9999px; background: #175CD3; color: #FFFFFF; cursor: pointer; }
+.rc-swap svg { width: 20px; height: 20px; display: block; }
+.rc-turn { animation: rc-turn .3s ease; }
+@keyframes rc-turn { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(180deg); } }
+
+/* ---- Rate line ---------------------------------------------------------- */
+.rc-rateline { display: flex; align-items: center; color: #667085; font-size: 12px; line-height: 18px; }
+.rc-rate-dot { display: inline-flex; color: #667085; }
+.rc-rate-dot svg { width: 14px; height: 14px; display: block; }
+.rc-refresh { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #667085; cursor: pointer; font: inherit; }
+.rc-refresh svg { width: 16px; height: 16px; display: block; }
+.rc-spin svg { animation: rc-spin .55s linear; }
+@keyframes rc-spin { to { transform: rotate(360deg); } }
+
+/* ---- Footer -------------------------------------------------------------- */
+.rc-foot { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.rc-foot-btns { display: flex; align-items: center; gap: 12px; }
+.rc-btn-share, .rc-btn-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 12px 18px; border-radius: 8px; cursor: pointer;
+  font: 600 16px/24px "Instrument Sans",system-ui,sans-serif;
+}
+.rc-btn-share svg, .rc-btn-cta svg { width: 20px; height: 20px; display: block; }
+.rc-btn-share { border: 1px solid #D0D5DD; background: #FFFFFF; color: #344054; box-shadow: 0 1px 2px 0 rgba(16,24,40,.05); }
+.rc-btn-share:hover { background: #F9FAFB; }
+/* Primary carries the skeuomorphic recipe: drop shadow plus the inner border
+   and bottom inset (Figma "Shadows/shadow-xs-skeuomorphic"). */
+.rc-btn-cta {
+  flex: 1; min-width: 0; border: 0; background: #175CD3; color: #FFFFFF;
+  box-shadow: 0 1px 2px 0 rgba(16,24,40,.05),
+              inset 0 0 0 1px rgba(16,24,40,.18),
+              inset 0 -2px 0 0 rgba(16,24,40,.05);
+}
+.rc-btn-cta:hover { background: #1448A8; }
+.rc-foot-note { color: #667085; font-size: 12px; line-height: 18px; text-align: left; }
+
+/* ---- Currency picker (Figma 17731:9057 "Asset search") ------------------- */
+.rc-picker { position: absolute; z-index: 5; width: 240px; overflow: hidden; padding: 4px; border: 1px solid #E4E7EC; border-radius: 12px; background: #FFFFFF; box-shadow: 0 12px 16px -4px rgba(16,24,40,.08), 0 4px 6px -2px rgba(16,24,40,.03); }
+.rc-picker-search { position: relative; padding: 8px; }
+.rc-picker-input { width: 100%; height: 40px; padding: 0 36px 0 12px; border: 1px solid #175CD3; border-radius: 8px; background: #FFFFFF; color: #101828; outline: none; font: 400 14px/20px "Instrument Sans",system-ui,sans-serif; box-shadow: 0 0 0 4px rgba(23,92,211,.12); }
+.rc-picker-input::placeholder { color: #667085; }
+.rc-picker-search-ic { position: absolute; top: 18px; right: 20px; display: inline-flex; color: #667085; }
+.rc-picker-search-ic svg { width: 20px; height: 20px; display: block; }
+.rc-picker-list { max-height: 260px; overflow: auto; padding: 0 4px 4px; }
+.rc-optgroup-h { padding: 8px; color: #667085; font-size: 12px; line-height: 18px; font-weight: 500; text-transform: uppercase; }
+.rc-opt { width: 100%; display: flex; align-items: center; gap: 12px; padding: 8px; border: 0; border-radius: 8px; background: transparent; color: #101828; cursor: pointer; font: 500 14px/20px "Instrument Sans",system-ui,sans-serif; text-align: left; }
+.rc-opt:hover { background: #F9FAFB; }
+.rc-opt-lbl { flex: 1; }
+.rc-opt-check { display: inline-flex; color: #175CD3; }
+.rc-noresult { padding: 28px 16px; text-align: center; }
+.rc-noresult-h { font-size: 14px; line-height: 20px; font-weight: 600; color: #101828; }
+.rc-noresult-p { margin-top: 4px; color: #667085; font-size: 12px; line-height: 18px; }
+
+/* ---- Share sheet (Figma 17731:8818 "Share modal") ------------------------ */
+.rc-dim { position: absolute; inset: 0; z-index: 8; border-radius: 12px; background: rgba(16,24,40,.6); }
+.rc-sheet { position: absolute; right: 20px; bottom: 20px; left: 20px; z-index: 9; display: flex; flex-direction: column; gap: 16px; padding: 20px; border-radius: 12px; background: #FFFFFF; box-shadow: 0 20px 24px -4px rgba(16,24,40,.08), 0 8px 8px -4px rgba(16,24,40,.03); }
+.rc-sheet-title { font-size: 16px; line-height: 24px; font-weight: 600; color: #101828; }
+.rc-sheet-summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; border-radius: 8px; background: #F9FAFB; }
+.rc-sheet-sum { font-size: 14px; line-height: 20px; font-weight: 600; color: #101828; }
+.rc-sheet-time { margin-top: 2px; color: #667085; font-size: 12px; line-height: 18px; }
+.rc-copy { display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; color: #175CD3; cursor: pointer; font: 600 14px/20px "Instrument Sans",system-ui,sans-serif; }
+.rc-copy svg { width: 20px; height: 20px; display: block; }
+.rc-or { color: #344054; font-size: 14px; line-height: 20px; font-weight: 600; text-align: center; }
+.rc-email-lbl { display: block; margin-bottom: 6px; color: #344054; font-size: 14px; line-height: 20px; font-weight: 500; }
+.rc-email-row { display: flex; align-items: center; }
+.rc-email-input { flex: 1; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid #D0D5DD; border-radius: 8px 0 0 8px; border-right: 0; background: #FFFFFF; color: #101828; outline: none; font: 400 14px/20px "Instrument Sans",system-ui,sans-serif; }
+.rc-email-send { height: 44px; padding: 0 18px; border: 0; border-radius: 0 8px 8px 0; background: #175CD3; color: #FFFFFF; cursor: pointer; font: 600 14px/20px "Instrument Sans",system-ui,sans-serif; }
+.rc-email-err { min-height: 18px; padding-top: 4px; color: #B42318; font-size: 12px; line-height: 18px; }
+.rc-sheet-close { width: 100%; padding: 12px 18px; border: 1px solid #D0D5DD; border-radius: 8px; background: #FFFFFF; color: #344054; cursor: pointer; box-shadow: 0 1px 2px 0 rgba(16,24,40,.05); font: 600 16px/24px "Instrument Sans",system-ui,sans-serif; }
+.rc-sheet-close:hover { background: #F9FAFB; }

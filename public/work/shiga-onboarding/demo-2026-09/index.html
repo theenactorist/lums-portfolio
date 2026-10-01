@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#6f7073" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- The tier 2 prototype's styles and scripts are shared with
+         public/tier2/index.html. Single copy, loaded from /tier2/ by both;
+         there used to be a duplicate set at the public/ root which silently
+         drifted six weeks behind (see _archive/superseded-2026-08/). -->
+    <link rel="stylesheet" href="./tier2/helium-island.css" />
+    <link rel="stylesheet" href="./tier2/tier2-home.css" />
+    <link rel="stylesheet" href="./tier2/tier2-recv-picker.css" />
+    <link rel="stylesheet" href="./tier2/rate-calc.css" />
+    <link rel="stylesheet" href="./tier2/tier2-flows.css" />
+    <title>Enta Business Onboarding — V2</title>
+    <script type="module" crossorigin src="./assets/index-y6FKiAUP.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BYr7Site.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      window.state = window.state || {
+        t2Tab: 'receive',
+        t2RecvSel: { sym: 'USDT', net: 'base' },
+        t2RecvOpen: false,
+        t2RecvQ: '',
+        t2Copies: {}
+      };
+    </script>
+    <!-- Island first: tier2-home.js reads window.EntaIsland for the Helium
+         token avatars (it degrades to plain coin art if absent). -->
+    <script src="./tier2/helium-island.js"></script>
+    <script src="./tier2/helium-icons.js"></script>
+    <script src="./tier2/rate-calc.js"></script>
+    <script src="./tier2/tier2-home.js"></script>
+    <script src="./tier2/tier2-flows.js"></script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+.gallery {
+  width: min(1360px, calc(100vw - 32px));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: var(--space-xl);
+}
+
+.toolbar,
+.viewerHeader,
+.viewerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.toolbar { margin-bottom: var(--space-md); }
+.toolbar p { display: grid; gap: var(--space-xs); margin: 0; font-size: var(--text-sm); }
+.toolbar strong { font-weight: 500; color: var(--text-primary); }
+.toolbar p > span { color: var(--text-secondary); }
+.navigation { display: flex; gap: var(--space-sm); flex-shrink: 0; }
+
+.iconButton,
+.zoomButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  cursor: pointer;
+  font: inherit;
+}
+
+.iconButton:hover:not(:disabled),
+.zoomButton:hover { background: var(--bg-surface-hover); border-color: var(--accent); }
+.iconButton:disabled { opacity: 0.35; cursor: default; }
+.zoomButton { padding: 0 var(--space-md); font-size: var(--text-sm); }
+
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-columns: clamp(280px, 30vw, 380px);
+  gap: var(--space-lg);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--space-xs);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-active) transparent;
+  margin: 0;
+  padding: var(--space-xs) var(--space-xs) var(--space-md);
+  list-style: none;
+}
+
+.card { min-width: 0; scroll-snap-align: start; }
+.cardButton {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  text-align: left;
+  font: inherit;
+  cursor: zoom-in;
+  transition: transform 150ms ease-out;
+}
+
+.cardButton:hover { transform: translateY(-3px); border-color: var(--accent); }
+.preview { display: block; aspect-ratio: 45 / 32; background: #f8fafc; }
+.preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.caption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  min-height: 56px;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+.caption svg { color: var(--text-secondary); }
+.cardButton:hover .caption svg { color: var(--accent); }
+
+.viewer {
+  width: min(1480px, calc(100vw - 32px));
+  height: calc(100svh - 32px);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+.viewer[open] { display: flex; flex-direction: column; }
+.viewer::backdrop { background: rgb(0 0 0 / 88%); }
+.viewerHeader { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--border); }
+.viewerHeader h3 { margin: 0; font-size: var(--text-lg); font-weight: 500; text-wrap: balance; }
+.viewerHeader .iconButton { flex-shrink: 0; }
+.canvas {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--space-md);
+  overscroll-behavior: contain;
+}
+.fullImage { display: block; width: 100%; height: 100%; object-fit: contain; }
+.canvas[data-zoomed='true'] .fullImage { width: 1440px; height: 1024px; max-width: none; }
+.viewerFooter { padding: var(--space-md) var(--space-lg); border-top: 1px solid var(--border); }
+
+.gallery button:focus-visible,
+.rail:focus-visible,
+.canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (max-width: 700px) {
+  .rail { grid-template-rows: auto; grid-auto-columns: 82%; gap: var(--space-md); }
+  .caption { min-height: 64px; }
+  .viewer { width: calc(100vw - 16px); height: calc(100svh - 16px); }
+  .viewerHeader,
+  .viewerFooter { padding: var(--space-sm) var(--space-md); gap: var(--space-sm); }
+  .canvas { padding: var(--space-sm); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardButton { transition: none; }
+  .cardButton:hover { transform: none; }
+}

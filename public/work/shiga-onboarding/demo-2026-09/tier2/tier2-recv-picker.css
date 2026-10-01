@@ -1,0 +1,36 @@
+/* ============== Enta — Receive token picker (in-card dropdown) ============== */
+.t2-asset-pill{align-self:flex-start}
+.t2-asset-pill-chev{transition:transform .15s ease}
+.t2-asset-pill-chev.up{transform:rotate(180deg)}
+
+.t2-recv-picker{display:flex;flex-direction:column;gap:12px;background:rgb(255,255,255);border:1px solid rgb(228,231,236);border-radius:12px;padding:12px;box-shadow:0 4px 12px rgba(16,24,40,.06);max-height:520px;overflow:hidden;width:100%;box-sizing:border-box}
+
+.t2-recv-search{display:flex;align-items:center;gap:8px;height:48px;padding:0 16px;background:rgb(249,250,251);border:1px solid rgb(228,231,236);border-radius:9999px;flex:none}
+.t2-recv-searchic{display:inline-flex;align-items:center;color:rgb(102,112,133);flex:none}
+.t2-recv-search input{flex:1;background:transparent;border:0;outline:none;font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40);min-width:0}
+.t2-recv-search input::placeholder{color:rgb(102,112,133)}
+
+.t2-recv-scroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding-right:2px}
+
+.t2-recv-group{display:flex;flex-direction:column;gap:8px}
+.t2-recv-grouphead{display:flex;align-items:center;gap:8px}
+.t2-recv-groupglyph{width:24px;height:24px;border-radius:9999px;flex:none}
+.t2-recv-grouptitle{flex:1;font:700 16px/24px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-recv-groupchevs{display:flex;gap:4px}
+.t2-recv-groupchev{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;color:rgb(208,213,221);cursor:pointer;background:transparent;border:0;padding:0;font-family:inherit}
+.t2-recv-groupchev:hover{color:rgb(102,112,133)}
+
+.t2-recv-netrow{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -12px;padding:2px 12px 8px;scroll-padding-left:12px}
+.t2-recv-netrow::-webkit-scrollbar{height:6px}
+.t2-recv-netrow::-webkit-scrollbar-thumb{background:rgb(228,231,236);border-radius:9999px}
+
+.t2-recv-netcard{flex:none;width:104px;padding:12px;background:rgb(249,250,251);border:1px solid transparent;border-radius:12px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;cursor:pointer;font-family:inherit;text-align:left;scroll-snap-align:start;transition:border-color .12s ease, background .12s ease}
+.t2-recv-netcard:hover{background:rgb(242,244,247)}
+.t2-recv-netcard.on{border-color:rgb(23,92,211);background:rgb(239,248,255)}
+.t2-recv-netdot,.t2-recv-netic{width:24px;height:24px;border-radius:9999px;flex:none}
+.t2-recv-netdot{box-shadow:inset 0 0 0 1px rgba(16,24,40,.06)}
+.t2-recv-netic{display:block}
+.t2-recv-netname{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-recv-netbal{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+
+.t2-recv-empty{padding:24px 0;text-align:center;font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(102,112,133)}

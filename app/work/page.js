@@ -72,6 +72,7 @@ const allProjects = [
   },
   {
     id: 'branch',
+    published: false,
     title: 'Branch International',
     description: 'Designing lending and financial inclusion products for emerging markets.',
     role: 'Senior Product Designer',
@@ -82,6 +83,7 @@ const allProjects = [
   },
   {
     id: 'africa-prudential',
+    published: false,
     title: 'Africa Prudential',
     description: 'Digital products for Nigeria\'s leading registrar and investor services.',
     role: 'UI/UX Designer',
@@ -123,7 +125,7 @@ export default function WorkPage() {
         <section className="work-page-grid section" id="work-grid">
           <div className="container">
             <div className="work-page__grid">
-              {allProjects.map((project, i) => (
+              {allProjects.filter((project) => project.published !== false).map((project, i) => (
                 <motion.div
                   key={project.id}
                   className={`work-page__card ${i === 0 ? 'work-page__card--featured' : ''}`}

@@ -1,8 +1,7 @@
 import Script from "next/script";
 import "./globals.css";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import ThemeProvider from "./components/ThemeProvider";
+import "./home-shell.css";
+import SiteShell from "./components/home/SiteShell";
 import { AudioProvider } from "./components/AudioContext";
 
 export const metadata = {
@@ -92,11 +91,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <AudioProvider>
-          <ThemeProvider>
-            <Nav />
-            {children}
-            <Footer />
-          </ThemeProvider>
+          <SiteShell>{children}</SiteShell>
         </AudioProvider>
       </body>
     </html>

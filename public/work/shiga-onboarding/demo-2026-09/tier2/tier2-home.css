@@ -1,0 +1,242 @@
+/* ============== Enta — Tier 2 returning-user home dashboard ==============
+   LIGHT MODE (default) — matches Home-screen-Tier-2-User Figma file.
+   Token mapping (from Figma fills):
+     page bg            rgb(255,255,255)
+     sidebar bg         rgb(249,250,251)
+     border             rgb(228,231,236)
+     subtle divider     rgb(242,244,247)
+     heading            rgb(16,24,40)
+     body / strong sub  rgb(52,64,84)
+     body / sub         rgb(71,84,103)
+     muted              rgb(102,112,133)
+     icon faint         rgb(152,162,179)
+     link blue          rgb(24,73,169)
+*/
+
+.t2-screen{position:absolute;inset:0;background:rgb(255,255,255);color:rgb(16,24,40);font-family:"Instrument Sans",sans-serif;display:flex;flex-direction:row;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+.t2-screen *{box-sizing:border-box}
+.t2-acctmenu-head{display:flex;align-items:center;gap:12px;padding:12px 16px}
+.t2-acctmenu-avatar{width:32px;height:32px;border-radius:9999px;background:rgb(242,244,247);color:rgb(52,64,84);display:flex;align-items:center;justify-content:center;font:700 14px/20px "Instrument Sans",sans-serif;border:1px solid rgb(228,231,236);flex:none}
+.t2-acctmenu-avatar--lg{width:40px;height:40px;font-size:16px}
+.t2-acctmenu-id{display:flex;flex-direction:column;min-width:0}
+.t2-acctmenu-name{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-acctmenu-email{font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(71,84,103);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px}
+.t2-acctmenu-sep{height:1px;background:rgb(228,231,236)}
+.t2-acctmenu-sec{padding:12px 16px;display:flex;flex-direction:column;gap:12px}
+.t2-acctmenu-label{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+.t2-acctmenu-row{display:flex;align-items:center;gap:8px}
+.t2-acctmenu-rowname{flex:1;font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-acctmenu-check{display:flex;align-items:center;justify-content:center;flex:none}
+.t2-acctmenu-link{display:block;width:100%;text-align:left;padding:12px 16px 16px;background:transparent;border:0;font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(52,64,84);cursor:pointer;font-family:"Instrument Sans",sans-serif}
+.t2-acctmenu-link:hover{background:rgb(249,250,251)}
+
+.t2-nav{display:flex;flex-direction:column;gap:4px;padding:0 16px}
+.t2-navitem--noic{padding-left:12px}
+.t2-navic-home{-webkit-mask-image:url(assets/nav-home.svg);mask-image:url(assets/nav-home.svg);-webkit-mask-size:18px 18.75px;mask-size:18px 18.75px}
+.t2-navic-wallets{-webkit-mask-image:url(assets/nav-wallets.svg);mask-image:url(assets/nav-wallets.svg);-webkit-mask-size:18.75px 16.5px;mask-size:18.75px 16.5px}
+.t2-navic-payments{-webkit-mask-image:url(assets/nav-payments.svg);mask-image:url(assets/nav-payments.svg);-webkit-mask-size:16.5px 16.5px;mask-size:16.5px 16.5px}
+.t2-navic-transactions{-webkit-mask-image:url(assets/nav-transactions.svg);mask-image:url(assets/nav-transactions.svg);-webkit-mask-size:19.5px 16.5px;mask-size:19.5px 16.5px}
+.t2-navic-getapp{-webkit-mask-image:url(assets/nav-getapp.svg);mask-image:url(assets/nav-getapp.svg);-webkit-mask-size:18px 16.5px;mask-size:18px 16.5px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;background-color:rgb(16,24,40);width:24px;height:24px;flex:none}
+.t2-getapp-txt{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
+.t2-getapp-t{font-size:14px;font-weight:700;line-height:20px;color:rgb(52,64,84)}
+.t2-getapp-s{font-size:14px;line-height:20px;color:rgb(52,64,84)}
+.t2-getapp-ic{color:rgb(52,64,84);display:flex;align-items:center;justify-content:center;flex:none}
+.t2-tok-usdt{background:rgb(38,161,123) url(assets/usdt-mark.svg) center / 18px 17px no-repeat}
+.t2-net-base{background:rgb(0,82,255);box-shadow:inset 0 0 0 2px rgb(0,82,255)}
+.t2-net-base::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:9999px;background:rgb(255,255,255);clip-path:polygon(0 47%,100% 47%,100% 53%,0 53%,0 100%,100% 100%,100% 0,0 0)}
+.t2-rc-arrow{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-right:4px;vertical-align:-2px}
+.t2-rc-arrow svg{width:16px;height:16px}
+.t2-rc-arrow.in{color:rgb(39,140,90)}
+.t2-rc-arrow.out{color:rgb(180,35,24)}
+.t2-rc-t{display:flex;align-items:center;gap:4px;font-weight:700;font-size:14px;line-height:20px;color:rgb(16,24,40)}
+.t2-rc-s{font-weight:400;font-size:12px;line-height:18px;color:rgb(71,84,103)}
+
+/* ---------- main ---------- */
+.t2-main{flex:1;min-width:0;display:flex;flex-direction:column;height:1024px;overflow:hidden;background:rgb(255,255,255)}
+
+.t2-top{display:none}
+.t2-top-right{display:flex;align-items:center;gap:12px;margin-left:auto}
+.t2-bell{width:40px;height:40px;border-radius:9999px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;color:rgb(102,112,133);cursor:pointer}
+.t2-bell:hover{background:rgb(242,244,247);color:rgb(52,64,84)}
+.t2-userav{width:40px;height:40px;border-radius:9999px;background:rgb(208,213,221);color:rgb(52,64,84);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;border:0;cursor:pointer;font-family:inherit}
+
+.t2-content{flex:1;overflow:auto;padding:32px 40px 80px;background:rgb(255,255,255)}
+
+.t2-greet{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.t2-greet-text{min-width:0;flex:1}
+.t2-greet-actions{display:flex;align-items:center;gap:24px;flex:none;margin-top:4px}
+.t2-greet h1{margin:0;font:700 30px/38px "Instrument Sans",sans-serif;letter-spacing:0;color:rgb(16,24,40)}
+.t2-greet p{margin:8px 0 0 0;font:400 16px/24px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+
+.t2-grid{display:grid;grid-template-columns:minmax(0,1fr) 356px;gap:24px;margin-top:32px;align-items:start}
+.t2-screen--firsttime .t2-grid{grid-template-columns:minmax(0,1fr)}
+.t2-col-left,.t2-col-right{display:flex;flex-direction:column;min-width:0}
+.t2-col-right{flex-shrink:0}
+
+/* ---------- wallet card ----------
+   Figma "Wallet cards" (GcUhmzD3OJfJg51r3VNEhV, 15445:40924). Helium tokens:
+   radius-2xl 16, p-24, gap-16, row py-12 gap-16, display-sm 30/38,
+   text-sm 14/20, text-xs 12/18. */
+.t2-wcard{position:relative;overflow:hidden;border:1px solid rgb(228,231,236);border-radius:16px;background:rgb(255,255,255);padding:24px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+/* Blob watermark behind the header (Figma "Pattern" layer, left -9 / top -17 / h 146). */
+.t2-wcard::before{content:"";position:absolute;left:-9px;top:-17px;width:calc(100% + 18px);height:146px;background:url("assets/Pattern.svg") no-repeat left top / cover;pointer-events:none;z-index:0;opacity:.6}
+.t2-wcard > *{position:relative;z-index:1}
+.t2-wcard-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.t2-wcard-info{min-width:0;display:flex;flex-direction:column;gap:8px}
+.t2-wcard-label{display:flex;align-items:center;gap:2px;font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+.t2-wcard-dot{display:inline-flex;align-items:center;color:rgb(102,112,133)}
+.t2-wcard-refresh{display:inline-flex;align-items:center;justify-content:center;color:rgb(102,112,133);cursor:pointer}
+.t2-wcard-amt{display:flex;align-items:center;gap:13px;font:600 30px/38px "Instrument Sans",sans-serif;letter-spacing:0;color:rgb(16,24,40)}
+.t2-wcard-amt-val{display:inline-flex;align-items:flex-start}
+/* Cents ride at text-sm against the display-sm figure, per Figma. */
+.t2-wcard-cents{font-size:14px;line-height:20px;font-weight:600;align-self:flex-start;margin-top:4px;color:rgb(16,24,40)}
+.t2-wcard-eye{background:transparent;border:0;padding:0;display:inline-flex;align-items:center;justify-content:center;color:rgb(102,112,133);cursor:pointer}
+.t2-wcard-eye:hover{color:rgb(52,64,84)}
+.t2-wcard-gbp{display:flex;align-items:center;gap:4px;height:24px;font:400 12px/18px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-wcard-gbp .t2-approx{display:inline-flex;align-items:center;color:rgb(52,64,84)}
+.t2-wcard-gbp .t2-gbp-caret{display:inline-flex;align-items:center;color:rgb(52,64,84)}
+
+.t2-move{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 18px;border-radius:8px;background:rgb(23,92,211);color:#fff;border:0;font:600 16px/24px "Instrument Sans",sans-serif;cursor:pointer;flex:none;box-shadow:0 1px 2px 0 rgba(16,24,40,.05), inset 0 -2px 0 0 rgba(16,24,40,.05), inset 0 0 0 1px rgba(16,24,40,.18)}
+.t2-move:hover{background:rgb(20,82,191)}
+
+.t2-wcard-currencies{display:flex;flex-direction:column}
+.t2-wcard-divider{height:1px;background:rgb(228,231,236)}
+.t2-wcard-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-radius:8px;cursor:pointer}
+.t2-glyph{width:32px;height:32px;border-radius:9999px;flex:none;display:block}
+/* Left group: balance leads, GBP beneath. */
+.t2-wcard-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.t2-wcard-amt-sm{font:600 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-wcard-sub{font:400 12px/18px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+/* Right group: addresses, then the brand-coloured caret 40px clear of them. */
+.t2-wcard-addrs{display:flex;align-items:center;gap:4px;font:400 12px/18px "Instrument Sans",sans-serif;color:rgb(52,64,84);white-space:nowrap}
+.t2-wcard-addrs .t2-addr{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.t2-wcard-chev{margin-left:40px;color:rgb(23,92,211);display:inline-flex;align-items:center;flex:none}
+
+.t2-copy{background:transparent;border:0;padding:0;display:inline-flex;align-items:center;justify-content:center;color:rgb(52,64,84);cursor:pointer;border-radius:4px;transition:color .15s, background .15s, transform .12s}
+.t2-copy:hover{color:rgb(16,24,40)}
+.t2-copy.ok{color:rgb(38,161,123);background:rgba(38,161,123,.12);transform:scale(.94)}
+
+.t2-wcard-foot{display:flex;align-items:center;gap:8px;padding-top:8px}
+.t2-wcard-collapse{display:inline-flex;align-items:center;gap:4px;padding:0;border:0;background:transparent;color:rgb(24,73,169);font:600 12px/18px "Instrument Sans",sans-serif;cursor:pointer}
+.t2-wcard-collapse svg{display:block}
+
+/* ---------- recent transactions ---------- */
+.t2-rc{margin-top:32px;padding:0;border:0;background:transparent;box-shadow:none}
+.t2-rc-head h3{margin:0;font:700 16px/24px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-rc-list{display:flex;flex-direction:column;margin-top:16px}
+.t2-rc-row{display:flex;align-items:center;gap:12px;padding:16px 0;cursor:pointer}
+.t2-rc-row + .t2-rc-row{border-top:1px solid rgb(242,244,247)}
+.t2-rc-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.t2-rc-t{display:flex;align-items:center;gap:4px;font-weight:700;font-size:14px;line-height:20px;color:rgb(16,24,40)}
+.t2-rc-s{font-size:12px;line-height:18px;color:rgb(71,84,103)}
+.t2-rc-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:none}
+.t2-rc-amt{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-rc-dt{display:flex;align-items:center;gap:6px;font-size:12px;line-height:18px;color:rgb(71,84,103)}
+.t2-rc-dt-dot{width:4px;height:4px;border-radius:9999px;background:rgb(208,213,221);display:inline-block}
+.t2-rc-chev{color:rgb(16,24,40);display:inline-flex;align-items:center;flex:none;margin-left:4px}
+
+/* ---------- quick action card ---------- */
+.t2-qa-card{width:356px;border:1px solid rgb(228,231,236);border-radius:16px;background:rgb(255,255,255);display:flex;flex-direction:column;overflow:visible;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.t2-qa-tabs{display:flex;gap:2px;padding:0;height:36px;border:1px solid rgb(228,231,236);border-radius:8px;background:rgb(249,250,251);flex:none;align-items:center;margin:20px 20px 0}
+.t2-qa-tab{flex:1;height:34px;border:1px solid transparent;background:transparent;color:rgb(102,112,133);font:700 14px/20px "Instrument Sans",sans-serif;border-radius:8px;cursor:pointer;font-family:inherit;padding:0 12px;display:flex;align-items:center;justify-content:center}
+.t2-qa-tab:hover{color:rgb(52,64,84)}
+.t2-qa-tab.on{background:rgb(255,255,255);border-color:rgb(208,213,221);color:rgb(52,64,84);box-shadow:0 1px 2px rgba(16,24,40,.05)}
+
+.t2-tab-body{flex:1;min-height:0;padding:20px 20px 28px;display:flex;flex-direction:column;gap:16px;overflow:visible;background:rgb(255,255,255)}
+.t2-tab-body.t2-empty{padding:0}
+
+/* receive tab */
+.t2-asset-pill{display:flex;align-items:center;gap:8px;padding:8px 12px 8px 8px;height:40px;border:1px solid rgb(228,231,236);border-radius:9999px;background:rgb(255,255,255);color:rgb(16,24,40);cursor:pointer;align-self:flex-start;font-family:inherit;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.t2-asset-pill-glyph{display:inline-flex;flex:none}
+.t2-asset-pill-glyph > *{display:block}
+.t2-asset-pill-lbl{font-size:14px;font-weight:500;line-height:20px}
+.t2-asset-pill-chev{display:inline-flex;align-items:center;color:rgb(102,112,133)}
+
+.t2-qr-card{background:rgb(249,250,251);border:0;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:20px}
+.t2-qr-img{align-self:center;width:130px;height:132px;background:#fff;border:0;border-radius:4px;padding:6px;display:flex;align-items:center;justify-content:center}
+.t2-qr-img img{width:100%;height:100%;object-fit:contain;display:block}
+.t2-qr-cap{text-align:center}
+.t2-qr-t{font-size:14px;font-weight:500;line-height:20px;color:rgb(16,24,40)}
+.t2-qr-s{font-size:12px;line-height:18px;color:rgb(102,112,133);margin-top:2px}
+.t2-qr-divider{height:1px;background:rgb(228,231,236);margin:4px 0}
+.t2-qr-addr-label{font-size:12px;line-height:18px;color:rgb(102,112,133)}
+.t2-qr-addr{font-size:14px;line-height:20px;color:rgb(16,24,40);font-family:"IBM Plex Mono","SF Mono",ui-monospace,monospace;word-break:break-all}
+.t2-qr-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.t2-qr-btn{display:flex;align-items:center;justify-content:center;gap:8px;height:40px;background:rgb(255,255,255);border:1px solid rgb(228,231,236);border-radius:8px;color:rgb(52,64,84);font:500 14px/20px "Instrument Sans",sans-serif;cursor:pointer;font-family:inherit;transition:background .15s, color .15s;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.t2-qr-btn:hover{background:rgb(249,250,251);color:rgb(16,24,40)}
+.t2-qr-foot{font-size:12px;line-height:18px;color:rgb(102,112,133);text-align:center}
+
+/* ============================================================
+   DARK MODE — original v1 styles. Commented out; re-enable by
+   restoring this block in place of the light-mode rules above.
+   ------------------------------------------------------------
+.t2-screen{background:rgb(12,17,29);color:rgb(245,245,246)}
+.t2-main, .t2-content{background:transparent}
+.t2-top{border-bottom-color:rgb(31,36,47)}
+.t2-userav{background:rgb(255,255,255);color:rgb(22,27,38)}
+.t2-wcard,.t2-rc,.t2-qa-card{background:rgb(12,17,29);border-color:rgb(31,36,47);box-shadow:none}
+.t2-wcard-divider,.t2-rc-row + .t2-rc-row,.t2-qr-divider{background:rgb(31,36,47);border-color:rgb(31,36,47)}
+.t2-greet h1,.t2-wcard-amt,.t2-wcard-sym,.t2-wcard-amt-sm,.t2-rc-t,.t2-rc-amt,.t2-rc-head h3,.t2-qr-t,.t2-qr-addr{color:rgb(245,245,246)}
+.t2-wcard-cents{color:rgb(245,245,246)}
+.t2-greet p,.t2-wcard-addrs,.t2-wcard-sub,.t2-rc-s,.t2-qr-s,.t2-qr-foot,.t2-qr-addr-label{color:rgb(148,150,156)}
+.t2-move{background:rgb(23,92,211);box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.t2-rc-ic.in{background:rgba(38,161,123,.16);color:rgb(38,161,123)}
+.t2-rc-ic.out{background:rgba(101,162,255,.14);color:rgb(101,162,255)}
+.t2-qa-tabs{border-bottom-color:rgb(31,36,47);background:transparent}
+.t2-qa-tab.on{background:rgb(22,27,38);color:rgb(245,245,246);box-shadow:none}
+.t2-asset-pill,.t2-qr-card,.t2-qr-img,.t2-qr-btn{background:rgb(22,27,38);border-color:rgb(31,36,47);color:rgb(245,245,246)}
+============================================================ */
+
+
+/* ============================================================
+   First-time / KYC empty-state additions
+   ============================================================ */
+
+/* Sidebar: empty-state user button */
+.t2-userbtn--empty .t2-avatar--empty{background:transparent;color:rgb(102,112,133);display:flex;align-items:center;justify-content:center}
+.t2-userbtn--empty .t2-avatar--empty svg{width:22px;height:22px}
+
+/* Greeting bell/avatar — empty avatar shows a user-circle */
+.t2-userav--empty{background:rgb(242,244,247) !important;color:rgb(102,112,133) !important;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgb(228,231,236)}
+.t2-userav--empty svg{width:22px;height:22px}
+
+/* KYC progress banner */
+.t2-kyc-banner{margin-top:32px;display:flex;align-items:center;gap:24px;padding:20px;border-radius:12px;background:rgb(253,244,255);border:0}
+.t2-kyc-ringwrap{flex:none;width:64px;height:64px;display:flex;align-items:center;justify-content:center}
+.t2-kyc-ring text{font-family:"Instrument Sans",sans-serif}
+.t2-kyc-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:16px}
+.t2-kyc-textblock{display:flex;flex-direction:column;gap:4px}
+.t2-kyc-title{font:700 16px/24px "Instrument Sans",sans-serif;color:rgb(16,42,86)}
+.t2-kyc-sub{font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(16,42,86);max-width:720px}
+.t2-kyc-segs{display:flex;gap:16px}
+.t2-kyc-seg{flex:1;display:flex;flex-direction:column;gap:4px;justify-content:center;min-width:0}
+.t2-kyc-bar{height:8px;border-radius:9999px;background:rgb(244,232,253);overflow:hidden}
+.t2-kyc-bar-fill{height:100%;background:rgb(159,26,177);border-radius:9999px;transition:width .2s ease}
+.t2-kyc-seg-label{font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(16,42,86)}
+.t2-kyc-cta{flex:none;align-self:center;height:40px;padding:0 14px;border-radius:8px;background:rgb(186,36,213);color:rgb(253,244,255);border:0;font:700 14px/20px "Instrument Sans",sans-serif;cursor:pointer;white-space:nowrap}
+.t2-kyc-cta:hover{background:rgb(167,30,191)}
+
+/* Recent transactions — empty state */
+.t2-rc-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 24px;gap:8px}
+.t2-rc-empty-ill{width:64px;height:64px;opacity:.7;margin-bottom:8px}
+.t2-rc-empty-title{font:700 16px/24px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-rc-empty-sub{font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(102,112,133);max-width:360px}
+
+/* For You card */
+.t2-foryou{display:flex;flex-direction:column;gap:16px}
+.t2-foryou-title{font:700 16px/24px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-foryou-list{display:flex;flex-direction:column;gap:12px}
+.t2-foryou-row{display:flex;align-items:center;gap:16px;padding:20px;background:rgb(249,250,251);border:1px solid rgb(242,244,247);border-radius:12px;text-align:left;cursor:pointer;font-family:"Instrument Sans",sans-serif;width:100%}
+.t2-foryou-row:hover{background:rgb(244,246,249)}
+.t2-foryou-ic{flex:none;width:40px;height:40px;border-radius:9999px;background:rgb(244,235,255);color:rgb(126,17,229);display:flex;align-items:center;justify-content:center}
+.t2-foryou-ic svg{width:22px;height:22px}
+.t2-foryou-text{flex:1;font-weight:700;font-size:15px;line-height:20px;color:rgb(16,24,40)}
+.t2-foryou-row.is-locked{cursor:default;opacity:1}
+.t2-foryou-row.is-locked .t2-foryou-text{color:rgb(102,112,133)}
+.t2-foryou-row.is-locked .t2-foryou-ic{background:rgb(244,235,255);color:rgb(154,100,210);opacity:.7}
+.t2-foryou-lock{flex:none;width:36px;height:36px;border-radius:9999px;background:rgb(232,236,240);color:rgb(102,112,133);display:flex;align-items:center;justify-content:center}
+.t2-foryou-lock svg{width:18px;height:18px}
+
+/* When the home is first-time/kyc, hide the grid right rail differently? No, it stays. */
+
+/* Dark-mode tweaks (the dark block at bottom overrides these for default; keep banner brand-tinted) */

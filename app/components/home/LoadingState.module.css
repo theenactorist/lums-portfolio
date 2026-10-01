@@ -1,0 +1,93 @@
+.loadingState {
+  display: inline-flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+}
+
+.grid {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(3, 4px);
+  grid-template-rows: repeat(3, 4px);
+  gap: 1.5px;
+}
+
+.pixel {
+  width: 4px;
+  height: 4px;
+  border-radius: 1px;
+  background: currentColor;
+  opacity: 0.15;
+  animation: pixelPulse var(--loading-pulse-duration) ease-in-out infinite;
+  animation-delay: var(--loading-pixel-delay, 0ms);
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.inactive {
+  opacity: 0.07;
+  animation: none;
+}
+
+.label {
+  background: linear-gradient(
+    90deg,
+    var(--text-secondary) 35%,
+    var(--text-primary) 50%,
+    var(--text-secondary) 65%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  animation: labelShimmer 1.4s linear infinite;
+}
+
+.timer {
+  color: var(--text-secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+@keyframes pixelPulse {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes labelShimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel {
+    animation: none;
+  }
+
+  .label {
+    background: none;
+    color: var(--text-primary);
+    animation: none;
+  }
+}

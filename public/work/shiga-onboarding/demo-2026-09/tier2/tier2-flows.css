@@ -1,0 +1,230 @@
+/* ============== Enta — Quick action card flow styles ============== */
+
+/* --- shared chip --- */
+.t2-chip{display:inline-flex;align-items:center;gap:4px;height:32px;padding:6px 12px;background:rgb(255,255,255);border:1px solid rgb(228,231,236);border-radius:9999px;color:rgb(24,73,169);font:700 14px/20px "Instrument Sans",sans-serif;cursor:pointer}
+.t2-chip.filled{border-color:rgb(228,231,236)}
+.t2-chip-glyph{width:20px;height:20px;border-radius:9999px;flex:none}
+.t2-chip-text{white-space:nowrap}
+.t2-chip-chev{display:inline-flex;align-items:center;color:rgb(102,112,133);margin-left:2px}
+.t2-chip.t2-chip-ben{background:rgb(249,250,251);border:1px solid transparent;height:32px}
+.t2-chip.t2-chip-ben.filled{border-color:transparent}
+.t2-chip.t2-chip-disabled{background:rgb(242,244,247);border-color:transparent;cursor:default}
+
+/* beneficiary dropdown (replaces modal) */
+.t2-send{position:relative}
+.t2-bendrop{position:absolute;left:0;right:0;top:64px;z-index:50;background:rgb(255,255,255);border:1px solid rgb(228,231,236);border-radius:16px;box-shadow:0 16px 40px rgba(16,24,40,.12);padding:16px;display:flex;flex-direction:column;gap:12px;max-height:420px}
+.t2-bendrop-filters{display:flex;gap:8px}
+.t2-bendrop-filter{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:9999px;border:1px solid rgb(228,231,236);background:rgb(255,255,255);color:rgb(52,64,84);font:500 14px/20px 'Instrument Sans',sans-serif;cursor:pointer}
+.t2-bendrop-filter.on{background:rgb(24,73,169);border-color:rgb(24,73,169);color:rgb(255,255,255)}
+.t2-bendrop-search{display:flex;align-items:center;gap:8px;height:48px;min-height:48px;flex:none;padding:0 16px;border:1px solid rgb(228,231,236);border-radius:9999px;background:rgb(249,250,251)}
+.t2-bendrop-search input{flex:1;border:0;background:transparent;outline:none;font:400 15px/22px 'Instrument Sans',sans-serif;color:rgb(16,24,40)}
+.t2-bendrop-searchic{display:inline-flex;color:rgb(102,112,133)}
+.t2-bendrop-scroll{overflow-y:auto;display:flex;flex-direction:column;gap:4px;padding-right:4px}
+
+/* asset picker dropdown — positions the SAME picker used in Receive, no extra chrome */
+.t2-swap,.t2-buy,.t2-send{position:relative}
+.t2-assetdrop{position:absolute;left:0;right:0;z-index:60}
+.t2-assetdrop-send{top:168px}
+.t2-assetdrop-from{top:104px}
+.t2-assetdrop-to{top:232px}
+.t2-assetdrop-buy{top:224px}
+
+/* beam (fuchsia pulse) */
+@keyframes t2-beam-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(228,120,250,.55), 0 0 0 0 rgba(228,120,250,.45)}
+  50%   {box-shadow:0 0 0 4px rgba(228,120,250,.18), 0 0 0 8px rgba(228,120,250,.08)}
+}
+.t2-beam{border-color:rgb(228,120,250)!important;animation:t2-beam-pulse 1.6s ease-in-out infinite}
+
+/* --- tab body shared --- */
+.t2-tab-body.t2-send,.t2-tab-body.t2-swap,.t2-tab-body.t2-buy,.t2-tab-body.t2-buyorder{padding:20px;display:flex;flex-direction:column;gap:24px}
+.t2-tab-body.t2-send .t2-amtc-stack,.t2-tab-body.t2-swap .t2-amtc-stack,.t2-tab-body.t2-buy .t2-amtc-stack{display:flex;flex-direction:column;gap:12px;position:relative}
+
+/* To: row */
+.t2-to-row{display:flex;align-items:center;gap:8px}
+.t2-to-label{font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(71,84,103)}
+
+/* amount card */
+.t2-amtc{background:rgb(249,250,251);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;position:relative}
+.t2-amtc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.t2-amtc-label{font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-amtc-sublabel{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(52,64,84);padding:0 2px}
+.t2-amtc-bot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:4px}
+.t2-amtc-balance{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133);text-align:left;margin-top:-2px}
+
+/* amount input */
+.t2-amt-input,.t2-amt-static{flex:1;background:transparent;border:0;outline:none;text-align:right;font:500 30px/38px "Instrument Sans",sans-serif;color:rgb(16,42,86);min-width:0;font-family:"Instrument Sans",sans-serif;padding:0}
+.t2-amt-input.empty,.t2-amt-static.empty{color:rgb(208,213,221)}
+.t2-amt-input::placeholder{color:rgb(208,213,221)}
+.t2-amt-input.t2-amt-md,.t2-amt-static.t2-amt-md{font-size:26px;line-height:32px}
+.t2-amt-input.t2-amt-sm,.t2-amt-static.t2-amt-sm{font-size:22px;line-height:28px}
+.t2-amt-input.t2-amt-xs,.t2-amt-static.t2-amt-xs{font-size:18px;line-height:24px;letter-spacing:-.01em}
+
+/* percent pills row */
+.t2-pct{display:flex;gap:6px}
+.t2-pct-pill{padding:0 8px;height:20px;border-radius:8px;background:rgb(255,255,255);border:1px solid rgb(228,231,236);color:rgb(52,64,84);font:600 12px/18px "Instrument Sans",sans-serif;cursor:pointer}
+.t2-pct-pill:hover{background:rgb(242,244,247)}
+
+/* rate caption */
+.t2-rate{text-align:right;font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(71,84,103);padding:0 4px}
+
+/* narration */
+.t2-narration{padding:8px 0 0}
+.t2-narration input{width:100%;background:rgb(249,250,251);border:1px solid rgb(228,231,236);border-radius:8px;padding:10px 12px;font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40);outline:none}
+.t2-narration input::placeholder{color:rgb(102,112,133)}
+
+/* review button */
+.t2-rev-btn{width:100%;height:48px;border-radius:8px;border:0;font:700 14px/20px "Instrument Sans",sans-serif;cursor:pointer;background:rgb(16,42,86);color:rgb(255,255,255);box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.t2-rev-btn.off{background:rgba(16,42,86,.5);cursor:not-allowed}
+.t2-rev-btn.ghost{background:rgb(255,255,255);color:rgb(52,64,84);border:1px solid rgb(228,231,236);box-shadow:none}
+
+/* swap flip */
+.t2-swap-flip{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:9999px;background:rgb(255,255,255);border:1px solid rgb(228,231,236);display:flex;align-items:center;justify-content:center;color:rgb(52,64,84);cursor:pointer;z-index:1;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+
+/* --- overlay host & popovers --- */
+.t2-overlay-host{position:absolute;inset:0;pointer-events:none;z-index:50}
+.t2-overlay-host > *{pointer-events:auto}
+
+.t2-pop-back{position:absolute;inset:0;background:rgba(16,24,40,.18);backdrop-filter:blur(2px)}
+.t2-pop{position:absolute;right:40px;top:170px;width:380px;max-height:520px;background:rgb(255,255,255);border:1px solid rgb(228,231,236);border-radius:16px;box-shadow:0 12px 24px rgba(16,24,40,.12);display:flex;flex-direction:column;overflow:hidden}
+.t2-pop-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid rgb(242,244,247)}
+.t2-pop-title{font:700 16px/24px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-pop-x{background:transparent;border:0;color:rgb(102,112,133);cursor:pointer;padding:4px;display:flex}
+.t2-pop-search{display:flex;align-items:center;gap:8px;padding:8px 16px;margin:12px 16px 8px;background:rgb(249,250,251);border:1px solid rgb(228,231,236);border-radius:8px}
+.t2-pop-searchic{display:flex;align-items:center;color:rgb(102,112,133)}
+.t2-pop-search input{flex:1;background:transparent;border:0;outline:none;font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-pop-search input::placeholder{color:rgb(102,112,133)}
+.t2-pop-scroll{flex:1;overflow:auto;padding:8px 0 16px}
+
+.t2-pop-group{padding:8px 0}
+.t2-pop-grouphead{padding:8px 20px;font:700 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133);letter-spacing:.04em;text-transform:uppercase}
+.t2-pop-netrow{display:flex;gap:8px;padding:4px 20px;overflow-x:auto}
+.t2-pop-netcard{flex:none;width:120px;padding:12px;border:1px solid rgb(228,231,236);border-radius:12px;background:rgb(255,255,255);display:flex;flex-direction:column;align-items:flex-start;gap:8px;cursor:pointer;font-family:inherit}
+.t2-pop-netcard:hover{background:rgb(249,250,251)}
+.t2-pop-netname{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-pop-netbal{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+
+/* beneficiary picker */
+.t2-pop-filters{display:flex;gap:8px;padding:12px 16px 4px}
+.t2-pop-filter{height:32px;padding:0 16px;border-radius:9999px;background:rgb(249,250,251);border:1px solid rgb(228,231,236);color:rgb(52,64,84);font:600 14px/20px "Instrument Sans",sans-serif;cursor:pointer}
+.t2-pop-filter.on{background:rgb(23,92,211);border-color:rgb(23,92,211);color:rgb(255,255,255)}
+
+.t2-ben-row{display:flex;align-items:center;gap:12px;padding:8px 8px;border-radius:8px;border:0;background:transparent;width:100%;text-align:left;cursor:pointer;font-family:inherit}
+.t2-ben-row:hover{background:rgb(249,250,251)}
+.t2-ben-ic,.t2-ben-ic-img{width:32px;height:32px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:9999px;background:rgb(242,244,247);color:rgb(52,64,84)}
+.t2-ben-ic-img{object-fit:cover}
+.t2-ben-ic--bank{background:rgb(239,248,255);color:rgb(23,92,211)}
+.t2-ben-ic--dashed{background:transparent;border:1.5px dashed rgb(208,213,221);color:rgb(102,112,133)}
+.t2-ben-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.t2-ben-name{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-ben-detail{font:400 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+
+/* fiat popover (small, in-card) */
+.t2-pop-fiat-back{position:absolute;inset:0;background:transparent}
+.t2-pop-fiat{position:absolute;right:60px;top:230px;width:144px;background:rgb(255,255,255);border:1px solid rgb(228,231,236);border-radius:12px;padding:8px;box-shadow:0 12px 24px rgba(16,24,40,.12);display:flex;flex-direction:column;gap:2px}
+.t2-pop-fiat-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border:0;background:transparent;border-radius:8px;cursor:pointer;font-family:inherit}
+.t2-pop-fiat-row:hover{background:rgb(249,250,251)}
+.t2-pop-fiat-row.on{background:rgb(239,248,255)}
+.t2-pop-fiat-name{font:600 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+
+/* --- modal --- */
+.t2-modal-back{position:absolute;inset:0;background:rgba(16,24,40,.55)}
+.t2-modal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:440px;max-width:calc(100% - 40px);background:rgb(255,255,255);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:20px;box-shadow:0 24px 48px rgba(16,24,40,.24)}
+.t2-modal-head{display:flex;align-items:center;justify-content:space-between}
+.t2-modal-back-btn{background:transparent;border:0;color:rgb(52,64,84);cursor:pointer;padding:0;display:flex}
+.t2-modal-title{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-modal-body{display:flex;flex-direction:column;gap:20px}
+
+/* review */
+.t2-rev-headline{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+
+/* success */
+.t2-suc-eyebrow{font:700 12px/18px "Instrument Sans",sans-serif;color:rgb(159,26,177);letter-spacing:.08em;text-align:center}
+.t2-suc-check{display:flex;justify-content:center;color:rgb(159,26,177)}
+.t2-suc-check svg{width:48px;height:48px;border-radius:9999px;background:rgba(159,26,177,.12);padding:10px;color:rgb(159,26,177)}
+.t2-suc-headline{font:700 18px/28px "Instrument Sans",sans-serif;color:rgb(16,24,40);text-align:center}
+.t2-suc-timeline{display:flex;flex-direction:column;gap:8px;padding:12px 0}
+.t2-suc-step{display:grid;grid-template-columns:16px 1fr auto;gap:12px;align-items:center;font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+.t2-suc-step.on{color:rgb(16,24,40)}
+.t2-suc-dot{width:10px;height:10px;border-radius:9999px;background:rgb(228,231,236);justify-self:center}
+.t2-suc-step.on .t2-suc-dot{background:rgb(159,26,177)}
+.t2-suc-steptime{font:400 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+.t2-suc-ref{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;background:rgb(249,250,251);border-radius:12px}
+.t2-suc-ref-k{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+.t2-suc-ref-v{flex:1;text-align:right;font:600 14px/20px "IBM Plex Mono","Instrument Sans",monospace;color:rgb(16,24,40)}
+.t2-suc-balcard{display:flex;justify-content:space-between;gap:12px;padding:16px;background:rgb(249,250,251);border-radius:12px}
+.t2-suc-balcol{display:flex;flex-direction:column;gap:4px}
+.t2-suc-balk{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(102,112,133)}
+.t2-suc-balv{font:700 16px/24px "Instrument Sans",sans-serif;color:rgb(16,24,40)}
+.t2-suc-rate{font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(71,84,103);text-align:center}
+
+/* review (legacy modal styles — still used by Swap/Buy review modals) */
+.t2-rev-eyebrow{font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(71,84,103)}
+.t2-rev-bigamt{display:flex;align-items:flex-end;gap:6px}
+.t2-rev-bignum{font:700 30px/38px "Instrument Sans",sans-serif;color:rgb(16,42,86);letter-spacing:-0.02em}
+.t2-rev-bigsym{font:700 20px/30px "Instrument Sans",sans-serif;color:rgb(16,42,86)}
+.t2-rev-rows{background:rgb(249,250,251);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.t2-rev-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.t2-rev-k{font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(71,84,103)}
+.t2-rev-v{font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40);text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.t2-rev-strong{font-weight:700;color:rgb(16,24,40);font-size:14px;line-height:20px;font-family:"Instrument Sans",sans-serif}
+.t2-rev-sub{font-weight:400;font-size:14px;line-height:20px;color:rgb(52,64,84);font-family:"Instrument Sans",sans-serif}
+.t2-rev-total{font-weight:700;color:rgb(16,42,86);font-size:16px;line-height:24px}
+
+/* in-card success screen (Send) */
+.t2-tab-body.t2-success{padding:40px 20px 20px;gap:32px}
+.t2-success-stack{display:flex;flex-direction:column;align-items:center;gap:24px}
+.t2-success-check{width:48px;height:48px;border-radius:9999px;background:rgb(159,26,177);display:flex;align-items:center;justify-content:center;color:rgb(255,255,255)}
+.t2-success-check svg{width:28px;height:28px;background:transparent;padding:0;border-radius:0;color:rgb(255,255,255)}
+.t2-success-head{font:700 18px/28px "Instrument Sans",sans-serif;color:rgb(16,24,40);text-align:center;max-width:289px}
+.t2-success-cta{display:flex;flex-direction:column;gap:8px}
+
+/* in-card "next screen" review (Send) */
+.t2-tab-body.t2-review{padding:20px;gap:24px}
+.t2-review-head{display:flex;align-items:center;gap:8px;height:20px}
+.t2-review-back{background:transparent;border:0;padding:0;display:flex;color:rgb(52,64,84);cursor:pointer}
+.t2-review-title{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-review-headline{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;padding-top:4px}
+.t2-review-card{background:rgb(249,250,251);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:16px}
+.t2-review-row{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.t2-review-k{font:400 16px/24px "Instrument Sans",sans-serif;color:rgb(52,64,84);flex:0 0 auto}
+.t2-review-v{display:flex;flex-direction:column;align-items:flex-end;gap:4px;text-align:right}
+.t2-review-v-top{display:flex;align-items:center;gap:6px}
+.t2-rev-glyph{width:20px;height:20px;border-radius:9999px;flex:0 0 20px}
+.t2-review-sep{height:1px;background:rgb(242,244,247)}
+
+/* swap review specific */
+.t2-swrev-amounts{display:flex;align-items:center;justify-content:center;gap:16px;width:100%}
+.t2-swrev-side{display:flex;flex-direction:column;align-items:center;gap:0;flex:1 1 0;min-width:0}
+.t2-swrev-num{font:700 30px/38px "Instrument Sans",sans-serif;color:rgb(16,42,86);letter-spacing:-0.02em}
+.t2-swrev-sub{font:400 14px/20px "Instrument Sans",sans-serif;color:rgb(71,84,103)}
+.t2-swrev-arrow{flex:0 0 24px}
+.t2-swrev-badge{display:inline-flex;align-items:center;padding:2px 10px;background:rgb(242,244,247);border-radius:9999px;font:500 12px/18px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-suc-cta{display:flex;flex-direction:column;gap:8px}
+
+/* buy order page (4.6) */
+.t2-buyorder{align-items:stretch}
+.t2-bo-badge{align-self:center;width:48px;height:48px;border-radius:24px;background:rgb(251,232,255);color:rgb(159,26,177);display:flex;align-items:center;justify-content:center}
+.t2-bo-head{font:700 18px/28px "Instrument Sans",sans-serif;color:rgb(16,24,40);text-align:center;text-wrap:pretty;padding:0 8px}
+.t2-bo-next{background:rgb(253,244,255);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.t2-bo-next-eyebrow{font:700 12px/18px "Instrument Sans",sans-serif;color:rgb(159,26,177);letter-spacing:.04em}
+.t2-bo-next-title{font:700 14px/20px "Instrument Sans",sans-serif;color:rgb(16,42,86);margin-top:4px}
+.t2-bo-next-sub{font:400 12px/18px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-bo-section-label{font:700 12px/18px "Instrument Sans",sans-serif;color:rgb(71,84,103);letter-spacing:.04em}
+.t2-bo-card{background:rgb(249,250,251);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.t2-bo-row{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:20px}
+.t2-bo-k{font:400 12px/18px "Instrument Sans",sans-serif;color:rgb(52,64,84)}
+.t2-bo-vwrap{display:flex;align-items:center;gap:6px}
+.t2-bo-v{font:500 14px/20px "Instrument Sans",sans-serif;color:rgb(16,24,40);text-align:right}
+.t2-bo-sep{height:1px;background:rgb(228,231,236);margin:4px 0}
+.t2-bo-expiry{display:flex;align-items:flex-start;gap:8px;color:rgb(52,64,84);font:400 12px/18px "Instrument Sans",sans-serif}
+.t2-bo-expiry-ic{color:rgb(102,112,133);flex-shrink:0;line-height:0}
+
+/* Token-avatar wrappers: these now hold Helium's TokenAvatar span (coin +
+   notched network badge) rather than a bare <img>. */
+.t2-chip-glyph{display:inline-flex;flex:none}
+.t2-chip-glyph > *{display:block}
+.t2-rev-glyph{display:inline-flex;flex:none}
+.t2-rev-glyph > *{display:block}
+.t2-ben-ic-img{display:inline-flex;flex:none}
+.t2-ben-ic-img > *{display:block}

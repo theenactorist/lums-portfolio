@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Pulse: Embedded Crypto Payments',
   description:
-    'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
+    'Designing and building the React frontend for a B2B payments platform, with a first partner demo in five working days.',
   openGraph: {
     title: 'Pulse: Embedded Crypto Payments',
     description:
@@ -21,7 +21,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Pulse: Embedded Crypto Payments',
     description:
-      'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
+      'Designing and building the React frontend for a B2B payments platform, with a first partner demo in five working days.',
     images: ['/work/pulse/thumbnail.png'],
   },
 }

@@ -1,93 +1,210 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
+import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { AnimatePresence, MotionConfig, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import AskLums from './components/home/AskLums';
+import LogoTicker from './components/home/LogoTicker';
 import PageTransition from './components/PageTransition';
-import BackgroundRipple from './components/BackgroundRipple';
-import AskLums from './components/AskLums';
-import LogoTicker from './components/LogoTicker';
+import { productionHomeProjects } from './data/productionHomeProjects';
+import styles from './home.module.css';
 
-/* ============================================
-   Featured Work Data — Lums style
-   ============================================ */
-const projects = [
+// The first release is Home only. Keep the draft collection available for later review.
+const SHOW_DRAFT_CASE_STUDIES = false;
+
+const workGroups = [
   {
-    id: 'pulse',
-    title: 'Pulse: Embedded Crypto Payments',
-    description: 'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
-    role: 'Product Designer & Front-end Developer (Payments, SaaS)',
-    period: 'Jul 2026 · 5 days',
-    tags: ['Fintech', 'Web3', 'B2B SaaS'],
-    color: '#101116',
-    accentColor: '#e07b3c',
-    thumbnail: '/work/pulse/thumbnail.png',
+    title: 'AI & New Ventures',
+    projects: [
+      {
+        id: 'pulse',
+        title: 'Pulse',
+        description:
+          'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
+        companyLogo: '/home/work-logos/shiga.svg',
+        companyLogoAlt: 'Shiga',
+        companyLogoWidth: 1047,
+        companyLogoHeight: 291,
+        attributes: ['0 to 1', 'Design Systems', 'SaaS', 'AI Tools', 'Web', 'Shipped'],
+        image: '/work/pulse/hero-dashboard-isolated.png',
+        compositeHero: true,
+        imageAlt: 'Pulse transactions dashboard, embedded checkout, and developer API preview',
+        href: '/work/pulse/sdk-preview/index.html',
+      },
+      {
+        id: 'ai-illustration-system',
+        title: 'AI Illustration System',
+        description:
+          'A reusable workflow that turns natural-language requests into consistent 3D illustrations for Branch’s mobile products.',
+        companyLogo: '/home/work-logos/branch.svg',
+        companyLogoAlt: 'Branch',
+        companyLogoWidth: 106,
+        companyLogoHeight: 39,
+        attributes: ['AI Tools', 'Internal Tools', 'Shipped'],
+        image: '/work/branch-ai/illust-grid.jpg',
+        imageAlt: 'A grid of 3D illustrations created for Branch product experiences',
+      },
+      {
+        id: 'ai-copywriting',
+        title: 'Branch’s AI Copywriting System',
+        description:
+          'A governed workflow for clearer product copy that accounts for market context, product rules, and review boundaries.',
+        companyLogo: '/home/work-logos/branch.svg',
+        companyLogoAlt: 'Branch',
+        companyLogoWidth: 106,
+        companyLogoHeight: 39,
+        attributes: ['AI Tools', 'Internal Tools', 'Shipped'],
+        image: '/work/branch-ai/copy-impact.jpg',
+        imageAlt: 'A product copy impact comparison for the Branch AI copywriting workflow',
+        href: '/work/ai-copywriting',
+      },
+      {
+        id: 'shiga-onboarding',
+        title: 'Passkey-led Onboarding',
+        description:
+          'I reworked ENTA’s sign-up around passkeys and deferred verification so new customers could reach their dashboard in under a minute.',
+        companyLogo: '/home/work-logos/shiga.svg',
+        companyLogoAlt: 'Shiga',
+        companyLogoWidth: 1047,
+        companyLogoHeight: 291,
+        attributes: ['Web', 'Mobile'],
+        image: '/work/shiga-onboarding/thumbnail.jpg',
+        imageAlt: 'Shiga ENTA onboarding screens shown on mobile devices',
+        href: '/work/shiga-onboarding',
+      },
+    ],
   },
   {
-    id: 'shiga-onboarding',
-    title: 'Cutting Time to Value with a Passkey-Led Onboarding',
-    description: 'Rebuilding ENTA\'s sign-up around passkeys and deferred KYC to get users to their dashboard in under a minute.',
-    role: 'Product Designer',
-    period: 'Q1 2026 · 1 week',
-    tags: ['Fintech', 'Crypto', 'B2C'],
-    color: '#0f1a2e',
-    accentColor: '#4fd1c5',
-    thumbnail: '/work/shiga-onboarding/thumbnail.jpg',
+    title: 'Growth & Core Experiences',
+    projects: [
+      {
+        id: 'carbon',
+        title: 'Carbon Home',
+        description:
+          'I redesigned Carbon’s home experience to make essential products easier to find while bringing Android and iOS into a clearer system.',
+        companyLogo: '/home/work-logos/carbon.svg',
+        companyLogoAlt: 'Carbon',
+        companyLogoWidth: 125,
+        companyLogoHeight: 31,
+        attributes: ['Design Systems', 'B2C', 'B2B', 'Mobile', 'Web', 'Shipped'],
+        image: '/work/carbon/cover.gif',
+        imageAlt: 'Carbon digital banking home screen experience',
+        href: '/work/carbon',
+      },
+    ],
   },
   {
-    id: 'carbon',
-    title: 'Revamping Fintech Home screen Experience',
-    description: 'Revamping the home screen experience for a leading digital bank to improve feature discoverability and user engagement.',
-    role: 'Product Designer',
-    period: '2023',
-    tags: ['B2C', 'Fintech & Banking', 'Mobile App'],
-    color: '#1a1a2e',
-    accentColor: '#e07b3c',
-    thumbnail: '/work/carbon/Revamping Fintech Home screen Experience.jpg',
+    title: 'Platforms at Scale',
+    projects: [
+      {
+        id: 'sabi',
+        title: 'Sabi Logistics',
+        description:
+          'Product and logistics tools that helped merchants manage inventory, commerce, and distribution across a complex supply network.',
+        period: 'Project engagement',
+        companyLogo: '/home/work-logos/sabi.svg',
+        companyLogoAlt: 'Sabi',
+        companyLogoWidth: 104,
+        companyLogoHeight: 27,
+        attributes: ['Web', 'Mobile'],
+        image: '/work/sabi/cover.gif',
+        imageAlt: 'Sabi commerce and logistics product experience',
+        href: '/work/sabi',
+      },
+      {
+        id: 'uba',
+        title: 'UBA HR Platform',
+        description:
+          'I led the design of a purpose-built HR system for more than 10,000 employees, replacing costly and fragmented workflows.',
+        companyLogo: '/home/work-logos/uba.svg',
+        companyLogoAlt: 'UBA',
+        companyLogoWidth: 757,
+        companyLogoHeight: 256,
+        attributes: ['0 to 1', 'Web', 'Enterprise', 'Shipped'],
+        image: '/work/uba/cover.gif',
+        imageAlt: 'UBA human resources management platform shown across devices',
+        href: '/work/uba',
+      },
+    ],
+  },
+];
+
+const career = [
+  {
+    period: 'May 2024–Present',
+    company: 'Shiga Onchain Banking',
+    role: 'Senior Product Designer (Consultant)',
+    description:
+      'Owning design strategy and operations across consumer wallet, corporate banking, SaaS products, payment flows, and AI-assisted workflows.',
+    tags: ['Strategy', 'Fintech', 'Design operations'],
   },
   {
-    id: 'branch-ai',
-    title: 'Three AIs, One Design System',
-    description: 'Turning scattered AI use into governed product workflows for illustration, copywriting, and prototyping.',
-    role: 'Product Designer',
-    period: 'Oct 2025 - Feb 2026',
-    tags: ['AI', 'Design Systems', 'Fintech'],
-    color: '#0a1628',
-    accentColor: '#6CD2FF',
-    thumbnail: '/work/branch-ai/three-ai-workflows.jpg',
-  },
-  {
-    id: 'sabi',
-    title: "Sabi's Supply Chain Logistics Solution for African SMEs",
-    description: 'Revolutionizing supply chain logistics for African SMEs, building tools for inventory, commerce, and distribution at scale.',
+    period: 'Oct 2024–Mar 2026',
+    company: 'Branch International',
     role: 'Senior Product Designer',
-    period: '2022',
-    tags: ['B2B2C', 'E-commerce', 'Logistics'],
-    color: '#1e1e28',
-    accentColor: '#6fa3ef',
-    thumbnail: '/work/sabi/Navigating Complexity_ Revolutionizing Supply Chain Logistics for African SMEs.jpg',
+    description:
+      'Designed mobile experiences across payments, onboarding, and lending while scaling design operations and AI workflows across four countries.',
+    tags: ['Multi-market', 'AI workflows', 'Mobile'],
   },
   {
-    id: 'uba',
-    title: "UBA's Human Resource Management System",
-    description: 'Concept to production: HR management system for 20,000+ employees across 20 African countries.',
+    period: 'Jun 2022–Oct 2024',
+    company: 'Carbon Finance',
     role: 'Product Designer',
-    period: '2021',
-    tags: ['Web App', 'Enterprise'],
-    color: '#141422',
-    accentColor: '#d4613a',
-    thumbnail: '/work/uba/Concept to Production_ Human Resource Management System.jpg',
+    description:
+      'Owned product design and delivery across business banking, onboarding, KYC, lending, payments, cards, and web experiences.',
+    tags: ['Digital banking', 'Growth', 'Systems'],
   },
   {
-    id: 'branch',
-    title: 'Branch International',
-    description: 'Designing lending and financial inclusion products for emerging markets — making credit accessible and transparent.',
-    role: 'Senior Product Designer',
-    period: 'Oct 2025 - Feb 2026',
-    tags: ['Lending', 'Mobile', 'Emerging Markets'],
-    color: '#1a1a24',
-    accentColor: '#a78bfa',
-    hidden: true,
+    period: 'Nov 2019–Jun 2022',
+    company: 'United Bank for Africa',
+    role: 'Product Designer',
+    description:
+      'Designed enterprise HR automation, internal tools, and consumer banking experiences, including a platform serving more than 10,000 employees.',
+    tags: ['Enterprise', 'Research', 'Delivery'],
+  },
+  {
+    period: 'Project engagement',
+    company: 'Sabi',
+    role: 'Product design',
+    description:
+      'Designed product and logistics experiences for merchants navigating inventory, commerce, and distribution across a complex supply network.',
+    tags: ['B2B', 'Logistics', 'Platform'],
+    project: true,
+  },
+];
+
+const capabilities = [
+  {
+    title: '0 to 1 products',
+    detail: 'From early direction to shipped experiences',
+    paths: ['M3 20h5v-5h5v-5h6V4', 'm15 8 4-4 4 4'],
+  },
+  {
+    title: 'Design systems',
+    detail: 'Consistency across products and platforms',
+    paths: ['M6 3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z', 'M12 3v18M3 12h18'],
+  },
+  {
+    title: 'AI tools',
+    detail: 'Practical tools for everyday workflows',
+    paths: ['m11 4 2.4 6.6L20 13l-6.6 2.4L11 22l-2.4-6.6L2 13l6.6-2.4Z', 'M20 2v4m-2-2h4'],
+  },
+  {
+    title: 'Research & behaviour',
+    detail: 'Understanding people to guide product decisions',
+    paths: ['M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z', 'm15 15 6 6'],
+  },
+  {
+    title: 'Prototyping',
+    detail: 'Making ideas tangible and testable',
+    paths: ['M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2ZM3 8h18', 'm9 12-3 3 3 3m6-6 3 3-3 3'],
+  },
+  {
+    title: 'Complex platforms',
+    detail: 'Simplifying enterprise and operational workflows',
+    paths: ['M9 3h6v6H9ZM2 15h6v6H2Zm14 0h6v6h-6Z', 'M12 9v3H5v3m7-3h7v3'],
   },
 ];
 
@@ -95,399 +212,933 @@ const testimonials = [
   {
     name: 'Deovrat Dwivedi',
     role: 'Design Team Lead',
-    kind: 'colleague',
-    quote: "Lums is not a pixel pusher. He is an AI-native builder with a designer's eye and a PM's brain — and that combination is exactly what product teams need to stay relevant in 2026. He specialises in taking an abstract problem, dissecting it surgically, and creating something better than what you imagined. Beyond the work — he is a generous collaborator, a fun teammate, and someone who makes the people around him better.",
+    company: 'Branch',
+    linkedin: 'https://www.linkedin.com/in/deovratdwivedi14/',
+    quote:
+      "Lums is not a pixel pusher. He is an AI-native builder with a designer's eye and a PM's brain — and that combination is exactly what product teams need to stay relevant in 2026. He specialises in taking an abstract problem, dissecting it surgically, and creating something better than what you imagined. Beyond the work — he is a generous collaborator, a fun teammate, and someone who makes the people around him better.",
   },
   {
     name: 'Duncan',
     role: 'Product Designer',
-    kind: 'colleague',
-    quote: 'From being your onboarding buddy to someone who shaped how I think about AI and automation — you inspired a whole new way of approaching problems and possibilities.',
+    company: 'Branch',
+    linkedin: 'https://www.linkedin.com/in/duncangichu/',
+    quote:
+      'From being your onboarding buddy to someone who shaped how I think about AI and automation — you inspired a whole new way of approaching problems and possibilities.',
   },
   {
     name: 'Annmercy',
     role: 'UX Researcher',
-    kind: 'colleague',
-    quote: 'One of the fiercest AI champs at work. Impeccable work that made our experience easier. Such a valuable addition to the product team.',
+    company: 'Branch',
+    linkedin: 'https://www.linkedin.com/in/annmercywairimu/',
+    quote:
+      'One of the fiercest AI champs at work. Impeccable work that made our experience easier. Such a valuable addition to the product team.',
   },
   {
     name: 'Fortunate Nneji',
     role: 'Product Manager',
-    kind: 'colleague',
-    quote: 'Consistently impressed with his design skills, team leadership, and ability to make complex projects feel effortless. He would be an asset to any organization.',
+    company: 'Sabi',
+    linkedin: 'https://www.linkedin.com/in/fortunate-nneji/',
+    quote:
+      'Consistently impressed with his design skills, team leadership, and ability to make complex projects feel effortless. He would be an asset to any organization.',
   },
   {
     name: 'Tonye Boham',
     role: 'Head, HR Group Shared Service',
-    kind: 'stakeholder',
-    quote: 'Your immense contribution towards the delivery of the HR automation platform is a sterling achievement — borne out of your dedication, result-oriented approach, and willingness to go the extra mile to ensure delivery of all envisioned and ad-hoc requirements of the platform.',
+    company: 'UBA',
+    linkedin: 'https://www.linkedin.com/in/tonyeboham/',
+    quote:
+      'Your immense contribution towards the delivery of the HR automation platform is a sterling achievement — borne out of your dedication, result-oriented approach, and willingness to go the extra mile to ensure delivery of all envisioned and ad-hoc requirements of the platform.',
   },
   {
     name: 'Chijioke Dozie',
     role: 'Chief Executive Officer',
-    kind: 'stakeholder',
-    quote: "I'm really proud of what the @get_carbon team are delivering and this new design change of the Carbon app is just one of the many new changes that are coming. Our mission is not just to change the way you bank, but change your life by banking with us!",
+    company: 'Carbon',
+    linkedin: 'https://www.linkedin.com/in/chijiokedozie/',
+    quote:
+      "I'm really proud of what the @get_carbon team are delivering and this new design change of the Carbon app is just one of the many new changes that are coming. Our mission is not just to change the way you bank, but change your life by banking with us!",
   },
   {
     name: 'Rachael Aluko',
     role: 'Senior Product Designer',
-    kind: 'colleague',
-    quote: 'Olumide consistently made well-informed design decisions that were backed strongly by research, data, and design processes, making it difficult for stakeholders to say no. His ability to communicate ideas and solutions in a way that commands attention is remarkable.',
+    company: 'UBA',
+    linkedin: 'https://www.linkedin.com/in/rachael-aluko/',
+    quote:
+      'Olumide consistently made well-informed design decisions that were backed strongly by research, data, and design processes, making it difficult for stakeholders to say no. His ability to communicate ideas and solutions in a way that commands attention is remarkable.',
   },
   {
     name: 'Eniayo',
     role: 'Product Manager',
-    kind: 'colleague',
-    quote: "You're one of those people who make work feel easy — reliable, thoughtful, and just always on top of things.",
+    company: 'Branch',
+    linkedin: 'https://www.linkedin.com/in/eniayo/',
+    quote:
+      "You're one of those people who make work feel easy — reliable, thoughtful, and just always on top of things.",
   },
   {
     name: 'Simon Julius',
     role: 'Frontend Engineer',
-    kind: 'colleague',
-    quote: 'I love the dedication Olumide puts into his work — how he carries the developer along when making designs, and how he takes responsibility while creating user-centric designs.',
+    company: 'Carbon',
+    linkedin: 'https://www.linkedin.com/in/simon-julius-1429bb1b6/',
+    quote:
+      'I love the dedication Olumide puts into his work — how he carries the developer along when making designs, and how he takes responsibility while creating user-centric designs.',
   },
   {
     name: 'Emike Okoyomoh',
     role: 'Product Designer',
-    kind: 'colleague',
-    quote: 'His unique wealth of design experience and flexibility made him a valuable asset. He excels at his core — product design — but also contributes beyond scope, taking initiative to mentor junior designers.',
+    company: 'Sabi',
+    linkedin: 'https://www.linkedin.com/in/emike-okoyomoh/',
+    quote:
+      'His unique wealth of design experience and flexibility made him a valuable asset. He excels at his core — product design — but also contributes beyond scope, taking initiative to mentor junior designers.',
   },
 ];
 
-/* ============================================
-   Animation Variants
-   ============================================ */
-const stagger = {
-  animate: {
-    transition: { staggerChildren: 0.12 },
-  },
+const reveal = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.45, ease: 'easeOut' },
 };
 
-const fadeUp = {
-  initial: { opacity: 0, y: 32 },
-  animate: {
-    opacity: 1, y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-  },
-};
+function ArrowIcon({ direction = 'right' }) {
+  const points = direction === 'left' ? '15 18 9 12 15 6' : '9 18 15 12 9 6';
 
-/* ============================================
-   Ripple Hero Background Component
-   ============================================ */
-function RippleHero({ children }) {
   return (
-    <section className="ripple-hero" id="hero">
-      {/* Ripple grid background covers entire screen */}
-      <BackgroundRipple rows={25} cols={50} cellSize={56} />
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points={points} />
+    </svg>
+  );
+}
 
-      {/* Subtle gradient overlay for depth */}
-      <div className="ripple-hero__overlay" />
+function SparkleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M10.8 2.5 12.9 9l6.6 2.1-6.6 2.1-2.1 6.6-2.1-6.6-6.6-2.1L8.7 9l2.1-6.5Z" />
+      <path d="m18.5 2 .7 2.2 2.3.8-2.3.8-.7 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z" />
+    </svg>
+  );
+}
 
-      {/* Content */}
-      <div className="ripple-hero__content">
-        {children}
+function CareerCompanyTitle({ company }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.h3
+      initial={reduceMotion ? false : 'hidden'}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.65 }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: reduceMotion ? 0 : 0.035,
+          },
+        },
+      }}
+    >
+      {company.split(' ').map((word, index) => (
+        <motion.span
+          className={styles.careerWord}
+          variants={{
+            hidden: { opacity: 0, y: '0.42em' },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.18, ease: 'easeOut' },
+            },
+          }}
+          key={`${word}-${index}`}
+        >
+          {word}
+          {index < company.split(' ').length - 1 ? '\u00a0' : ''}
+        </motion.span>
+      ))}
+    </motion.h3>
+  );
+}
+
+function Hero() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [playbackPreference, setPlaybackPreference] = useState('auto');
+  const [videoFailed, setVideoFailed] = useState(false);
+  const heroRef = useRef(null);
+  const videoRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const syncPlayback = () => {
+      const wantsPlayback = playbackPreference === 'play' ||
+        (playbackPreference === 'auto' && !motionPreference.matches);
+      if (isVisible && document.visibilityState === 'visible' && wantsPlayback) {
+        // An autoplay rejection leaves the poster and a working Play control.
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    };
+
+    syncPlayback();
+    document.addEventListener('visibilitychange', syncPlayback);
+    motionPreference.addEventListener('change', syncPlayback);
+    return () => {
+      document.removeEventListener('visibilitychange', syncPlayback);
+      motionPreference.removeEventListener('change', syncPlayback);
+      video.pause();
+    };
+  }, [isVisible, playbackPreference, videoFailed]);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.05 }
+    );
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      className={styles.hero}
+      data-visible={isVisible}
+      id="hero"
+      aria-labelledby="hero-title"
+      ref={heroRef}
+    >
+      <div className={styles.heroBackdrop} aria-hidden="true">
+        {videoFailed ? (
+          <Image
+            className={styles.heroImage}
+            src="/home/hero/landing-diagonal-3-poster.webp"
+            alt=""
+            fill
+            sizes="100vw"
+          />
+        ) : (
+          <video
+            className={styles.heroImage}
+            ref={videoRef}
+            src="/home/hero/landing-diagonal-3.mp4"
+            poster="/home/hero/landing-diagonal-3-poster.webp"
+            preload="none"
+            muted
+            loop
+            playsInline
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onError={() => setVideoFailed(true)}
+          />
+        )}
+      </div>
+      <div className={styles.frame}>
+        <div className={styles.heroCopy}>
+          <h1 className={styles.heroTitle} id="hero-title">
+            <span className={styles.heroTitleLine}>
+              {['Senior', 'product', 'designer.'].map((word, index) => (
+                <motion.span
+                  className={styles.heroInteractiveWord}
+                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: reduceMotion ? 0 : 0.2,
+                    delay: reduceMotion ? 0 : index * 0.045,
+                    ease: 'easeOut',
+                  }}
+                  key={word}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </span>
+            <span className={styles.heroLocation}>
+              Based in{' '}
+              <button
+                className={styles.torontoTrigger}
+                type="button"
+                aria-label="Toronto"
+                aria-describedby="toronto-preview-description"
+              >
+                <span className={styles.torontoText}>Toronto.</span>
+                <span className={styles.cnTowerPreview} aria-hidden="true">
+                  <svg viewBox="0 0 120 300" focusable="false">
+                    <path d="M58.5 0h3l2.8 72H55.7L58.5 0Z" />
+                    <path d="M52.5 66h15l7 10-5 11h-19l-5-11 7-10Z" />
+                    <path d="M54.5 87h11l4 45h-19l4-45Z" />
+                    <path d="M31 124h58l16 12-4 16-12 9H31l-12-9-4-16 16-12Z" />
+                    <path d="M48 162h24l8 99H40l8-99Z" />
+                    <path d="M40 261h40l16 39H24l16-39Z" />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </h1>
+          <span className={styles.visuallyHidden} id="toronto-preview-description">
+            A slightly tilted silhouette of Toronto&apos;s CN Tower appears on hover or
+            keyboard focus.
+          </span>
+
+          <div className={styles.heroLower}>
+            <p className={styles.heroSummary}>
+              I blend behavioural science and AI to create valuable digital products across
+              fintech, AI systems, and complex multi-market platforms.
+            </p>
+            <div className={styles.heroActions}>
+              <a
+                className={styles.primaryButton}
+                href="#featured-work"
+              >
+                View selected work
+              </a>
+              <a className={styles.textLink} href="#about">
+                <span className={styles.heroAboutLabel}>About me</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a className={styles.heroScrollCue} href="#about">
+        <span className={styles.heroScrollLine} aria-hidden="true" />
+        <span>Scroll</span>
+      </a>
+      {!videoFailed && (
+        <button
+          className={styles.heroVideoControl}
+          type="button"
+          aria-label={isPlaying ? 'Pause background video' : 'Play background video'}
+          onClick={() => {
+            setPlaybackPreference(isPlaying ? 'pause' : 'play');
+            if (isPlaying) videoRef.current?.pause();
+            else videoRef.current?.play().catch(() => {});
+          }}
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            {isPlaying ? (
+              <path d="M9 6v12m6-12v12" />
+            ) : (
+              <path d="m9 5 10 7-10 7z" fill="currentColor" strokeWidth="1" />
+            )}
+          </svg>
+        </button>
+      )}
+    </section>
+  );
+}
+
+function ProjectCard({ project }) {
+  const reduceMotion = useReducedMotion();
+  const cardRef = useRef(null);
+
+  const handlePointerMove = (event) => {
+    if (
+      !project.href ||
+      reduceMotion ||
+      event.pointerType !== 'mouse' ||
+      !window.matchMedia('(min-width: 701px) and (hover: hover) and (pointer: fine)').matches
+    ) return;
+    const card = cardRef.current;
+    if (!card) return;
+
+    const rect = card.parentElement.getBoundingClientRect();
+    const x = Math.max(-0.5, Math.min(0.5, (event.clientX - rect.left) / rect.width - 0.5));
+    const y = Math.max(-0.5, Math.min(0.5, (event.clientY - rect.top) / rect.height - 0.5));
+    const pointerX = Math.max(0, Math.min(100, (x + 0.5) * 100));
+    const pointerY = Math.max(0, Math.min(100, (y + 0.5) * 100));
+    card.style.setProperty('--card-rotate-x', `${y * -10}deg`);
+    card.style.setProperty('--card-rotate-y', `${x * 14}deg`);
+    card.style.setProperty('--pointer-x', `${pointerX}%`);
+    card.style.setProperty('--pointer-y', `${pointerY}%`);
+    card.dataset.active = 'true';
+  };
+
+  const resetPointer = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.setProperty('--card-rotate-x', '0deg');
+    card.style.setProperty('--card-rotate-y', '0deg');
+    card.style.setProperty('--pointer-x', '50%');
+    card.style.setProperty('--pointer-y', '50%');
+    delete card.dataset.active;
+  };
+
+  const content = (
+    <>
+      {project.href && <span className={styles.projectShimmer} aria-hidden="true" />}
+      <div className={styles.projectMedia}>
+        {project.compositeHero ? (
+          <div className={styles.pulseHeroArtwork} role="img" aria-label={project.imageAlt}>
+            <Image
+              className={styles.pulseHeroDashboard}
+              src={project.image}
+              alt=""
+              width={1640}
+              height={1034}
+              sizes="(max-width: 700px) 60vw, 36vw"
+              loading="eager"
+            />
+            <Image
+              className={styles.pulseHeroSdk}
+              src="/work/pulse/hero-sdk-isolated.png"
+              alt=""
+              width={636}
+              height={959}
+              sizes="(max-width: 700px) 20vw, 12vw"
+              loading="eager"
+            />
+            <Image
+              className={styles.pulseHeroDeveloper}
+              src="/work/pulse/hero-developer-isolated.png"
+              alt=""
+              width={940}
+              height={512}
+              sizes="(max-width: 700px) 30vw, 18vw"
+              loading="eager"
+            />
+          </div>
+        ) : (
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            loading="lazy"
+            sizes="(max-width: 767px) 100vw, 50vw"
+            unoptimized={project.image.endsWith('.gif')}
+          />
+        )}
+        {project.href && (
+          <span className={styles.projectOpen} aria-hidden="true">↗</span>
+        )}
+      </div>
+      <div className={styles.projectBody}>
+        <div className={styles.projectMeta}>
+          <Image
+            className={styles.projectCompanyLogo}
+            src={project.companyLogo}
+            alt={project.companyLogoAlt}
+            width={project.companyLogoWidth}
+            height={project.companyLogoHeight}
+          />
+          {project.period && <span>{project.period}</span>}
+        </div>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <ul className={styles.projectAttributes} aria-label="Project attributes" role="list">
+          {project.attributes.map((attribute, index) => (
+            <li key={attribute}>
+              {attribute}
+              {index < project.attributes.length - 1 && <span aria-hidden="true">·</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+
+  return (
+    <motion.article
+      {...reveal}
+      className={styles.projectCardOuter}
+      id={`project-${project.id}`}
+    >
+      <div
+        className={styles.projectCard}
+        data-actionable={project.href ? 'true' : undefined}
+        ref={cardRef}
+        onPointerEnter={handlePointerMove}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={resetPointer}
+        onBlur={resetPointer}
+      >
+        {project.href ? (
+          <Link className={styles.projectLink} href={project.href}>
+            {content}
+          </Link>
+        ) : (
+          <div className={styles.projectPreview}>{content}</div>
+        )}
+      </div>
+    </motion.article>
+  );
+}
+
+function SelectedWork() {
+  const projects = SHOW_DRAFT_CASE_STUDIES
+    ? workGroups.flatMap((group) => group.projects)
+    : productionHomeProjects;
+
+  return (
+    <section className={styles.work} id="featured-work" aria-labelledby="case-study-heading">
+      <div className={styles.frame}>
+        <h2 className={styles.workHeading} id="case-study-heading">Case Study</h2>
+        <div className={styles.projectGrid}>
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-/* ============================================
-   Home Page
-   ============================================ */
-export default function Home() {
-  const [tooltipVisible, setTooltipVisible] = useState(false);
-  const wallRowRef = useRef(null);
-  const wallPausedRef = useRef(false);
-  const wallPosRef = useRef(0);
+function About() {
+  const sectionRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'start 0.28'],
+  });
+  const revealInset = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
-  const scrollWallBy = (direction) => {
-    const row = wallRowRef.current;
+  return (
+    <section
+      className={styles.aboutTransition}
+      id="about"
+      aria-labelledby="about-heading"
+      ref={sectionRef}
+    >
+      <motion.div
+        className={styles.about}
+        style={{ '--about-reveal': reduceMotion ? 0 : revealInset }}
+      >
+        <div className={`${styles.frame} ${styles.aboutFrame}`}>
+          <div className={styles.aboutHeader}>
+            <div className={styles.aboutPortrait}>
+              <Image
+                src="/home/about/olumide-profile.png"
+                alt="Olumide Olusesi (Lums)"
+                width={1080}
+                height={1080}
+                sizes="(max-width: 700px) 112px, 148px"
+              />
+            </div>
+            <h2 id="about-heading">
+              Hi, I&apos;m Olumide (Lums), a low-ego, high-impact Product Designer who turns
+              complex problems into clear, useful experiences.
+            </h2>
+          </div>
+
+          <div className={styles.aboutCopy}>
+            <p>
+              Over the last 6+ years, I&apos;ve designed across fintech, SaaS, ecommerce and
+              enterprise software, working on everything from banking and lending to
+              payments, internal tools and design systems. I care about the full product,
+              not isolated screens: how it works for users, how it supports the business,
+              and how well it translates into something engineering can actually ship.
+            </p>
+            <p>
+              I&apos;m curious by default and collaborative by nature. I ask a lot of
+              questions, challenge assumptions and like working with people who bring
+              different perspectives to the table. These days, AI is also deeply embedded
+              in how I work, from research and ideation to prototyping, design systems and
+              production-ready builds. The goal is pretty simple: understand the problem,
+              make the work better, and get useful things shipped.
+            </p>
+          </div>
+
+          <div className={styles.aboutLogos}>
+            <LogoTicker />
+          </div>
+          <Capabilities />
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+function Career() {
+  return (
+    <section className={styles.career} id="career" aria-labelledby="career-heading">
+      <div className={styles.frame}>
+        <motion.div {...reveal} className={styles.careerHeader}>
+          <p className={styles.sectionKicker} key="label">Career overview</p>
+          <h2 id="career-heading" key="heading">A path shaped by curiosity and the problems that asked more of me.</h2>
+          <Link className={styles.inverseTextLink} href="/resume" key="resume">
+            View résumé <span aria-hidden="true">→</span>
+          </Link>
+        </motion.div>
+
+        <ol className={styles.careerTimeline} aria-label="Career and project experience">
+          {career.map((item) => (
+            <li
+              className={styles.careerEntry}
+              key={`${item.company}-${item.period}`}
+            >
+              <span className={styles.careerMarker} aria-hidden="true" key="marker" />
+              {item.project ? (
+                <motion.p {...reveal} className={styles.careerDate} key="date">{item.period}</motion.p>
+              ) : (
+                <motion.time {...reveal} className={styles.careerDate} key="date">{item.period}</motion.time>
+              )}
+              <motion.div {...reveal} className={styles.careerDetails} key="details">
+                <CareerCompanyTitle company={item.company} key="company" />
+                <p className={styles.careerRole} key="role">{item.role}</p>
+                <p className={styles.careerDescription} key="description">{item.description}</p>
+                <ul className={styles.careerTags} aria-label={`${item.company} capabilities`} key="tags">
+                  {item.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            </li>
+          ))}
+        </ol>
+
+      </div>
+    </section>
+  );
+}
+
+function Capabilities() {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <div className={styles.capabilities} id="skills">
+      <ul className={styles.capabilityGrid} aria-label="Capabilities">
+        {capabilities.map((capability, index) => (
+          <li className={styles.capabilityItem} key={capability.title}>
+            <span className={styles.capabilityIcon} aria-hidden="true">
+              <motion.svg
+                viewBox="0 0 24 24"
+                focusable="false"
+                initial={reduceMotion ? false : 'hidden'}
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.8 }}
+              >
+                {capability.paths.map((path) => (
+                  <motion.path
+                    d={path}
+                    key={path}
+                    variants={{
+                      hidden: { pathLength: 0, opacity: 0 },
+                      visible: {
+                        pathLength: 1,
+                        opacity: 1,
+                        transition: {
+                          duration: reduceMotion ? 0 : 0.6,
+                          delay: reduceMotion ? 0 : index * 0.06,
+                          ease: 'easeOut',
+                        },
+                      },
+                    }}
+                  />
+                ))}
+              </motion.svg>
+            </span>
+            <div>
+              <h3>{capability.title}</h3>
+              <p>{capability.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Recommendations() {
+  const sectionRef = useRef(null);
+  const rowRef = useRef(null);
+  const pausedRef = useRef(false);
+  const visibleRef = useRef(false);
+  const positionRef = useRef(0);
+  const reduceMotion = useReducedMotion();
+
+  const scrollByCard = (direction) => {
+    const row = rowRef.current;
     if (!row) return;
-    const card = row.querySelector('.wall__card');
+    const card = row.querySelector(`.${styles.recommendationCard}`);
     const step = card ? card.offsetWidth + 24 : 400;
     const half = row.scrollWidth / 2;
-    let newPos = wallPosRef.current + (direction === 'next' ? step : -step);
-    if (newPos < 0) newPos += half > 0 ? half : 0;
-    if (half > 0 && newPos >= half) newPos -= half;
-    wallPosRef.current = newPos;
-    row.scrollLeft = newPos;
+    let nextPosition = positionRef.current + (direction === 'next' ? step : -step);
+    if (nextPosition < 0) nextPosition += half > 0 ? half : 0;
+    if (half > 0 && nextPosition >= half) nextPosition -= half;
+    positionRef.current = nextPosition;
+    row.scrollLeft = nextPosition;
   };
 
   useEffect(() => {
-    const row = wallRowRef.current;
-    if (!row) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const row = rowRef.current;
+    if (!row || reduceMotion) return undefined;
 
-    let rafId;
+    const section = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    if (section) observer.observe(section);
+
+    let animationFrame;
     let lastTime = performance.now();
-    const pxPerSec = 35;
+    const pixelsPerSecond = 42;
 
     const tick = (now) => {
-      const dt = Math.min(now - lastTime, 50);
+      const elapsed = Math.min(now - lastTime, 50);
       lastTime = now;
-      if (!wallPausedRef.current) {
+      if (!pausedRef.current && visibleRef.current) {
         const half = row.scrollWidth / 2;
         if (half > 0) {
-          wallPosRef.current += (pxPerSec * dt) / 1000;
-          if (wallPosRef.current >= half) wallPosRef.current -= half;
-          row.scrollLeft = wallPosRef.current;
+          positionRef.current += (pixelsPerSecond * elapsed) / 1000;
+          if (positionRef.current >= half) positionRef.current -= half;
+          row.scrollLeft = positionRef.current;
         }
       } else {
-        wallPosRef.current = row.scrollLeft;
+        positionRef.current = row.scrollLeft;
       }
-      rafId = requestAnimationFrame(tick);
+      animationFrame = requestAnimationFrame(tick);
     };
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
+
+    animationFrame = requestAnimationFrame(tick);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [reduceMotion]);
+
+  const resumeAfterTouch = () => {
+    window.setTimeout(() => {
+      if (rowRef.current) positionRef.current = rowRef.current.scrollLeft;
+      pausedRef.current = rowRef.current?.contains(document.activeElement) ?? false;
+    }, 800);
+  };
 
   return (
-    <PageTransition>
-      <main>
-        {/* ===== RIPPLE HERO ===== */}
-        <RippleHero>
-          <div className="hero__container container">
-            <motion.div
-              className="hero__content"
-              variants={stagger}
-              initial="initial"
-              animate="animate"
-            >
-              {/* Main headline */}
-              <motion.h1 className="hero__headline" variants={fadeUp}>
-                <span
-                  className="hero__name"
-                  onMouseEnter={() => setTooltipVisible(true)}
-                  onMouseLeave={() => setTooltipVisible(false)}
-                >
-                  Lums
-                  <span className="hero__asterisk">*</span>
-                  <span className={`tooltip ${tooltipVisible ? 'tooltip--visible' : ''}`} role="tooltip">
-                    Lums is a short form of Olumide Olusesi — crafted by past amazing colleagues.
-                  </span>
-                </span>{' '}
-                is a senior product designer blending <span className="hero__italic">behavioural science</span> and <span className="hero__italic">AI</span> to create valuable digital products.
-              </motion.h1>
-
-              {/* Company links */}
-              <motion.p className="hero__companies" variants={fadeUp}>
-                Currently @{' '}
-                <a href="https://shiga.co" target="_blank" rel="noopener noreferrer" className="hero__company-link" id="hero-shiga">Shiga</a>
-                {' '}✦ Previously @{' '}
-                <a href="https://branch.co" target="_blank" rel="noopener noreferrer" className="hero__company-link" id="hero-branch">Branch</a>
-                , @{' '}
-                <a href="https://getcarbon.co" target="_blank" rel="noopener noreferrer" className="hero__company-link" id="hero-carbon">Carbon</a>
-                , @{' '}
-                <a href="https://ubagroup.com" target="_blank" rel="noopener noreferrer" className="hero__company-link" id="hero-uba">UBA</a>
-              </motion.p>
-
-              {/* Location + CTA */}
-              <motion.p className="hero__meta-line" variants={fadeUp}>
-                Based in Ontario, 🇨🇦 —{' '}
-                <Link href="/about" className="hero__more-link" id="hero-about-link">
-                  More about me ↗
-                </Link>
-              </motion.p>
-
-            </motion.div>
-
-            {/* Ask Lums AI — Right Side */}
-            <motion.div
-              className="hero__ask-lums"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <AskLums />
-            </motion.div>
-          </div>
-          <LogoTicker />
-        </RippleHero>
-
-        {/* ===== SELECTED WORK — Lums Style ===== */}
-        <section className="selected-work section" id="featured-work">
-          <div className="container">
-            <motion.div
-              className="selected-work__header"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="selected-work__label">Selected work ↓</h2>
-              <p className="selected-work__sublabel">Reach out for more details</p>
-            </motion.div>
-
-            <div className="selected-work__list">
-              {projects.filter((p) => !p.hidden).map((project, i) => (
-                <motion.article
-                  key={project.id}
-                  className="project-entry"
-                  initial={{ opacity: 0, y: 48 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-80px' }}
-                  transition={{ duration: 0.7, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                  id={`project-${project.id}`}
-                >
-                  <Link href={`/work/${project.id}`} className="project-entry__link">
-                    {/* Top row: title + description */}
-                    <div className="project-entry__header">
-                      <div className="project-entry__title-group">
-                        <h3 className="project-entry__title">
-                          {project.title}
-                          <span className="project-entry__title-arrow">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                              <line x1="5" y1="12" x2="19" y2="12" />
-                              <polyline points="12 5 19 12 12 19" />
-                            </svg>
-                          </span>
-                        </h3>
-                        {project.tags && project.tags.length > 0 && (
-                          <ul className="project-entry__tags" aria-label="Project categories">
-                            {project.tags.map((tag) => (
-                              <li key={tag} className="project-entry__tag">{tag}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                      <p className="project-entry__description">{project.description}</p>
-                    </div>
-
-                    {/* Image panel */}
-                    <div className="project-entry__image" style={{ backgroundColor: project.color }}>
-                      {project.thumbnail ? (
-                        <img
-                          src={project.thumbnail}
-                          alt={project.title}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                        />
-                      ) : (
-                        <div className="project-entry__image-placeholder">
-                          <span>{project.title}</span>
-                        </div>
-                      )}
-                    </div>
-                  </Link>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ===== RECOMMENDATIONS WALL ===== */}
-        <section className="wall section" id="recommendations">
-          <div className="container">
-            <motion.div
-              className="wall__header wall__header--row"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="wall__header-text">
-                <span className="wall__eyebrow">Recommendations</span>
-                <h2 className="wall__title">Words from people I&apos;ve built with</h2>
-                <p className="wall__sub">
-                  Verified quotes from stakeholders and colleagues across the teams I&apos;ve designed with.
-                </p>
-              </div>
-              <div className="wall__nav" role="group" aria-label="Recommendation carousel controls">
-                <button
-                  type="button"
-                  className="wall__nav-btn"
-                  aria-label="Previous recommendation"
-                  onClick={() => scrollWallBy('prev')}
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="15 18 9 12 15 6" />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  className="wall__nav-btn"
-                  aria-label="Next recommendation"
-                  onClick={() => scrollWallBy('next')}
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </button>
-              </div>
-            </motion.div>
-          </div>
-
+    <section
+      className={styles.recommendations}
+      id="recommendations"
+      aria-labelledby="recommendations-heading"
+      ref={sectionRef}
+    >
+      <div className={styles.frame}>
+        <motion.div {...reveal} className={styles.recommendationsHeader}>
+          <h2 id="recommendations-heading">Words from people I&apos;ve built with</h2>
           <div
-            className="wall__row-wrap"
-            onMouseEnter={() => { wallPausedRef.current = true; }}
-            onMouseLeave={() => { wallPausedRef.current = false; }}
-            onFocus={() => { wallPausedRef.current = true; }}
-            onBlur={() => { wallPausedRef.current = false; }}
-            onTouchStart={() => { wallPausedRef.current = true; }}
-            onTouchEnd={() => {
-              setTimeout(() => {
-                if (wallRowRef.current) wallPosRef.current = wallRowRef.current.scrollLeft;
-                wallPausedRef.current = false;
-              }, 800);
-            }}
-            onTouchCancel={() => {
-              setTimeout(() => {
-                if (wallRowRef.current) wallPosRef.current = wallRowRef.current.scrollLeft;
-                wallPausedRef.current = false;
-              }, 800);
-            }}
+            className={styles.recommendationControls}
+            role="group"
+            aria-label="Recommendation carousel controls"
           >
-            <ul className="wall__row" ref={wallRowRef}>
-              {[...testimonials, ...testimonials].map((t, i) => (
-                <li
-                  key={`${t.name}-${i}`}
-                  className="wall__card"
-                  aria-hidden={i >= testimonials.length ? 'true' : undefined}
-                >
-                  <span className="wall__quote-mark" aria-hidden="true">&ldquo;</span>
-                  <p className="wall__text">{t.quote}</p>
-                  <div className="wall__footer">
-                    <div className="wall__avatar" aria-hidden="true">
-                      {t.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
-                    </div>
-                    <div className="wall__meta">
-                      <span className="wall__name">
-                        {t.name}
-                        <svg
-                          className="wall__verified"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          aria-label="Verified on LinkedIn"
-                        >
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                        </svg>
-                      </span>
-                      <span className="wall__role">{t.role}</span>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <button
+              type="button"
+              aria-label="Previous recommendation"
+              onClick={() => scrollByCard('previous')}
+            >
+              <ArrowIcon direction="left" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next recommendation"
+              onClick={() => scrollByCard('next')}
+            >
+              <ArrowIcon />
+            </button>
           </div>
+        </motion.div>
+      </div>
 
-          <div className="container">
-            <div className="wall__cta">
+      <div
+        className={styles.recommendationViewport}
+        onMouseEnter={() => {
+          pausedRef.current = true;
+        }}
+        onMouseLeave={(event) => {
+          pausedRef.current = event.currentTarget.contains(document.activeElement);
+        }}
+        onFocus={() => {
+          pausedRef.current = true;
+        }}
+        onBlur={(event) => {
+          pausedRef.current = event.currentTarget.contains(event.relatedTarget)
+            || event.currentTarget.matches(':hover');
+        }}
+        onTouchStart={() => {
+          pausedRef.current = true;
+        }}
+        onTouchEnd={resumeAfterTouch}
+        onTouchCancel={resumeAfterTouch}
+      >
+        <ul className={styles.recommendationRow} ref={rowRef}>
+          {[...testimonials, ...testimonials].map((testimonial, index) => (
+            <li
+              className={styles.recommendationCard}
+              aria-hidden={index >= testimonials.length ? 'true' : undefined}
+              key={`${testimonial.name}-${index}`}
+            >
+              <span className={styles.quoteMark} aria-hidden="true">
+                &ldquo;
+              </span>
+              <p>{testimonial.quote}</p>
               <a
-                href="https://www.linkedin.com/in/olumideolusesi/details/recommendations/"
+                className={styles.recommendationAuthor}
+                href={testimonial.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="wall__cta-btn"
+                tabIndex={index >= testimonials.length ? -1 : undefined}
+                aria-label={`${testimonial.name}, ${testimonial.role} at ${testimonial.company}. LinkedIn (opens in a new tab)`}
               >
-                See more on LinkedIn
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M7 17L17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
+                <span className={styles.recommendationAvatar} aria-hidden="true">
+                  {testimonial.name
+                    .split(' ')
+                    .map((part) => part[0])
+                    .join('')
+                    .slice(0, 2)}
+                </span>
+                <span>
+                  <strong>{testimonial.name}</strong>
+                  <small>{testimonial.role} · {testimonial.company}</small>
+                </span>
               </a>
-            </div>
-          </div>
-        </section>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
 
-      </main>
+function AskLumsShell() {
+  const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const launcherRef = useRef(null);
+  const inputRef = useRef(null);
+  const wasOpenRef = useRef(false);
+
+  const handleOpen = () => {
+    // Mount and focus within the launch gesture so mobile keyboards can open too.
+    flushSync(() => setOpen(true));
+    inputRef.current?.focus({ preventScroll: true });
+  };
+
+  useEffect(() => {
+    const launcher = launcherRef.current;
+    if (!launcher) return;
+
+    const syncAnimation = () => {
+      launcher.style.setProperty('--ask-animation-state', document.hidden ? 'paused' : 'running');
+    };
+    syncAnimation();
+    document.addEventListener('visibilitychange', syncAnimation);
+    return () => document.removeEventListener('visibilitychange', syncAnimation);
+  }, [open]);
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    if (open) window.addEventListener('keydown', handleEscape);
+
+    const focusFrame = !open && wasOpenRef.current
+      ? requestAnimationFrame(() => launcherRef.current?.focus({ preventScroll: true }))
+      : null;
+    wasOpenRef.current = open;
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+      if (focusFrame !== null) cancelAnimationFrame(focusFrame);
+    };
+  }, [open]);
+
+  return (
+    <motion.div
+      className={styles.askShell}
+      data-open={open}
+      layout={!reduceMotion}
+      transition={{ layout: { duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' } }}
+    >
+      <AnimatePresence initial={false} mode="popLayout">
+        {!open ? (
+          <motion.button
+            className={styles.askLauncher}
+            type="button"
+            ref={launcherRef}
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onClick={handleOpen}
+            key="ask-launcher"
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+            transition={{ duration: reduceMotion ? 0 : 0.1, ease: 'easeOut' }}
+          >
+            <span className={styles.askLauncherBorder} aria-hidden="true" />
+            <span className={styles.askLauncherMark} aria-hidden="true">
+              <SparkleIcon />
+            </span>
+            <span>Ask Lums AI</span>
+          </motion.button>
+        ) : (
+          <motion.section
+            className={styles.askPanel}
+            role="dialog"
+            aria-modal="false"
+            aria-labelledby="ask-lums-dialog-title"
+            key="ask-panel"
+            initial={
+              reduceMotion
+                ? { opacity: 1 }
+                : { opacity: 0.48, scaleX: 0.285, scaleY: 0.18 }
+            }
+            animate={{ opacity: 1, scaleX: 1, scaleY: 1 }}
+            exit={
+              reduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0.36, scaleX: 0.285, scaleY: 0.18 }
+            }
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' }}
+            style={{ transformOrigin: '50% 100%' }}
+          >
+            <div className={styles.askPanelHeader}>
+              <div className={styles.askIdentity}>
+                <span className={styles.askPanelSparkle} aria-hidden="true">
+                  <SparkleIcon />
+                </span>
+                <div>
+                  <h2 id="ask-lums-dialog-title">Ask Lums AI</h2>
+                  <p className={styles.askIntro}>
+                    My AI doppelgänger, available 24/7 even when I&apos;m not.
+                  </p>
+                </div>
+              </div>
+              <button
+                className={styles.askClose}
+                type="button"
+                aria-label="Close Ask Lums AI"
+                onClick={() => setOpen(false)}
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <AskLums inputRef={inputRef} />
+          </motion.section>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+export default function Home() {
+  return (
+    <PageTransition>
+      <MotionConfig reducedMotion="user">
+        <main className={`${styles.homePage} theme2-home`}>
+          <Hero />
+          <About />
+          <SelectedWork />
+          <Career />
+          <Recommendations />
+          <AskLumsShell />
+        </main>
+      </MotionConfig>
     </PageTransition>
   );
 }
