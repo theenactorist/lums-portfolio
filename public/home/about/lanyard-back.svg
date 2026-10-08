@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1440" viewBox="0 0 1024 1440" role="img" aria-labelledby="title">
+  <title id="title">UX is everyone’s business. AI UX is mine.</title>
+  <rect width="1024" height="1440" fill="#fafafa"/>
+  <g fill="#0a0a0a" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="512" y="436" font-size="128" font-weight="400" letter-spacing="-4">
+      <tspan x="512">UX is</tspan>
+      <tspan x="512" dy="144">everyone’s</tspan>
+      <tspan x="512" dy="144">business.</tspan>
+    </text>
+    <text x="512" y="1000" font-size="156" font-weight="700" letter-spacing="-5">
+      <tspan x="512">AI UX</tspan>
+      <tspan x="512" dy="174">is mine.</tspan>
+    </text>
+  </g>
+</svg>

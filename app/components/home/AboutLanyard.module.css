@@ -1,0 +1,84 @@
+.figure {
+  --card-height: clamp(288px, 27.2vw, 416px);
+  --card-top: clamp(72px, 8vw, 124px);
+  --card-anchor: 22%;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  margin: 0;
+  pointer-events: none;
+}
+
+.stage,
+.scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.entryMarker {
+  position: absolute;
+  top: calc(var(--card-top) + var(--card-height) * 0.4);
+  left: var(--card-anchor);
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.strap {
+  position: absolute;
+  top: 0;
+  left: var(--card-anchor);
+  width: 36px;
+  height: calc(var(--card-top) + 14px);
+  background: #27272a;
+  transform: translateX(-50%);
+}
+
+.staticCard {
+  position: absolute;
+  top: var(--card-top);
+  left: var(--card-anchor);
+  width: calc(var(--card-height) * 1.6 / 2.25);
+  height: var(--card-height);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #a1a1aa;
+  border-radius: 14px;
+  background: #d4d4d8;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 16%);
+  transform: translateX(-50%);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.staticCard img {
+  object-fit: cover;
+}
+
+.staticCard:focus-visible {
+  outline: 2px solid #fafafa;
+  outline-offset: 5px;
+}
+
+.staticCard:disabled {
+  cursor: default;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .figure {
+    --card-height: min(312px, 75.2vw);
+    --card-top: 56px;
+    --card-anchor: 50%;
+  }
+}

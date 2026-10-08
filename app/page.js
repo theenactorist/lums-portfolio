@@ -4,9 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AnimatePresence, MotionConfig, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'framer-motion';
 import AskLums from './components/home/AskLums';
 import LogoTicker from './components/home/LogoTicker';
+import TechText from './components/home/TechText';
+import AboutLanyard from './components/home/AboutLanyard';
 import PageTransition from './components/PageTransition';
 import { productionHomeProjects } from './data/productionHomeProjects';
 import styles from './home.module.css';
@@ -362,7 +364,6 @@ function Hero() {
   const [videoFailed, setVideoFailed] = useState(false);
   const heroRef = useRef(null);
   const videoRef = useRef(null);
-  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -438,24 +439,12 @@ function Hero() {
       </div>
       <div className={styles.frame}>
         <div className={styles.heroCopy}>
+          <p className={styles.heroEyebrow}>Product sense × Design craft × AI</p>
           <h1 className={styles.heroTitle} id="hero-title">
             <span className={styles.heroTitleLine}>
-              {['Senior', 'product', 'designer.'].map((word, index) => (
-                <motion.span
-                  className={styles.heroInteractiveWord}
-                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: reduceMotion ? 0 : 0.2,
-                    delay: reduceMotion ? 0 : index * 0.045,
-                    ease: 'easeOut',
-                  }}
-                  key={word}
-                >
-                  {word}
-                </motion.span>
-              ))}
+              <TechText text="Product design engineer." boundsRef={heroRef} />
             </span>
+            {' '}
             <span className={styles.heroLocation}>
               Based in{' '}
               <button
@@ -691,58 +680,40 @@ function SelectedWork() {
 }
 
 function About() {
-  const sectionRef = useRef(null);
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start 0.28'],
-  });
-  const revealInset = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
   return (
     <section
       className={styles.aboutTransition}
       id="about"
       aria-labelledby="about-heading"
-      ref={sectionRef}
     >
-      <motion.div
-        className={styles.about}
-        style={{ '--about-reveal': reduceMotion ? 0 : revealInset }}
-      >
+      <AboutLanyard />
+      <div className={styles.about}>
         <div className={`${styles.frame} ${styles.aboutFrame}`}>
           <div className={styles.aboutHeader}>
-            <div className={styles.aboutPortrait}>
-              <Image
-                src="/home/about/olumide-profile.png"
-                alt="Olumide Olusesi (Lums)"
-                width={1080}
-                height={1080}
-                sizes="(max-width: 700px) 112px, 148px"
-              />
+            <div className={styles.aboutLanyardSpace} aria-hidden="true" />
+            <div className={styles.aboutProse}>
+              <h2 id="about-heading">
+                Hi, I&apos;m Olumide (Lums), a low-ego, high-impact Product Design Engineer who turns
+                complex problems into clear, useful experiences.
+              </h2>
+              <div className={styles.aboutCopy}>
+                <p>
+                  Over the last 6+ years, I&apos;ve designed across fintech, SaaS, ecommerce and
+                  enterprise software, working on everything from banking and lending to
+                  payments, internal tools and design systems. I care about the full product,
+                  not isolated screens: how it works for users, how it supports the business,
+                  and how well it translates into something engineering can actually ship.
+                </p>
+                <p>
+                  I&apos;m curious by default and collaborative by nature. I ask a lot of
+                  questions, challenge assumptions and like working with people who bring
+                  different perspectives to the table. These days, AI is also deeply embedded
+                  in how I work, from research and ideation to prototyping, design systems and
+                  production-ready builds. The goal is pretty simple: understand the problem,
+                  make the work better, and get useful things shipped.
+                </p>
+              </div>
             </div>
-            <h2 id="about-heading">
-              Hi, I&apos;m Olumide (Lums), a low-ego, high-impact Product Designer who turns
-              complex problems into clear, useful experiences.
-            </h2>
-          </div>
-
-          <div className={styles.aboutCopy}>
-            <p>
-              Over the last 6+ years, I&apos;ve designed across fintech, SaaS, ecommerce and
-              enterprise software, working on everything from banking and lending to
-              payments, internal tools and design systems. I care about the full product,
-              not isolated screens: how it works for users, how it supports the business,
-              and how well it translates into something engineering can actually ship.
-            </p>
-            <p>
-              I&apos;m curious by default and collaborative by nature. I ask a lot of
-              questions, challenge assumptions and like working with people who bring
-              different perspectives to the table. These days, AI is also deeply embedded
-              in how I work, from research and ideation to prototyping, design systems and
-              production-ready builds. The goal is pretty simple: understand the problem,
-              make the work better, and get useful things shipped.
-            </p>
           </div>
 
           <div className={styles.aboutLogos}>
@@ -750,7 +721,7 @@ function About() {
           </div>
           <Capabilities />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -1020,18 +991,6 @@ function AskLumsShell() {
   };
 
   useEffect(() => {
-    const launcher = launcherRef.current;
-    if (!launcher) return;
-
-    const syncAnimation = () => {
-      launcher.style.setProperty('--ask-animation-state', document.hidden ? 'paused' : 'running');
-    };
-    syncAnimation();
-    document.addEventListener('visibilitychange', syncAnimation);
-    return () => document.removeEventListener('visibilitychange', syncAnimation);
-  }, [open]);
-
-  useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape') setOpen(false);
     };
@@ -1070,6 +1029,7 @@ function AskLumsShell() {
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
             transition={{ duration: reduceMotion ? 0 : 0.1, ease: 'easeOut' }}
           >
+            <span className={styles.askLauncherGlow} aria-hidden="true" />
             <span className={styles.askLauncherBorder} aria-hidden="true" />
             <span className={styles.askLauncherMark} aria-hidden="true">
               <SparkleIcon />

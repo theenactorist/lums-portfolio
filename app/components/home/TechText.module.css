@@ -1,0 +1,45 @@
+/* React Bits Tech Text, scoped and aligned to the existing heading. */
+.techText {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: visible;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  touch-action: pan-y pinch-zoom;
+}
+
+.text {
+  display: block;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+.canvas {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.techText[data-ready='true'] .text {
+  /* Retain real heading text for assistive technology and copy/paste. */
+  color: transparent;
+}
+
+.techText[data-ready='true'] .canvas {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .techText[data-ready='true'] .text {
+    color: inherit;
+  }
+
+  .canvas {
+    display: none;
+  }
+}

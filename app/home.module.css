@@ -259,7 +259,7 @@
 
 .hero .frame {
   position: relative;
-  z-index: 1;
+  z-index: auto;
   display: flex;
   flex: 1;
   width: calc(100% - 96px);
@@ -273,14 +273,24 @@
 
 .heroCopy {
   position: relative;
-  z-index: 2;
+  z-index: auto;
   width: min(100%, 1280px);
   margin-inline: auto;
   padding-top: 96px;
   text-align: left;
 }
 
+.heroEyebrow {
+  margin: 0 0 24px;
+  color: var(--pale);
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 .heroTitle {
+  position: relative;
+  z-index: 4;
   max-width: none;
   margin: 0;
   color: var(--ink-strong);
@@ -294,17 +304,10 @@
   display: block;
 }
 
-.heroInteractiveWord {
-  display: inline-block;
-}
-
-.heroInteractiveWord:not(:last-child) {
-  margin-right: 0.22em;
-}
-
 .heroLocation {
   position: relative;
   color: var(--pale);
+  font-weight: 400;
   white-space: nowrap;
 }
 
@@ -987,8 +990,9 @@
 
 
 .aboutTransition {
-  --about-reveal-inset: min(14vw, 224px);
-  --about-reveal-radius: 40px;
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
   background: var(--canvas);
 }
 
@@ -1004,42 +1008,31 @@
   --rule: #3f3f46;
   background: var(--canvas);
   color: var(--ink);
-  /* Keep the layout stable while the panel's edges open with page scrolling. */
-  clip-path: inset(
-    0 calc(var(--about-reveal-inset) * var(--about-reveal, 0))
-    round calc(var(--about-reveal-radius) * var(--about-reveal, 0))
-  );
 }
 
 .aboutFrame {
-  width: min(100%, 1120px);
+  width: min(100%, 1280px);
 }
 
 .aboutHeader {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.3fr) minmax(0, 0.7fr);
+  align-items: start;
+  gap: 36px;
   margin-bottom: 48px;
 }
 
-.aboutPortrait {
-  width: 148px;
-  height: 148px;
-  flex: 0 0 auto;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #d4d4d8;
+.aboutProse {
+  min-width: 0;
+  max-width: 46rem;
 }
 
-.aboutPortrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.aboutLanyardSpace {
+  min-height: 560px;
 }
 
 .aboutHeader h2 {
-  margin: 0;
+  margin: 0 0 32px;
   font-size: clamp(1.8rem, 3.2vw, 2.875rem);
   font-weight: 600;
   line-height: 1.16;
@@ -1380,10 +1373,23 @@
 }
 
 .askLauncher {
+  /* Static adaptation of React Bits Border Glow's mesh edge and outer glow.
+     https://reactbits.dev/components/border-glow
+     Copyright (c) 2026 David Haz. License: components/home/vendor/REACT_BITS_LICENSE.txt */
+  --ask-glow-mesh:
+    radial-gradient(at 80% 55%, #22d3ee 0, transparent 50%),
+    radial-gradient(at 69% 34%, #3b82f6 0, transparent 50%),
+    radial-gradient(at 8% 6%, #a78bfa 0, transparent 50%),
+    radial-gradient(at 41% 38%, #f472b6 0, transparent 50%),
+    radial-gradient(at 86% 85%, #22d3ee 0, transparent 50%),
+    radial-gradient(at 82% 18%, #3b82f6 0, transparent 50%),
+    radial-gradient(at 51% 4%, #a78bfa 0, transparent 50%),
+    linear-gradient(120deg, #22d3ee, #a78bfa 55%, #f472b6);
   position: relative;
+  isolation: isolate;
   display: inline-flex;
   min-height: 48px;
-  overflow: hidden;
+  overflow: visible;
   align-items: center;
   gap: 10px;
   padding: 0 20px 0 12px;
@@ -1399,35 +1405,25 @@
   transition: background-color 160ms ease-out, transform 160ms ease-out;
 }
 
-.askLauncher::after {
-  position: absolute;
-  top: -80%;
-  left: -28%;
-  width: 36%;
-  height: 260%;
-  background: linear-gradient(
-    90deg,
-    rgb(34 211 238 / 0%) 0%,
-    rgb(34 211 238 / 44%) 22%,
-    rgb(59 130 246 / 48%) 42%,
-    rgb(167 139 250 / 46%) 62%,
-    rgb(244 114 182 / 44%) 80%,
-    rgb(244 114 182 / 0%) 100%
-  );
-  content: '';
-  pointer-events: none;
-  transform: translateX(-180%) rotate(18deg);
-  animation: ask-launcher-shimmer 3.2s ease-in-out infinite;
-  animation-play-state: var(--ask-animation-state, running);
-}
-
+.askLauncherGlow,
 .askLauncherBorder {
   position: absolute;
-  z-index: 2;
-  inset: 0;
-  overflow: hidden;
-  padding: 1.5px;
   border-radius: inherit;
+  pointer-events: none;
+}
+
+.askLauncherGlow {
+  z-index: 0;
+  inset: -2px;
+  filter: blur(7px);
+  opacity: 0.72;
+}
+
+.askLauncherBorder,
+.askLauncherGlow::before {
+  position: absolute;
+  border-radius: inherit;
+  background: var(--ask-glow-mesh);
   pointer-events: none;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -1435,54 +1431,35 @@
   mask-composite: exclude;
 }
 
-.askLauncherBorder::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 125%;
-  aspect-ratio: 1;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg 200deg,
-    #22d3ee 240deg,
-    #3b82f6 270deg,
-    #a78bfa 295deg,
-    #f472b6 320deg,
-    transparent 360deg
-  );
-  content: '';
-  transform: translate(-50%, -50%) rotate(0deg);
-  animation: ask-launcher-border 4s linear infinite;
-  animation-play-state: var(--ask-animation-state, running);
+.askLauncherBorder {
+  z-index: 2;
+  inset: -1px;
+  padding: 1.5px;
 }
 
-@keyframes ask-launcher-border {
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+.askLauncherGlow::before {
+  inset: 0;
+  padding: 4px;
+  content: '';
 }
 
 @supports not ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
-  .askLauncherBorder {
-    display: none;
+  .askLauncherBorder,
+  .askLauncherGlow::before {
+    padding: 0;
+    border: 1.5px solid #22d3ee;
+    background: transparent;
   }
 }
 
 @media (forced-colors: active) {
   .askLauncherBorder,
-  .askLauncher::after {
+  .askLauncherGlow {
     display: none;
   }
-}
 
-@keyframes ask-launcher-shimmer {
-  0%,
-  58% {
-    transform: translateX(-180%) rotate(18deg);
-  }
-
-  100% {
-    transform: translateX(620%) rotate(18deg);
+  .askLauncher {
+    border-color: ButtonText;
   }
 }
 
@@ -1874,25 +1851,29 @@
 }
 
 @media (max-width: 700px) {
+  .heroBackdrop::after {
+    background: linear-gradient(
+      180deg,
+      rgb(7 15 25 / 74%) 0%,
+      rgb(7 15 25 / 70%) 66%,
+      rgb(7 15 25 / 46%) 86%,
+      rgb(7 15 25 / 76%) 100%
+    );
+  }
+
   .heroVideoControl {
     right: 20px;
     bottom: 24px;
   }
 
-  .aboutTransition {
-    --about-reveal-inset: 20px;
-    --about-reveal-radius: 24px;
+  .aboutLanyardSpace {
+    min-height: min(312px, 75.2vw);
   }
 
   .aboutHeader {
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
     gap: 28px;
     margin-bottom: 32px;
-  }
-
-  .aboutPortrait {
-    width: 112px;
-    height: 112px;
   }
 
   .aboutLogos,
@@ -1926,13 +1907,17 @@
     width: calc(100% - 40px);
     align-items: flex-start;
     margin-inline: 20px;
-    padding-block: calc(var(--nav-height) + clamp(88px, 13svh, 104px)) 8px;
+    padding-block: calc(var(--nav-height) + clamp(56px, 8svh, 80px)) 104px;
   }
 
   .heroTitle {
-    font-size: clamp(1.54rem, 6.44vw, 1.82rem);
-    line-height: 0.93;
+    font-size: clamp(2.5rem, 10.8vw, 3.5rem);
+    line-height: 1.04;
     letter-spacing: -0.025em;
+  }
+
+  .heroEyebrow {
+    margin-bottom: 16px;
   }
 
   .heroLocation {
@@ -1941,27 +1926,34 @@
   }
 
   .heroLower {
-    gap: 20px;
-    margin-top: 24px;
+    gap: 28px;
+    margin-top: 28px;
   }
 
   .heroSummary {
-    font-size: 1.0625rem;
+    font-size: 1.1875rem;
     line-height: 1.55;
   }
 
   .heroActions {
+    width: 100%;
+    max-width: 28rem;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
   }
 
   .hero .primaryButton {
-    padding-inline: 20px;
+    min-height: 56px;
+    flex: 1;
+    padding-inline: 12px;
+    font-size: 1.0625rem;
+    white-space: nowrap;
   }
 
   .hero .textLink {
-    padding-inline: 8px;
+    min-height: 56px;
+    padding-inline: 0;
   }
 
   .heroScrollCue {
@@ -2159,23 +2151,6 @@
   }
 }
 
-@media (max-width: 360px) {
-  .heroActions {
-    gap: 12px;
-  }
-
-  .hero .primaryButton {
-    min-height: 52px;
-    padding-inline: 24px;
-    font-size: 0.9375rem;
-  }
-
-  .hero .textLink {
-    font-size: 0.9375rem;
-  }
-
-}
-
 @media (prefers-reduced-motion: reduce) {
   :global(body:has(.theme2-home) .nav__inner),
   :global(body:has(.theme2-home) .nav__links),
@@ -2245,15 +2220,6 @@
   .heroScrollLine {
     animation: none;
     transform: scaleY(1);
-  }
-
-  .askLauncher::after {
-    display: none;
-    animation: none;
-  }
-
-  .askLauncherBorder::before {
-    animation: none;
   }
 
   .projectShimmer {
