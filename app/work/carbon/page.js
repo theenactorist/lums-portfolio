@@ -1,452 +1,163 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import PageTransition from '../../components/PageTransition';
-import ZoomableImage from '../../components/ZoomableImage';
+import CaseStudyProgressRail from '../../components/CaseStudyProgressRail';
+import CaseStudyAnimation from '../../components/CaseStudyAnimation';
+import ZoomableImage from '../../components/case-studies/ZoomableImage';
+import '../../components/case-studies/shell-compat.css';
+import '../ai-copywriting/reference-fonts.css';
+import './carbon-shell.css';
+import styles from './page.module.css';
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-};
+const phases = [
+  { id: 'overview', label: 'At a glance' },
+  { id: 'research', label: 'What customers needed' },
+  { id: 'decisions', label: 'One experience, two platforms' },
+  { id: 'exploration', label: 'Exploration & usability testing' },
+  { id: 'experience', label: 'The redesigned home screen' },
+  { id: 'delivery', label: 'Engineering handoff & QA' },
+  { id: 'results', label: 'Results & recognition' },
+  { id: 'learnings', label: 'What I learned' },
+];
 
-const CARBON_LINK = 'https://www.getcarbon.co/';
-const LAUNCH_VIDEO_LINK = 'https://youtu.be/62txB2xvgMY?si=Qwv2uB6Cul8MkfeJ';
-const INTELPOINT_LINK = 'https://intelpoint.co/report/the-nigerian-financial-services-market/';
+function Evidence({ file, alt, caption, width = 3464, height = 1840 }) {
+  return (
+    <figure className={styles.evidence}>
+      <ZoomableImage src={`/work/carbon/${file}.jpg`} alt={alt} width={width} height={height} sizes="(max-width: 767px) 90vw, (max-width: 991px) 80vw, 744px" className={styles.evidenceImage} />
+      <figcaption>{caption}</figcaption>
+    </figure>
+  );
+}
 
 export default function CarbonCaseStudy() {
   return (
-    <PageTransition>
-      <main className="cs-page">
-        {/* ===== BREADCRUMB ===== */}
-        <nav className="cs-breadcrumb" aria-label="Breadcrumb">
-          <div className="container cs-wide-container">
-            <ol className="cs-breadcrumb__list">
-              <li className="cs-breadcrumb__item">
-                <Link href="/" className="cs-breadcrumb__link">Home</Link>
-              </li>
-              <li className="cs-breadcrumb__sep" aria-hidden="true">&gt;</li>
-              <li className="cs-breadcrumb__item cs-breadcrumb__item--current" aria-current="page">
-                Case Study
-              </li>
-            </ol>
+    <main id="carbon-case" className={styles.page}>
+      <div className={styles.shell}>
+        <header className={styles.header}>
+          <div className={styles.heroCopy}>
+            <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span>Carbon</span></nav>
+            <h1>Unifying Carbon’s banking experience across Android and iOS</h1>
+            <div className={styles.intro}><p>Redesigning the home screen to prioritise credit and everyday actions, improve balance privacy, and bring both mobile platforms into one consistent experience.</p></div>
           </div>
-        </nav>
-
-        {/* ===== HERO ===== */}
-        <section className="cs-hero">
-          <div className="container cs-hero__container">
-            <motion.div
-              className="cs-hero__grid"
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="cs-hero__text">
-                <h1 className="cs-hero__title">
-                  Revamping Home Screen Experience for a Digital Bank
-                </h1>
-                <p className="cs-hero__subtitle">
-                  <a href={CARBON_LINK} target="_blank" rel="noopener noreferrer" className="cs-inline-link">
-                    Carbon
-                  </a>{' '}
-                  is the foremost credit-led digital bank in Nigeria and is a product that
-                  empowers over 4 million customers with access to credit, simple payments
-                  solutions, high-yield investment opportunities and easy-to-use tools for
-                  personal financial management.
-                </p>
-              </div>
-
-              <figure className="cs-hero__cover">
-                <ZoomableImage
-                  src="/work/carbon/cover.gif"
-                  alt="Carbon home screen redesign"
-                  width={1200}
-                  height={675}
-                  unoptimized
-                  priority
-                  className="cs-hero__cover-image"
-                />
-              </figure>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== META GRID ===== */}
-        <section className="cs-meta-section">
-          <div className="container cs-wide-container">
-            <motion.div className="cs-meta" {...fadeUp}>
-              <div className="cs-meta__item">
-                <span className="cs-meta__label">Role</span>
-                <span className="cs-meta__value">Product design, User research</span>
-              </div>
-              <div className="cs-meta__item">
-                <span className="cs-meta__label">Duration</span>
-                <span className="cs-meta__value">Feb 2023 · 4 weeks</span>
-              </div>
-              <div className="cs-meta__item">
-                <span className="cs-meta__label">Industry</span>
-                <span className="cs-meta__value">Fintech, B2C</span>
-              </div>
-              <div className="cs-meta__item">
-                <span className="cs-meta__label">For</span>
-                <span className="cs-meta__value">Carbon</span>
-              </div>
-              <div className="cs-meta__item">
-                <span className="cs-meta__label">Team</span>
-                <span className="cs-meta__value cs-meta__value--stack">
-                  1 × product manager<br />
-                  3 × product designers<br />
-                  6 × engineers<br />
-                  1 × product marketer<br />
-                  1 × QA engineer
-                </span>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== CHALLENGE ===== */}
-        <section className="cs-prose section">
-          <div className="container">
-            <motion.div className="cs-prose__row" {...fadeUp}>
-              <div className="cs-prose__label"><span>Challenge</span></div>
-              <div className="cs-prose__content">
-                <p>
-                  The app&apos;s homescreen presented a significant challenge with its cluttered
-                  interface, impeding user navigation and the use of the core essential
-                  feature — the loan product. Notably, data analysis identified the loan product
-                  as the most critical customer need, essentially representing the company&apos;s
-                  foundation.
-                </p>
-                <p>
-                  Additionally, a considerable disparity in user experience persisted between the
-                  Android and iOS versions of the app, effectively treating them as separate
-                  applications. This inconsistency forced users to grapple with a learning curve
-                  when transitioning between different mobile devices.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== SOLUTION & IMPACT ===== */}
-        <section className="cs-prose section">
-          <div className="container">
-            <motion.div className="cs-prose__row" {...fadeUp}>
-              <div className="cs-prose__label"><span>Solution &amp; Impact</span></div>
-              <div className="cs-prose__content">
-                <p>
-                  The redesigned homescreen presents a harmonized, design-system-enhanced,
-                  clutter-free interface, greatly improving user navigation and the accessibility
-                  of essential features. To get a closer look at these changes, you can{' '}
-                  <a href={LAUNCH_VIDEO_LINK} target="_blank" rel="noopener noreferrer" className="cs-inline-link">
-                    watch the feature launch video
-                  </a>.
-                </p>
-                <p>
-                  The combined impact of these enhancements was nothing short of impressive.
-                  Customer satisfaction with the product soared by a remarkable 81%. This boost
-                  had a cascading effect, driving organic referrals and resulting in a 25%
-                  increase in user registrations. Furthermore, it reactivated 10% of dormant
-                  accounts during the release month.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== METRICS ===== */}
-        <section className="cs-metrics-section section">
-          <div className="container">
-            <motion.div className="cs-metrics" {...fadeUp}>
-              <div className="cs-metrics__item">
-                <span className="cs-metrics__value">81%</span>
-                <span className="cs-metrics__label">Surge in customer satisfaction</span>
-              </div>
-              <div className="cs-metrics__item">
-                <span className="cs-metrics__value">25%</span>
-                <span className="cs-metrics__label">Increase in user registrations</span>
-              </div>
-              <div className="cs-metrics__item">
-                <span className="cs-metrics__value">10%</span>
-                <span className="cs-metrics__label">Reactivation of dormant accounts</span>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== SOLUTION IMAGES GALLERY ===== */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide">
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/solution-1.jpg"
-                    alt="Carbon redesigned home screen"
-                    width={1200}
-                    height={1305}
-                    className="cs-feature__image"
-                  />
-                </figure>
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/solution-2.jpg"
-                    alt="Carbon redesigned home screen detail"
-                    width={1200}
-                    height={1305}
-                    className="cs-feature__image"
-                  />
-                </figure>
-              </div>
-              <div className="cs-feature__gallery cs-feature__gallery--single">
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/solution-3.gif"
-                    alt="Carbon home screen interaction"
-                    width={2048}
-                    height={1086}
-                    unoptimized
-                    className="cs-feature__image"
-                  />
-                </figure>
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/solution-4.jpg"
-                    alt="Carbon final mockup"
-                    width={2048}
-                    height={1086}
-                    className="cs-feature__image"
-                  />
-                </figure>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== DIVIDER ===== */}
-        <section className="container">
-          <motion.div className="cs-divider" {...fadeUp}>
-            Behind the Scenes
-          </motion.div>
-        </section>
-
-        {/* ===== DISCOVERY ===== */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <h2 className="cs-feature__title">Discovery</h2>
-              <p className="cs-feature__intro">
-                Insight into the problem, researching customers and understanding their needs.
-              </p>
-
-              <h3 className="cs-feature__deliverables-label">Activities</h3>
-              <ul className="cs-feature__list">
-                <li>Competitive analysis</li>
-                <li>Literature review</li>
-                <li>User interviews</li>
-              </ul>
-
-              <h3 className="cs-feature__deliverables-label">Key findings</h3>
-              <p className="cs-feature__body">
-                Support tickets and store reviews revealed concerns and queries from customers
-                questioning whether Carbon had two different applications. Further investigation
-                pointed to the cause: a disparity in the interfaces between Android and iOS.
-                Based on the{' '}
-                <a href={INTELPOINT_LINK} target="_blank" rel="noopener noreferrer" className="cs-inline-link">
-                  Nigerian Financial Services Market survey
-                </a>{' '}
-                carried out by Intelpoint, security and safety of funds are the top factors
-                people consider when choosing a banking or financial institution.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== DEFINE ===== */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <h2 className="cs-feature__title">Define</h2>
-              <p className="cs-feature__intro">
-                Narrowing the focus, crystallizing the problem.
-              </p>
-
-              <h3 className="cs-feature__deliverables-label">Activities</h3>
-              <ul className="cs-feature__list">
-                <li>Information architecture</li>
-              </ul>
-
-              <h3 className="cs-feature__deliverables-label">Focus area</h3>
-              <ul className="cs-feature__list">
-                <li>Implementation of a new design system to harmonize both visual and engineering efforts.</li>
-                <li>Improvement on the hierarchy of consuming content on the home screen to put focus on user needs.</li>
-                <li>Security feature in hiding balances to protect customers from prying eyes.</li>
-              </ul>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== DEVELOP ===== */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <h2 className="cs-feature__title">Develop</h2>
-              <p className="cs-feature__intro">Working on potential solutions.</p>
-
-              <div className="cs-feature__gallery cs-feature__gallery--single">
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/develop-main.jpg"
-                    alt="Carbon design exploration"
-                    width={2048}
-                    height={1086}
-                    className="cs-feature__image"
-                  />
-                </figure>
-              </div>
-              <div className="cs-feature__gallery cs-feature__gallery--split-even cs-feature__gallery--wide">
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/develop-1.jpg"
-                    alt="Carbon design iteration"
-                    width={1200}
-                    height={1305}
-                    className="cs-feature__image"
-                  />
-                </figure>
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/develop-2.jpg"
-                    alt="Carbon design iteration"
-                    width={1200}
-                    height={1305}
-                    className="cs-feature__image"
-                  />
-                </figure>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== DELIVER ===== */}
-        <section className="cs-feature section">
-          <div className="container">
-            <motion.div className="cs-feature__inner" {...fadeUp}>
-              <h2 className="cs-feature__title">Deliver</h2>
-              <p className="cs-feature__intro">
-                Finalizing the solutions that work and developer handoff.
-              </p>
-
-              <div className="cs-feature__gallery cs-feature__gallery--single">
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/deliver-1.jpg"
-                    alt="Carbon final design 1"
-                    width={2048}
-                    height={1086}
-                    className="cs-feature__image"
-                  />
-                </figure>
-                <figure className="cs-feature__figure">
-                  <ZoomableImage
-                    src="/work/carbon/deliver-2.jpg"
-                    alt="Carbon final design 2"
-                    width={2048}
-                    height={1086}
-                    className="cs-feature__image"
-                  />
-                </figure>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== TESTIMONIAL ===== */}
-        <section className="cs-award section">
-          <div className="container">
-            <motion.div className="cs-award__card" {...fadeUp}>
-              <blockquote className="cs-award__quote">
-                &ldquo;I&apos;m really proud of what the @get_carbon team are delivering and this
-                new design change of the Carbon app is just one of the many new changes that are
-                coming. Our mission is not just to change the way you bank, but change your life
-                by banking with us!&rdquo;
-              </blockquote>
-              <div className="cs-award__attribution">
-                <Image
-                  src="/work/carbon/testimonial-avatar.png"
-                  alt="Chijioke Dozie"
-                  width={56}
-                  height={56}
-                  className="cs-award__avatar"
-                />
-                <div className="cs-award__person">
-                  <span className="cs-award__name">Chijioke Dozie</span>
-                  <span className="cs-award__role">CEO · Carbon</span>
+          <CaseStudyAnimation src="/work/carbon/cover.gif" poster="/work/carbon/cover-poster.png" alt="Carbon release animation showing the refreshed mobile banking experience" label="Carbon overview animation" priority className={styles.heroEvidence} />
+        </header>
+        <div className={styles.articleLayout}>
+          <aside className={styles.chapterRail}><CaseStudyProgressRail phases={phases} orientation="vertical" /></aside>
+          <details className={styles.mobileContents}><summary>In this case study</summary><CaseStudyProgressRail phases={phases} orientation="vertical" /></details>
+          <article className={styles.article}>
+            <section className={`${styles.section} ${styles.overview}`} id="overview" tabIndex={-1}>
+              <div className={styles.overviewLabel}>At a glance</div>
+              <h2>Customers saw two different versions of Carbon, depending on their phone.</h2>
+              <div className={styles.overviewLayout}>
+                <dl className={styles.facts}>
+                  <div><dt>Company</dt><dd>Carbon<br /><a href="https://www.getcarbon.co/" target="_blank" rel="noopener noreferrer">Visit Carbon <span aria-hidden="true">↗</span></a></dd></div>
+                  <div><dt>Industry</dt><dd>Fintech, B2C banking</dd></div>
+                  <div><dt>Role</dt><dd>Product Designer<br />User research</dd></div>
+                  <div><dt>Team</dt><dd>1 product manager<br />3 product designers<br />6 engineers<br />1 product marketer<br />1 QA engineer</dd></div>
+                  <div><dt>Period</dt><dd>February 2023 · 4 weeks</dd></div>
+                </dl>
+                <div className={styles.overviewCopy}>
+                  <p>Carbon is a credit-led digital bank in Nigeria with more than four million customers. Its services span loans, payments, investments and personal money management.</p>
+                  <h3>Impact TLDR:</h3>
+                  <ul>
+                    <li>I contributed product design and user research as part of the three-designer team.</li>
+                    <li>The release brought Android and iOS together through a shared design system and a clearer home screen.</li>
+                    <li>Recorded team outcomes included an <strong>81% increase in customer satisfaction</strong>, a <strong>25% increase in registrations</strong> and <strong>10% dormant-account reactivation</strong>.</li>
+                  </ul>
+                  <a className={styles.resultLink} href="#results">Results and recognition <span aria-hidden="true">↗</span></a>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== LEARNINGS ===== */}
-        <section className="cs-learnings section">
-          <div className="container">
-            <motion.div className="cs-learnings__inner" {...fadeUp}>
-              <h2 className="cs-learnings__title">Learnings</h2>
-              <p className="cs-learnings__intro">
-                Takeaways that underscore a growth process for me.
-              </p>
-              <ul className="cs-learnings__list">
-                <li>
-                  <strong>Simplicity in design:</strong> Hear what a sample of your customers
-                  think before a public release. Engaging directly with users early on helps
-                  refine the product before it reaches the broader audience — ensuring the design
-                  is both functional and user-friendly.
-                </li>
-                <li>
-                  <strong>Building customer trust is a hack to growth:</strong> A significant
-                  growth lever is enhancing customer trust. By creating a reliable and secure
-                  user experience, it became easier for our customers to recommend Carbon to
-                  others, naturally expanding our user base.
-                </li>
-                <li>
-                  <strong>The impact of a clean UI:</strong> There&apos;s a tangible benefit to
-                  designing a sleek, clutter-free interface — what&apos;s known as the aesthetic
-                  usability effect. This not only made the app more appealing but also reinforced
-                  trust, and trust brought growth.
-                </li>
-              </ul>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== NEXT CASE STUDY (subtle) ===== */}
-        <section className="cs-next">
-          <div className="container">
-            <motion.div
-              className="cs-next__row"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="cs-next__label">Next case study</span>
-              <Link href="/work/sabi" className="cs-next__link">
-                Sabi — Revolutionizing Supply Chain Logistics
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-      </main>
-    </PageTransition>
+            </section>
+            <section className={styles.section} id="research" tabIndex={-1}>
+              <h2>What customers needed from the home screen</h2>
+              <div className={styles.prose}>
+                <p>The home screen was crowded, and its hierarchy made the loan product harder to find. Data analysis identified credit as customers’ most important need, but the interface did not give it a clear enough place.</p>
+                <p>Support tickets and app-store reviews exposed another problem: customers asked whether Carbon had two different applications. Android and iOS looked and behaved differently, so changing phones also meant learning a different interface.</p>
+                <p>Discovery brought together user interviews, competitive analysis and literature review to understand those needs. The design priorities became clearer access to credit, a familiar experience on either platform and more control over visible balances.</p>
+                <Evidence file="solution-1" width={1732} height={1801} alt="Old Carbon iOS and Android home screens, showing different layouts, typography and navigation" caption="The previous iOS and Android interfaces. The differences went beyond appearance: the same banking tasks occupied different places on each home screen." />
+              </div>
+            </section>
+            <section className={styles.section} id="decisions" tabIndex={-1}>
+              <h2>One experience, two platforms</h2>
+              <div className={styles.prose}>
+                <p>The redesign used Carbon’s Hydrogen Design System to bring the two platforms into one visual language. The information architecture put credit and everyday banking actions into clearer, more consistent locations.</p>
+                <div className={styles.findings}>
+                  <h3>Three decisions shaped the direction</h3>
+                  <dl>
+                    <div><dt>Give credit a dedicated home</dt><dd>A persistent Loans tab grouped loan applications, loan history and credit education. Cards moved into Quick Access alongside other everyday actions.</dd></div>
+                    <div><dt>Make the interface familiar on either phone</dt><dd>Shared typography, icons and components replaced the separate Android and iOS treatments.</dd></div>
+                    <div><dt>Let customers choose what others can see</dt><dd>Balance hiding extended across account, loan and savings views. Hiding the account balance also concealed transaction figures.</dd></div>
+                  </dl>
+                </div>
+                <Evidence file="solution-2" width={1696} height={1802} alt="New harmonized Carbon home screen with annotations for the Hydrogen Design System, Loans navigation, consistent fonts and icons, and hidden balances" caption="The documented direction connects hierarchy, platform consistency and balance privacy in one home-screen system." />
+              </div>
+            </section>
+            <section className={styles.section} id="exploration" tabIndex={-1}>
+              <h2>Exploration and usability testing</h2>
+              <div className={styles.prose}>
+                <p>Four explorations compared different arrangements of the balance area, credit entry points, Quick Access and transaction history. They show the hierarchy choices behind the final interface.</p>
+                <Evidence file="develop-main" alt="Four Carbon home-screen explorations labelled Ideation 1, Ideation 2, Ideation 3 and Ideation 4" caption="The four recorded explorations, shown together so their balance, action and navigation treatments can be compared." />
+                <h3>A Loans tab still needed to be noticed</h3>
+                <p>The archived usability conclusions show that participants found loans through the cards but overlooked the bottom tab. Moving a feature into persistent navigation did not, by itself, make that route visible enough.</p>
+                <p>The notes also raised concerns about trust, USSD access and referrals. Those findings broadened the conversation beyond the visual redesign to how customers understood and recommended Carbon.</p>
+                <div className={styles.evidencePair}>
+                  <Evidence file="develop-1" width={1702} height={1840} alt="Carbon usability-testing report contents, created by Olumide Olusesi, covering objectives, methods, tasks and conclusions" caption="The archived usability report documents the study’s structure. It is visibly dated October 2022." />
+                  <Evidence file="develop-2" width={1702} height={1840} alt="Usability-test conclusions noting that participants found loans through cards and overlooked the bottom tab, alongside trust, USSD and referral concerns" caption="The conclusions preserve the navigation finding and the wider concerns raised during testing." />
+                </div>
+              </div>
+            </section>
+            <section className={styles.section} id="experience" tabIndex={-1}>
+              <h2>The redesigned home screen</h2>
+              <div className={styles.prose}>
+                <p>The final experience brings the balance, money actions, credit offers, Quick Access and transactions into a shared hierarchy. Customers can hide sensitive figures while keeping their everyday actions available.</p>
+                <figure className={styles.evidence}>
+                  <CaseStudyAnimation src="/work/carbon/solution-3.gif" poster="/work/carbon/solution-3-poster.png" alt="Animated presentation of the redesigned Carbon home screen and its banking features" label="Carbon home screen animation" className={styles.bodyAnimation} style={{ aspectRatio: 'auto' }} />
+                  <figcaption>The original animation presents the refreshed home screen and its banking features.</figcaption>
+                </figure>
+                <p><a href="https://youtu.be/62txB2xvgMY?si=Qwv2uB6Cul8MkfeJ" target="_blank" rel="noopener noreferrer">Watch Carbon’s feature launch video <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </section>
+            <section className={styles.section} id="delivery" tabIndex={-1}>
+              <h2>Engineering handoff and implementation QA</h2>
+              <div className={styles.prose}>
+                <p>Comparing production with the prototype made implementation details visible. The review annotated balance visibility when returning from Savings, button padding and text alignment, completed-transaction history and the orientation of the Account icon.</p>
+                <Evidence file="deliver-1" alt="Production and prototype comparison with engineering QA notes about balance privacy, button padding, transaction history and Account navigation icons" caption="The production-versus-prototype checkpoint records specific issues for engineering to resolve." />
+                <p>The in-app announcement explained the changes in terms of customers’ existing habits: choose what stays hidden, find Cards in Quick Access and use Loans in the bottom navigation. It made the new information architecture visible during the transition.</p>
+                <Evidence file="deliver-2" alt="Carbon’s in-app feature announcement explaining hidden balances and transaction figures, Cards in Quick Access, and Loans in bottom navigation" caption="The feature announcement introduces the new navigation and privacy controls inside the app." />
+              </div>
+            </section>
+            <section className={styles.section} id="results" tabIndex={-1}>
+              <h2>Results and recognition</h2>
+              <div className={styles.prose}>
+                <p>The project recorded increases in customer satisfaction and registrations, alongside dormant-account reactivation. These are outcomes of the team’s release.</p>
+                <figure className={styles.metrics}>
+                  <dl>
+                    <div><dt>81%</dt><dd>Increase in customer satisfaction</dd></div>
+                    <div><dt>25%</dt><dd>Increase in user registrations</dd></div>
+                    <div><dt>10%</dt><dd>Dormant accounts reactivated during the release month</dd></div>
+                  </dl>
+                  <figcaption>The original project record supplies these outcomes without the underlying analytics or measurement method.</figcaption>
+                </figure>
+                <p>Captured release feedback includes customers recognising the design team and asking for further features, including dark mode and a referral link.</p>
+                <Evidence file="solution-4" alt="Captured Carbon release feedback with a CEO team-recognition post, customer praise, new-look and update-preference polls, and requests for dark mode and a referral link" caption="Customer reactions and release polls. The new-look poll shown here is separate from the recorded satisfaction increase above." />
+                <blockquote className={styles.quote}>
+                  <p>“I&apos;m really proud of what the @get_carbon team are delivering and this new design change of the Carbon app is just one of the many new changes that are coming. Our mission is not just to change the way you bank, but change your life by banking with us!”</p>
+                  <footer><Image src="/work/carbon/testimonial-avatar.png" alt="Chijioke Dozie" width={56} height={56} /><div><strong>Chijioke Dozie</strong><br />CEO, Carbon · recognising the team’s release</div></footer>
+                </blockquote>
+              </div>
+            </section>
+            <section className={styles.section} id="learnings" tabIndex={-1}>
+              <h2>What I learned</h2>
+              <div className={styles.prose}>
+                <h3>Listen before the public release</h3>
+                <p>Customer conversations help test whether a simpler screen is also easier to use. The overlooked Loans tab is a reminder to check how people find a feature, even when its location seems clear in the design.</p>
+                <h3>Trust is part of everyday interaction</h3>
+                <p>Balance privacy and a familiar interface matter alongside access to banking features. A cleaner visual system supports that experience, while customer feedback reveals the concerns the interface alone cannot address.</p>
+              </div>
+              <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/sabi">Designing a multi-role commerce and delivery platform for Sabi <span aria-hidden="true">↗</span></Link></nav>
+            </section>
+          </article>
+        </div>
+      </div>
+    </main>
   );
 }

@@ -9,11 +9,11 @@ import HomeFooter from './Footer';
 import HomeThemeProvider from './ThemeProvider';
 import styles from '../../layout.module.css';
 
-// Home and the approved CopyGPT, Sabi and UBA cases use this shell; other routes keep theirs.
+// Home and the approved CopyGPT, Sabi, UBA and Carbon cases use this shell; other routes keep theirs.
 export default function SiteShell({ children }) {
   const pathname = usePathname();
 
-  if (pathname !== '/' && pathname !== '/work/ai-copywriting' && pathname !== '/work/sabi' && pathname !== '/work/uba') {
+  if (pathname !== '/' && pathname !== '/work/ai-copywriting' && pathname !== '/work/sabi' && pathname !== '/work/uba' && pathname !== '/work/carbon') {
     return (
       <ProductionThemeProvider>
         <ProductionNav />

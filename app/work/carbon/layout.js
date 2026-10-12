@@ -1,15 +1,18 @@
+const title = 'Unifying Carbon’s banking experience across Android and iOS';
+const description = 'Redesigning the home screen to prioritise credit and everyday actions, improve balance privacy, and bring both mobile platforms into one consistent experience.';
+
 export const metadata = {
-  title: 'Carbon: Revamping Fintech Home Screen Experience',
-  description: 'How a home screen redesign drove an 81% surge in customer satisfaction, 25% increase in user registrations, and reactivated 10% of dormant accounts for Carbon, Nigeria\'s leading digital bank.',
+  title,
+  description,
   openGraph: {
-    title: 'Carbon: Revamping Fintech Home Screen Experience | Lums',
-    description: 'How a home screen redesign drove an 81% surge in customer satisfaction and 25% increase in user registrations for Carbon.',
-    images: [{ url: '/work/carbon/cover.gif', width: 1200, height: 675, alt: 'Carbon home screen redesign' }],
+    title,
+    description,
+    images: [{ url: '/work/carbon/cover.gif', width: 960, height: 540, alt: 'Carbon mobile banking release animation' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Carbon: Revamping Fintech Home Screen Experience | Lums',
-    description: 'How a home screen redesign drove an 81% surge in customer satisfaction for Carbon.',
+    title,
+    description,
     images: ['/work/carbon/cover.gif'],
   },
 };
