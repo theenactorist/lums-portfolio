@@ -83,8 +83,8 @@ export const productionHomeProjects = [
   },
   {
     id: 'uba',
-    title: "UBA's Human Resource Management System",
-    description: 'Concept to production: HR management system for 20,000+ employees across 20 African countries.',
+    title: 'Taking an enterprise HR platform from concept to production',
+    description: 'Designing UBA’s HCMConnect HR platform for 10,000+ employees, from discovery and connected workflows to testing and engineering handoff.',
     attributes: ['0 to 1', 'Web', 'Enterprise', 'Shipped'],
     image: '/home/live-work/uba.jpg',
     imageAlt: "UBA's Human Resource Management System",

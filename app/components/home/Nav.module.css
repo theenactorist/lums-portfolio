@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+.hamburger {
+  align-items: center;
+  justify-content: center;
+}
+
 .nameNote {
   position: absolute;
   top: calc(100% + 8px);

@@ -197,7 +197,7 @@ export default function Nav() {
 
         <button
           ref={hamburgerRef}
-          className={`nav__hamburger ${mobileOpen ? 'nav__hamburger--open' : ''}`}
+          className={`nav__hamburger ${styles.hamburger} ${mobileOpen ? 'nav__hamburger--open' : ''}`}
           onClick={() => setMobileOpen((open) => !open)}
           aria-label="Open menu"
           aria-expanded={mobileOpen}
