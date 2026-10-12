@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { Pool } from 'pg';
 import { createQuotaStore } from '@/lib/copygpt/quota.mjs';
+import { copyGPTDatabaseSSL } from '@/lib/copygpt/database-tls.mjs';
 import { createCopyGPTService, PROVIDER_TIMEOUT_MS } from '@/lib/copygpt/service.mjs';
 import { cookieOptions, networkGuard, VISITOR_COOKIE, visitorIdentity } from '@/lib/copygpt/identity.mjs';
 
@@ -14,12 +15,15 @@ function service() {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   const database = process.env.DATABASE_URL;
   if (!apiKey || !database) return createCopyGPTService({ configured: false });
+  let ssl;
+  try { ssl = copyGPTDatabaseSSL(); }
+  catch { return createCopyGPTService({ configured: false }); }
   // Separate quota-only store. Ask Lums and its conversation logging are not used.
   if (!globalThis.copyGPTQuotaPool) {
     globalThis.copyGPTQuotaPool = new Pool({ connectionString: database, max: 3,
       connectionTimeoutMillis: 5_000, idleTimeoutMillis: 10_000,
       statement_timeout: 5_000, query_timeout: 5_000,
-      ssl: process.env.NODE_ENV === 'development' || process.env.DB_REJECT_UNAUTHORIZED === 'false' ? { rejectUnauthorized: false } : true });
+      ssl });
     globalThis.copyGPTQuotaPool.on('error', () => {});
   }
   if (!quotaStore) quotaStore = createQuotaStore({ pool: globalThis.copyGPTQuotaPool });
