@@ -8,12 +8,60 @@ const ANIMATION = '/work/uba/cover.gif';
 const POSTER = '/work/uba/cover-poster.png';
 const ALT = 'UBA headquarters, employees and brand animation';
 
+function lockBackgroundScroll() {
+  const html = document.documentElement;
+  const body = document.body;
+  const x = window.scrollX;
+  const y = window.scrollY;
+  const scrollbar = Math.max(0, window.innerWidth - html.clientWidth);
+  const paddingRight = parseFloat(window.getComputedStyle(body).paddingRight) || 0;
+  const capture = (element, properties) => properties.map(property => ({
+    element,
+    property,
+    value: element.style.getPropertyValue(property),
+    priority: element.style.getPropertyPriority(property),
+  }));
+  const restore = records => records.forEach(({ element, property, value, priority }) => {
+    if (value) element.style.setProperty(property, value, priority);
+    else element.style.removeProperty(property);
+  });
+  const htmlScroll = capture(html, ['scroll-behavior']);
+  const htmlOverflow = capture(html, ['overflow-x', 'overflow-y']);
+  const bodyStyles = capture(body, ['position', 'top', 'left', 'width', 'overflow-x', 'overflow-y', 'padding-right']);
+  const set = (element, property, value) => element.style.setProperty(property, value, 'important');
+
+  set(html, 'scroll-behavior', 'auto');
+  set(html, 'overflow-x', 'hidden');
+  set(html, 'overflow-y', 'hidden');
+  set(body, 'position', 'fixed');
+  set(body, 'top', `${-y}px`);
+  set(body, 'left', `${-x}px`);
+  set(body, 'width', '100%');
+  set(body, 'overflow-x', 'hidden');
+  set(body, 'overflow-y', 'hidden');
+  if (scrollbar) set(body, 'padding-right', `${paddingRight + scrollbar}px`);
+
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    restore(bodyStyles);
+    restore(htmlOverflow);
+    try {
+      window.scrollTo({ left: x, top: y, behavior: 'auto' });
+    } finally {
+      restore(htmlScroll);
+    }
+  };
+}
+
 export default function AnimatedHero({ className = '', imageClassName = '', style }) {
   const mediaId = useId();
   const frameRef = useRef(null);
   const dialogRef = useRef(null);
   const expandRef = useRef(null);
   const closeRef = useRef(null);
+  const scrollReleaseRef = useRef(null);
   const [ready, setReady] = useState(false);
   const [requestedPlayback, setRequestedPlayback] = useState(false);
   const [inView, setInView] = useState(true);
@@ -21,6 +69,11 @@ export default function AnimatedHero({ className = '', imageClassName = '', styl
   const [expanded, setExpanded] = useState(false);
   const [failed, setFailed] = useState(false);
   const [retry, setRetry] = useState(0);
+
+  useEffect(() => () => {
+    scrollReleaseRef.current?.();
+    scrollReleaseRef.current = null;
+  }, []);
 
   useEffect(() => {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -67,9 +120,18 @@ export default function AnimatedHero({ className = '', imageClassName = '', styl
   }
 
   function openFullScreen() {
-    dialogRef.current?.showModal();
+    const dialog = dialogRef.current;
+    if (!dialog || dialog.open) return;
+    scrollReleaseRef.current = lockBackgroundScroll();
+    try {
+      dialog.showModal();
+    } catch (error) {
+      scrollReleaseRef.current();
+      scrollReleaseRef.current = null;
+      throw error;
+    }
     setExpanded(true);
-    requestAnimationFrame(() => closeRef.current?.focus());
+    requestAnimationFrame(() => closeRef.current?.focus({ preventScroll: true }));
   }
 
   function closeFullScreen() {
@@ -77,8 +139,10 @@ export default function AnimatedHero({ className = '', imageClassName = '', styl
   }
 
   function onDialogClose() {
+    scrollReleaseRef.current?.();
+    scrollReleaseRef.current = null;
     setExpanded(false);
-    requestAnimationFrame(() => expandRef.current?.focus());
+    requestAnimationFrame(() => expandRef.current?.focus({ preventScroll: true }));
   }
 
   function playbackControl(id) {
