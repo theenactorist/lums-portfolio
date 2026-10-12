@@ -179,20 +179,26 @@ export default function AnimatedHero({ className = '', imageClassName = '', styl
           className={`${styles.image} ${imageClassName}`}
           onError={playing && !expanded ? onAnimationError : undefined}
         />
-      </div>
-      <div className={styles.controls}>
-        {playbackControl(mediaId)}
         <button
-          className={styles.control}
+          className={styles.expand}
           type="button"
           onClick={openFullScreen}
           ref={expandRef}
           aria-haspopup="dialog"
           aria-label="View UBA animation in full screen"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" /></svg>
-          Full screen
+          <span className={styles.expandIcon} aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              <line x1="11" y1="8" x2="11" y2="14" />
+              <line x1="8" y1="11" x2="14" y2="11" />
+            </svg>
+          </span>
         </button>
+      </div>
+      <div className={styles.controls}>
+        {playbackControl(mediaId)}
       </div>
       <span className={styles.status} role="status">
         {statusMessage}

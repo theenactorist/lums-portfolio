@@ -1,12 +1,12 @@
 .demo {
   display: grid;
   gap: 12px;
-  width: min(1100px, calc(100vw - 32px), var(--demo-fit-width, calc((100svh - 240px) * 1.40625)));
+  width: min(100%, 1100px, var(--demo-fit-width, calc((100svh - 240px) * 1.40625)));
+  min-width: 0;
+  max-width: 100%;
   margin-top: var(--space-lg);
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   scroll-margin-top: 100px;
+  color: var(--ink);
 }
 
 .controls {
@@ -18,28 +18,29 @@
 .controls button {
   min-height: 44px;
   padding: 10px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-surface);
-  color: var(--text-secondary);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--copy);
   font: inherit;
-  font-size: var(--text-sm);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
   cursor: pointer;
 }
 
 .controls button:hover,
 .controls button[aria-pressed='true'] {
-  border-color: var(--text-primary);
-  color: var(--text-primary);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 .controls button[aria-pressed='true'] {
-  background: var(--bg-elevated, var(--bg-surface));
-  font-weight: 600;
+  background: var(--surface);
 }
 
 .controls button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--diagram-accent);
   outline-offset: 3px;
 }
 
@@ -49,9 +50,9 @@
   aspect-ratio: 1440 / 1024;
   overflow: hidden;
   margin: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
 }
 
 .frame {
@@ -75,5 +76,22 @@
 }
 
 .footer a {
-  font-size: var(--text-sm);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer a:hover { color: var(--diagram-accent); }
+.footer a:focus-visible { outline: 2px solid var(--diagram-accent); outline-offset: 4px; }
+.footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-wrap: pretty;
 }

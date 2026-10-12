@@ -1,0 +1,76 @@
+/* Shiga-only shell; visual values follow the accepted CopyGPT reference. */
+body:has(#shiga-case) {
+  --font-family-sans: 'CopyGPT Roobert', system-ui, -apple-system, sans-serif; --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
+  --nav-height: 62.375px;
+  --shiga-background: #fff;
+  --shiga-foreground: #1d1d1b;
+  --shiga-card: #f9f8f6;
+  --shiga-card-foreground: #1d1d1b;
+  --shiga-popover: #fff;
+  --shiga-popover-foreground: #1d1d1b;
+  --shiga-primary: #1d1d1b;
+  --shiga-primary-foreground: #fff;
+  --shiga-secondary: #f4f3f0;
+  --shiga-secondary-foreground: #1d1d1b;
+  --shiga-muted: #f4f3f0;
+  --shiga-muted-foreground: #6f6f6d;
+  --shiga-accent: #f4f3f0;
+  --shiga-accent-foreground: #1d1d1b;
+  --shiga-border: #e7e7e7;
+  --shiga-input: #e7e7e7;
+  --shiga-ring: #008bad;
+}
+html[data-theme='dark'] body:has(#shiga-case) {
+  --shiga-background: #18181b;
+  --shiga-foreground: #fafafa;
+  --shiga-card: #252528;
+  --shiga-card-foreground: #fafafa;
+  --shiga-popover: #252528;
+  --shiga-popover-foreground: #fafafa;
+  --shiga-primary: #fafafa;
+  --shiga-primary-foreground: #18181b;
+  --shiga-secondary: #29292c;
+  --shiga-secondary-foreground: #fafafa;
+  --shiga-muted: #29292c;
+  --shiga-muted-foreground: #b4b4bd;
+  --shiga-accent: #38383d;
+  --shiga-accent-foreground: #fafafa;
+  --shiga-border: #45454f;
+  --shiga-input: #45454f;
+  --shiga-ring: #72c6df;
+}
+/* A route-conditioned shell treatment leaves the other portfolio routes alone. */
+body:has(#shiga-case) #main-nav { width: 100%; max-width: var(--max-width); height: var(--nav-height); left: 50%; right: auto; top: 0; transform: translateX(-50%); border: 1px solid #f4f3f0; border-top: 0; border-radius: 0 0 24px 24px; background: #fff; color: #181818; backdrop-filter: none; }
+body:has(#shiga-case) #main-nav .nav__inner { width: 100%; max-width: none; padding: 10px var(--container-padding); }
+body:has(#shiga-case) #main-nav .nav__links { font-size: 14px; }
+html[data-theme='dark'] body:has(#shiga-case) #main-nav { background: #18181b; color: #fafafa; border-color: #38383d; }
+@media (min-width: 701px) and (max-width: 960px) {
+  body:has(#shiga-case) #main-nav .nav__inner { padding-inline: 3rem; }
+}
+@media (max-width: 700px) {
+  body:has(#shiga-case) #main-nav .nav__inner { padding-inline: max(1.25rem, env(safe-area-inset-left)); }
+}
+@media (max-width: 768px) {
+  body:has(#shiga-case) #main-nav .nav__hamburger { align-items: center; justify-content: center; }
+  body:has(#shiga-case) #main-nav .nav__right { display: flex; }
+  body:has(#shiga-case) #main-nav .nav__right > :not(.nav__contact-cta) { display: none; }
+  body:has(#shiga-case) #main-nav .nav__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto 44px; gap: 12px; }
+  body:has(#shiga-case) #main-nav .nav__contact-cta { min-height: 40px; padding-inline: 14px; border-radius: 16px; background: transparent; color: inherit; border: 1px solid currentColor; font-weight: 400; }
+  body:has(#shiga-case) .nav__mobile-menu { padding: 0; background: var(--shiga-background); color: var(--shiga-foreground); }
+  body:has(#shiga-case) .nav__mobile-menu[open] { justify-content: flex-start; align-items: stretch; gap: 0; }
+  body:has(#shiga-case) .nav__mobile-header { position: static; width: calc(100% - 32px); height: 62.375px; min-height: 62.375px; margin: 16px auto 0; padding: 10px 0; border: 1px solid var(--shiga-border); border-top: 0; border-radius: 0 0 24px 24px; }
+  body:has(#shiga-case) .nav__mobile-close { border: 0; border-radius: 8px; color: inherit; }
+  body:has(#shiga-case) .nav__mobile-close span { width: 16px; height: 1px; }
+  body:has(#shiga-case) .nav__mobile-links { align-items: stretch; gap: 0; padding: 16px 24px; }
+  body:has(#shiga-case) .nav__mobile-link { min-height: 46px; padding-block: 10px; font-size: 16px; line-height: 26px; font-weight: 400; color: inherit; }
+  body:has(#shiga-case) .nav__mobile-controls { padding: 0 24px; }
+}
+/* Keep the transparent flow readable and the background still in the evidence viewer. */
+body:has(#shiga-case) .zoom-image[src*='user-flow'] { background: #fff; }
+html:has(#shiga-case):has(.zoom-overlay),
+body:has(#shiga-case):has(.zoom-overlay) { overflow: hidden !important; }
+@media (prefers-reduced-motion: reduce) {
+  html:has(#shiga-case) { scroll-behavior: auto !important; }
+  body:has(#shiga-case) .zoom-overlay,
+  body:has(#shiga-case) .zoom-image { animation: none !important; transition: none !important; }
+}

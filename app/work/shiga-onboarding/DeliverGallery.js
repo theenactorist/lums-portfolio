@@ -7,12 +7,60 @@ import styles from './deliver-gallery.module.css';
 const screens = [
   { file: 'sign-up-landing', title: 'Choose your account', alt: 'ENTA sign-up account selection' },
   { file: 'individual-signup', title: 'Individual sign-up', alt: 'Individual sign-up email entry' },
-  { file: 'business-security', title: 'Create a passkey', alt: 'Business wallet security and passkey setup' },
+  { file: 'business-security', title: 'Business passkey setup', alt: 'Business wallet security and passkey setup' },
   { file: 'home-tier2-unlocked', title: 'Individual wallet', alt: 'Individual wallet balances and transaction actions' },
   { file: 'business-picker', title: 'Choose a business', alt: 'Business account picker after passkey authentication' },
   { file: 'business-verification', title: 'Verification in progress', alt: 'Business verification progress and wallet setup steps' },
   { file: 'business-home', title: 'Business wallet', alt: 'Business wallet balances and transaction actions' },
 ].map((screen) => ({ ...screen, src: `/work/shiga-onboarding/screens-2026-09/${screen.file}.png` }));
+
+function lockBackgroundScroll() {
+  const html = document.documentElement;
+  const body = document.body;
+  const x = window.scrollX;
+  const y = window.scrollY;
+  const scrollbar = Math.max(0, window.innerWidth - html.clientWidth);
+  const paddingRight = parseFloat(getComputedStyle(body).paddingRight) || 0;
+  const capture = (element, properties) => properties.map((property) => ({
+    element,
+    property,
+    value: element.style.getPropertyValue(property),
+    priority: element.style.getPropertyPriority(property),
+  }));
+  const restore = (records) => records.forEach(({ element, property, value, priority }) => {
+    if (value) element.style.setProperty(property, value, priority);
+    else element.style.removeProperty(property);
+  });
+  const htmlScroll = capture(html, ['scroll-behavior']);
+  const htmlOverflow = capture(html, ['overflow-x', 'overflow-y']);
+  const bodyStyles = capture(body, ['position', 'top', 'left', 'width', 'overflow-x', 'overflow-y', 'padding-right']);
+  // The site sets overflow with !important. Preserve inline values and their
+  // priorities, and fix the body so touch scrolling cannot move the article.
+  const set = (element, property, value) => element.style.setProperty(property, value, 'important');
+  set(html, 'scroll-behavior', 'auto');
+  set(html, 'overflow-x', 'hidden');
+  set(html, 'overflow-y', 'hidden');
+  set(body, 'position', 'fixed');
+  set(body, 'top', `${-y}px`);
+  set(body, 'left', `${-x}px`);
+  set(body, 'width', '100%');
+  set(body, 'overflow-x', 'hidden');
+  set(body, 'overflow-y', 'hidden');
+  if (scrollbar) set(body, 'padding-right', `${paddingRight + scrollbar}px`);
+
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    restore(bodyStyles);
+    restore(htmlOverflow);
+    try {
+      window.scrollTo({ left: x, top: y, behavior: 'auto' });
+    } finally {
+      restore(htmlScroll);
+    }
+  };
+}
 
 function Arrow({ direction }) {
   return (
@@ -41,21 +89,12 @@ function ScreenViewer({ initialIndex, triggerRef, onDismiss }) {
   useLayoutEffect(() => {
     const dialog = dialogRef.current;
     const trigger = triggerRef.current;
-    const htmlOverflow = document.documentElement.style.overflow;
-    const bodyOverflow = document.body.style.overflow;
-    const bodyPadding = document.body.style.paddingRight;
-    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
-    const padding = parseFloat(getComputedStyle(document.body).paddingRight) || 0;
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    if (scrollbar > 0) document.body.style.paddingRight = `${padding + scrollbar}px`;
+    const unlockScroll = lockBackgroundScroll();
     dialog.showModal();
     closeRef.current.focus({ preventScroll: true });
     return () => {
       if (dialog.open) dialog.close();
-      document.documentElement.style.overflow = htmlOverflow;
-      document.body.style.overflow = bodyOverflow;
-      document.body.style.paddingRight = bodyPadding;
+      unlockScroll();
       if (trigger?.isConnected) trigger.focus({ preventScroll: true });
     };
   }, [triggerRef]);
@@ -71,6 +110,7 @@ function ScreenViewer({ initialIndex, triggerRef, onDismiss }) {
       ref={dialogRef}
       className={styles.viewer}
       aria-labelledby="enta-screen-title"
+      aria-modal="true"
       onCancel={(event) => { event.preventDefault(); onDismiss(); }}
       onClick={(event) => { if (event.target === event.currentTarget) onDismiss(); }}
       onKeyDown={(event) => {
@@ -153,7 +193,7 @@ export default function DeliverGallery() {
           <li key={screen.file} className={styles.card}>
             <button type="button" className={styles.cardButton} aria-label={`Expand ${screen.title}`} onClick={(event) => { triggerRef.current = event.currentTarget; setSelected(index); }}>
               <span className={styles.preview}>
-                <Image src={screen.src} alt={screen.alt} width={1440} height={1024} sizes="(max-width: 700px) 82vw, 380px" />
+                <Image src={screen.src} alt={screen.alt} width={1440} height={1024} sizes="(max-width: 700px) 82vw, 330px" />
               </span>
               <span className={styles.caption}>
                 <span>{screen.title}</span>

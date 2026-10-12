@@ -24,15 +24,20 @@ export default function EntaDemo() {
     const controls = controlsRef.current;
     const stage = stageRef.current;
     const footer = footerRef.current;
+    const parent = demo.parentElement;
     let animationFrame;
 
     const fitDemo = () => {
       const gap = parseFloat(getComputedStyle(demo).rowGap) || 0;
+      const parentStyle = getComputedStyle(parent);
+      const parentWidth = parent.clientWidth
+        - (parseFloat(parentStyle.paddingLeft) || 0)
+        - (parseFloat(parentStyle.paddingRight) || 0);
       // Leave 100px above the tabs for the site header and 24px below the CTA.
       const availableHeight = window.innerHeight - 124
         - controls.getBoundingClientRect().height
         - footer.getBoundingClientRect().height - gap * 2;
-      const width = Math.min(1100, document.documentElement.clientWidth - 32,
+      const width = Math.min(1100, parentWidth, document.documentElement.clientWidth - 32,
         Math.max(0, availableHeight) * 1440 / 1024);
       demo.style.setProperty('--demo-fit-width', `${Math.floor(width)}px`);
       stage.style.setProperty('--demo-scale', String(stage.clientWidth / 1440));
@@ -44,7 +49,7 @@ export default function EntaDemo() {
     };
 
     const observer = new ResizeObserver(scheduleFit);
-    [controls, stage, footer].forEach((element) => observer.observe(element));
+    [parent, controls, stage, footer].forEach((element) => observer.observe(element));
     window.addEventListener('resize', scheduleFit);
     fitDemo();
 
@@ -82,8 +87,8 @@ export default function EntaDemo() {
         />
       </figure>
       <div ref={footerRef} className={styles.footer}>
-        <p className="cs-feature__caption">ENTA onboarding and wallets</p>
-        <a href={src} target="_blank" rel="noopener noreferrer" className="cs-inline-link"
+        <p>ENTA onboarding and wallets</p>
+        <a href={src} target="_blank" rel="noopener noreferrer"
           aria-label={`Open ${activeView.label.toLowerCase()} demo in a new tab`}>
           Open full-screen demo ↗
         </a>

@@ -13,6 +13,7 @@
 }
 
 .media {
+  position: relative;
   width: 100%;
   aspect-ratio: var(--animation-aspect-ratio, 16 / 9);
   overflow: hidden;
@@ -25,6 +26,47 @@
   height: auto;
   aspect-ratio: var(--animation-aspect-ratio, 16 / 9);
   object-fit: contain;
+}
+
+.expand {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: zoom-in;
+}
+
+.expandIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(10, 10, 14, 0.45);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expand:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(10, 10, 14, 0.6);
+}
+
+@media (max-width: 768px) {
+  .expand { bottom: 6px; right: 6px; }
+  .expandIcon { width: 32px; height: 32px; }
 }
 
 .controls,
