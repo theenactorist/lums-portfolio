@@ -1,16 +1,17 @@
+import { title } from './caseStudyContent';
+
+const description = 'Connecting supplier order and inventory management, logistics operations, and driver delivery workflows in one platform.';
+
 export const metadata = {
-  title: 'Sabi: Supply Chain Logistics Solution for African SMEs',
-  description: 'How Sabi\'s B2B marketplace was designed to revolutionize supply chain logistics for African SMEs — building tools for inventory, commerce, and distribution at scale.',
+  title,
+  description,
   openGraph: {
-    title: 'Sabi: Supply Chain Logistics for African SMEs | Lums',
-    description: 'Designing Sabi\'s B2B marketplace to revolutionize supply chain logistics for African SMEs at scale.',
-    images: [{ url: '/work/sabi/Navigating Complexity_ Revolutionizing Supply Chain Logistics for African SMEs.jpg', width: 1200, height: 675, alt: 'Sabi supply chain logistics' }],
+    title,
+    description,
+    type: 'article',
+    images: [{ url: '/work/sabi/Navigating Complexity_ Revolutionizing Supply Chain Logistics for African SMEs.jpg', width: 1768, height: 1024, alt: 'Original Sabi supplier and driver product mockups' }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sabi: Supply Chain Logistics for African SMEs | Lums',
-    description: 'Designing Sabi\'s B2B marketplace to revolutionize supply chain logistics for African SMEs.',
-  },
+  twitter: { card: 'summary_large_image', title, description },
 };
 
 export default function SabiLayout({ children }) {

@@ -1,0 +1,424 @@
+/* Production Home navigation primitives for the accepted Sabi and UBA routes.
+   Derived from the unchanged CopyGPT bridge; route shell styles retain final authority. */
+:where(body:has(:is(#sabi-case, #uba-case))) .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 10, 15, 0.85);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav--scrolled {
+  border-bottom-color: var(--border);
+  background: rgba(10, 10, 15, 0.95);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__contact-link {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__contact-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width var(--transition-base);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__contact-link:hover {
+  color: var(--text-primary);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__contact-link:hover::after {
+  width: 100%;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__logo-asterisk {
+  color: var(--text-primary);
+  cursor: help;
+  position: relative;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__link {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width var(--transition-base);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__link:hover {
+  color: var(--text-primary);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__link:hover::after {
+  width: 100%;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  :where(body:has(:is(#sabi-case, #uba-case))) .nav__socials {
+    gap: calc(var(--space-xl) * 2);
+  }
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__social-link {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__social-link:hover {
+  color: var(--text-primary);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-muted);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__theme-toggle--mobile {
+  width: auto;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .music-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+[data-theme="light"] :where(body:has(:is(#sabi-case, #uba-case))) .nav {
+  background: rgba(250, 249, 247, 0.85);
+}
+
+[data-theme="light"] :where(body:has(:is(#sabi-case, #uba-case))) .nav--scrolled {
+  background: rgba(250, 249, 247, 0.95);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--space-sm);
+  cursor: pointer;
+  z-index: calc(var(--z-nav) + 1);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-fast);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__hamburger--open .nav__hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__hamburger--open .nav__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__hamburger--open .nav__hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  border: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  z-index: var(--z-nav);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-menu[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-menu::backdrop {
+  background: transparent;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-header {
+  position: absolute;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  left: max(16px, env(safe-area-inset-left));
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-close {
+  position: relative;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-close span {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-close span:last-child {
+  transform: rotate(-45deg);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-link {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-link:hover {
+  color: var(--accent);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-controls .nav__theme-toggle,
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__mobile-controls .music-toggle__btn {
+  width: 44px;
+  height: 44px;
+}
+
+@media (max-width: 768px) {
+  :where(body:has(:is(#sabi-case, #uba-case))) .nav__links, :where(body:has(:is(#sabi-case, #uba-case))) .nav__socials, :where(body:has(:is(#sabi-case, #uba-case))) .nav__right {
+    display: none;
+  }
+  :where(body:has(:is(#sabi-case, #uba-case))) .nav__hamburger {
+    display: flex;
+  }
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav {
+  background: var(--bg-primary);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav--scrolled,
+[data-theme="light"] :where(body:has(:is(#sabi-case, #uba-case))) .nav,
+[data-theme="light"] :where(body:has(:is(#sabi-case, #uba-case))) .nav--scrolled {
+  background: var(--bg-primary);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav--scrolled {
+  border-bottom-color: var(--border);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__logo {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__logo span {
+  margin-left: 1px;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__links {
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__link {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__contact-cta {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border: 1px solid var(--text-primary);
+  border-radius: var(--radius-full);
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+:where(body:has(:is(#sabi-case, #uba-case))) .nav__theme-toggle,
+:where(body:has(:is(#sabi-case, #uba-case))) .music-toggle__btn {
+  border-color: var(--border);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  :where(body:has(:is(#sabi-case, #uba-case))) .nav__inner {
+    padding-inline: 1.25rem;
+  }
+}
+
+
+/* Preserve the production Home native dialog hidden state. */
+body:has(:is(#sabi-case, #uba-case)) .nav__mobile-menu:not([open]) {
+  display: none;
+}
+
+/* Match the accepted inherited viewer typography without changing other cases. */
+body:has(:is(#sabi-case, #uba-case)) {
+  --font-mono: var(--font-family-sans);
+}
+body:has(:is(#sabi-case, #uba-case)) .zoom-btn {
+  font-size: 16px;
+}
+body:has(:is(#sabi-case, #uba-case)) .zoom-btn--reset {
+  font-size: 12px;
+}
+
+/* The accepted UBA rail's keyboard viewport focus is supplied by its base CSS. */
+#uba-case .cs-phase-nav__viewport:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}

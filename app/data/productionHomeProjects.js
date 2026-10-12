@@ -70,8 +70,8 @@ export const productionHomeProjects = [
   },
   {
     id: 'sabi',
-    title: "Sabi's Supply Chain Logistics Solution for African SMEs",
-    description: 'Revolutionizing supply chain logistics for African SMEs, building tools for inventory, commerce, and distribution at scale.',
+    title: 'Designing a multi-role commerce and delivery platform for Sabi',
+    description: 'Connecting supplier order and inventory management, logistics operations, and driver delivery workflows in one platform.',
     attributes: ['B2B2C', 'Ecommerce', 'Logistics'],
     image: '/home/live-work/sabi.jpg',
     imageAlt: "Sabi's Supply Chain Logistics Solution for African SMEs",

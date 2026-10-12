@@ -1,0 +1,181 @@
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useId, useRef, useState } from 'react';
+import styles from './AnimatedHero.module.css';
+
+const ANIMATION = '/work/uba/cover.gif';
+const POSTER = '/work/uba/cover-poster.png';
+const ALT = 'UBA headquarters, employees and brand animation';
+
+export default function AnimatedHero({ className = '', imageClassName = '', style }) {
+  const mediaId = useId();
+  const frameRef = useRef(null);
+  const dialogRef = useRef(null);
+  const expandRef = useRef(null);
+  const closeRef = useRef(null);
+  const [ready, setReady] = useState(false);
+  const [requestedPlayback, setRequestedPlayback] = useState(false);
+  const [inView, setInView] = useState(true);
+  const [pageVisible, setPageVisible] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [retry, setRetry] = useState(0);
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const frame = requestAnimationFrame(() => {
+      setPageVisible(!document.hidden);
+      setRequestedPlayback(!preference.matches);
+      setReady(true);
+    });
+    const onPreferenceChange = () => {
+      if (preference.matches) setRequestedPlayback(false);
+    };
+    const onVisibilityChange = () => setPageVisible(!document.hidden);
+    preference.addEventListener('change', onPreferenceChange);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting));
+    if (frameRef.current) observer.observe(frameRef.current);
+    return () => {
+      cancelAnimationFrame(frame);
+      preference.removeEventListener('change', onPreferenceChange);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      observer.disconnect();
+    };
+  }, []);
+
+  const playing = ready && requestedPlayback && pageVisible && (inView || expanded) && !failed;
+  const animationSrc = retry ? `${ANIMATION}?retry=${retry}` : ANIMATION;
+  const statusMessage = failed
+    ? 'The animation could not load. Choose Retry to try again.'
+    : playing ? 'UBA animation playing.' : 'UBA animation paused on its opening frame.';
+
+  function togglePlayback() {
+    if (failed) {
+      setFailed(false);
+      setRetry(value => value + 1);
+      setRequestedPlayback(true);
+    } else {
+      setRequestedPlayback(value => !value);
+    }
+  }
+
+  function onAnimationError() {
+    setFailed(true);
+    setRequestedPlayback(false);
+  }
+
+  function openFullScreen() {
+    dialogRef.current?.showModal();
+    setExpanded(true);
+    requestAnimationFrame(() => closeRef.current?.focus());
+  }
+
+  function closeFullScreen() {
+    dialogRef.current?.close();
+  }
+
+  function onDialogClose() {
+    setExpanded(false);
+    requestAnimationFrame(() => expandRef.current?.focus());
+  }
+
+  function playbackControl(id) {
+    return (
+      <button
+        className={styles.control}
+        type="button"
+        onClick={togglePlayback}
+        aria-controls={id}
+        aria-label={failed ? 'Retry UBA animation' : playing ? 'Pause UBA animation' : 'Play UBA animation'}
+      >
+        {playing ? (
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14" /></svg>
+        ) : (
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z" /></svg>
+        )}
+        {failed ? 'Retry' : playing ? 'Pause' : 'Play'}
+      </button>
+    );
+  }
+
+  return (
+    <div className={`${styles.root} ${className}`} style={style} ref={frameRef}>
+      <div className={styles.media}>
+        <Image
+          id={mediaId}
+          src={playing && !expanded ? animationSrc : POSTER}
+          alt={ALT}
+          width={640}
+          height={360}
+          unoptimized
+          loading="eager"
+          fetchPriority="high"
+          className={`${styles.image} ${imageClassName}`}
+          onError={playing && !expanded ? onAnimationError : undefined}
+        />
+      </div>
+      <div className={styles.controls}>
+        {playbackControl(mediaId)}
+        <button
+          className={styles.control}
+          type="button"
+          onClick={openFullScreen}
+          ref={expandRef}
+          aria-haspopup="dialog"
+          aria-label="View UBA animation in full screen"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" /></svg>
+          Full screen
+        </button>
+      </div>
+      <span className={styles.status} role="status">
+        {statusMessage}
+      </span>
+      <dialog
+        className={styles.dialog}
+        ref={dialogRef}
+        aria-label="UBA animation viewer"
+        onClose={onDialogClose}
+        onKeyDown={event => {
+          if (event.key !== 'Tab') return;
+          const controls = [...event.currentTarget.querySelectorAll('button:not([disabled])')];
+          const first = controls[0];
+          const last = controls[controls.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+        }}
+        onClick={event => {
+          if (event.target === event.currentTarget) closeFullScreen();
+        }}
+      >
+        <div className={styles.viewer}>
+          <Image
+            id={`${mediaId}-expanded`}
+            src={expanded && playing ? animationSrc : POSTER}
+            alt={ALT}
+            width={640}
+            height={360}
+            unoptimized
+            className={styles.expandedImage}
+            onError={expanded && playing ? onAnimationError : undefined}
+          />
+          <div className={styles.viewerControls}>
+            {playbackControl(`${mediaId}-expanded`)}
+            <button type="button" className={styles.control} onClick={closeFullScreen} ref={closeRef}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+              Close
+            </button>
+          </div>
+          <span className={styles.status} role="status">{statusMessage}</span>
+        </div>
+      </dialog>
+    </div>
+  );
+}

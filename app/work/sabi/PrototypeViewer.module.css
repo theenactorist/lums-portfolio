@@ -1,0 +1,95 @@
+.action { max-width: 704px; margin: 0 auto 20px; }
+
+.trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trigger svg,
+.close svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: min(1200px, calc(100vw - 32px));
+  height: min(860px, calc(100dvh - 32px));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: var(--paper, #fff);
+  color: var(--ink, #1d1d1b);
+  font: inherit;
+}
+
+.dialog[open] { display: flex; flex-direction: column; }
+.dialog::backdrop { background: rgb(0 0 0 / 70%); }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line, #e7e7e7);
+  flex: 0 0 auto;
+}
+
+.dialog .header .title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--surface, #f9f8f6);
+  color: inherit;
+  cursor: pointer;
+}
+
+.trigger:focus-visible,
+.close:focus-visible { outline: 2px solid var(--focus, #008bad); outline-offset: 3px; }
+
+.frameArea {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: var(--surface, #f9f8f6);
+}
+
+.frame { display: block; width: 100%; height: 100%; border: 0; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; background: var(--surface, #f9f8f6); color: var(--copy, #555); font-size: 15px; }
+
+@media (max-width: 600px) {
+  .dialog { width: calc(100vw - 24px); height: calc(100dvh - 24px); border-radius: 16px; }
+  .header { gap: 12px; padding: 10px 12px; }
+  .dialog .header .title { font-size: 16px; }
+}

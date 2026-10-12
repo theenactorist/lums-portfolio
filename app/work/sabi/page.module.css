@@ -1,0 +1,170 @@
+/* Geometry and reading hierarchy follow the accepted CopyGPT case. */
+.page {
+  --paper: #fff;
+  --ink: #1d1d1b;
+  --copy: oklch(0.423 0.004 84.76);
+  --muted: #6f6f6d;
+  --line: #e7e7e7;
+  --line-soft: #f4f3f0;
+  --surface: #f9f8f6;
+  --rail-surface: #f4f3f0;
+  --hero-surface: #f9f8f6;
+  --focus: #008bad;
+  /* Nearest reference-family blue with a 3:1 large-text contrast margin. */
+  --metric-accent: #418efb;
+  padding: calc(var(--nav-height, 62.375px) + 24px) 0 56px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-family-sans);
+}
+:global(html[data-theme='dark']) .page {
+  --paper: #18181b;
+  --ink: #fafafa;
+  --copy: #d0d0d5;
+  --muted: #b4b4bd;
+  --line: #45454f;
+  --line-soft: #38383d;
+  --surface: #252528;
+  --rail-surface: #29292c;
+  --hero-surface: #222225;
+  --focus: #72c6df;
+  --metric-accent: #75baff;
+}
+.page * { box-sizing: border-box; }
+.page a { color: inherit; }
+.page p { margin: 0 0 20px; }
+.page strong { font-weight: 600; }
+.page :global(.case-shell) { display: block; width: 100%; padding: 0; }
+.page :global(.case-header) { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); align-items: center; gap: 56px; width: min(2000px,95%); margin: 0 auto 88px; padding: 56px; background: var(--hero-surface); border-radius: 30px; }
+.page :global(.hero-copy) { min-width: 0; }
+.page :global(.case-breadcrumb) { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 32px; }
+.page :global(.case-breadcrumb a) { color: var(--ink); text-underline-offset: 4px; }
+.page :global(.case-header h1) { max-width: 720px; margin: 0 0 32px; font-size: 48px; font-weight: 600; line-height: 1.05; letter-spacing: -.04em; text-wrap: balance; }
+.page :global(.intro-copy) { max-width: 680px; font-size: 20px; line-height: 1.6; color: var(--copy); }
+.page :global(.intro-copy p) { margin: 0; text-wrap: pretty; }
+.page :global(.hero-evidence) { min-width: 0; margin: 0; }
+.page :global(.hero-evidence-visual) { width: 100%; overflow: hidden; background: var(--paper); border-radius: 28px; }
+.page :global(.hero-evidence-visual > img), .page :global(.hero-evidence-visual .zoom-trigger__image) { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; }
+.page :global(.hero-evidence-visual .zoom-trigger) { display: block; width: 100%; border-radius: inherit; padding: 0; }
+.page :global(.animation-control) { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+.page :global(.animation-control span) { display: grid; place-items: center; width: 16px; font-size: 18px; }
+.page :global(.article-layout) { display: grid; grid-template-columns: 25% 66.666667%; align-items: start; gap: 32px; width: min(1304px,calc(100% - 40px)); margin: 0 auto; }
+.page :global(.chapter-rail), .page :global(.case-overview) { font-family: 'CopyGPT Roobert VF', 'CopyGPT Roobert', Arial, sans-serif; }
+.page :global(.chapter-rail) { position: sticky; top: 128px; max-height: calc(100dvh - 144px); overflow-y: auto; overscroll-behavior: contain; min-width: 0; padding: 0 12px; }
+.page :global(.chapter-nav) { display: flex; flex-direction: column; padding: 8px 19.2px; margin: 0; border: 0; background: var(--rail-surface); border-radius: 16px; }
+.page :global(.chapter-nav a) { display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 8px 0; color: var(--ink); font-size: 12px; line-height: 18px; text-decoration: none; }
+.page :global(.chapter-nav a::before) { content: ''; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0; }
+.page :global(.chapter-nav a[aria-current]) { font-weight: 600; }
+.page :global(.chapter-nav a[aria-current]::before) { opacity: 1; }
+.page :global(.chapter-nav a[aria-current]::after) { content: '↗'; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 8px; margin-left: auto; font-weight: 400; flex-shrink: 0; }
+.page :global(.mobile-contents) { display: none; }
+.page :global(.case-article) { container: sabi-article / inline-size; min-width: 0; padding: 0 12px 0 56px; border-left: 1px solid transparent; }
+.page :global(.case-section) { margin-bottom: 64px; scroll-margin-top: calc(var(--nav-height,72px) + 32px); }
+.page :global(.case-section:focus) { outline: none; }
+.page :global(.case-section h2) { max-width: 704px; margin: 64px auto 20px; font-size: 38.4px; line-height: 1.1; letter-spacing: -.03em; font-weight: 600; text-wrap: balance; }
+.page :global(.section-copy) { font-size: 17px; line-height: 1.625; color: var(--copy); }
+.page :global(.section-copy > p), .page :global(.section-copy > h3), .page :global(.section-copy > ul) { max-width: 704px; margin-inline: auto; }
+.page :global(.section-copy > p) { margin-bottom: 20px; text-wrap: pretty; }
+.page :global(.section-copy > h3) { margin-top: 56px; margin-bottom: 20px; font-size: 28px; line-height: 1.2; letter-spacing: -.025em; text-wrap: balance; color: var(--ink); }
+.page :global(.section-copy ul) { padding-left: 24px; list-style: disc; }
+.page :global(.section-copy li + li) { margin-top: 8px; }
+.page :global(.case-overview) { margin-bottom: 104px; }
+.page :global(.overview-label) { display: inline-flex; padding: 4px 8px; margin-bottom: 32px; background: var(--rail-surface); border-radius: 6px; font-size: 12px; line-height: 18px; color: var(--ink); }
+.page :global(.case-overview h2) { max-width: none; font-size: 32px; line-height: 1.1; letter-spacing: -.01em; font-weight: 500; margin: 0 0 48px; }
+.page :global(.overview-layout) { display: grid; grid-template-columns: 43% minmax(0,1fr); gap: 24px; align-items: start; }
+.page :global(.project-facts) { padding: 19.2px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; margin: 0; }
+.page :global(.project-facts > div + div) { border-top: 1px dashed var(--line); padding-top: 19.2px; margin-top: 19.2px; }
+.page :global(.project-facts dt) { font-size: 12px; line-height: 18px; color: var(--muted); font-weight: 600; letter-spacing: .4px; text-transform: uppercase; margin-bottom: 10px; }
+.page :global(.project-facts dd) { margin: 0; font-size: 16px; line-height: 1.45; color: var(--ink); }
+.page :global(.project-facts a) { display: inline-block; margin-top: 8px; color: var(--copy); font-size: 14px; text-underline-offset: 3px; }
+.page :global(.overview-tool) { display: inline-flex; align-items: center; gap: 8px; }
+.page :global(.overview-tool img) { display: block; width: 20px; height: 20px; object-fit: contain; }
+.page :global(.overview-copy) { min-width: 0; font-size: 21.12px; line-height: 1.4; color: var(--ink); }
+.page :global(.overview-copy h3) { margin: 32px 0 16px; font-size: 20px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
+.page :global(.overview-tldr) { list-style: disc; padding-left: 22px; margin: 0; font-size: inherit; line-height: inherit; }
+.page :global(.overview-tldr li + li) { margin-top: 14px; }
+.page :global(.overview-result-link) { display: inline-block; margin-top: 24px; font-size: 13px; line-height: 1.7; text-underline-offset: 4px; }
+.page :global(.coverage-grid) { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 28px; margin: 40px 0; background: var(--surface); border-radius: 30px; }
+.page :global(.coverage-item) { min-width: 0; }
+.page :global(.coverage-item h3) { margin: 0 0 20px; font-size: 20px; line-height: 1.3; color: var(--ink); }
+.page :global(.coverage-item ul) { margin: 0; padding-left: 20px; }
+.page :global(.coverage-item li) { padding: 10px 0; font-size: 15px; line-height: 1.65; }
+.page :global(.coverage-item li + li) { margin-top: 0; }
+.page :global(.research-rows) { max-width: 704px; margin: 32px auto; }
+.page :global(.research-rows > div) { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.page :global(.research-rows dt) { color: var(--ink); font-size: 16px; line-height: 1.4; font-weight: 600; }
+.page :global(.research-rows dd) { margin: 0; }
+.page :global(.section-copy > figure) { width: 100%; max-width: none; margin: 40px 0; padding: 28px; background: var(--surface); border: 0; border-radius: 30px; }
+.page :global(.evidence-figure .zoom-trigger) { display: block; width: 100%; padding: 0; border-radius: 8px; }
+.page :global(.evidence-figure .zoom-trigger__image) { display: block; width: 100%; height: auto; object-fit: contain; }
+.page :global(.section-copy figcaption) { margin-top: 24px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.page :global(.logistics-gallery) { display: grid; grid-template-columns: minmax(0,3fr) minmax(0,1fr); gap: 24px; align-items: center; }
+.page :global(.driver-gallery) { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.page :global(.driver-gallery h3) { margin: 24px 0 12px; color: var(--ink); font-size: 18px; line-height: 1.3; font-weight: 600; }
+.page :global(.driver-gallery p) { margin: 0; font-size: 15px; line-height: 1.65; }
+.page :global(.section-copy > .feature-list) { padding: 0; margin-block: 24px; list-style: none; }
+.page :global(.feature-list > li) { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 24px; margin: 0; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.page :global(.feature-list > li + li) { margin-top: 0; }
+.page :global(.feature-list strong) { color: var(--ink); }
+.page :global(.feature-list > li:last-child), .page :global(.research-rows > div:last-child) { border-bottom: 0; }
+.page :global(.prototype-link) { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 15px; text-decoration: underline; text-underline-offset: 4px; }
+.page :global(.section-copy > .company-metrics) { padding: 40px; text-align: center; }
+.page :global(.company-metrics dl) { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; margin: 0; }
+.page :global(.company-metrics dt) { font-size: 72px; line-height: 1; font-weight: 600; letter-spacing: -.04em; color: var(--metric-accent); }
+.page :global(.company-metrics dd) { margin: 14px 0 0; font-size: 14px; line-height: 1.5; }
+.page :global(.company-metrics figcaption) { margin-top: 28px; }
+.page :global(.next-case) { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-top: 32px; margin-top: 64px; color: var(--ink); }
+.page :global(.next-case > span) { font-size: 13px; color: var(--muted); }
+.page :global(.next-case a) { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; font-size: 20px; line-height: 1.3; text-decoration: none; }
+.page :global(:is(a,summary,button):focus-visible) { outline: 2px solid var(--focus); outline-offset: 4px; }
+/* Sabi's seven-character figure needs more room than CopyGPT's shorter totals. */
+@container sabi-article (max-width: 900px) {
+  .page :global(.company-metrics dl) { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1479px) {
+  .page :global(.case-header) { grid-template-columns: minmax(0,1fr); }
+  .page :global(.hero-copy) { width: 100%; max-width: 720px; justify-self: center; }
+  .page :global(.hero-evidence) { width: min(100%,530px); justify-self: center; }
+}
+@media (max-width: 991px) {
+  .page :global(.article-layout) { display: block; width: min(832px,calc(100% - 64px)); }
+  .page :global(.case-article) { padding: 0; border: 0; }
+  .page :global(.chapter-rail) { display: none; }
+  .page :global(.mobile-contents) { display: block; margin-bottom: 48px; background: var(--rail-surface); border-radius: 16px; padding: 0 24px; }
+  .page :global(.mobile-contents > summary) { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 15px; cursor: pointer; list-style: none; }
+  .page :global(.mobile-contents > summary::-webkit-details-marker) { display: none; }
+  .page :global(.mobile-contents > summary::after) { content: '+'; font-size: 22px; font-weight: 400; }
+  .page :global(.mobile-contents[open] > summary::after) { content: '−'; }
+  .page :global(.mobile-chapters) { display: flex; flex-direction: column; padding-bottom: 16px; }
+  .page :global(.mobile-chapters a) { padding: 12px 0; min-height: 44px; color: var(--muted); font-size: 14px; text-decoration: none; }
+  .page :global(.mobile-chapters a[aria-current]) { color: var(--ink); font-weight: 600; }
+}
+@media (max-width: 767px) {
+  .page { padding-top: calc(var(--nav-height,62.375px) + 16px); padding-bottom: 24px; }
+  .page :global(.case-header) { display: block; width: 95%; padding: 40px 28px; margin-bottom: 64px; border-radius: 30px; }
+  .page :global(.case-header h1) { font-size: 35.2px; line-height: 1.05; margin-bottom: 32px; text-wrap: initial; }
+  /* The owner's animation stays visible on phones, unlike CopyGPT's review window. */
+  .page :global(.hero-evidence) { margin-top: 32px; }
+  .page :global(.hero-evidence-visual) { border-radius: 16px; }
+  .page :global(.article-layout) { width: calc(100% - 40px); }
+  .page :global(.mobile-contents) { margin-bottom: 40px; padding-inline: 20px; }
+  .page :global(.case-section h2) { font-size: 32px; line-height: 1.1; margin-bottom: 20px; }
+  .page :global(.section-copy > h3) { font-size: 24px; line-height: 1.25; margin-top: 40px; }
+  .page :global(.overview-layout) { grid-template-columns: 1fr; gap: 32px; }
+  .page :global(.overview-copy) { font-size: 20px; line-height: 1.4; }
+  .page :global(.coverage-grid) { grid-template-columns: 1fr; gap: 36px; margin-block: 32px; }
+  .page :global(.section-copy > figure) { margin-block: 32px; }
+  .page :global(.logistics-gallery) { grid-template-columns: 1fr; gap: 32px; }
+  .page :global(.logistics-gallery > :last-child) { width: min(220px,100%); margin-inline: auto; }
+  .page :global(.research-rows > div), .page :global(.feature-list > li) { grid-template-columns: 1fr; gap: 12px; }
+  .page :global(.company-metrics dl) { grid-template-columns: 1fr; gap: 32px; }
+  .page :global(.next-case) { display: block; }
+  .page :global(.next-case a) { margin-top: 8px; }
+}
+@media (max-width: 600px) {
+  .page :global(.driver-gallery) { grid-template-columns: 1fr; gap: 40px; }
+  .page :global(.driver-gallery .zoom-trigger) { width: min(220px,100%); margin-inline: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page, .page * { scroll-behavior: auto !important; animation: none !important; transition-duration: 0s !important; }
+}
