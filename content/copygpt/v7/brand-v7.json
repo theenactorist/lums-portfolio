@@ -1,0 +1,258 @@
+{
+  "version": "v7",
+  "meta": {
+    "description": "Branch brand voice, principles, and styling defaults",
+    "anti_hallucination_policy": {
+      "principle_usage": "Principles define HOW to write, not WHAT to write. Never copy example phrases verbatim.",
+      "example_handling": "Examples in do_examples illustrate the PATTERN — generate fresh copy that follows the same pattern",
+      "tone_application": "Apply tone attributes consistently but naturally — don't force every attribute into every piece of copy"
+    }
+  },
+  "brand": {
+    "name": "Branch",
+    "language": {
+      "default": "en-GB",
+      "notes": "Use British English spelling throughout. See lint-rules for specific spelling map."
+    },
+    "voice": {
+      "attributes": [
+        "Trustworthy",
+        "Professional",
+        "User-friendly",
+        "Inclusive",
+        "Optimistic"
+      ],
+      "attribute_application": {
+        "trustworthy": "Be accurate, don't overpromise, explain clearly",
+        "professional": "Maintain quality, avoid slang, be consistent",
+        "user_friendly": "Use simple language, guide clearly, reduce friction",
+        "inclusive": "Gender-neutral, culturally aware, accessible language",
+        "optimistic": "Positive framing, celebrate progress, encourage action"
+      },
+      "guidance": {
+        "do": [
+          "Use natural language and contractions in conversational contexts",
+          "Keep microcopy concise and consistent across similar contexts",
+          "Provide context, empathy, and clear next steps",
+          "Use predictable, specific action labels",
+          "Add 'your' for personalisation where appropriate",
+          "Frame actions positively — focus on what user CAN do"
+        ],
+        "dont": [
+          "Use jargon, hype, or slang",
+          "Promise outcomes you can't guarantee",
+          "Use inconsistent labels for the same action",
+          "Use placeholders or ambiguous CTAs like 'Continue' or 'Submit'",
+          "Blame the user in error messages",
+          "Use ALL CAPS except for acronyms"
+        ]
+      }
+    },
+    "principles": [
+      {
+        "id": "concise",
+        "title": "Be Concise and Eliminate Unnecessary Words",
+        "description": "Mobile screens are small. Every word must earn its place by helping users complete tasks.",
+        "pattern_guidance": {
+          "technique": "Remove filler words, combine ideas, use active voice",
+          "before_after_pattern": {
+            "verbose": "You must log in before you can write a comment",
+            "concise": "Log in to comment"
+          },
+          "word_targets": {
+            "buttons": "1-4 words",
+            "toast": "3-6 words",
+            "titles": "3-8 words",
+            "body": "As few as needed to convey meaning"
+          }
+        }
+      },
+      {
+        "id": "clear",
+        "title": "Use Clear, Simple, and Jargon-Free Language",
+        "description": "Avoid acronyms, banking jargon, and complex sentences. Plain language builds trust.",
+        "pattern_guidance": {
+          "technique": "Replace technical terms with user-friendly equivalents",
+          "jargon_replacements": {
+            "KYC": "identity verification",
+            "authenticate": "verify / confirm",
+            "initiate": "start",
+            "transaction": "payment / transfer"
+          },
+          "allowed_acronyms": ["OTP"],
+          "acronym_rule": "Spell out on first use or replace entirely in user-facing copy"
+        }
+      },
+      {
+        "id": "conversational",
+        "title": "Maintain a Conversational, Human Tone",
+        "description": "Write like talking to a user in person — friendly, warm, professional. Not robotic, not overly casual.",
+        "pattern_guidance": {
+          "technique": "Use contractions, second person ('you'), active voice",
+          "tone_spectrum": {
+            "too_formal": "Authentication credentials required for system access",
+            "just_right": "Enter your email to continue",
+            "too_casual": "Pop in your deets to get going!"
+          },
+          "contraction_usage": "Use contractions (we're, you'll, can't) in body text; avoid in legal copy"
+        }
+      },
+      {
+        "id": "contextual",
+        "title": "Provide Context and Helpful Guidance",
+        "description": "Users should understand what to do and why. Explain both the task and its purpose.",
+        "pattern_guidance": {
+          "technique": "Title states WHAT; body explains WHY or provides helpful detail",
+          "structure": {
+            "title": "Action or state",
+            "body": "Reason, context, or next step"
+          },
+          "context_triggers": [
+            "Requesting sensitive information (explain why needed)",
+            "Permissions (explain benefit)",
+            "Waiting states (set expectations)"
+          ]
+        }
+      },
+      {
+        "id": "action_oriented",
+        "title": "Use Specific and Predictable CTAs",
+        "description": "Users should instantly know what tapping a button will do. Specific verbs build trust.",
+        "pattern_guidance": {
+          "technique": "Start with action verb, be specific about outcome",
+          "verb_hierarchy": {
+            "best": "Specific action + object: 'Pay ₹5,000', 'Verify with Aadhaar'",
+            "good": "Action + object: 'Pay Now', 'Add Money'",
+            "acceptable": "Clear single verb: 'Continue' (only when truly continuing)",
+            "avoid": "Vague: 'Submit', 'Proceed', 'Next', 'OK'"
+          },
+          "consistency_rule": "Same action = same label throughout the app"
+        }
+      },
+      {
+        "id": "empathetic",
+        "title": "Be Empathetic and Use Positive Framing",
+        "description": "Reduce anxiety with supportive language. Celebrate progress, acknowledge effort, avoid blame.",
+        "pattern_guidance": {
+          "technique": "Focus on what IS possible, not what ISN'T; celebrate milestones",
+          "framing_examples": {
+            "negative": "Don't forget to pay your loan in 3 days",
+            "positive": "Your loan payment is due in 3 days. You're doing great!"
+          },
+          "empathy_triggers": [
+            "Errors (reassure, don't blame)",
+            "Waiting (thank for patience)",
+            "Long processes (acknowledge progress)",
+            "Money concerns (reassure about safety)"
+          ]
+        }
+      },
+      {
+        "id": "mobile_native",
+        "title": "Optimise for Mobile Interactions",
+        "description": "Consider touch, swipe, and small screens. Use mobile-appropriate language.",
+        "pattern_guidance": {
+          "technique": "Use 'tap' not 'click'; design for thumb reach; keep scannable",
+          "interaction_terms": {
+            "mobile": ["tap", "swipe", "scroll"],
+            "avoid": ["click", "hover", "right-click"]
+          },
+          "scannability": "Front-load important words; users scan, don't read"
+        }
+      },
+      {
+        "id": "inclusive",
+        "title": "Write Inclusive Microcopy",
+        "description": "Avoid idioms, cultural references, and gendered language that might exclude users.",
+        "pattern_guidance": {
+          "technique": "Gender-neutral pronouns; avoid idioms; test for cultural appropriateness",
+          "inclusive_patterns": {
+            "gendered": "The user must submit his documents",
+            "inclusive": "Submit your documents"
+          },
+          "cultural_awareness": [
+            "Avoid pig/piggybank imagery in Muslim-majority markets",
+            "Avoid idioms that don't translate",
+            "Use local currency and date formats"
+          ]
+        }
+      },
+      {
+        "id": "success_messages",
+        "title": "Write Clear and Reassuring Success Messages",
+        "description": "Confirm actions with key details. User should feel confident the action completed.",
+        "pattern_guidance": {
+          "technique": "State what happened + key details (amount, destination, timing)",
+          "structure": {
+            "what_happened": "Clear past-tense statement",
+            "key_details": "Amount, recipient, timing",
+            "next_step": "What happens next (if relevant)"
+          },
+          "avoid": ["Vague: 'Success!'", "Over-celebratory: 'AMAZING!!!'"]
+        }
+      },
+      {
+        "id": "error_messages",
+        "title": "Write Helpful Error Messages",
+        "description": "Explain what went wrong, why if known, how to fix, and reassure about money/data.",
+        "pattern_guidance": {
+          "technique": "Problem + solution + reassurance (for sensitive cases)",
+          "structure": {
+            "what_happened": "Clear statement of the issue",
+            "why": "Reason if known and helpful",
+            "how_to_fix": "Specific action user can take",
+            "reassurance": "For money/data: confirm safety"
+          },
+          "avoid": [
+            "Technical codes without explanation",
+            "Blaming language",
+            "Dead ends without next steps"
+          ]
+        }
+      }
+    ],
+    "styling_defaults": {
+      "capitalisation": {
+        "note": "Component rules override these defaults. See components.json for authoritative casing.",
+        "general_guidance": {
+          "titles_headlines": "Title Case",
+          "body_text": "Sentence case",
+          "buttons_ctas": "Title Case",
+          "labels": "Title Case for data labels; Sentence case for input labels",
+          "footers": "Sentence case"
+        }
+      },
+      "punctuation": {
+        "general_guidance": {
+          "titles": "No terminal period; exclamation/question allowed",
+          "body": "Period for complete sentences",
+          "buttons": "No terminal punctuation",
+          "toast": "No terminal punctuation for fragments",
+          "amounts_dates": "Use appropriate formatting (commas, currency symbols)"
+        },
+        "avoid": [
+          "Ellipses in CTAs",
+          "Multiple exclamation marks",
+          "Unnecessary periods in short text"
+        ]
+      }
+    }
+  },
+  "governance": {
+    "precedence_order": [
+      "market_regulations_and_terms",
+      "component_limits_and_rules",
+      "brand_voice_and_defaults",
+      "heuristics_and_fallbacks"
+    ],
+    "conflict_resolution": {
+      "market_vs_brand": "Market regulations always win",
+      "component_vs_brand": "Component rules override brand defaults",
+      "example_vs_pattern": "Never use examples verbatim; apply the pattern to generate fresh copy"
+    }
+  },
+  "styling": {
+    "apply_brand_styling_as_fallback_only": true,
+    "note": "Component-level rules take precedence. Brand styling applies only when component is silent."
+  }
+}

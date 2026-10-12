@@ -1,0 +1,111 @@
+.examples {
+  margin-block: 28px 0;
+  min-width: 0;
+  max-width: 100%;
+  padding: 28px;
+  background: var(--surface);
+  border-radius: 30px;
+  color: var(--copy);
+}
+
+.tableRegion {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  padding: 12px 20px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: 28px;
+}
+
+.tableRegion:focus-visible {
+  outline: 2px solid var(--diagram-accent);
+  outline-offset: 4px;
+}
+
+.caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:global(#copygpt-case) .table {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+:global(#copygpt-case) .table th,
+:global(#copygpt-case) .table td {
+  padding: 16px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--copy);
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+:global(#copygpt-case) .table th {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+:global(#copygpt-case) .table th:nth-child(1),
+:global(#copygpt-case) .table th:nth-child(2) {
+  width: 22%;
+}
+
+:global(#copygpt-case) .table th:nth-child(3) {
+  width: 33%;
+}
+
+:global(#copygpt-case) .table th:nth-child(4) {
+  width: 23%;
+}
+
+:global(#copygpt-case) .table td:nth-child(2) {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+:global(#copygpt-case) .table tbody > tr:last-child > td {
+  border-bottom: 0;
+}
+
+.state {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  :global(#copygpt-case) .table {
+    min-width: 760px;
+  }
+
+  .examples {
+    padding: 16px;
+  }
+
+  .tableRegion {
+    padding-inline: 16px;
+  }
+}

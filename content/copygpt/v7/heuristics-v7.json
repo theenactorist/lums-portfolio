@@ -1,0 +1,769 @@
+{
+  "version": "v7",
+  "meta": {
+    "description": "Component inference, slot detection, and fallback rules for copy generation",
+    "anti_hallucination_policy": {
+      "inference_principle": "Use heuristics to IDENTIFY the right component/slot, then apply that component's RULES to generate copy",
+      "fallback_principle": "When uncertain, apply the most conservative (strictest) rules",
+      "never_assume": "Don't assume market, component, or context — ask for clarification if ambiguous"
+    }
+  },
+  "component_synonyms": {
+    "description": "Maps user terminology to canonical component names",
+    "button": [
+      "button",
+      "btn",
+      "cta",
+      "call to action",
+      "action",
+      "primary button",
+      "secondary button",
+      "tertiary button",
+      "small button",
+      "card button",
+      "list button",
+      "icon button",
+      "fab",
+      "floating action button"
+    ],
+    "banner": [
+      "announcement",
+      "banner",
+      "ribbon",
+      "notification bar",
+      "promo",
+      "promotional banner"
+    ],
+    "dialog": [
+      "dialog",
+      "dialogue",
+      "modal",
+      "bottom sheet",
+      "popup",
+      "overlay",
+      "sheet"
+    ],
+    "card": [
+      "card",
+      "tile",
+      "panel",
+      "container",
+      "box",
+      "filled card",
+      "outline card"
+    ],
+    "accordion": [
+      "accordion",
+      "expandable",
+      "collapsible",
+      "dropdown content",
+      "expand/collapse",
+      "faq"
+    ],
+    "list": [
+      "list",
+      "list item",
+      "menu item",
+      "navigation item",
+      "row",
+      "list row"
+    ],
+    "list_button": [
+      "list button",
+      "actionable list",
+      "navigation list",
+      "tappable list",
+      "list action",
+      "list cta"
+    ],
+    "input": [
+      "input",
+      "input field",
+      "text field",
+      "form field",
+      "search box",
+      "text box",
+      "entry field",
+      "dropdown",
+      "select"
+    ],
+    "toast": [
+      "toast",
+      "snackbar",
+      "notification",
+      "system message",
+      "flash message",
+      "temporary message",
+      "confirmation"
+    ],
+    "alert": [
+      "alert",
+      "warning",
+      "notification",
+      "reminder",
+      "important message",
+      "critical message"
+    ],
+    "chip": [
+      "chip",
+      "tag",
+      "pill",
+      "filter chip",
+      "choice chip"
+    ],
+    "badge": [
+      "badge",
+      "counter",
+      "notification badge",
+      "count",
+      "indicator"
+    ],
+    "label": [
+      "label",
+      "tag",
+      "status",
+      "status label"
+    ],
+    "progress": [
+      "progress",
+      "progress bar",
+      "progress indicator",
+      "loading",
+      "loader"
+    ],
+    "table": [
+      "table",
+      "data table",
+      "grid",
+      "data grid"
+    ]
+  },
+  "slot_synonyms": {
+    "description": "Maps user terminology to canonical slot names",
+    "cta": [
+      "button label",
+      "button text",
+      "cta",
+      "action label",
+      "action text",
+      "button copy"
+    ],
+    "title": [
+      "h1",
+      "h2",
+      "header",
+      "headline",
+      "title",
+      "heading",
+      "main text"
+    ],
+    "body": [
+      "body",
+      "description",
+      "content",
+      "text",
+      "message",
+      "support text",
+      "supporting text",
+      "body text",
+      "paragraph"
+    ],
+    "label": [
+      "label",
+      "field label",
+      "input label",
+      "form label"
+    ],
+    "hint": [
+      "hint",
+      "helper text",
+      "guidance",
+      "help text",
+      "instruction"
+    ],
+    "error": [
+      "error",
+      "error message",
+      "validation message",
+      "error text",
+      "validation error"
+    ],
+    "placeholder": [
+      "placeholder",
+      "placeholder text",
+      "ghost text",
+      "hint text"
+    ],
+    "footer": [
+      "footer",
+      "footer text",
+      "bottom text",
+      "footer message"
+    ],
+    "subtitle": [
+      "subtitle",
+      "subheading",
+      "secondary text",
+      "subtext"
+    ],
+    "value": [
+      "value",
+      "count",
+      "number",
+      "badge value"
+    ],
+    "text": [
+      "text",
+      "copy",
+      "content",
+      "message",
+      "line"
+    ]
+  },
+  "slot_defaults": {
+    "description": "Default slot to use when only component is specified",
+    "button": "text",
+    "banner": "headline",
+    "dialog": "title",
+    "accordion": "header",
+    "card": "title",
+    "list": "title",
+    "list_button": "text",
+    "toast": "text",
+    "alert": "title",
+    "input": "label",
+    "chip": "text",
+    "badge": "value",
+    "label": "text",
+    "progress": "text",
+    "table": "header"
+  },
+  "list_component_identification": {
+    "description": "Rules for distinguishing between List (informational) and List Button (actionable)",
+    "list_button": {
+      "description": "Actionable list items that function as CTAs",
+      "casing": "title_case",
+      "visual_indicators": [
+        "chevron (→ or >)",
+        "toggle or switch",
+        "checkbox",
+        "radio button",
+        "plus icon (+)",
+        "copy icon",
+        "add icon",
+        "any tappable action affordance"
+      ],
+      "functional_indicators": [
+        "navigates to another screen",
+        "triggers an action",
+        "opens a modal or bottom sheet",
+        "enables/disables a setting"
+      ]
+    },
+    "list": {
+      "description": "Informational list items for display only",
+      "casing": "sentence_case",
+      "visual_indicators": [
+        "no action affordances",
+        "static display",
+        "informational content only"
+      ],
+      "functional_indicators": [
+        "displays information",
+        "shows status or data",
+        "non-interactive content"
+      ]
+    },
+    "decision_logic": {
+      "step_1": "Check for visual action affordances (chevrons, toggles, icons)",
+      "step_2": "If action affordances present → List Button (Title Case)",
+      "step_3": "If no action affordances → List (Sentence case)",
+      "step_4": "When uncertain, ask for clarification or screenshot"
+    }
+  },
+  "inference_rules": {
+    "description": "Rules for identifying component/slot from request context",
+    "by_length": {
+      "under_3_words": {
+        "likely_components": [
+          "button",
+          "label",
+          "badge",
+          "chip"
+        ],
+        "apply_rules": {
+          "casing": "title_case",
+          "punctuation": "none",
+          "structure": "Verb + Noun or single word"
+        }
+      },
+      "3_to_10_words": {
+        "likely_components": [
+          "toast",
+          "alert.title",
+          "input.label",
+          "banner.headline",
+          "card.title",
+          "list.title",
+          "list_button.text"
+        ],
+        "apply_rules": {
+          "casing": "varies_by_component",
+          "punctuation": "none_for_titles",
+          "structure": "Clear phrase or short sentence"
+        }
+      },
+      "10_to_20_words": {
+        "likely_components": [
+          "banner.body",
+          "card.subtitle",
+          "alert.message",
+          "input.hint",
+          "list.body"
+        ],
+        "apply_rules": {
+          "casing": "sentence_case",
+          "punctuation": "period_for_sentences",
+          "structure": "Complete sentence with context"
+        }
+      },
+      "over_20_words": {
+        "likely_components": [
+          "text_block.body",
+          "dialog.body",
+          "detailed_explanation"
+        ],
+        "apply_rules": {
+          "casing": "sentence_case",
+          "punctuation": "full_punctuation",
+          "structure": "Multiple sentences with full explanation"
+        }
+      }
+    },
+    "by_keyword": {
+      "action_verbs": {
+        "keywords": [
+          "pay",
+          "send",
+          "verify",
+          "apply",
+          "submit",
+          "add",
+          "get",
+          "start",
+          "confirm",
+          "cancel",
+          "save",
+          "delete",
+          "edit",
+          "view",
+          "download",
+          "upload",
+          "share",
+          "enable"
+        ],
+        "infer_component": "button",
+        "apply_rules": {
+          "casing": "title_case",
+          "max_words": 4,
+          "structure": "Verb + Object"
+        }
+      },
+      "status_words": {
+        "keywords": [
+          "success",
+          "successful",
+          "failed",
+          "failure",
+          "complete",
+          "completed",
+          "pending",
+          "processing",
+          "verified",
+          "approved",
+          "rejected",
+          "expired"
+        ],
+        "infer_component": "toast_or_alert",
+        "apply_rules": {
+          "casing": "sentence_case",
+          "max_words": 10,
+          "structure": "Status + context"
+        }
+      },
+      "error_indicators": {
+        "keywords": [
+          "invalid",
+          "incorrect",
+          "unable",
+          "couldn't",
+          "can't",
+          "failed",
+          "error",
+          "wrong",
+          "missing",
+          "required"
+        ],
+        "infer_component": "error_message",
+        "apply_rules": {
+          "casing": "sentence_case",
+          "structure": "Problem + solution",
+          "must_include": "Next step or how to fix"
+        }
+      },
+      "input_indicators": {
+        "keywords": [
+          "enter",
+          "type",
+          "select",
+          "choose",
+          "provide",
+          "input",
+          "fill",
+          "pick"
+        ],
+        "infer_component": "input_field",
+        "apply_rules": {
+          "label": {
+            "casing": "sentence_case",
+            "max_words": 4,
+            "punctuation": "none"
+          },
+          "placeholder": {
+            "casing": "sentence_case",
+            "structure": "Example format"
+          }
+        }
+      },
+      "promotional": {
+        "keywords": [
+          "earn",
+          "save",
+          "offer",
+          "discount",
+          "bonus",
+          "reward",
+          "free",
+          "special",
+          "limited"
+        ],
+        "infer_component": "banner_or_ribbon",
+        "apply_rules": {
+          "casing": "sentence_case",
+          "structure": "Benefit-focused",
+          "avoid": "Overpromising"
+        }
+      }
+    },
+    "by_context": {
+      "payment_flow": {
+        "indicators": [
+          "payment",
+          "pay",
+          "amount",
+          "transfer",
+          "send money",
+          "₹",
+          "₦",
+          "KSh"
+        ],
+        "common_components": [
+          "button",
+          "alert",
+          "toast",
+          "input"
+        ],
+        "tone": "Clear and reassuring",
+        "special_rules": [
+          "Always include amount when known",
+          "Reassure about money safety"
+        ]
+      },
+      "kyc_flow": {
+        "indicators": [
+          "verify",
+          "identity",
+          "document",
+          "upload",
+          "kyc",
+          "PAN",
+          "Aadhaar",
+          "ID"
+        ],
+        "common_components": [
+          "text_block",
+          "step_indicator",
+          "button",
+          "input"
+        ],
+        "tone": "Helpful and patient",
+        "special_rules": [
+          "Explain why info is needed",
+          "Use market-appropriate document terms"
+        ]
+      },
+      "error_state": {
+        "indicators": [
+          "failed",
+          "error",
+          "problem",
+          "issue",
+          "couldn't",
+          "unable"
+        ],
+        "common_components": [
+          "alert",
+          "toast",
+          "text_block"
+        ],
+        "tone": "Calm and solution-focused",
+        "special_rules": [
+          "Never blame user",
+          "Always provide next step",
+          "Reassure for money/data issues"
+        ]
+      },
+      "success_state": {
+        "indicators": [
+          "success",
+          "complete",
+          "done",
+          "confirmed",
+          "approved"
+        ],
+        "common_components": [
+          "toast",
+          "text_block",
+          "bottom_sheet"
+        ],
+        "tone": "Celebratory but professional",
+        "special_rules": [
+          "Include key details (amount, recipient)",
+          "No excessive punctuation"
+        ]
+      },
+      "onboarding": {
+        "indicators": [
+          "welcome",
+          "get started",
+          "first",
+          "new user",
+          "sign up",
+          "create account"
+        ],
+        "common_components": [
+          "text_block",
+          "button",
+          "step_indicator"
+        ],
+        "tone": "Warm and encouraging",
+        "special_rules": [
+          "Use 'Start' over 'Continue'",
+          "Set expectations clearly"
+        ]
+      }
+    }
+  },
+  "fallback_rules": {
+    "when_component_unknown": {
+      "check_sequence": [
+        "1. Check text length",
+        "2. Look for action verbs",
+        "3. Consider screen context",
+        "4. Check for action affordances (for list items)",
+        "5. Apply most conservative limits"
+      ],
+      "default_by_length": {
+        "under_25_chars": "button",
+        "25_to_50_chars": "toast_or_title",
+        "50_to_150_chars": "body_text",
+        "over_150_chars": "text_block.body"
+      },
+      "default_rules": {
+        "casing": "sentence_case",
+        "punctuation": "minimal",
+        "note": "When uncertain, sentence case is safer — easier to fix to Title Case than vice versa"
+      }
+    },
+    "when_slot_unknown": {
+      "check_sequence": [
+        "Is it actionable? → CTA/button",
+        "Is it primary information? → Title/Headline",
+        "Is it supporting information? → Body/Description",
+        "Is it metadata? → Label/Footer"
+      ]
+    },
+    "on_limit_failure": {
+      "description": "When content exceeds component limits, try alternatives",
+      "alternatives": {
+        "ribbon": [
+          "badge",
+          "label",
+          "banner"
+        ],
+        "banner": [
+          "text_block",
+          "card.subtitle"
+        ],
+        "toast": [
+          "alert",
+          "text_block"
+        ],
+        "alert.title": [
+          "text_block.title"
+        ],
+        "dialog": [
+          "bottom_sheet",
+          "text_block"
+        ],
+        "bottom_sheet": [
+          "text_block"
+        ]
+      },
+      "strategy": [
+        "1. Try to shorten copy first (remove filler words)",
+        "2. If still too long, try next alternative component",
+        "3. Re-validate against new component's rules",
+        "4. If all alternatives fail, flag for human review"
+      ]
+    }
+  },
+  "cta_verb_intelligence": {
+    "description": "Smart CTA verb selection based on context",
+    "context_to_verb": {
+      "onboarding_entry": {
+        "prefer": [
+          "Start",
+          "Begin",
+          "Get Started"
+        ],
+        "avoid": [
+          "Continue",
+          "Next"
+        ],
+        "rationale": "User hasn't started yet — 'Continue' implies resuming"
+      },
+      "form_progression": {
+        "prefer": [
+          "Continue",
+          "Next Step"
+        ],
+        "avoid": [
+          "Submit",
+          "Proceed"
+        ],
+        "rationale": "User is mid-flow — 'Continue' now makes sense"
+      },
+      "final_submission": {
+        "prefer": [
+          "Confirm",
+          "Submit Application",
+          "Complete"
+        ],
+        "avoid": [
+          "Continue",
+          "Next"
+        ],
+        "rationale": "User needs to know this is the final action"
+      },
+      "authentication": {
+        "prefer": [
+          "Get OTP",
+          "Verify",
+          "Confirm Identity"
+        ],
+        "avoid": [
+          "Send OTP",
+          "Submit"
+        ],
+        "rationale": "'Get' is user-centric; 'Send' is system-centric"
+      },
+      "payment": {
+        "prefer": [
+          "Pay Now",
+          "Pay ₹X",
+          "Confirm Payment"
+        ],
+        "avoid": [
+          "Submit",
+          "Process"
+        ],
+        "rationale": "Be explicit about payment action"
+      },
+      "deferral": {
+        "prefer": [
+          "Maybe Later",
+          "Skip for Now",
+          "Remind Me"
+        ],
+        "avoid": [
+          "Cancel",
+          "No",
+          "Dismiss"
+        ],
+        "rationale": "Soft language reduces friction"
+      }
+    }
+  },
+  "multi_slot_handling": {
+    "description": "When generating for components with multiple slots",
+    "components": {
+      "dialog": [
+        "title",
+        "body",
+        "primary_cta",
+        "secondary_cta"
+      ],
+      "bottom_sheet": [
+        "title",
+        "body",
+        "cta"
+      ],
+      "banner": [
+        "headline",
+        "body",
+        "cta"
+      ],
+      "card": [
+        "title",
+        "subtitle",
+        "body",
+        "cta"
+      ],
+      "alert": [
+        "title",
+        "message",
+        "cta"
+      ],
+      "text_block": [
+        "title",
+        "body"
+      ],
+      "input": [
+        "label",
+        "placeholder",
+        "hint",
+        "error"
+      ],
+      "list": [
+        "title",
+        "body"
+      ],
+      "list_button": [
+        "text"
+      ]
+    },
+    "generation_order": [
+      "1. Generate title/headline first (sets context)",
+      "2. Generate body (supports title)",
+      "3. Generate CTA (action that resolves the prompt)",
+      "4. Validate all slots work together"
+    ],
+    "coherence_rules": [
+      "Title and body must not repeat each other",
+      "CTA must be specific to the context (not generic)",
+      "All slots should use consistent terminology",
+      "Tone should be consistent across slots"
+    ]
+  }
+}

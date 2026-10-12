@@ -1,0 +1,30 @@
+{
+  "Branch_Copywriter_Operating_Guide_v7.md": {
+    "sha256": "7306807213b9d869bbc9c5249fce99d351206073c173b59685bb601228f7efae",
+    "bytes": 8560
+  },
+  "heuristics-v7.json": {
+    "sha256": "aacddb323f699d82bd947af10da03bf3f2620f2afce47136e22dbebd89fa9b2d",
+    "bytes": 17629
+  },
+  "material-map-v7.json": {
+    "sha256": "83e957988b9cbf0b366c12b66932b859abe2df954d93563a3865a71af6e03c1c",
+    "bytes": 11433
+  },
+  "markets-v7.json": {
+    "sha256": "bdff249e32be7f8577fd4de9f65b8063739464555f331b7d492ca7d7c164172c",
+    "bytes": 58423
+  },
+  "components-v7.json": {
+    "sha256": "1ebd4da899107fe3db547c6578fdae1e6f8f727122ce261b5bb83f9a54e9bf11",
+    "bytes": 27815
+  },
+  "brand-v7.json": {
+    "sha256": "09eaefb124a0d46687e2792e14943b95735ac614df358d1f5659a96e38f71451",
+    "bytes": 10746
+  },
+  "lint-rules-v7.json": {
+    "sha256": "cb7e9d02ab15b960af5f77d0f97149dc561031df7a193f9fb4286dfb425f3e66",
+    "bytes": 12185
+  }
+}

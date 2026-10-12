@@ -1,0 +1,72 @@
+/* Reference font faces are loaded from the same public CDN as the supplied
+   master pages for this local visual proof. No font binaries are bundled. */
+@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/6d741591-66db6b52701d0cc108d8a17d-roobert-regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/7b336388-66db6b5277d9460bfdf91388-roobert-medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/0ccfee2e-66db6b52aca9770fe39fc77e-roobert-semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/eeaa271a-66db6b5272a073a0de6caf9b-roobert-regularitalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'CopyGPT Roobert VF'; src: url('https://cdn.prod.website-files.com/61477f2c24a826836f969afe/6a1e067cbcc79b9f76bb28f5_RoobertVF.woff2') format('woff2'); font-weight: 300 900; font-style: normal; font-display: swap; }
+body:has(#copygpt-case) {
+  --font-family-sans: 'CopyGPT Roobert', system-ui, -apple-system, sans-serif; --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
+  --nav-height: 62.375px;
+  --copygpt-background: #fff;
+  --copygpt-foreground: #1d1d1b;
+  --copygpt-card: #f9f8f6;
+  --copygpt-card-foreground: #1d1d1b;
+  --copygpt-popover: #fff;
+  --copygpt-popover-foreground: #1d1d1b;
+  --copygpt-primary: #1d1d1b;
+  --copygpt-primary-foreground: #fff;
+  --copygpt-secondary: #f4f3f0;
+  --copygpt-secondary-foreground: #1d1d1b;
+  --copygpt-muted: #f4f3f0;
+  --copygpt-muted-foreground: #6f6f6d;
+  --copygpt-accent: #f4f3f0;
+  --copygpt-accent-foreground: #1d1d1b;
+  --copygpt-border: #e7e7e7;
+  --copygpt-input: #e7e7e7;
+  --copygpt-ring: #008bad;
+}
+html[data-theme='dark'] body:has(#copygpt-case) {
+  --copygpt-background: #18181b;
+  --copygpt-foreground: #fafafa;
+  --copygpt-card: #252528;
+  --copygpt-card-foreground: #fafafa;
+  --copygpt-popover: #252528;
+  --copygpt-popover-foreground: #fafafa;
+  --copygpt-primary: #fafafa;
+  --copygpt-primary-foreground: #18181b;
+  --copygpt-secondary: #29292c;
+  --copygpt-secondary-foreground: #fafafa;
+  --copygpt-muted: #29292c;
+  --copygpt-muted-foreground: #b4b4bd;
+  --copygpt-accent: #38383d;
+  --copygpt-accent-foreground: #fafafa;
+  --copygpt-border: #45454f;
+  --copygpt-input: #45454f;
+  --copygpt-ring: #72c6df;
+}
+/* A route-conditioned shell treatment leaves the other portfolio routes alone. */
+body:has(#copygpt-case) #main-nav { width: 100%; max-width: var(--max-width); height: var(--nav-height); left: 50%; right: auto; top: 0; transform: translateX(-50%); border: 1px solid #f4f3f0; border-top: 0; border-radius: 0 0 24px 24px; background: #fff; color: #181818; backdrop-filter: none; }
+body:has(#copygpt-case) #main-nav .nav__inner { width: 100%; max-width: none; padding: 10px var(--container-padding); }
+body:has(#copygpt-case) #main-nav .nav__links { font-size: 14px; }
+html[data-theme='dark'] body:has(#copygpt-case) #main-nav { background: #18181b; color: #fafafa; border-color: #38383d; }
+@media (min-width: 701px) and (max-width: 960px) {
+  body:has(#copygpt-case) #main-nav .nav__inner { padding-inline: 3rem; }
+}
+@media (max-width: 700px) {
+  body:has(#copygpt-case) #main-nav .nav__inner { padding-inline: max(1.25rem, env(safe-area-inset-left)); }
+}
+@media (max-width: 768px) {
+  body:has(#copygpt-case) #main-nav .nav__right { display: flex; }
+  body:has(#copygpt-case) #main-nav .nav__right > :not(.nav__contact-cta) { display: none; }
+  body:has(#copygpt-case) #main-nav .nav__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto 44px; gap: 12px; }
+  body:has(#copygpt-case) #main-nav .nav__contact-cta { min-height: 40px; padding-inline: 14px; border-radius: 16px; background: transparent; color: inherit; border: 1px solid currentColor; font-weight: 400; }
+  body:has(#copygpt-case) .nav__mobile-menu { padding: 0; background: var(--copygpt-background); color: var(--copygpt-foreground); }
+  body:has(#copygpt-case) .nav__mobile-menu[open] { justify-content: flex-start; align-items: stretch; gap: 0; }
+  body:has(#copygpt-case) .nav__mobile-header { position: static; width: calc(100% - 32px); height: 62.375px; min-height: 62.375px; margin: 16px auto 0; padding: 10px 0; border: 1px solid var(--copygpt-border); border-top: 0; border-radius: 0 0 24px 24px; }
+  body:has(#copygpt-case) .nav__mobile-close { border: 0; border-radius: 8px; color: inherit; }
+  body:has(#copygpt-case) .nav__mobile-close span { width: 16px; height: 1px; }
+  body:has(#copygpt-case) .nav__mobile-links { align-items: stretch; gap: 0; padding: 16px 24px; }
+  body:has(#copygpt-case) .nav__mobile-link { min-height: 46px; padding-block: 10px; font-size: 16px; line-height: 26px; font-weight: 400; color: inherit; }
+  body:has(#copygpt-case) .nav__mobile-controls { padding: 0 24px; }
+}

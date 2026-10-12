@@ -45,6 +45,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/work/ai-copywriting`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/work/branch-ai`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

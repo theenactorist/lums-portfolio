@@ -1,0 +1,358 @@
+{
+  "version": "v7",
+  "meta": {
+    "description": "Mapping from Material Design terminology to Branch Design System components",
+    "purpose": "Normalise external/designer terminology to Branch canonical names for consistent rule application"
+  },
+  "md_component_to_branch": {
+    "Card": {
+      "canonical_component": "card",
+      "slots": ["title", "body", "footer", "cta"]
+    },
+    "List Item": {
+      "canonical_component": "list_or_list_button",
+      "slots": ["title", "body", "label", "badge"],
+      "slot_mapping": {
+        "headline": "title",
+        "support": "body"
+      },
+      "requires_disambiguation": {
+        "description": "Must determine if List (informational) or List Button (actionable)",
+        "check_for": "action affordances (chevrons, toggles, checkboxes, icons)",
+        "if_actionable": "list_button",
+        "if_informational": "list"
+      }
+    },
+    "Button": {
+      "canonical_component": "button",
+      "slots": ["text"]
+    },
+    "Banner": {
+      "canonical_component": "banner",
+      "slots": ["headline", "body", "cta"]
+    },
+    "Snackbar": {
+      "canonical_component": "toast",
+      "slots": ["text", "cta"]
+    },
+    "Accordion": {
+      "canonical_component": "accordion",
+      "slots": ["header", "description"]
+    },
+    "Text Field": {
+      "canonical_component": "input",
+      "slots": ["label", "hint", "error", "placeholder"]
+    },
+    "Table": {
+      "canonical_component": "table",
+      "slots": ["header", "cell", "footer"]
+    },
+    "Ribbon": {
+      "canonical_component": "ribbon",
+      "slots": ["text"]
+    },
+    "Alert": {
+      "canonical_component": "alert",
+      "slots": ["title", "message", "cta"]
+    },
+    "Chip": {
+      "canonical_component": "chip",
+      "slots": ["text"]
+    },
+    "Badge": {
+      "canonical_component": "badge",
+      "slots": ["value"]
+    },
+    "Progress Indicator": {
+      "canonical_component": "progress",
+      "slots": ["text"]
+    },
+    "Divider": {
+      "canonical_component": "divider",
+      "slots": ["label"]
+    },
+    "Tab": {
+      "canonical_component": "chip",
+      "slots": ["text"]
+    },
+    "Stepper": {
+      "canonical_component": "step_indicator",
+      "slots": ["text"]
+    },
+    "Dialog": {
+      "canonical_component": "bottom_sheet",
+      "slots": ["title", "body", "cta"],
+      "note": "Material Dialog maps to Branch Bottom Sheet for mobile"
+    }
+  },
+  "detailed_mappings": [
+    {
+      "material": "Card/Outlined",
+      "branch_component": "Outline Cards",
+      "slot_mapping": { "title": "headline", "subtitle": "row_labels", "footer": "footer" }
+    },
+    {
+      "material": "Card/Filled",
+      "branch_component": "Filled Cards",
+      "slot_mapping": { "title": "title", "subtitle": "subtitle", "primaryAction": "cta" }
+    },
+    {
+      "material": "Card/Elevated",
+      "branch_component": "Filled Cards",
+      "slot_mapping": { "title": "title", "subtitle": "subtitle", "primaryAction": "cta" }
+    },
+    {
+      "material": "List/One-line",
+      "branch_component": "List or List Button",
+      "slot_mapping": { "headline": "title" },
+      "disambiguation": {
+        "if_has_action_affordance": { "component": "List Button", "casing": "title_case" },
+        "if_no_action_affordance": { "component": "List", "casing": "sentence_case" }
+      }
+    },
+    {
+      "material": "List/Two-line",
+      "branch_component": "List or List Button",
+      "slot_mapping": { "headline": "title", "supportingText": "body" },
+      "disambiguation": {
+        "if_has_action_affordance": { "component": "List Button", "casing": "title_case" },
+        "if_no_action_affordance": { "component": "List", "casing": "sentence_case" }
+      }
+    },
+    {
+      "material": "List/Three-line",
+      "branch_component": "List or List Button",
+      "slot_mapping": { "headline": "title", "supportingText": "body", "overlineText": "label" },
+      "disambiguation": {
+        "if_has_action_affordance": { "component": "List Button", "casing": "title_case" },
+        "if_no_action_affordance": { "component": "List", "casing": "sentence_case" }
+      }
+    },
+    {
+      "material": "Bottom Sheet",
+      "branch_component": "Bottom Sheet Header",
+      "slot_mapping": { "title": "title", "supportingText": "body", "primaryAction": "cta" }
+    },
+    {
+      "material": "Dialog/Basic",
+      "branch_component": "Bottom Sheet Header",
+      "slot_mapping": { "title": "title", "supportingText": "body", "primaryAction": "cta" }
+    },
+    {
+      "material": "Dialog/Alert",
+      "branch_component": "Alert",
+      "slot_mapping": { "title": "title", "supportingText": "message", "confirm": "cta" }
+    },
+    {
+      "material": "Dialog/Confirmation",
+      "branch_component": "Alert",
+      "slot_mapping": { "title": "title", "supportingText": "message", "confirm": "cta", "dismiss": "secondary_cta" }
+    },
+    {
+      "material": "FAB",
+      "branch_component": "FAB",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "FAB/Extended",
+      "branch_component": "FAB",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Button/Text",
+      "branch_component": "Tertiary Button",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Button/Outlined",
+      "branch_component": "Secondary Button",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Button/Contained",
+      "branch_component": "Primary Button",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Button/Filled",
+      "branch_component": "Primary Button",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Button/Elevated",
+      "branch_component": "Primary Button",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Button/Tonal",
+      "branch_component": "Secondary Button",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "IconButton",
+      "branch_component": "Icon Button",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "TextField/Outlined",
+      "branch_component": "Input Field Label",
+      "slot_mapping": { "label": "label", "helperText": "hint", "errorText": "error", "placeholder": "placeholder" }
+    },
+    {
+      "material": "TextField/Filled",
+      "branch_component": "Input Field Label",
+      "slot_mapping": { "label": "label", "helperText": "hint", "errorText": "error", "placeholder": "placeholder" }
+    },
+    {
+      "material": "Select",
+      "branch_component": "Input Field Label",
+      "slot_mapping": { "label": "label", "helperText": "hint" }
+    },
+    {
+      "material": "Snackbar",
+      "branch_component": "Toast",
+      "slot_mapping": { "message": "text", "action": "cta" }
+    },
+    {
+      "material": "Banner",
+      "branch_component": "Banner",
+      "slot_mapping": { "headline": "headline", "supportingText": "body", "primaryAction": "cta" }
+    },
+    {
+      "material": "Chip/Input",
+      "branch_component": "Chips",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Chip/Filter",
+      "branch_component": "Chips",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Badge",
+      "branch_component": "Badge",
+      "slot_mapping": { "value": "value" }
+    },
+    {
+      "material": "ProgressIndicator/Linear",
+      "branch_component": "Linear Progress Indicator",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "ProgressIndicator/Circular",
+      "branch_component": "Linear Progress Indicator",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "Divider",
+      "branch_component": "Divider",
+      "slot_mapping": { "label": "label" }
+    },
+    {
+      "material": "Tab",
+      "branch_component": "Chips",
+      "slot_mapping": { "label": "text" }
+    },
+    {
+      "material": "DataTable",
+      "branch_component": "Table",
+      "slot_mapping": { "header": "header", "cell": "cell", "footer": "footer" }
+    },
+    {
+      "material": "NavigationRail",
+      "branch_component": "List Button",
+      "slot_mapping": { "label": "text" },
+      "note": "Navigation items are actionable, so use List Button"
+    },
+    {
+      "material": "NavigationDrawer",
+      "branch_component": "List Button",
+      "slot_mapping": { "label": "text", "badge": "badge" },
+      "note": "Navigation items are actionable, so use List Button"
+    },
+    {
+      "material": "Stepper",
+      "branch_component": "Step Indicator",
+      "slot_mapping": { "label": "text" }
+    }
+  ],
+  "slot_normalisation": {
+    "description": "Maps Material slot names to Branch canonical slot names",
+    "material_to_branch": {
+      "label": "text",
+      "headline": "title",
+      "supportingText": "body",
+      "helperText": "hint",
+      "errorText": "error",
+      "primaryAction": "cta",
+      "overlineText": "label",
+      "message": "text",
+      "action": "cta",
+      "confirm": "cta",
+      "dismiss": "secondary_cta",
+      "placeholder": "placeholder",
+      "support": "body"
+    }
+  },
+  "component_fallback_rules": {
+    "when_no_exact_match": {
+      "buttons": "Default to Primary Button for contained/filled/elevated, Secondary for outlined/tonal, Tertiary for text",
+      "cards": "Default to Filled Cards for elevated/filled, Outline Cards for outlined",
+      "dialogs": "Default to Alert for confirmation/alert types, Bottom Sheet for basic/informational",
+      "inputs": "Default to Input Field Label for all text input types",
+      "navigation": "Default to List Button for navigation components (they are actionable)",
+      "lists": "Check for action affordances: if present → List Button, if absent → List"
+    }
+  },
+  "list_disambiguation": {
+    "description": "Rules for determining whether a Material List Item maps to Branch List or List Button",
+    "action_affordances": {
+      "indicators": [
+        "chevron (→ or >)",
+        "toggle or switch control",
+        "checkbox",
+        "radio button",
+        "plus icon (+)",
+        "copy icon",
+        "add icon",
+        "edit icon",
+        "delete icon",
+        "any trailing action icon"
+      ],
+      "result": "List Button (Title Case)"
+    },
+    "no_action_affordances": {
+      "indicators": [
+        "no trailing icons",
+        "no interactive controls",
+        "display-only content",
+        "static information"
+      ],
+      "result": "List (Sentence case)"
+    },
+    "decision_tree": [
+      "1. Examine the list item for action affordances",
+      "2. If chevron, toggle, checkbox, radio, or action icon present → List Button",
+      "3. If no action affordances → List",
+      "4. Apply corresponding casing rules"
+    ]
+  },
+  "canonical_identifiers": {
+    "Dialog": {
+      "canonical": "Dialog",
+      "note": "Use 'Dialog' in identifiers (Material/HTML standard). 'Dialogue' is acceptable in user-facing copy but not in component names."
+    },
+    "Bottom Sheet": {
+      "canonical": "Bottom Sheet Header",
+      "note": "Branch mobile pattern — Material Dialog often maps here"
+    },
+    "List": {
+      "canonical": "List",
+      "note": "Informational list items with no action affordances. Sentence case."
+    },
+    "List Button": {
+      "canonical": "List Button",
+      "note": "Actionable list items with chevrons, toggles, or other action affordances. Title Case."
+    }
+  }
+}

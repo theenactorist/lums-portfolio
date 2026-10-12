@@ -1,0 +1,9 @@
+{
+  "status": "approved",
+  "approved_on": "2026-10-01",
+  "owner_statement": "this prose is good, let's lock it in.",
+  "source": "content/drafts/BRANCH_UX_WRITING_PROSE.md",
+  "sha256": "913ce6b0a0196ff4faca58040397ca6532a70a74ffdbdf4dfb754bf854b5f73d",
+  "scope": "Complete prose, including learnings. Layout and live model connection are separate implementation work.",
+  "change_note": "Approval status line changed; narrative body and order preserved."
+}

@@ -1,0 +1,135 @@
+.panel {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line-soft, #f4f3f0);
+  border-radius: 28px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 12px 24px;
+  background: #f9f8f6;
+}
+
+:global(html[data-theme='dark']) .header {
+  background: var(--surface);
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.filename {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.copyButton {
+  flex-shrink: 0;
+  min-width: 80px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.copyButton:hover:not(:disabled) {
+  border-color: var(--muted);
+}
+
+.copyButton:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+
+.copyButton:focus-visible,
+.code:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.code:focus-visible {
+  outline-offset: -3px;
+}
+
+.panel .code {
+  max-width: 100%;
+  margin: 0;
+  padding: 20px 24px;
+  overflow: auto;
+  border: 0;
+  background: transparent;
+  color: var(--copy);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  line-height: 22.1px;
+  tab-size: 2;
+  white-space: pre;
+  scrollbar-color: var(--muted) var(--surface);
+}
+
+.code code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  line-height: 22.1px;
+  white-space: inherit;
+}
+
+.panel .status {
+  min-height: 21px;
+  margin: 0 24px 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.panel .status:empty {
+  min-height: 0;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .copyButton {
+    min-width: 72px;
+    padding-inline: 12px;
+  }
+
+  .panel .code {
+    max-height: 360px;
+  }
+}

@@ -1,0 +1,846 @@
+{
+  "version": "v7",
+  "meta": {
+    "description": "Branch Design System - Copy Components with pattern-based generation rules",
+    "anti_hallucination_policy": {
+      "core_principle": "Generate copy by applying patterns and rules, never by copying examples verbatim",
+      "guardrails": [
+        "Examples in guidance are for PATTERN UNDERSTANDING only — never copy them directly",
+        "Always generate fresh copy that fits the specific context and user request",
+        "Apply the transformation patterns (casing, punctuation, structure) to create new copy",
+        "If a request closely matches an example, deliberately vary the phrasing while preserving the pattern",
+        "Market-specific terms must be dynamically applied based on market context"
+      ],
+      "example_usage_policy": "Examples demonstrate the SHAPE of good copy (length, structure, tone) — not the WORDS to use"
+    }
+  },
+  "casing_reference": {
+    "title_case": {
+      "description": "Capitalise first letter of each major word; lowercase articles (a, an, the), prepositions (in, on, for, to, with), and conjunctions (and, or, but) unless they start the phrase",
+      "applies_to": ["button.text", "bottom_sheet_header.title", "text_block.title", "data_display.label", "list_button.text", "card.title", "chips.text", "badge.value", "label.text", "divider.label", "step_indicator.text", "table.header", "alert.title", "alert.cta"]
+    },
+    "sentence_case": {
+      "description": "Capitalise only the first letter of the first word and proper nouns",
+      "applies_to": ["toast.text", "banner.headline", "banner.body", "input_field.label", "input_field.hint", "input_field.error", "body_text", "accordion.header", "accordion.description", "ribbon.text", "info_text.footer", "alert.message", "list.title", "list.body"]
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 25 }, "words": { "min": 1, "max": 4 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false,
+            "ellipsis_allowed": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Primary actions: Loan Application, Payments, Wallet Top-up, Form Submission, Onboarding Entry",
+        "structure_pattern": "Verb + Object (e.g., [Action] + [Thing])",
+        "transformation_rules": [
+          "Start with a strong action verb",
+          "Be specific about what happens when tapped",
+          "For onboarding entry points, prefer 'Start' over 'Continue'",
+          "For authentication, prefer 'Get OTP' over 'Send OTP' (user-centric framing)",
+          "For submissions, prefer 'Confirm [X]' over generic 'Submit'"
+        ],
+        "verb_preferences": {
+          "prefer": ["Start", "Pay", "Add", "Apply", "Confirm", "Get", "View", "Enable"],
+          "avoid": ["Continue", "Submit", "Proceed", "Next", "Click", "Press"]
+        }
+      },
+      "pattern_guidance": {
+        "mental_model": "User taps this to DO something specific — label must tell them exactly what will happen",
+        "length_target": "2-3 words optimal; 1 word acceptable for universal actions",
+        "contextual_specificity": "More specific is better: 'Pay ₹5,000' > 'Pay Now' > 'Pay' > 'Continue'"
+      }
+    },
+    {
+      "name": "Secondary Button",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 25 }, "words": { "min": 1, "max": 4 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false,
+            "ellipsis_allowed": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Alternative actions, dismissals, deferrals, secondary paths",
+        "structure_pattern": "Verb + Object or Soft Deferral",
+        "transformation_rules": [
+          "Provide clear alternative to primary action",
+          "For deferrals, use softer phrasing: 'Maybe Later' over 'Remind me later'",
+          "Maintain symmetry with primary button where logical"
+        ],
+        "verb_preferences": {
+          "prefer": ["Skip", "Maybe Later", "View", "Learn", "Edit", "Contact"],
+          "avoid": ["Cancel", "No", "Dismiss"]
+        }
+      }
+    },
+    {
+      "name": "Tertiary Button",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 20 }, "words": { "min": 1, "max": 3 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false,
+            "ellipsis_allowed": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Less prominent actions, navigation helpers, 'see more' patterns",
+        "structure_pattern": "Verb + Object",
+        "verb_preferences": {
+          "prefer": ["View All", "See More", "Show", "Details"],
+          "avoid": ["Click here", "More"]
+        }
+      }
+    },
+    {
+      "name": "List Button",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 25 }, "words": { "min": 2, "max": 4 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Actionable list items, navigation links, feature access points",
+        "structure_pattern": "Verb + Specific Object",
+        "identification": {
+          "description": "List items that function as CTAs — identified by action affordances",
+          "visual_indicators": ["chevron", "toggle", "switch", "checkbox", "radio button", "plus icon", "copy icon", "add icon", "any tappable action affordance"]
+        },
+        "transformation_rules": [
+          "Always use at least 2 words — single words are too vague",
+          "Be specific about destination or action",
+          "Add 'Your' for personalisation where appropriate"
+        ],
+        "verb_preferences": {
+          "prefer": ["View", "Check", "Apply", "Learn", "Contact", "Manage"],
+          "avoid": ["Go to", "Open", "Access"]
+        }
+      }
+    },
+    {
+      "name": "List",
+      "slots": [
+        {
+          "id": "title",
+          "required": true,
+          "limits": { "characters": { "max": 40 }, "words": { "max": 6 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "body",
+          "required": false,
+          "limits": { "characters": { "max": 60 }, "words": { "max": 10 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Informational list items, non-actionable display rows, static content lists",
+        "identification": {
+          "description": "List items that display information only — no action affordances",
+          "visual_indicators": ["no chevrons", "no toggles", "no checkboxes", "no action icons"],
+          "distinguish_from": "List Button — if item has action affordances, use List Button instead"
+        },
+        "transformation_rules": [
+          "Title conveys the primary information",
+          "Body provides supporting context if needed",
+          "Do not phrase as actions — these are not tappable"
+        ]
+      }
+    },
+    {
+      "name": "Text Block",
+      "slots": [
+        {
+          "id": "title",
+          "required": true,
+          "limits": { "characters": { "max": 60 }, "lines": { "max": 1 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false,
+            "exclamation_allowed": true,
+            "question_allowed": true
+          }
+        },
+        {
+          "id": "body",
+          "required": true,
+          "limits": { "characters_per_line": { "max": 90 }, "lines": { "min": 1, "max": 3 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": true
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Terminal states (success, error, processing), instructional prompts, screen headers",
+        "structure_pattern": {
+          "title": "Action phrase or state declaration",
+          "body": "Context, explanation, or next step guidance"
+        },
+        "transformation_rules": [
+          "Title tells WHAT; body tells WHY or HOW",
+          "For instructions: title = action to take, body = reason or context",
+          "For errors: title = what went wrong, body = how to fix",
+          "For success: title = what happened, body = what's next",
+          "Add 'Your' to titles for personalisation: 'Enter Your Email' not 'Enter Email'"
+        ]
+      }
+    },
+    {
+      "name": "Bottom Sheet Header",
+      "slots": [
+        {
+          "id": "title",
+          "required": true,
+          "limits": { "characters": { "max": 40 }, "lines": { "max": 1 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false,
+            "exclamation_allowed": true,
+            "question_allowed": true
+          }
+        },
+        {
+          "id": "body",
+          "required": false,
+          "limits": { "characters_per_line": { "max": 90 }, "lines": { "min": 1, "max": 3 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": true
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Modal prompts, confirmations, exit friction, contextual guidance",
+        "transformation_rules": [
+          "Title must be understandable without reading body",
+          "For confirmations, use question format: 'Are You Sure...?'",
+          "For success states, be celebratory but brief",
+          "Keep body concise — users want to act, not read"
+        ]
+      }
+    },
+    {
+      "name": "Toast",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 50 }, "words": { "max": 10 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false,
+            "exclamation_allowed": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Action confirmations, status updates, brief notifications",
+        "structure_pattern": "Subject + past tense verb (or state)",
+        "transformation_rules": [
+          "NEVER use exclamation marks — they feel shouty",
+          "NEVER use terminal punctuation for fragment-style toasts",
+          "State what happened in past tense: 'Profile updated' not 'Profile has been updated!'",
+          "Be specific: 'Bank account added' not 'Added successfully'",
+          "Remove words like 'successfully' when the positive outcome is obvious"
+        ],
+        "anti_patterns": ["Action completed!", "Success!", "Done!", "Saved!"]
+      }
+    },
+    {
+      "name": "Alert",
+      "slots": [
+        {
+          "id": "title",
+          "required": true,
+          "limits": { "characters": { "max": 30 }, "lines": { "max": 1 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "message",
+          "required": true,
+          "limits": { "characters": { "max": 100 }, "lines": { "min": 1, "max": 2 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": true
+          }
+        },
+        {
+          "id": "cta",
+          "required": false,
+          "limits": { "characters": { "max": 18 }, "words": { "max": 3 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Critical notifications, warnings, payment reminders, blocking errors",
+        "transformation_rules": [
+          "Title should convey urgency level without alarming",
+          "Message must include actionable next step",
+          "For money-related alerts, always reassure about funds safety",
+          "CTA should be specific: 'Pay now' not 'OK'"
+        ]
+      }
+    },
+    {
+      "name": "Banner",
+      "slots": [
+        {
+          "id": "headline",
+          "required": true,
+          "limits": { "characters": { "max": 60 }, "words": { "max": 7 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "body",
+          "required": true,
+          "limits": { "characters": { "max": 160 }, "words": { "max": 20 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "cta",
+          "required": true,
+          "limits": { "characters": { "max": 17 }, "words": { "max": 3 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Promotional content, feature highlights, credit score prompts, offers",
+        "transformation_rules": [
+          "Lead with user benefit, not product feature",
+          "Avoid hype words: 'amazing', 'incredible', 'best ever'",
+          "Be specific about numbers: 'up to 13% returns' not 'great returns'",
+          "Never make guarantees about financial outcomes"
+        ]
+      }
+    },
+    {
+      "name": "Data Display",
+      "slots": [
+        {
+          "id": "label",
+          "required": true,
+          "limits": { "characters": { "max": 20 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false,
+            "colon_allowed": false
+          }
+        },
+        {
+          "id": "value",
+          "required": true,
+          "limits": { "lines": { "min": 1, "max": 3 } },
+          "styling": {
+            "numeric_formatting": true,
+            "remove_leading_zeros": true
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Displaying loan balances, account details, transaction info, user data",
+        "transformation_rules": [
+          "Spell out abbreviations: 'Account Number' not 'Acc No.'",
+          "No colons after labels",
+          "Remove leading zeros from numeric values: '6' not '06'",
+          "Use proper currency formatting with thousands separators"
+        ],
+        "abbreviation_expansion": {
+          "No.": "Number",
+          "Acc": "Account",
+          "Amt": "Amount",
+          "Bal": "Balance",
+          "DOB": "Date of Birth"
+        }
+      }
+    },
+    {
+      "name": "Input Field Label",
+      "slots": [
+        {
+          "id": "label",
+          "required": true,
+          "limits": { "characters": { "max": 30 }, "words": { "min": 1, "max": 4 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Form fields, search boxes, PIN entry, dropdowns",
+        "structure_pattern": "Noun phrase describing what to enter",
+        "transformation_rules": [
+          "Use 'Select' not 'Choose' for dropdowns",
+          "Add 'your' for personalisation in instructional contexts",
+          "Market-specific terminology applies (see markets.json)"
+        ],
+        "terminology_standardisation": {
+          "email_id": "email address",
+          "DOB": "date of birth",
+          "pincode": "PIN code"
+        }
+      }
+    },
+    {
+      "name": "Input Field Hint",
+      "slots": [
+        {
+          "id": "hint",
+          "required": false,
+          "limits": { "characters": { "max": 60 }, "words": { "max": 10 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "error",
+          "required": false,
+          "limits": { "characters": { "max": 70 }, "words": { "max": 14 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Helper text below inputs, validation error messages",
+        "transformation_rules": [
+          "Hints explain WHY, not just WHAT",
+          "Errors: state problem + solution, never blame user",
+          "Use 'you entered' to personalise errors",
+          "For format errors, show example"
+        ]
+      }
+    },
+    {
+      "name": "Input Placeholder",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 30 }, "words": { "min": 1, "max": 3 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Ghost text showing expected format",
+        "transformation_rules": [
+          "Show format, not instruction",
+          "For dates, use market format: 'DD MMM YYYY'",
+          "Use 'e.g.,' prefix for examples"
+        ]
+      }
+    },
+    {
+      "name": "Table",
+      "slots": [
+        {
+          "id": "header",
+          "required": true,
+          "limits": { "characters": { "max": 25 }, "words": { "min": 1, "max": 4 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "cell",
+          "required": true,
+          "limits": { "characters": { "max": 50 }, "words": { "max": 10 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Transaction details, payment schedules, loan summaries",
+        "transformation_rules": [
+          "Headers use Title Case for scannability",
+          "Cells use sentence case",
+          "Use proper date formatting: 'DD MMM YYYY'",
+          "Hyphenate compound adjectives: 'On-Time Payments'"
+        ]
+      }
+    },
+    {
+      "name": "Accordion",
+      "slots": [
+        {
+          "id": "header",
+          "required": true,
+          "limits": { "characters": { "max": 35 }, "words": { "max": 5 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "description",
+          "required": true,
+          "limits": { "characters": { "max": 100 }, "words": { "max": 15 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": true
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "FAQs, repayment schedules, expandable explanations",
+        "transformation_rules": [
+          "Header should be scannable",
+          "Avoid generic headers like 'More details'",
+          "Frame as questions where appropriate"
+        ]
+      }
+    },
+    {
+      "name": "Chips",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 20 }, "words": { "min": 1, "max": 3 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Filters, category selection, quick toggles",
+        "transformation_rules": [
+          "Keep very short — chips compete for horizontal space",
+          "Use consistent naming within a chip group"
+        ]
+      }
+    },
+    {
+      "name": "Badge",
+      "slots": [
+        {
+          "id": "value",
+          "required": true,
+          "limits": { "words": { "max": 1 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false,
+            "numeric_overflow_format": "99+"
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Notification counts, status indicators",
+        "transformation_rules": [
+          "Numbers over 99 display as '99+'",
+          "Status words: 'New', 'Due', 'Pending'"
+        ]
+      }
+    },
+    {
+      "name": "Label",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "words": { "min": 1, "max": 2 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Status tags, category indicators",
+        "transformation_rules": [
+          "Use consistent status vocabulary",
+          "Prefer active states: 'Processing' over 'In Process'"
+        ]
+      }
+    },
+    {
+      "name": "Step Indicator",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "words": { "max": 5 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Multi-step flows, KYC progress, onboarding",
+        "transformation_rules": [
+          "Use 'Confirm' not 'Verify' for user-initiated confirmations",
+          "Be specific about what each step accomplishes"
+        ]
+      }
+    },
+    {
+      "name": "Ribbon",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 28 }, "words": { "min": 1, "max": 6 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Promotional highlights, status badges on cards",
+        "transformation_rules": [
+          "Lead with benefit or status",
+          "Be specific about offers"
+        ]
+      }
+    },
+    {
+      "name": "Linear Progress Indicator",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "words": { "max": 4 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false,
+            "ellipsis_allowed": true
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Loading states, processing indicators",
+        "transformation_rules": [
+          "Use present continuous tense",
+          "Ellipsis allowed for loading states",
+          "Always positive framing"
+        ]
+      }
+    },
+    {
+      "name": "Divider",
+      "slots": [
+        {
+          "id": "label",
+          "required": false,
+          "limits": { "words": { "min": 1, "max": 3 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Section separators, alternative option indicators"
+      }
+    },
+    {
+      "name": "Filled Cards",
+      "slots": [
+        {
+          "id": "title",
+          "required": true,
+          "limits": { "characters": { "max": 30 }, "words": { "max": 5 } },
+          "styling": {
+            "casing": "title_case",
+            "terminal_punctuation": false
+          }
+        },
+        {
+          "id": "subtitle",
+          "required": true,
+          "limits": { "characters": { "max": 70 }, "words": { "max": 14 } },
+          "styling": {
+            "casing": "sentence_case",
+            "terminal_punctuation": false
+          }
+        }
+      ],
+      "rules": {
+        "use_case": "Feature cards, promotional tiles, loan options",
+        "transformation_rules": [
+          "Title grabs attention; subtitle sells the benefit",
+          "Subtitle should not repeat title"
+        ]
+      }
+    },
+    {
+      "name": "Outline Cards",
+      "slots": [
+        {
+          "id": "headline",
+          "required": true,
+          "limits": { "characters": { "max": 30 }, "lines": { "max": 1 } },
+          "styling": { "casing": "title_case", "terminal_punctuation": false }
+        },
+        {
+          "id": "row_labels",
+          "required": true,
+          "limits": { "characters": { "max": 20 }, "lines": { "max": 1 } },
+          "styling": { "casing": "title_case", "terminal_punctuation": false }
+        },
+        {
+          "id": "footer",
+          "required": false,
+          "limits": { "characters": { "max": 50 }, "lines": { "max": 2 } },
+          "styling": { "casing": "sentence_case", "terminal_punctuation": false }
+        }
+      ],
+      "rules": {
+        "use_case": "Balance summaries, account overviews"
+      }
+    },
+    {
+      "name": "Info Text",
+      "slots": [
+        {
+          "id": "heading",
+          "required": false,
+          "limits": { "characters": { "max": 30 }, "words": { "max": 6 } },
+          "styling": { "casing": "title_case", "terminal_punctuation": false }
+        },
+        {
+          "id": "footer",
+          "required": false,
+          "limits": { "characters": { "max": 60 } },
+          "styling": { "casing": "sentence_case", "terminal_punctuation": false }
+        }
+      ],
+      "rules": {
+        "use_case": "Card headers, trust reassurances, button footers"
+      }
+    },
+    {
+      "name": "FAB",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 12 }, "words": { "min": 1, "max": 2 } },
+          "styling": { "casing": "title_case", "terminal_punctuation": false }
+        }
+      ],
+      "rules": {
+        "use_case": "Primary quick actions"
+      }
+    },
+    {
+      "name": "Small Button",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 15 }, "words": { "min": 1, "max": 2 } },
+          "styling": { "casing": "title_case", "terminal_punctuation": false }
+        }
+      ],
+      "rules": {
+        "use_case": "Inline actions, card buttons"
+      }
+    },
+    {
+      "name": "Card Button",
+      "slots": [
+        {
+          "id": "text",
+          "required": true,
+          "limits": { "characters": { "max": 25 }, "words": { "min": 1, "max": 4 } },
+          "styling": { "casing": "title_case", "terminal_punctuation": false }
+        }
+      ],
+      "rules": {
+        "use_case": "Actions within cards"
+      }
+    },
+    {
+      "name": "Icon Button",
+      "slots": [
+        {
+          "id": "text",
+          "required": false,
+          "limits": { "characters": { "max": 12 }, "words": { "max": 2 } },
+          "styling": { "casing": "title_case", "terminal_punctuation": false }
+        }
+      ],
+      "rules": {
+        "use_case": "Icon-led actions with optional label"
+      }
+    }
+  ],
+  "text_generation_framework": {
+    "description": "Pattern-based approach for generating copy without component specification",
+    "step_1_analyse_request": {
+      "identify_intent": {
+        "action_request": { "signals": ["button", "CTA", "tap", "action"], "apply": "button_patterns" },
+        "informational": { "signals": ["explain", "describe", "message"], "apply": "text_block_patterns" },
+        "confirmation": { "signals": ["success", "done", "completed"], "apply": "toast_patterns" },
+        "error": { "signals": ["error", "failed", "invalid"], "apply": "error_patterns" }
+      }
+    },
+    "step_2_apply_constraints": {
+      "by_length": {
+        "1_to_3_words": { "likely": ["button", "badge", "chip"], "casing": "title_case" },
+        "4_to_10_words": { "likely": ["toast", "title"], "casing": "varies" },
+        "11_to_25_words": { "likely": ["body_text", "hint"], "casing": "sentence_case" },
+        "over_25_words": { "likely": ["text_block_body"], "casing": "sentence_case" }
+      }
+    }
+  }
+}

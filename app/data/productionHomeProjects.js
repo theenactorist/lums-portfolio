@@ -1,7 +1,7 @@
 // Verified against the live Home cards on 17 September 2026.
 // Includes the owner's subsequent Home copy, tags, and Pulse thumbnail updates.
-// Keep preview navigation on the existing live pages until the Home-only release
-// is integrated with the production baseline. Draft internal routes stay intact.
+// The owner approved CopyGPT as the fourth card on 11 October 2026.
+// Other cards retain their verified production destinations and order.
 export const productionHomeProjects = [
   {
     id: 'pulse',
@@ -41,6 +41,19 @@ export const productionHomeProjects = [
     companyLogoAlt: 'Carbon',
     companyLogoWidth: 125,
     companyLogoHeight: 31,
+  },
+  {
+    id: 'ai-copywriting',
+    title: 'Building Branch’s AI UX Writing System',
+    description: 'I packaged Branch’s brand principles, product context and design-system rules as an agent skill, so every team’s AI workflows produced consistent, on-brand UX writing by default.',
+    attributes: ['AI Tools', 'Internal Tools', 'Shipped'],
+    image: '/work/ai-copywriting/copygpt-review-thumbnail.png',
+    imageAlt: 'Recreated CopyGPT review showing five original and implemented India copy pairs',
+    href: '/work/ai-copywriting',
+    companyLogo: '/home/work-logos/branch.svg',
+    companyLogoAlt: 'Branch',
+    companyLogoWidth: 106,
+    companyLogoHeight: 39,
   },
   {
     id: 'branch-ai',

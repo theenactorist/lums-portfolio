@@ -1,0 +1,1819 @@
+{
+  "version": "v7",
+  "meta": {
+    "description": "Market-specific rules, terminology, compliance requirements, and user flow structures",
+    "anti_hallucination_policy": {
+      "terminology_application": "Always apply market terminology dynamically — never assume one market's terms work for another",
+      "example_handling": "Examples in cta_patterns are PATTERNS to follow, not copy to replicate verbatim",
+      "currency_handling": "Always use the correct currency symbol and formatting for the target market",
+      "flow_usage": "Flow structures define CONTEXT for copy generation — generate fresh copy appropriate to each screen's purpose"
+    }
+  },
+  "markets": {
+    "IN": {
+      "market_code": "IN",
+      "market_name": "India",
+      "locale": {
+        "language": "en-IN",
+        "currency_symbol": "₹",
+        "currency_code": "INR",
+        "currency_position": "before",
+        "number_format": {
+          "thousands_sep": ",",
+          "decimal_sep": ".",
+          "grouping": [
+            3,
+            2,
+            2
+          ],
+          "grouping_note": "Indian lakh system: 1,00,000 not 100,000"
+        },
+        "date_style": "DD MMM YYYY",
+        "date_examples": [
+          "15 Nov 2025",
+          "2 Jan 2024"
+        ],
+        "date_rules": [
+          "No ordinal suffixes (not '15th Nov')",
+          "No leading zeros on single-digit days",
+          "Three-letter month abbreviation",
+          "Four-digit year"
+        ]
+      },
+      "terminology": {
+        "standard_terms": {
+          "phone_number": "mobile number",
+          "email_id": "email address",
+          "pincode": "PIN code",
+          "referral_code": "invite code",
+          "support": "Customer Care",
+          "dob": "date of birth"
+        },
+        "product_terms": {
+          "savings_product": null,
+          "investment_product": null,
+          "note": "India market currently has loans only"
+        },
+        "interaction_terms": {
+          "click": "tap",
+          "login_verb": "log in",
+          "login_noun": "login"
+        }
+      },
+      "products": {
+        "available": [
+          "loans",
+          "credit_score"
+        ],
+        "kyc_onboarding": {
+          "primer_headline": "Apply for a loan",
+          "verification_methods": [
+            "PAN",
+            "Aadhaar"
+          ],
+          "id_terms": {
+            "pan": "PAN",
+            "aadhaar": "Aadhaar",
+            "note": "Keep as proper nouns, capitalised"
+          }
+        },
+        "loans": {
+          "tenures": [
+            "4 months",
+            "6 months",
+            "8 months"
+          ],
+          "overdue_grace_period_days": 7
+        },
+        "credit_score": {
+          "provider": "Equifax",
+          "availability": "India only"
+        }
+      },
+      "regulated_constraints": {
+        "prohibited_phrases": [
+          "guaranteed approval",
+          "no documentation required",
+          "instant money",
+          "guaranteed returns",
+          "risk-free"
+        ],
+        "required_disclosures": [],
+        "jargon_replacements": {
+          "KYC": "identity verification",
+          "EMI": "monthly payment"
+        },
+        "keep_as_is": [
+          "PAN",
+          "Aadhaar",
+          "UPI",
+          "IMPS",
+          "NEFT",
+          "OTP"
+        ]
+      },
+      "cta_patterns": {
+        "note": "These demonstrate STRUCTURE not exact copy to use",
+        "loans": {
+          "structure": "[Action verb] + [Loan-related object]",
+          "verb_options": [
+            "Apply for",
+            "Get",
+            "Start",
+            "View"
+          ],
+          "examples_for_pattern": [
+            "Apply for a Loan",
+            "Start Your Application",
+            "View Loan Offers"
+          ]
+        },
+        "kyc": {
+          "structure": "[Action verb] + [Document/method]",
+          "verb_options": [
+            "Verify",
+            "Confirm",
+            "Enter",
+            "Upload"
+          ],
+          "examples_for_pattern": [
+            "Verify with Aadhaar",
+            "Enter Your PAN",
+            "Upload ID Document"
+          ]
+        },
+        "authentication": {
+          "structure": "[Get/Confirm] + [Auth method]",
+          "verb_options": [
+            "Get",
+            "Confirm",
+            "Enter"
+          ],
+          "examples_for_pattern": [
+            "Get OTP",
+            "Enter Verification Code"
+          ]
+        }
+      },
+      "validation_patterns": {
+        "phone": {
+          "pattern": "^(?:\\+91|0)?[6-9]\\d{9}$",
+          "format_hint": "+91 99999 99999",
+          "error_message": "Enter a valid 10-digit mobile number"
+        },
+        "pan": {
+          "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$",
+          "format_hint": "ABCDE1234F",
+          "error_message": "Enter a valid 10-character PAN"
+        },
+        "aadhaar": {
+          "pattern": "^\\d{12}$",
+          "format_hint": "1234 5678 9012",
+          "error_message": "Enter your 12-digit Aadhaar number"
+        },
+        "pincode": {
+          "pattern": "^\\d{6}$",
+          "format_hint": "560001",
+          "error_message": "Enter a 6-digit PIN code"
+        }
+      }
+    },
+    "KE": {
+      "market_code": "KE",
+      "market_name": "Kenya",
+      "locale": {
+        "language": "en-KE",
+        "currency_symbol": "KSh",
+        "currency_code": "KES",
+        "currency_position": "before",
+        "number_format": {
+          "thousands_sep": ",",
+          "decimal_sep": ".",
+          "grouping": [
+            3,
+            3,
+            3
+          ]
+        },
+        "date_style": "DD MMM YYYY",
+        "date_examples": [
+          "15 Nov 2025",
+          "2 Jan 2024"
+        ]
+      },
+      "terminology": {
+        "standard_terms": {
+          "phone_number": "phone number",
+          "email_id": "email address",
+          "referral_code": "invite code",
+          "support": "Customer Care"
+        },
+        "product_terms": {
+          "savings_product": "savings",
+          "investment_product": null,
+          "compliance_note": "Kenya uses 'savings' — do NOT use 'investments'"
+        },
+        "interaction_terms": {
+          "click": "tap",
+          "login_verb": "log in",
+          "login_noun": "login"
+        }
+      },
+      "products": {
+        "available": [
+          "loans",
+          "wallet",
+          "savings"
+        ],
+        "kyc_onboarding": {
+          "verification_methods": [
+            "National ID",
+            "Passport"
+          ]
+        },
+        "loans": {
+          "entry_point": "Home → Loans"
+        },
+        "wallet": {
+          "funding_sources": [
+            "M-Pesa",
+            "Bank"
+          ],
+          "mpesa_terminology": {
+            "note": "M-Pesa is a proper noun, always capitalised with hyphen"
+          }
+        },
+        "savings": {
+          "types": [
+            "Fixed",
+            "Flexi",
+            "Target"
+          ],
+          "compliance_note": "Product is called 'savings' in Kenya, not 'investments'"
+        }
+      },
+      "regulated_constraints": {
+        "prohibited_phrases": [
+          "guaranteed returns",
+          "no risk",
+          "instant cash"
+        ],
+        "jargon_replacements": {
+          "KYC": "identity check",
+          "PIN": "secret code"
+        },
+        "keep_as_is": [
+          "M-Pesa",
+          "OTP"
+        ]
+      },
+      "cta_patterns": {
+        "loans": {
+          "structure": "[Action verb] + [Loan object]",
+          "examples_for_pattern": [
+            "Apply for a Loan",
+            "View Offers"
+          ]
+        },
+        "wallet": {
+          "structure": "[Action verb] + [Money/Bill object]",
+          "examples_for_pattern": [
+            "Add Money",
+            "Send Money",
+            "Buy Airtime",
+            "Pay a Bill"
+          ]
+        },
+        "savings": {
+          "structure": "[Start/Confirm] + [Savings action]",
+          "examples_for_pattern": [
+            "Start Saving",
+            "Confirm Savings"
+          ],
+          "warning": "Use 'savings' NOT 'investments' for Kenya"
+        }
+      },
+      "validation_patterns": {
+        "phone": {
+          "pattern": "^(?:\\+254|0)7\\d{8}$",
+          "format_hint": "+254 712 345 678",
+          "error_message": "Enter a valid Kenyan phone number starting with +254 or 07"
+        },
+        "id_number": {
+          "pattern": "^\\d{7,8}$",
+          "format_hint": "12345678",
+          "error_message": "Enter a valid 7 or 8-digit ID number"
+        }
+      }
+    },
+    "NG": {
+      "market_code": "NG",
+      "market_name": "Nigeria",
+      "locale": {
+        "language": "en-NG",
+        "currency_symbol": "₦",
+        "currency_code": "NGN",
+        "currency_position": "before",
+        "number_format": {
+          "thousands_sep": ",",
+          "decimal_sep": ".",
+          "grouping": [
+            3,
+            3,
+            3
+          ]
+        },
+        "date_style": "DD MMM YYYY",
+        "date_examples": [
+          "15 Nov 2025",
+          "2 Jan 2024"
+        ]
+      },
+      "terminology": {
+        "standard_terms": {
+          "phone_number": "phone number",
+          "email_id": "email address",
+          "referral_code": "invite code",
+          "support": "Customer Care"
+        },
+        "product_terms": {
+          "savings_product": null,
+          "investment_product": "investments",
+          "compliance_note": "Nigeria uses 'investments' — do NOT use 'savings'"
+        },
+        "interaction_terms": {
+          "click": "tap",
+          "login_verb": "log in",
+          "login_noun": "login"
+        }
+      },
+      "products": {
+        "available": [
+          "loans",
+          "wallet",
+          "investments",
+          "debit_cards",
+          "rewards"
+        ],
+        "kyc_onboarding": {
+          "entry_screen_title": "Start your journey with Branch",
+          "verification_methods": [
+            "BVN",
+            "NIN",
+            "Passport"
+          ]
+        },
+        "wallet": {
+          "funding_methods": [
+            "Debit Card",
+            "Bank Transfer",
+            "Paystack"
+          ]
+        },
+        "investments": {
+          "types": [
+            "Flexi",
+            "Fixed",
+            "Target"
+          ],
+          "compliance_note": "Product is called 'investments' in Nigeria, not 'savings'"
+        },
+        "debit_cards": {
+          "intl_transactions": false
+        },
+        "rewards": {
+          "eligibility": "Tier 1 or above"
+        }
+      },
+      "regulated_constraints": {
+        "prohibited_phrases": [
+          "guaranteed returns",
+          "risk-free investment",
+          "instant approval"
+        ],
+        "jargon_replacements": {
+          "KYC": "identity verification",
+          "PIN": "security code"
+        },
+        "keep_as_is": [
+          "BVN",
+          "NIN",
+          "OTP"
+        ]
+      },
+      "cta_patterns": {
+        "loans": {
+          "structure": "[Action verb] + [Loan object]",
+          "examples_for_pattern": [
+            "Apply for a Loan",
+            "View Offers"
+          ]
+        },
+        "wallet": {
+          "structure": "[Action verb] + [Money/Bill object]",
+          "examples_for_pattern": [
+            "Add Money",
+            "Send Money",
+            "Buy Airtime",
+            "Pay a Bill"
+          ]
+        },
+        "investments": {
+          "structure": "[Start/Confirm] + [Investment action]",
+          "examples_for_pattern": [
+            "Start Investing",
+            "Confirm Investment"
+          ],
+          "warning": "Use 'investments' NOT 'savings' for Nigeria"
+        }
+      },
+      "validation_patterns": {
+        "phone": {
+          "pattern": "^(?:\\+234|0)[789]\\d{9}$",
+          "format_hint": "+234 801 234 5678",
+          "error_message": "Enter an 11-digit Nigerian phone number starting with +234 or 0"
+        },
+        "bvn": {
+          "pattern": "^\\d{11}$",
+          "format_hint": "12345678901",
+          "error_message": "Enter your 11-digit BVN"
+        },
+        "id_number": {
+          "pattern": "^\\d{7,8}$",
+          "format_hint": "12345678",
+          "error_message": "Enter a valid 7 or 8-digit ID number"
+        }
+      },
+      "flows": {
+        "meta": {
+          "description": "User flow structures for Nigeria market — use for copy context, not verbatim copy",
+          "usage": "Identify which flow/step the user is asking about, then generate appropriate copy for that context"
+        },
+        "onboarding": {
+          "flow_id": "ng_onboarding",
+          "description": "New user registration and returning user login",
+          "user_types": {
+            "new_user": {
+              "sequence": [
+                "welcome",
+                "product_carousel",
+                "mobile_verification",
+                "email_collection",
+                "pin_setup",
+                "biometric_prompt"
+              ],
+              "post_flow": "product_intent_screen"
+            },
+            "returning_user": {
+              "sequence": [
+                "welcome",
+                "pin_entry"
+              ],
+              "new_device_state": "secure_mode_limitations",
+              "post_flow": "home_screen"
+            }
+          },
+          "screens": {
+            "welcome": {
+              "screen_type": "splash",
+              "purpose": "Brand introduction with language selection",
+              "components": [
+                "logo",
+                "language_selector"
+              ],
+              "copy_context": {
+                "tone": "Welcoming, brand-forward",
+                "goal": "Create positive first impression"
+              }
+            },
+            "product_carousel": {
+              "screen_type": "carousel",
+              "purpose": "Introduce product offerings",
+              "slides": [
+                {
+                  "product": "loans",
+                  "theme": "blue",
+                  "copy_focus": "Quick access to funds"
+                },
+                {
+                  "product": "wallet_and_cards",
+                  "theme": "blue",
+                  "copy_focus": "Payments and money management"
+                },
+                {
+                  "product": "investments",
+                  "theme": "green",
+                  "copy_focus": "Grow money over time"
+                }
+              ],
+              "components": [
+                "carousel_cards",
+                "pagination_dots",
+                "primary_cta"
+              ],
+              "copy_context": {
+                "tone": "Benefit-focused, aspirational",
+                "goal": "Excite user about product range"
+              }
+            },
+            "mobile_verification": {
+              "screen_type": "input_form",
+              "purpose": "Verify phone ownership",
+              "input_fields": [
+                "phone_number"
+              ],
+              "verification_methods": {
+                "primary": "ussd_short_code",
+                "fallback": "sms_otp"
+              },
+              "sub_screens": {
+                "ussd_instructions": {
+                  "type": "bottom_sheet",
+                  "purpose": "Guide user to dial USSD code",
+                  "copy_context": {
+                    "tone": "Clear, instructional",
+                    "goal": "Ensure user completes USSD verification"
+                  }
+                },
+                "verification_failed": {
+                  "type": "error_screen",
+                  "purpose": "Handle failed verification",
+                  "options": [
+                    "retry_ussd",
+                    "try_sms_otp"
+                  ],
+                  "copy_context": {
+                    "tone": "Reassuring, solution-focused",
+                    "goal": "Guide user to successful verification"
+                  }
+                },
+                "otp_entry": {
+                  "type": "input_form",
+                  "purpose": "Enter OTP code",
+                  "timer_seconds": 45,
+                  "copy_context": {
+                    "tone": "Clear, time-sensitive",
+                    "goal": "Capture OTP quickly"
+                  }
+                }
+              },
+              "copy_context": {
+                "tone": "Trustworthy, clear instructions",
+                "goal": "Verify phone with minimal friction"
+              }
+            },
+            "email_collection": {
+              "screen_type": "input_form",
+              "purpose": "Collect email for account",
+              "input_methods": {
+                "google_connect": {
+                  "description": "OAuth with automatic verification",
+                  "copy_focus": "Quick and easy"
+                },
+                "manual_entry": {
+                  "description": "Type email address",
+                  "verification": "Prompted later",
+                  "copy_focus": "Flexibility"
+                }
+              },
+              "copy_context": {
+                "tone": "Helpful, offering choice",
+                "goal": "Collect valid email efficiently"
+              }
+            },
+            "pin_setup": {
+              "screen_type": "secure_input",
+              "purpose": "Create 4-digit Branch PIN",
+              "steps": [
+                "enter_pin",
+                "confirm_pin"
+              ],
+              "copy_context": {
+                "tone": "Security-focused, reassuring",
+                "goal": "Establish secure access credential"
+              }
+            },
+            "biometric_prompt": {
+              "screen_type": "bottom_sheet",
+              "purpose": "Offer biometric login option",
+              "optional": true,
+              "copy_context": {
+                "tone": "Convenient, optional",
+                "goal": "Encourage biometric setup without pressure"
+              }
+            },
+            "pin_entry": {
+              "screen_type": "secure_input",
+              "purpose": "Returning user authentication",
+              "copy_context": {
+                "tone": "Welcoming back, secure",
+                "goal": "Quick re-authentication"
+              }
+            },
+            "secure_mode": {
+              "screen_type": "info_screen",
+              "purpose": "Inform user of new device limitations",
+              "copy_context": {
+                "tone": "Security-focused, explanatory",
+                "goal": "Explain restrictions, build trust"
+              }
+            }
+          }
+        },
+        "product_intent": {
+          "flow_id": "ng_product_intent",
+          "description": "New user selects primary product interest",
+          "applies_to": "new_users_only",
+          "screen": {
+            "screen_type": "selection",
+            "purpose": "User chooses which product to explore first",
+            "options": [
+              {
+                "product": "loans",
+                "theme": "bright_blue",
+                "leads_to": "kyc_flow_loans"
+              },
+              {
+                "product": "investments",
+                "theme": "green",
+                "leads_to": "kyc_flow_investments"
+              },
+              {
+                "product": "wallet",
+                "theme": "blue",
+                "leads_to": "kyc_flow_wallet"
+              }
+            ],
+            "copy_context": {
+              "tone": "Empowering, clear choices",
+              "goal": "Help user self-select into right product path"
+            }
+          }
+        },
+        "kyc": {
+          "flow_id": "ng_kyc",
+          "description": "Identity verification flow with BVN primary, NIN fallback",
+          "entry_points": [
+            "product_intent",
+            "tier_upgrade",
+            "transaction_limit_hit"
+          ],
+          "primer_screen": {
+            "screen_type": "info_with_checklist",
+            "purpose": "Set expectations for KYC process",
+            "components": [
+              "product_promo_card",
+              "step_checklist",
+              "primary_cta"
+            ],
+            "checklist_items": [
+              "permissions",
+              "identity_verification",
+              "selfie_capture",
+              "profile_details",
+              "bank_account"
+            ],
+            "copy_context": {
+              "tone": "Transparent, confidence-building",
+              "goal": "Prepare user for what's ahead, reduce abandonment"
+            }
+          },
+          "steps": {
+            "step_1_permissions": {
+              "step_number": 1,
+              "step_name": "Permissions",
+              "screen_type": "permission_request",
+              "purpose": "Request device permissions",
+              "varies_by_product": {
+                "loans": {
+                  "required_permissions": [
+                    "location",
+                    "sms",
+                    "notifications",
+                    "installed_apps"
+                  ],
+                  "excluded_permissions": [
+                    "contacts"
+                  ],
+                  "mandatory": true,
+                  "cta_options": [
+                    "allow_and_proceed"
+                  ]
+                },
+                "investments": {
+                  "required_permissions": [
+                    "contacts",
+                    "location",
+                    "sms",
+                    "notifications",
+                    "installed_apps"
+                  ],
+                  "mandatory": false,
+                  "cta_options": [
+                    "allow_permissions",
+                    "skip_for_now"
+                  ]
+                },
+                "wallet": {
+                  "required_permissions": [
+                    "contacts",
+                    "location",
+                    "sms",
+                    "notifications",
+                    "installed_apps"
+                  ],
+                  "mandatory": false,
+                  "cta_options": [
+                    "allow_permissions",
+                    "skip_for_now"
+                  ]
+                }
+              },
+              "copy_context": {
+                "tone": "Explanatory, trustworthy",
+                "goal": "Explain WHY each permission is needed, build trust"
+              }
+            },
+            "step_2_identity_verification": {
+              "step_number": 2,
+              "step_name": "Identity verification",
+              "primary_method": {
+                "method": "bvn",
+                "screen_type": "input_form",
+                "purpose": "Collect and verify BVN",
+                "input_fields": [
+                  "bvn_number"
+                ],
+                "includes_help": true,
+                "help_content": "How to retrieve BVN",
+                "consent_required": true,
+                "verification_flow": {
+                  "type": "third_party_webview",
+                  "channel": "mobile_or_email_linked_to_bvn",
+                  "user_completes_in_webview": true
+                },
+                "copy_context": {
+                  "tone": "Helpful, compliance-aware",
+                  "goal": "Collect BVN with clear explanation of why it's needed"
+                }
+              },
+              "fallback_method": {
+                "method": "nin",
+                "trigger": "bvn_verification_failure",
+                "screen_type": "input_form",
+                "purpose": "Alternative identity verification",
+                "input_fields": [
+                  "nin_number"
+                ],
+                "copy_context": {
+                  "tone": "Reassuring alternative",
+                  "goal": "Provide path forward after BVN failure"
+                }
+              },
+              "error_states": {
+                "bvn_flagged_duplicate": {
+                  "screen_type": "confirmation_prompt",
+                  "purpose": "Confirm BVN before OTP step",
+                  "triggers_before": "otp_webview",
+                  "user_options": [
+                    "confirm_bvn",
+                    "edit_bvn"
+                  ],
+                  "if_confirmed": "existing_account_flow",
+                  "copy_context": {
+                    "tone": "Clarifying, not alarming",
+                    "goal": "Resolve duplicate account situation"
+                  }
+                },
+                "existing_account_detected": {
+                  "screen_type": "info_with_options",
+                  "purpose": "Handle existing account",
+                  "user_options": [
+                    "merge_accounts",
+                    "contact_customer_care"
+                  ],
+                  "copy_context": {
+                    "tone": "Helpful, solution-oriented",
+                    "goal": "Guide user to resolve account conflict"
+                  }
+                },
+                "verification_stuck": {
+                  "screen_type": "bottom_sheet",
+                  "trigger": "user_presses_back_during_verification",
+                  "purpose": "Offer recovery options",
+                  "user_options": [
+                    "restart_bvn_verification",
+                    "verify_with_nin_instead"
+                  ],
+                  "copy_context": {
+                    "tone": "Understanding, flexible",
+                    "goal": "Prevent abandonment, offer alternatives"
+                  }
+                },
+                "nin_already_linked": {
+                  "screen_type": "error_with_support",
+                  "purpose": "Handle NIN tied to another account",
+                  "user_options": [
+                    "contact_customer_care"
+                  ],
+                  "copy_context": {
+                    "tone": "Apologetic, supportive",
+                    "goal": "Direct to human support"
+                  }
+                }
+              }
+            },
+            "step_3_selfie_capture": {
+              "step_number": 3,
+              "step_name": "Selfie",
+              "screen_type": "camera_capture",
+              "purpose": "Capture selfie for identity matching",
+              "pre_capture_instructions": {
+                "screen_type": "instruction_list",
+                "instructions": [
+                  "Face camera directly",
+                  "Remove glasses",
+                  "Ensure alone in frame",
+                  "Good lighting required"
+                ],
+                "copy_context": {
+                  "tone": "Friendly, practical",
+                  "goal": "Set up user for successful capture"
+                }
+              },
+              "requires_permission": "camera",
+              "post_capture_options": [
+                "confirm_selfie",
+                "retake_selfie"
+              ],
+              "data_reassurance": true,
+              "copy_context": {
+                "tone": "Encouraging, privacy-conscious",
+                "goal": "Capture quality selfie while reassuring about data security"
+              }
+            },
+            "step_4_profile_information": {
+              "step_number": 4,
+              "step_name": "Profile details",
+              "screen_type": "multi_field_form",
+              "purpose": "Collect personal information",
+              "fields": {
+                "name": {
+                  "auto_filled_when": "bvn_verified",
+                  "manual_entry_when": "nin_verified"
+                },
+                "date_of_birth": {
+                  "auto_filled_when": "bvn_verified",
+                  "manual_entry_when": "nin_verified",
+                  "format": "DD MMM YYYY"
+                },
+                "address": {
+                  "entry_method": "manual",
+                  "always_required": true
+                },
+                "occupation": {
+                  "entry_method": "dropdown_selection",
+                  "options": "predefined_list"
+                },
+                "pep_declaration": {
+                  "entry_method": "checkbox",
+                  "if_checked": "show_pep_category_selection",
+                  "pep_categories": [
+                    "political_role",
+                    "military_role",
+                    "other"
+                  ]
+                }
+              },
+              "copy_context": {
+                "tone": "Straightforward, respectful",
+                "goal": "Collect required info efficiently"
+              }
+            },
+            "step_5_bank_account": {
+              "step_number": 5,
+              "step_name": "Bank account",
+              "screen_type": "input_form",
+              "purpose": "Link bank account for disbursements/withdrawals",
+              "input_fields": [
+                "bank_name",
+                "account_number"
+              ],
+              "bank_selection": "searchable_dropdown",
+              "account_validation": "auto_fetch_account_name",
+              "data_reassurance": true,
+              "copy_context": {
+                "tone": "Secure, reassuring",
+                "goal": "Link bank account with confidence"
+              }
+            }
+          },
+          "post_kyc_routing": {
+            "description": "Where user goes after completing KYC",
+            "routes": {
+              "loans": {
+                "destination": "loan_scoring_and_offers",
+                "processing_state": "real_time_scoring"
+              },
+              "investments": {
+                "destination": "investments_home",
+                "processing_state": "brief_verification_processing"
+              },
+              "wallet": {
+                "destination": "wallet_home",
+                "processing_state": "brief_verification_processing"
+              }
+            }
+          }
+        },
+        "kyc_tier_upgrade": {
+          "flow_id": "ng_tier_upgrade",
+          "description": "Upgrade account tier for higher limits",
+          "entry_points": [
+            {
+              "location": "home_screen",
+              "path": "account_info → account_limits"
+            },
+            {
+              "location": "my_account_screen",
+              "path": "account_limits"
+            },
+            {
+              "location": "transaction_attempt",
+              "trigger": "exceeds_tier_limit"
+            }
+          ],
+          "tiers": {
+            "tier_1": {
+              "limits": "Basic transaction limits",
+              "upgrade_to": "tier_2"
+            },
+            "tier_2": {
+              "limits": "Increased limits",
+              "upgrade_to": "tier_3"
+            },
+            "tier_3": {
+              "limits": "Maximum limits",
+              "no_upgrade_prompts": true
+            }
+          },
+          "copy_context": {
+            "tone": "Opportunity-focused, clear benefits",
+            "goal": "Motivate upgrade by showing what user gains"
+          }
+        },
+        "loans": {
+          "flow_id": "ng_loans",
+          "description": "Loan application, management, and repayment",
+          "entry_point": "loans_tab_or_home_card",
+          "application": {
+            "steps": {
+              "offer_selection": {
+                "step_number": 1,
+                "screen_type": "selection_cards",
+                "purpose": "Choose loan amount from eligible offers",
+                "display": "circular_cards_with_amounts",
+                "copy_context": {
+                  "tone": "Clear, no pressure",
+                  "goal": "Help user select appropriate amount"
+                }
+              },
+              "tenure_selection": {
+                "step_number": 2,
+                "screen_type": "selection_with_calculation",
+                "purpose": "Choose repayment terms",
+                "options": {
+                  "tenure": "28_days_to_180_days",
+                  "repayment_type": [
+                    "one_time",
+                    "weekly_emi"
+                  ]
+                },
+                "dynamic_display": "total_amount_due_per_option",
+                "copy_context": {
+                  "tone": "Transparent, informative",
+                  "goal": "Help user understand total cost of each option"
+                }
+              },
+              "cost_breakdown": {
+                "step_number": 3,
+                "screen_type": "info_display",
+                "purpose": "Show detailed fee breakdown",
+                "displays": [
+                  "principal",
+                  "processing_fee",
+                  "disbursed_amount",
+                  "total_due",
+                  "interest_rate",
+                  "late_fee_terms"
+                ],
+                "copy_context": {
+                  "tone": "Fully transparent",
+                  "goal": "No hidden costs, build trust"
+                }
+              },
+              "review_and_agreement": {
+                "step_number": 4,
+                "screen_type": "summary_with_consent",
+                "purpose": "Final review before application",
+                "displays": [
+                  "emi_frequency",
+                  "total_due",
+                  "interest_rate"
+                ],
+                "required_agreements": [
+                  "key_facts_statement",
+                  "sanction_letter",
+                  "loan_agreement"
+                ],
+                "copy_context": {
+                  "tone": "Final confirmation, clear",
+                  "goal": "Ensure informed consent"
+                }
+              },
+              "submission_confirmation": {
+                "step_number": 5,
+                "screen_type": "success_with_status",
+                "purpose": "Confirm application submitted",
+                "status": "under_review",
+                "processing_time": "within 12 hours",
+                "support_available": true,
+                "copy_context": {
+                  "tone": "Reassuring, sets expectations",
+                  "goal": "Confirm receipt, manage wait expectations"
+                }
+              }
+            }
+          },
+          "management_dashboard": {
+            "screen_type": "dashboard",
+            "purpose": "View and manage active loan",
+            "displays": {
+              "header": [
+                "next_emi_amount",
+                "due_date"
+              ],
+              "schedule": "repayment_dates_and_amounts"
+            },
+            "copy_context": {
+              "tone": "Clear, organised",
+              "goal": "Keep repayment obligations visible"
+            }
+          },
+          "repayment": {
+            "screen_type": "action_selection",
+            "purpose": "Make loan payment",
+            "options": [
+              "pay_next_emi",
+              "pay_full_amount",
+              "pay_custom_amount"
+            ],
+            "prepayment_logic": {
+              "method": "reverse_balance",
+              "explanation": "tooltip_available",
+              "description": "Extra payment clears next EMI first, then reduces final EMIs"
+            },
+            "confirmation_screen": true,
+            "copy_context": {
+              "tone": "Flexible, encouraging",
+              "goal": "Make repayment easy, encourage early payment"
+            }
+          },
+          "overdue_handling": {
+            "grace_period_days": 7,
+            "late_fee": "1% of outstanding",
+            "interest_accrual": "daily",
+            "display": "clear_alerts_on_dashboard",
+            "copy_context": {
+              "tone": "Firm but supportive",
+              "goal": "Motivate payment without alienating user"
+            }
+          }
+        },
+        "wallet": {
+          "flow_id": "ng_wallet",
+          "description": "Wallet funding, transfers, and management",
+          "home_screen_display": {
+            "shows": [
+              "balance",
+              "recent_activity",
+              "quick_actions"
+            ],
+            "quick_actions": [
+              "add_money",
+              "send_money",
+              "pay_bills",
+              "buy_airtime",
+              "manage_cards",
+              "account_info"
+            ]
+          },
+          "add_money": {
+            "flow_id": "ng_wallet_add",
+            "entry_point": "add_money_button",
+            "step_1_amount": {
+              "screen_type": "amount_input",
+              "tier_handling": {
+                "tier_1_and_2": "show_limit_message_and_upgrade_option",
+                "tier_3": "no_limit_messaging"
+              }
+            },
+            "step_2_method_selection": {
+              "screen_type": "selection",
+              "options": {
+                "bank_transfer": {
+                  "fee": "free",
+                  "default_selected": true,
+                  "flow": "display_virtual_account_details"
+                },
+                "debit_card": {
+                  "options": [
+                    "saved_card",
+                    "new_card"
+                  ],
+                  "flow": "card_payment_flow"
+                }
+              }
+            },
+            "via_debit_card": {
+              "steps": [
+                "add_card_if_needed",
+                "review_summary",
+                "authenticate",
+                "result_screen"
+              ]
+            },
+            "via_bank_transfer": {
+              "steps": [
+                "display_bank_and_account_details",
+                "share_details_option",
+                "confirmation_after_transfer"
+              ]
+            },
+            "copy_context": {
+              "tone": "Straightforward, secure",
+              "goal": "Fund wallet quickly and confidently"
+            }
+          },
+          "send_money": {
+            "flow_id": "ng_wallet_send",
+            "entry_point": "send_money_button",
+            "recipient_types": {
+              "new_beneficiary": {
+                "steps": [
+                  {
+                    "step": "enter_account_number",
+                    "validation": "format_check"
+                  },
+                  {
+                    "step": "select_bank",
+                    "method": "searchable_dropdown"
+                  },
+                  {
+                    "step": "confirm_beneficiary_name",
+                    "method": "auto_fetched"
+                  },
+                  {
+                    "step": "enter_amount_and_note",
+                    "displays": [
+                      "available_balance",
+                      "transfer_fee"
+                    ]
+                  },
+                  {
+                    "step": "review_and_confirm",
+                    "displays": [
+                      "recipient_details",
+                      "amount",
+                      "fee",
+                      "balance_after"
+                    ]
+                  },
+                  {
+                    "step": "success_screen",
+                    "features": [
+                      "confetti_animation",
+                      "share_receipt",
+                      "save_to_favourites",
+                      "new_transfer"
+                    ]
+                  }
+                ]
+              },
+              "from_favourites": {
+                "steps": [
+                  "select_favourite",
+                  "enter_amount",
+                  "review",
+                  "confirm",
+                  "success"
+                ]
+              },
+              "via_search": {
+                "search_by": [
+                  "name",
+                  "account_number"
+                ],
+                "if_not_found": "prompt_to_add_new"
+              }
+            },
+            "copy_context": {
+              "tone": "Quick, confident",
+              "goal": "Complete transfer with minimal friction"
+            }
+          },
+          "request_money": {
+            "flow_id": "ng_wallet_request",
+            "steps": [
+              "enter_amount",
+              "add_optional_note",
+              "submit",
+              "share_via_device_share_sheet"
+            ],
+            "tier_limits": {
+              "tier_1": "₦50,000",
+              "tier_2": "₦100,000",
+              "tier_3": "no_visible_limit"
+            },
+            "copy_context": {
+              "tone": "Simple, shareable",
+              "goal": "Create easily shareable payment request"
+            }
+          },
+          "favourites_management": {
+            "add_favourite": {
+              "steps": [
+                "select_account_type",
+                "enter_bank_and_account",
+                "auto_fetch_name",
+                "confirm"
+              ]
+            },
+            "view_favourite": {
+              "displays": [
+                "recipient_details",
+                "transfer_history"
+              ],
+              "actions": [
+                "send_money",
+                "request_money",
+                "edit",
+                "remove"
+              ]
+            }
+          }
+        },
+        "bill_payments": {
+          "flow_id": "ng_bill_payments",
+          "description": "Airtime, data, TV, electricity, insurance, and exam payments",
+          "entry_points": [
+            "home_quick_action",
+            "bottom_nav_payments",
+            "wallet_screen"
+          ],
+          "category_screen": {
+            "screen_type": "category_grid",
+            "categories": [
+              "airtime",
+              "data",
+              "tv",
+              "electricity",
+              "insurance",
+              "exam"
+            ]
+          },
+          "airtime": {
+            "flow_id": "ng_airtime",
+            "steps": {
+              "recipient_selection": {
+                "options": [
+                  "search_or_enter_number",
+                  "my_number",
+                  "suggested_contacts"
+                ]
+              },
+              "provider_and_amount": {
+                "provider_selection": "dropdown",
+                "providers": [
+                  "MTN",
+                  "Glo",
+                  "Airtel",
+                  "9mobile"
+                ],
+                "amount_entry": "manual_with_balance_display",
+                "promo_display": "cashback_offers_if_available"
+              },
+              "review": {
+                "displays": [
+                  "transaction_type",
+                  "recipient",
+                  "amount",
+                  "fee",
+                  "new_balance"
+                ]
+              },
+              "success": {
+                "displays": [
+                  "receipt_details",
+                  "reference_number"
+                ],
+                "actions": [
+                  "share_receipt",
+                  "return_home",
+                  "buy_again"
+                ]
+              }
+            }
+          },
+          "data": {
+            "flow_id": "ng_data",
+            "steps": {
+              "recipient_selection": {
+                "options": [
+                  "enter_number",
+                  "primary_number",
+                  "suggested_contacts"
+                ]
+              },
+              "service_type": {
+                "options": [
+                  "buy_airtime",
+                  "buy_data"
+                ]
+              },
+              "provider_and_plan": {
+                "provider_selection": "dropdown_then_plan_selection",
+                "plan_display": "scrollable_list_with_name_duration_price"
+              },
+              "review_and_success": "same_as_airtime"
+            }
+          },
+          "tv": {
+            "flow_id": "ng_tv",
+            "steps": {
+              "provider_and_smartcard": {
+                "providers": [
+                  "DSTv",
+                  "GOtv",
+                  "StarTimes"
+                ],
+                "input": "iuc_smartcard_number",
+                "validation": "format_check_and_customer_fetch"
+              },
+              "package_selection": {
+                "displays": "verified_customer_details",
+                "selection": "available_packages_with_duration_and_amount"
+              },
+              "review_and_payment": {
+                "processing_state": "loading_with_support_link",
+                "cannot_navigate_during_processing": true
+              },
+              "result": {
+                "success": "confirmation_with_reference",
+                "failure": "error_with_wallet_not_debited_reassurance"
+              }
+            },
+            "features": [
+              "recent_recipients",
+              "save_beneficiary",
+              "auto_renewal_option",
+              "duplicate_payment_prevention"
+            ]
+          },
+          "electricity": {
+            "flow_id": "ng_electricity",
+            "meter_type": "prepaid",
+            "steps": {
+              "disco_and_meter": {
+                "disco_selection": "dropdown",
+                "discos": [
+                  "Eko Electricity",
+                  "Jos Electricity",
+                  "Ikeja Electric",
+                  "others"
+                ],
+                "meter_input": "prepaid_meter_number",
+                "buy_again_section": "recent_payments_with_autofill"
+              },
+              "amount_entry": {
+                "displays": [
+                  "beneficiary_name",
+                  "meter_number",
+                  "available_balance",
+                  "transaction_limit"
+                ]
+              },
+              "confirmation_and_result": "same_pattern_as_tv"
+            }
+          },
+          "insurance": {
+            "flow_id": "ng_insurance",
+            "steps": [
+              "amount_and_policy_entry",
+              "review",
+              "processing",
+              "result"
+            ],
+            "validation": "amount_and_account_format"
+          },
+          "exam": {
+            "flow_id": "ng_exam",
+            "steps": {
+              "provider_selection": {
+                "providers": [
+                  "WAEC",
+                  "JAMB",
+                  "NECO",
+                  "others"
+                ]
+              },
+              "details_entry": {
+                "fields": [
+                  "candidate_id",
+                  "exam_type",
+                  "exam_year_session"
+                ]
+              },
+              "amount_and_payment": "standard_pattern"
+            }
+          },
+          "copy_context": {
+            "tone": "Efficient, transactional",
+            "goal": "Complete bill payment quickly with clear confirmation"
+          }
+        },
+        "investments": {
+          "flow_id": "ng_investments",
+          "description": "Flexi, Fixed, and Target investment products",
+          "compliance_note": "Use 'investments' terminology — never 'savings'",
+          "entry_point": "invest_tab_on_home",
+          "product_types": {
+            "flexi": {
+              "key_features": {
+                "liquidity": "instant_withdrawal",
+                "minimum_amount": "₦1,000",
+                "interest_rate": "10% annual",
+                "interest_display": "weekly_returns"
+              },
+              "flow_steps": [
+                {
+                  "step": "enter_amount",
+                  "displays": "real_time_interest_estimate"
+                },
+                {
+                  "step": "select_funding_source",
+                  "options": [
+                    "branch_wallet",
+                    "debit_card"
+                  ],
+                  "default": "branch_wallet"
+                },
+                {
+                  "step": "review",
+                  "displays": [
+                    "investment_type",
+                    "amount",
+                    "interest_rate",
+                    "funding_source"
+                  ]
+                },
+                {
+                  "step": "accept_terms_and_confirm"
+                },
+                {
+                  "step": "success",
+                  "displays": "green_checkmark",
+                  "actions": [
+                    "share_receipt",
+                    "add_another",
+                    "contact_support"
+                  ]
+                }
+              ],
+              "copy_context": {
+                "tone": "Accessible, low commitment",
+                "goal": "Make starting easy, show immediate benefit"
+              }
+            },
+            "target": {
+              "key_features": {
+                "purpose": "goal_based_saving",
+                "interest_rate": "15% annual average",
+                "contribution_frequency": [
+                  "daily",
+                  "weekly",
+                  "monthly"
+                ]
+              },
+              "flow_steps": [
+                {
+                  "step": "enter_goal_amount",
+                  "displays": "estimated_return"
+                },
+                {
+                  "step": "select_contribution_frequency"
+                },
+                {
+                  "step": "enter_recurring_amount"
+                },
+                {
+                  "step": "optional_goal_title",
+                  "purpose": "personalisation"
+                },
+                {
+                  "step": "select_funding_source"
+                },
+                {
+                  "step": "review",
+                  "displays": [
+                    "type",
+                    "goal",
+                    "expected_returns",
+                    "funding_method"
+                  ]
+                },
+                {
+                  "step": "confirm_and_success"
+                }
+              ],
+              "copy_context": {
+                "tone": "Goal-oriented, motivating",
+                "goal": "Connect investment to user's personal goals"
+              }
+            },
+            "fixed": {
+              "key_features": {
+                "lock_in": "duration_based",
+                "interest_rate": "varies_by_duration"
+              },
+              "flow_steps": [
+                {
+                  "step": "select_plan",
+                  "based_on": "lock_in_duration_and_interest_rate"
+                },
+                {
+                  "step": "enter_amount_and_title"
+                },
+                {
+                  "step": "select_funding_source"
+                },
+                {
+                  "step": "review",
+                  "displays": [
+                    "expected_returns",
+                    "maturity_date",
+                    "applicable_tax"
+                  ]
+                },
+                {
+                  "step": "confirm"
+                },
+                {
+                  "step": "result",
+                  "success": "confirmation_with_receipt",
+                  "delayed": "status_messages_and_retry"
+                }
+              ],
+              "copy_context": {
+                "tone": "Committed, rewarding",
+                "goal": "Show value of longer commitment"
+              }
+            }
+          }
+        },
+        "debit_cards": {
+          "flow_id": "ng_debit_cards",
+          "description": "Physical Mastercard linked to Branch Wallet",
+          "card_type": "physical_mastercard",
+          "usage": [
+            "atm",
+            "pos",
+            "nigerian_websites"
+          ],
+          "discovery": [
+            "wallet_home_banner",
+            "manage_cards_section"
+          ],
+          "request_flow": {
+            "steps": [
+              {
+                "step": "enter_delivery_details",
+                "fields": [
+                  "full_name",
+                  "phone_number",
+                  "address",
+                  "state",
+                  "lga",
+                  "landmark_optional"
+                ]
+              },
+              {
+                "step": "review_fees",
+                "displays": {
+                  "card_fee": "₦1,000",
+                  "delivery_fee": "₦3,150",
+                  "total": "₦4,150"
+                },
+                "ongoing_fees": "none"
+              },
+              {
+                "step": "payment",
+                "source": "branch_wallet",
+                "authentication": "branch_pin"
+              }
+            ]
+          },
+          "activation_flow": {
+            "trigger": "card_delivered",
+            "steps": [
+              {
+                "step": "enter_card_details",
+                "fields": [
+                  "cvv",
+                  "last_4_digits"
+                ]
+              },
+              {
+                "step": "set_card_pin",
+                "type": "4_digit_pin"
+              }
+            ]
+          },
+          "management_features": {
+            "view_card_details": "partial_display_first_6_last_4",
+            "change_pin": {
+              "requires": [
+                "cvv",
+                "branch_pin"
+              ]
+            },
+            "block_unblock": {
+              "use_case": "lost_or_stolen"
+            },
+            "request_replacement": true
+          },
+          "copy_context": {
+            "tone": "Premium, secure",
+            "goal": "Emphasise convenience and security of physical card"
+          }
+        },
+        "rewards": {
+          "flow_id": "ng_rewards",
+          "description": "Cashback and referral rewards programme",
+          "eligibility": "tier_1_or_above",
+          "earning_methods": {
+            "bill_payment_cashback": {
+              "rate": "2%",
+              "minimum_transaction": "₦200",
+              "eligible_categories": [
+                "airtime",
+                "data",
+                "cable_tv",
+                "electricity"
+              ],
+              "monthly_cap": "5 bill payments",
+              "exception": "airtime_and_data_always_earn_no_cap",
+              "credit_timing": "instant"
+            },
+            "invite_and_earn": {
+              "mechanism": "share_unique_invite_code",
+              "reward_trigger": "friend_takes_first_loan_and_fully_repays",
+              "reward_amount": "₦2,000",
+              "reward_recipients": "both_referrer_and_referee"
+            },
+            "redeem_invite_code": {
+              "mechanism": "enter_friend_invite_code",
+              "reward_trigger": "user_repays_first_loan",
+              "reward_amount": "₦2,000"
+            }
+          },
+          "spending_rewards": {
+            "current_options": [
+              "airtime",
+              "data"
+            ]
+          },
+          "rewards_history": {
+            "displays": [
+              "current_balance",
+              "cumulative_earned",
+              "cumulative_spent"
+            ]
+          },
+          "copy_context": {
+            "tone": "Exciting, tangible value",
+            "goal": "Motivate engagement through clear reward visibility"
+          }
+        },
+        "home_screen": {
+          "flow_id": "ng_home",
+          "description": "Main dashboard for returning users",
+          "layout": {
+            "top_section": {
+              "left": "branch_logo",
+              "right": [
+                "notification_bell",
+                "account_icon"
+              ]
+            },
+            "cards": {
+              "wallet_card": {
+                "displays": "balance",
+                "actions": [
+                  "add_money",
+                  "send_money"
+                ],
+                "below_card_actions": [
+                  "pay_bills",
+                  "buy_airtime_data",
+                  "manage_cards",
+                  "account_info"
+                ]
+              },
+              "loan_card": {
+                "conditional_display": {
+                  "has_active_loan": "repayment_cta",
+                  "no_active_loan": "apply_cta"
+                }
+              },
+              "investment_card": {
+                "conditional_display": {
+                  "has_investment": "balance_with_add_funds_cta",
+                  "no_investment": "start_investing_cta"
+                }
+              },
+              "alerts_card": {
+                "purpose": "important_info_or_promos"
+              }
+            },
+            "transactions_section": {
+              "displays": "recent_transactions",
+              "action": "view_all"
+            },
+            "bottom_navigation": {
+              "items": [
+                "Home",
+                "Transfer",
+                "Loans",
+                "Invest",
+                "Rewards"
+              ]
+            }
+          },
+          "copy_context": {
+            "tone": "Organised, action-ready",
+            "goal": "Quick access to key actions and information"
+          }
+        }
+      }
+    }
+  },
+  "cross_market_rules": {
+    "product_equivalents": {
+      "NG.investments": "KE.savings",
+      "note": "Functionally equivalent products with different compliant names"
+    },
+    "shared_patterns": {
+      "date_format": "DD MMM YYYY applies to all markets",
+      "currency_formatting": "Symbol before amount, thousands separator, no decimals for whole numbers",
+      "interaction_language": "Use 'tap' not 'click' for all mobile markets"
+    },
+    "terminology_conflicts": {
+      "savings_vs_investments": {
+        "rule": "Auto-replace based on market context",
+        "NG": {
+          "forbidden": "savings",
+          "use": "investments"
+        },
+        "KE": {
+          "forbidden": "investments",
+          "use": "savings"
+        },
+        "IN": {
+          "note": "Neither term currently applicable"
+        }
+      }
+    }
+  },
+  "dynamic_term_resolution": {
+    "description": "How to resolve market-specific terms at generation time",
+    "process": [
+      "1. Identify target market from context",
+      "2. Look up term in market.terminology.standard_terms",
+      "3. Apply market-specific term",
+      "4. If term not found, use British English default"
+    ],
+    "examples": {
+      "phone_input_label": {
+        "IN": "Mobile number",
+        "KE": "Phone number",
+        "NG": "Phone number"
+      },
+      "savings_cta": {
+        "IN": null,
+        "KE": "Start Saving",
+        "NG": "Start Investing"
+      }
+    }
+  }
+}

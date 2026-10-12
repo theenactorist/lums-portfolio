@@ -9,11 +9,11 @@ import HomeFooter from './Footer';
 import HomeThemeProvider from './ThemeProvider';
 import styles from '../../layout.module.css';
 
-// The first release changes Home only. Existing internal pages keep their shell.
+// Home and the approved CopyGPT case use this shell; other routes keep theirs.
 export default function SiteShell({ children }) {
   const pathname = usePathname();
 
-  if (pathname !== '/') {
+  if (pathname !== '/' && pathname !== '/work/ai-copywriting') {
     return (
       <ProductionThemeProvider>
         <ProductionNav />

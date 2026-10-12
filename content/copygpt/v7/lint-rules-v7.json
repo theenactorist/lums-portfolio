@@ -1,0 +1,449 @@
+{
+  "version": "v7",
+  "meta": {
+    "description": "Quality gates and validation rules for Branch copy",
+    "anti_hallucination_checks": [
+      "verbatim_example_detection",
+      "market_term_compliance",
+      "casing_consistency"
+    ]
+  },
+  "precedence_order": [
+    "market_regulations_and_terms",
+    "component_limits_and_rules",
+    "brand_voice_and_defaults",
+    "heuristics_and_fallbacks"
+  ],
+  "checks": [
+    {
+      "id": "verbatim_example_detection",
+      "level": "error",
+      "desc": "Generated copy must not match examples from guidance verbatim. If copy matches an example exactly, regenerate with deliberate variation.",
+      "action": "If detected, rephrase while preserving pattern and meaning"
+    },
+    {
+      "id": "casing_matches_component",
+      "level": "error",
+      "desc": "Text casing must match the component slot rule. Title Case for buttons/titles/labels; Sentence case for body/toast/banner.",
+      "validation": {
+        "title_case_components": [
+          "Primary Button",
+          "Secondary Button",
+          "Tertiary Button",
+          "List Button",
+          "Small Button",
+          "Card Button",
+          "FAB",
+          "Icon Button",
+          "Text Block.title",
+          "Bottom Sheet Header.title",
+          "Data Display.label",
+          "Table.header",
+          "Chips",
+          "Badge",
+          "Label",
+          "Step Indicator",
+          "Divider.label",
+          "Filled Cards.title",
+          "Outline Cards.headline",
+          "Alert.title",
+          "Alert.cta"
+        ],
+        "sentence_case_components": [
+          "Toast",
+          "Banner.headline",
+          "Banner.body",
+          "Input Field Label",
+          "Input Field Hint",
+          "Accordion",
+          "Ribbon",
+          "Linear Progress Indicator",
+          "body slots (all components)",
+          "subtitle slots",
+          "footer slots",
+          "Alert.message",
+          "List.title",
+          "List.body"
+        ]
+      }
+    },
+    {
+      "id": "cta_is_verb_first",
+      "level": "warn",
+      "desc": "CTAs should start with a strong action verb.",
+      "preferred_verbs": [
+        "Start",
+        "Pay",
+        "Add",
+        "Apply",
+        "Confirm",
+        "Get",
+        "View",
+        "Enable",
+        "Check",
+        "Send"
+      ],
+      "avoid_verbs": [
+        "Continue",
+        "Submit",
+        "Proceed",
+        "Next",
+        "Click",
+        "Press",
+        "OK"
+      ]
+    },
+    {
+      "id": "title_terminal_punct",
+      "level": "error",
+      "desc": "Titles and headlines must not end with periods. Exclamation and question marks allowed where appropriate.",
+      "applies_to": [
+        "title",
+        "headline",
+        "header"
+      ],
+      "forbidden": [
+        "."
+      ],
+      "allowed": [
+        "!",
+        "?"
+      ]
+    },
+    {
+      "id": "toast_no_exclamation",
+      "level": "error",
+      "desc": "Toast messages must not use exclamation marks — they feel shouty.",
+      "applies_to": [
+        "Toast.text"
+      ],
+      "forbidden": [
+        "!"
+      ]
+    },
+    {
+      "id": "toast_no_terminal_punctuation",
+      "level": "warn",
+      "desc": "Fragment-style toast messages should not have terminal punctuation.",
+      "applies_to": [
+        "Toast.text"
+      ],
+      "check": "If toast is a fragment (no complete sentence structure), no terminal punctuation"
+    },
+    {
+      "id": "british_english",
+      "level": "warn",
+      "desc": "Prefer British English spellings. Component identifiers are exempt.",
+      "spelling_map": {
+        "color": "colour",
+        "organize": "organise",
+        "license_noun": "licence",
+        "analyze": "analyse",
+        "center": "centre",
+        "meter": "metre",
+        "favorite": "favourite",
+        "catalog": "catalogue"
+      }
+    },
+    {
+      "id": "date_format_matches_market",
+      "level": "error",
+      "desc": "Dates must use DD MMM YYYY format (e.g., '15 Nov 2025'). No ordinal suffixes, no leading zeros on days.",
+      "valid_pattern": "^\\d{1,2} [A-Z][a-z]{2} \\d{4}$",
+      "invalid_examples": [
+        "15th Nov 2025",
+        "Nov 15, 2025",
+        "15/11/2025",
+        "05 Nov 2025"
+      ]
+    },
+    {
+      "id": "currency_locale_consistency",
+      "level": "error",
+      "desc": "Currency symbol and formatting must match market locale.",
+      "rules": {
+        "IN": {
+          "symbol": "₹",
+          "format": "₹1,00,000 (lakh system)"
+        },
+        "KE": {
+          "symbol": "KSh",
+          "format": "KSh 100,000"
+        },
+        "NG": {
+          "symbol": "₦",
+          "format": "₦100,000"
+        }
+      }
+    },
+    {
+      "id": "no_leading_zeros",
+      "level": "warn",
+      "desc": "Remove leading zeros from numeric displays (e.g., '6' not '06').",
+      "applies_to": [
+        "Data Display.value",
+        "Badge.value"
+      ],
+      "pattern": "^0\\d+$",
+      "action": "Strip leading zeros"
+    },
+    {
+      "id": "hyphenate_digit_compounds",
+      "level": "warn",
+      "desc": "Hyphenate compound adjectives with digits (e.g., '4-digit' not '4 digit').",
+      "pattern": "\\b(\\d+)\\s+(digit|character|step|day|month|year|minute|hour)\\b",
+      "replacement": "$1-$2"
+    },
+    {
+      "id": "no_hype",
+      "level": "warn",
+      "desc": "Avoid hype or promises that cannot be guaranteed.",
+      "forbidden_phrases": [
+        "guaranteed returns",
+        "risk-free",
+        "instant approval",
+        "best ever",
+        "amazing",
+        "incredible",
+        "100% safe"
+      ]
+    },
+    {
+      "id": "prohibit_ellipses_in_cta",
+      "level": "error",
+      "desc": "Never use ellipses (…) in CTA labels.",
+      "applies_to": [
+        "button",
+        "cta"
+      ],
+      "forbidden": [
+        "…",
+        "..."
+      ]
+    },
+    {
+      "id": "max_line_length_respected",
+      "level": "error",
+      "desc": "Do not exceed max lines per slot as defined in components.json."
+    },
+    {
+      "id": "character_limit_respected",
+      "level": "error",
+      "desc": "Do not exceed max characters per slot as defined in components.json."
+    },
+    {
+      "id": "encoding_check",
+      "level": "error",
+      "desc": "Copy must not contain mojibake or broken encoding.",
+      "forbidden_patterns": [
+        "Ã¢â‚¬",
+        "â€™",
+        "Â"
+      ],
+      "required_glyphs": {
+        "ellipsis": "…",
+        "apostrophe": "'",
+        "quotes": "\" \"",
+        "naira": "₦",
+        "rupee": "₹",
+        "arrow": "→"
+      }
+    },
+    {
+      "id": "market_term_compliance_ng",
+      "level": "error",
+      "desc": "Nigeria: Use 'investments' not 'savings' for the savings-equivalent product.",
+      "market": "NG",
+      "forbidden_terms": [
+        "savings"
+      ],
+      "replacement": "investments",
+      "auto_fix": {
+        "pattern": "\\bsaving(s)?\\b",
+        "replace_with": "investment$1",
+        "preserve_case": true
+      }
+    },
+    {
+      "id": "market_term_compliance_ke",
+      "level": "error",
+      "desc": "Kenya: Use 'savings' not 'investments' for the savings product.",
+      "market": "KE",
+      "forbidden_terms": [
+        "investments"
+      ],
+      "replacement": "savings",
+      "auto_fix": {
+        "pattern": "\\binvestment(s)?\\b",
+        "replace_with": "saving$1",
+        "preserve_case": true
+      }
+    },
+    {
+      "id": "phone_terminology_in",
+      "level": "warn",
+      "desc": "India: Use 'mobile number' not 'phone number'.",
+      "market": "IN",
+      "pattern": "\\bphone\\s*number\\b",
+      "replacement": "mobile number"
+    },
+    {
+      "id": "phone_terminology_ke_ng",
+      "level": "warn",
+      "desc": "Kenya/Nigeria: Use 'phone number' not 'mobile number'.",
+      "market": [
+        "KE",
+        "NG"
+      ],
+      "pattern": "\\bmobile\\s*number\\b",
+      "replacement": "phone number"
+    },
+    {
+      "id": "email_terminology",
+      "level": "warn",
+      "desc": "Use 'email address' not 'email ID' across all markets.",
+      "pattern": "\\bemail\\s*id\\b",
+      "replacement": "email address"
+    },
+    {
+      "id": "pincode_terminology",
+      "level": "warn",
+      "desc": "Use 'PIN code' not 'pincode' (PIN is an acronym).",
+      "pattern": "\\bpincode\\b",
+      "replacement": "PIN code"
+    },
+    {
+      "id": "login_verb_form",
+      "level": "warn",
+      "desc": "Use 'log in' (two words) as verb, 'login' (one word) as noun/adjective.",
+      "rules": {
+        "verb_context": {
+          "pattern": "\\blogin\\b(?=\\s+to|\\s+again)",
+          "replacement": "log in"
+        },
+        "noun_context": {
+          "pattern": "\\blog\\s+in\\b(?=\\s+details|\\s+screen)",
+          "replacement": "login"
+        }
+      }
+    },
+    {
+      "id": "tap_not_click",
+      "level": "warn",
+      "desc": "Use 'tap' not 'click' for mobile interactions.",
+      "pattern": "\\bclick\\b",
+      "replacement": "tap"
+    },
+    {
+      "id": "abbreviation_expansion",
+      "level": "warn",
+      "desc": "Expand common abbreviations in user-facing copy.",
+      "expansions": {
+        "No.": "Number",
+        "Acc": "Account",
+        "Amt": "Amount",
+        "Bal": "Balance"
+      },
+      "exceptions": [
+        "PIN",
+        "PAN",
+        "OTP",
+        "BVN",
+        "NIN",
+        "UPI",
+        "IMPS",
+        "NEFT",
+        "M-Pesa"
+      ]
+    },
+    {
+      "id": "no_colon_after_label",
+      "level": "warn",
+      "desc": "Data display labels should not end with colons.",
+      "applies_to": [
+        "Data Display.label"
+      ],
+      "pattern": ":$",
+      "action": "Remove trailing colon"
+    },
+    {
+      "id": "auto_debit_hyphenation",
+      "level": "warn",
+      "desc": "Use 'Auto-Debit' with hyphen for consistency.",
+      "pattern": "\\bauto\\s*debit\\b",
+      "replacement": "Auto-Debit"
+    },
+    {
+      "id": "customer_care_capitalisation",
+      "level": "warn",
+      "desc": "Use 'Customer Care' (capitalised) not 'customer care' or 'support'.",
+      "pattern": "\\b(customer\\s*care|support)\\b",
+      "replacement": "Customer Care",
+      "context": "When referring to Branch's support team"
+    },
+    {
+      "id": "contraction_consistency",
+      "level": "info",
+      "desc": "Use contractions in conversational body text (we're, you're, won't) but not in formal/legal copy.",
+      "guidance": {
+        "use_contractions": [
+          "body text",
+          "hints",
+          "toast",
+          "banner body"
+        ],
+        "avoid_contractions": [
+          "legal disclaimers",
+          "terms and conditions",
+          "formal notices"
+        ]
+      }
+    },
+    {
+      "id": "your_personalisation",
+      "level": "info",
+      "desc": "Add 'your' for personalisation in instructional titles where appropriate.",
+      "examples": {
+        "better": "Enter Your Email Address",
+        "acceptable": "Enter email address",
+        "context": "Title Case titles benefit from 'Your' personalisation"
+      }
+    }
+  ],
+  "auto_fix_rules": {
+    "description": "Rules that can be automatically applied during generation or paste",
+    "apply_phases": [
+      "generation",
+      "paste",
+      "validation"
+    ],
+    "rules": [
+      {
+        "id": "market_term_auto_fix",
+        "trigger": "market context detected",
+        "action": "Replace forbidden terms with compliant alternatives"
+      },
+      {
+        "id": "casing_auto_fix",
+        "trigger": "component type detected",
+        "action": "Apply correct casing based on component slot"
+      },
+      {
+        "id": "punctuation_auto_fix",
+        "trigger": "component type detected",
+        "action": "Add or remove terminal punctuation based on rules"
+      }
+    ]
+  },
+  "validation_sequence": [
+    "1. Check encoding (no mojibake)",
+    "2. Check market term compliance",
+    "3. Check character and line limits",
+    "4. Check casing rules",
+    "5. Check punctuation rules",
+    "6. Check verb preferences for CTAs",
+    "7. Check date and currency formatting",
+    "8. Run terminology standardisation",
+    "9. Verify not verbatim copy of example"
+  ]
+}
