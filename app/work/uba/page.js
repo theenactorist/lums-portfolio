@@ -43,7 +43,7 @@ export default function UBACaseStudy() {
           <div className={styles.heroCopy}>
             <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span>UBA</span></nav>
             <h1>Taking an enterprise HR platform from concept to production</h1>
-            <div className={styles.intro}><p>I led the design of HCMConnect, UBA’s in-house HR platform for 10,000+ employees, from discovery and connected workflows to prototypes, testing and engineering handoff.</p></div>
+            <div className={styles.intro}><p>I contributed to the design of HCMConnect, UBA’s in-house HR platform for 10,000+ employees, from discovery and connected workflows to prototypes, testing and engineering handoff.</p></div>
           </div>
           <AnimatedHero className={styles.heroEvidence} />
         </header>
@@ -67,7 +67,7 @@ export default function UBACaseStudy() {
                   <p>HR requests depended on fragmented Salesforce processes, paper forms, spreadsheets and email. HCMConnect brought employee self-service, manager approvals and HR administration into an in-house platform.</p>
                   <h3>Impact TLDR:</h3>
                   <ul>
-                    <li>I led design for the enterprise HR platform, working with the wider design and engineering team.</li>
+                    <li>I contributed to the enterprise HR platform’s design, working with the wider design and engineering team.</li>
                     <li>The platform served a workforce of <strong>10,000+ employees</strong> and improved HR efficiency by <strong>30%</strong>.</li>
                     <li>The wider move to in-house automation contributed to approximately <strong>$960K in annual enterprise licence savings</strong>.</li>
                   </ul>
@@ -151,7 +151,7 @@ export default function UBACaseStudy() {
                   <dl><div><dt>30%</dt><dd>Improvement in HR efficiency</dd></div><div><dt>≈$960K</dt><dd>Annual enterprise licence savings</dd></div></dl>
                   <figcaption>The platform improved HR efficiency. The wider replacement of third-party enterprise applications with in-house automation contributed to the licence savings.</figcaption>
                 </figure>
-                <p>These were business outcomes of the team’s delivery. My contribution was leading the platform’s design, from understanding HR needs through workflow design, prototyping, testing and engineering handoff.</p>
+                <p>These were business outcomes of the team’s delivery. My contribution as a Product Designer covered understanding HR needs, workflow design, prototyping, testing and engineering handoff.</p>
                 <h3>Excellent Project Delivery Award</h3>
                 <blockquote className={styles.quote}>
                   <p>“This letter serves to commend you for your immense contribution towards the delivery of the HR automation platform which is currently live and in use. This is a sterling achievement borne out of your dedication, result-oriented approach and willingness to go the extra mile to ensure delivery of all envisioned and ad-hoc requirements of the platform. You are therefore issued a LETTER OF COMMENDATION.”</p>
