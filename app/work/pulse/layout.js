@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'Pulse: Embedded Crypto Payments',
+  title: 'From Figma to a Working Payment Product in Five Days',
   description:
     'Designing and building the React frontend for a B2B payments platform, with a first partner demo in five working days.',
   openGraph: {
-    title: 'Pulse: Embedded Crypto Payments',
+    title: 'From Figma to a Working Payment Product in Five Days',
     description:
       'A product design and front-end development case study spanning embedded checkout, partner operations, and developer integration.',
     type: 'article',
@@ -19,7 +19,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pulse: Embedded Crypto Payments',
+    title: 'From Figma to a Working Payment Product in Five Days',
     description:
       'Designing and building the React frontend for a B2B payments platform, with a first partner demo in five working days.',
     images: ['/work/pulse/thumbnail.png'],

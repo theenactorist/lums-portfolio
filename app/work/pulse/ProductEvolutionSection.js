@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import ZoomableImage from '../../components/ZoomableImage'
+import ZoomableImage from './PulseImage'
 import pageStyles from './pulse.module.css'
-import styles from './product-evolution.module.css'
+
 
 const partners = [
   { name: 'Piggyvest', logo: 'piggyvest.svg', width: 192, height: 37, status: 'Onboarded', complete: true },
@@ -20,46 +20,28 @@ function StatusIcon({ complete }) {
 
 export default function ProductEvolutionSection() {
   return (
-    <section className={`section ${pageStyles.constraintSection} ${styles.section}`} aria-labelledby="pulse-evolution-title">
-      <div className="container">
-        <div className={pageStyles.sectionHeader}>
-          <span>Product evolution</span>
-          <h2 id="pulse-evolution-title">Pulse continued beyond the first partner demo</h2>
-        </div>
-        <div className={`${pageStyles.constraintGrid} ${styles.grid}`}>
-          <div className={styles.website}>
+    <section className={pageStyles.section} id="evolution" tabIndex={-1} aria-labelledby="pulse-evolution-title">
+      <h2 id="pulse-evolution-title">Pulse continued beyond the first partner demo</h2>
+      <div className={pageStyles.prose}>
+        <p>The website and partner progress below record the work beyond the July build. This is the historical project update from <time dateTime="2026-09-14">14 September 2026</time>.</p>
+        <div className={pageStyles.evolutionGrid}>
+          <div>
             <h3>I designed and built the Pulse website</h3>
-            <p>Complete on staging, awaiting public launch.</p>
-            <a className={`${pageStyles.docsLink} ${styles.websiteLink}`} href="https://pulse-staging-seven.vercel.app/" target="_blank" rel="noreferrer">
-              Explore Pulse website
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
-            </a>
-            <figure className={styles.thumbnail}>
-              <ZoomableImage
-                src="/work/pulse/website-current.png"
-                alt="Pulse website showing the product overview and payment features"
-                width={2668}
-                height={1878}
-                sizes="(max-width: 720px) calc(100vw - 48px), (max-width: 900px) 440px, 40vw"
-              />
-              <figcaption>Pulse website · staging</figcaption>
+            <p>At the recorded update, the website was complete on staging and awaiting public launch.</p>
+            <a className={pageStyles.docsLink} href="https://pulse-staging-seven.vercel.app/" target="_blank" rel="noreferrer">Explore Pulse website <span aria-hidden="true">↗</span></a>
+            <figure className={pageStyles.websiteEvidence}>
+              <ZoomableImage src="/work/pulse/website-current.png" alt="Pulse website showing the product overview and payment features" width={2668} height={1878} sizes="(max-width: 767px) 85vw, 400px" />
+              <figcaption>Pulse website, staging at the recorded update.</figcaption>
             </figure>
           </div>
-          <div className={styles.partners}>
-            <div className={styles.partnerHeading}>
-              <h3>Partner progress</h3>
-              <p>As of <time dateTime="2026-09-14">14 September 2026</time></p>
-            </div>
-            <ul className={styles.partnerList}>
+          <div>
+            <h3>Partner progress</h3>
+            <p>As of <time dateTime="2026-09-14">14 September 2026</time></p>
+            <ul className={pageStyles.partnerList}>
               {partners.map((partner) => (
                 <li key={partner.name}>
-                  <span className={styles.logoPlate}>
-                    <Image src={`/work/pulse/logos/${partner.logo}`} alt={partner.name} width={partner.width} height={partner.height} />
-                  </span>
-                  <span className={styles.status}>
-                    <StatusIcon complete={partner.complete} />
-                    {partner.status}
-                  </span>
+                  <span className={pageStyles.logoPlate}><Image src={`/work/pulse/logos/${partner.logo}`} alt={partner.name} width={partner.width} height={partner.height} /></span>
+                  <span className={pageStyles.partnerStatus}><StatusIcon complete={partner.complete} />{partner.status}</span>
                 </li>
               ))}
             </ul>

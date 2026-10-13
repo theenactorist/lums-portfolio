@@ -3,23 +3,20 @@
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import PageTransition from '../../components/PageTransition'
-import ZoomableImage from '../../components/ZoomableImage'
+import { motion, useReducedMotion } from 'framer-motion'
+import CaseStudyProgressRail from '../../components/CaseStudyProgressRail'
+import '../ai-copywriting/reference-fonts.css'
+import './pulse-shell.css'
+import ZoomableImage from './PulseImage'
 import { CheckoutTrigger, DocumentTrigger } from './PulseDialogs'
 import ProductEvolutionSection from './ProductEvolutionSection'
+import PulseDashboard from './PulseDashboard'
+import HeliumButtonExample from './HeliumButtonExample'
 import styles from './pulse.module.css'
 
 const DASHBOARD_URL = 'https://pulse-staging-seven.vercel.app/app?embed=1&theme=light'
 const DOCS_URL = 'https://docs.pulseshiga.io/'
 const STORYBOOK_URL = 'https://helium-design-system-storybook.vercel.app/?path=/docs/components-button--docs'
-
-const reveal = {
-  initial: { opacity: 0, y: 18 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
-}
 
 function ArrowIcon() {
   return (
@@ -45,7 +42,7 @@ function ProductImage({ src, alt, caption, width = 1280, height = 720 }) {
         alt={alt}
         width={width}
         height={height}
-        sizes="280px"
+        sizes="(max-width: 767px) 85vw, 380px"
       />
       <figcaption>{caption}</figcaption>
     </figure>
@@ -116,7 +113,7 @@ function MasterPromptsPanel() {
         </article>
       </div>
       <p className={styles.supportingCopy}>
-        Current repository examples. PRODUCT.md opens the complete BUILD_PROMPT.md.
+        These are later repository examples, not a record of everything shipped in the first five days. PRODUCT.md opens the complete BUILD_PROMPT.md.
       </p>
     </div>
   )
@@ -143,7 +140,6 @@ function CheckoutPanel() {
             Try the interactive checkout <ArrowIcon />
           </CheckoutTrigger>
         </header>
-        <footer><span>Simulated payment</span></footer>
       </div>
       <div className={styles.evidenceRow} role="group" aria-label="Checkout screenshots" tabIndex={0}>
         <ProductImage
@@ -183,7 +179,7 @@ function OperationsPanel() {
           payment failure reasons.
         </p>
       </div>
-      <PrototypeFrame />
+      <PulseDashboard src={DASHBOARD_URL} />
       <div className={styles.evidenceRow} role="group" aria-label="Partner dashboard screenshots" tabIndex={0}>
         <ProductImage
           src="/work/pulse/dashboard-performance.png"
@@ -263,7 +259,7 @@ const solutionPanels = {
     render: <OperationsPanel />,
   },
   developer: {
-    label: 'Developer Experience',
+    label: 'Developer Documentation',
     render: <DeveloperExperiencePanel />,
   },
 }
@@ -320,406 +316,146 @@ function SolutionTabs() {
   )
 }
 
+const phases = [
+  { id: 'overview', label: 'At a glance' },
+  { id: 'brief', label: 'The brief & constraints' },
+  { id: 'roles', label: 'Customer & partner roles' },
+  { id: 'design-system', label: 'Figma to Helium React' },
+  { id: 'ai-workflow', label: 'Implementation & review' },
+  { id: 'surfaces', label: 'Checkout, operations & docs' },
+  { id: 'outcome', label: 'Handoff & first-demo outcome' },
+  { id: 'evolution', label: 'Beyond the first demo' },
+  { id: 'learnings', label: 'Learnings & next steps' },
+]
+
+function Section({ id, title, children }) {
+  return <section className={styles.section} id={id} tabIndex={-1}><h2>{title}</h2><div className={styles.prose}>{children}</div></section>
+}
+
 export default function PulseCaseStudy() {
+  const reducedMotion = useReducedMotion()
   return (
-    <PageTransition mode="fade">
-      <main className={`cs-page ${styles.page}`}>
-        <nav className="cs-breadcrumb" aria-label="Breadcrumb">
-          <div className="container cs-wide-container">
-            <ol className="cs-breadcrumb__list">
-              <li className="cs-breadcrumb__item">
-                <Link href="/work" className="cs-breadcrumb__link">Work</Link>
-              </li>
-              <li className="cs-breadcrumb__sep" aria-hidden="true">/</li>
-              <li className="cs-breadcrumb__item cs-breadcrumb__item--current" aria-current="page">Pulse</li>
-            </ol>
+    <main id="pulse-case" className={styles.page}>
+      <header className={styles.header}>
+        <div className={styles.heroCopy}>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">Pulse</span></nav>
+          <h1>From Figma to a Working Payment Product in Five Days</h1>
+          <div className={styles.intro}><p>Designing and building Pulse’s React frontend so a prospective partner could evaluate checkout, payment operations and developer integration in one working demo.</p></div>
+        </div>
+        <motion.div className={styles.heroMedia} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.55, delay: reducedMotion ? 0 : 0.08, ease: [0.16, 1, 0.3, 1] }}>
+          <div className={styles.heroDashboard}>
+            <ZoomableImage src="/work/pulse/hero-dashboard-isolated.png" alt="Pulse transactions dashboard" width={1640} height={1034} priority sizes="(max-width: 767px) 85vw, 550px" />
           </div>
-        </nav>
-
-        <section className={`cs-hero ${styles.hero}`}>
-          <div className="container cs-hero__container">
-            <div className={styles.heroGrid}>
-              <motion.div className={styles.heroCopy} {...reveal}>
-                <h1 className="cs-hero__title">Pulse: Embedded Crypto Payments</h1>
-                <p className={styles.heroLead}>
-                  I designed and built the frontend for a B2B payments platform that
-                  helps businesses accept crypto and settle in fiat.
-                </p>
-              </motion.div>
-              <motion.div className={styles.heroMedia} {...reveal} transition={{ ...reveal.transition, delay: 0.08 }}>
-                <div className={styles.heroDashboard}>
-                  <ZoomableImage
-                    src="/work/pulse/hero-dashboard-isolated.png"
-                    alt="Pulse transactions dashboard"
-                    width={1640}
-                    height={1034}
-                    priority
-                    sizes="(max-width: 1180px) 90vw, 52vw"
-                  />
-                </div>
-                <div className={styles.heroSdk}>
-                  <ZoomableImage
-                    src="/work/pulse/hero-sdk-isolated.png"
-                    alt="Pulse embedded checkout SDK asset selection"
-                    width={636}
-                    height={959}
-                    priority
-                    sizes="(max-width: 1180px) 30vw, 18vw"
-                  />
-                </div>
-                <div className={styles.heroDeveloper}>
-                  <ZoomableImage
-                    src="/work/pulse/hero-developer-isolated.png"
-                    alt="Pulse developer API request example"
-                    width={940}
-                    height={512}
-                    priority
-                    sizes="(max-width: 1180px) 45vw, 26vw"
-                  />
-                </div>
-              </motion.div>
+          <div className={styles.heroSdk}><ZoomableImage src="/work/pulse/hero-sdk-isolated.png" alt="Pulse embedded checkout SDK asset selection" width={636} height={959} priority sizes="(max-width: 767px) 28vw, 180px" /></div>
+          <div className={styles.heroDeveloper}><ZoomableImage src="/work/pulse/hero-developer-isolated.png" alt="Pulse developer API request example" width={940} height={512} priority sizes="(max-width: 767px) 42vw, 260px" /></div>
+        </motion.div>
+      </header>
+      <div className={styles.articleLayout}>
+        <aside className={styles.chapterRail}><CaseStudyProgressRail phases={phases} orientation="vertical" /></aside>
+        <details className={styles.mobileContents}><summary>In this case study</summary><CaseStudyProgressRail phases={phases} orientation="vertical" /></details>
+        <article className={styles.article}>
+          <section className={`${styles.section} ${styles.overview}`} id="overview" tabIndex={-1}>
+            <div className={styles.overviewLabel}>At a glance</div>
+            <h2>Shiga had the payment capabilities. A prospective partner needed to see them working together.</h2>
+            <div className={styles.overviewLayout}>
+              <dl className={styles.facts}>
+                <div><dt>Company</dt><dd>Shiga, Pulse’s parent company</dd></div>
+                <div><dt>Industry & platform</dt><dd>Fintech, Web3, B2B, Web, SaaS</dd></div>
+                <div><dt>Role</dt><dd>Product design + React frontend delivery</dd></div>
+                <div><dt>Team</dt><dd>Product, Engineering, Business Development</dd></div>
+                <div><dt>First build</dt><dd>July 2026, five working days</dd></div>
+                <div><dt>Tools</dt><dd className={styles.tools}><span><Image src="/work/ai-copywriting/tools/figma.svg" alt="" width={18} height={18} />Figma,</span> <span><Image src="/work/ai-copywriting/tools/chatgpt.svg" alt="" width={18} height={18} className={styles.openaiMark} />Codex,</span> <span>Helium React,</span> <span>Storybook,</span> <span>Mintlify</span></dd></div>
+              </dl>
+              <div className={styles.overviewCopy}>
+                <p>Pulse brought Shiga’s payment capabilities into a business product: checkout for customers, operations for partner teams and integration tools for developers.</p>
+                <h3>Project TLDR:</h3>
+                <ul>
+                  <li>I designed and built the React frontend, using Helium components and AI-assisted implementation.</li>
+                  <li>Engineering connected the backend APIs. The team tested and presented the integrated product on day five.</li>
+                  <li>The recorded demo helped secure Piggyvest as a partner.</li>
+                </ul>
+                <a className={styles.resultLink} href="#outcome">Handoff and first-demo outcome <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="cs-meta-section">
-          <div className="container cs-wide-container">
-            <motion.div className={styles.metaGrid} {...reveal}>
-              <div><span>My role</span><strong>Product design + React frontend delivery</strong></div>
-              <div><span>Team</span><strong>Product, Engineering, Business Development</strong></div>
-              <div><span>Timeframe</span><strong>First build: July 2026 · five working days</strong></div>
-              <div><span>Industry</span><strong>Fintech, Web3</strong></div>
-              <div><span>Platform</span><strong>Web, B2B, SaaS</strong></div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className={`section ${styles.contextSection}`}>
-          <div className="container">
-            <motion.div className={styles.sectionHeader} {...reveal}>
-              <span>Context</span>
-              <h2>Turning Shiga’s payment capabilities into a partner product</h2>
-              <p>
-                Shiga, Pulse’s parent company, already offered on-ramp, off-ramp and payments
-                through its consumer product, Enta. Pulse brought those capabilities
-                together for businesses: checkout for their customers, operations for
-                their teams and integration tools for their developers.
-              </p>
-            </motion.div>
-            <motion.div className={styles.productFlow} {...reveal}>
-              <article>
-                <span>01</span>
-                <h3>Partner integrates Pulse</h3>
-                <p>Through the API on mobile or the SDK on web.</p>
-              </article>
-              <ArrowIcon />
-              <article>
-                <span>02</span>
-                <h3>Customer pays</h3>
-                <p>Customers pay inside the partner’s product. Later product capability: USDC, USDT or BTC on 20+ networks.</p>
-              </article>
-              <ArrowIcon />
-              <article>
-                <span>03</span>
-                <h3>Settle and track payments</h3>
-                <p>Pulse converts the payment to fiat and settles to the partner’s account. Partner teams monitor payments and settlements.</p>
-              </article>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className={`section ${styles.personaSection}`}>
-          <div className="container cs-wide-container">
-            <motion.div className={styles.sectionHeader} {...reveal}>
-              <span>Product model</span>
-              <h2>Four roles across one payment journey</h2>
-            </motion.div>
-            <motion.div className={styles.personaLayout} {...reveal}>
+          </section>
+          <Section id="brief" title="Five working days to show Pulse working">
+            <p>Shiga already offered on-ramp, off-ramp and payments through its consumer product, Enta. Pulse brought those capabilities together for businesses, helping them accept crypto and settle in fiat.</p>
+            <p>Business Development found the prospective partner, Piggyvest, managed the relationship and arranged Friday’s evaluation. The evaluation focused on its investment use case: accepting a payment inside the partner’s product and giving its team visibility.</p>
+            <p>My PM and I protected three jobs for the demo: complete a payment, understand its status and see how to integrate. Checkout, the partner dashboard and developer guidance had to support the same evaluation.</p>
+            <div className={styles.findings}>
+              <h3>Partner clarification narrowed the scope</h3>
+              <dl>
+                <div><dt>Known at the start</dt><dd>Partners needed embedded payments, operational visibility and a clear integration path. I used the partner conversation, Business Development context, payment knowledge and Engineering’s API constraints to define those jobs.</dd></div>
+                <div><dt>Decided for the demo</dt><dd>I defined the initial roles and permissions. We deferred self-serve onboarding to protect Friday’s evaluation, so partners would still need help getting set up.</dd></div>
+                <div><dt>Learned afterward</dt><dd>Partners later requested clearer payment failure reasons. That feedback belongs to the work beyond the first demo.</dd></div>
+              </dl>
+            </div>
+          </Section>
+          <Section id="roles" title="Four roles across one payment journey">
+            <p>The customer pays inside the partner’s product. Pulse converts the payment to fiat and settles to the partner’s account, while the partner’s team monitors payments and settlements.</p>
+            <div className={styles.roleEvidence}>
               <div className={styles.personas}>
-                <article>
-                  <Image src="/work/pulse/icons/admin.svg" alt="" width={42} height={42} />
-                  <div><h3>Admin</h3><p>Set up the team, settings and operational access.</p></div>
-                </article>
-                <article>
-                  <Image src="/work/pulse/icons/developer.svg" alt="" width={42} height={42} />
-                  <div><h3>Developer</h3><p>Configure API keys, webhooks and test/live integrations.</p></div>
-                </article>
-                <article>
-                  <Image src="/work/pulse/icons/viewer.svg" alt="" width={42} height={42} />
-                  <div><h3>Viewer / Operations</h3><p>View transactions, payment status and performance with read-only access.</p></div>
-                </article>
-                <article>
-                  <Image src="/work/pulse/icons/customer.svg" alt="" width={42} height={42} />
-                  <div><h3>Customer</h3><p>Pay inside the partner’s product through embedded checkout.</p></div>
-                </article>
+                {[
+                  ['admin', 'Admin', 'Set up the team, settings and operational access.'],
+                  ['developer', 'Developer', 'Configure API keys, webhooks and test/live integrations.'],
+                  ['viewer', 'Viewer / Operations', 'View transactions, payment status and performance with read-only access.'],
+                  ['customer', 'Customer', 'Pay inside the partner’s product through embedded checkout.'],
+                ].map(([icon, role, job]) => <div key={role}><Image src={`/work/pulse/icons/${icon}.svg`} alt="" width={42} height={42} /><div><h3>{role}</h3><p>{job}</p></div></div>)}
               </div>
               <div className={styles.surfaces} aria-label="Pulse product surfaces">
-                <div><Image src="/work/pulse/surfaces/partner-dashboard.svg" alt="" width={240} height={130} /><span>Partner Operations Dashboard</span></div>
-                <div><Image src="/work/pulse/surfaces/developer-experience.svg" alt="" width={240} height={130} /><span>Developer Integration Portal</span></div>
-                <div><Image src="/work/pulse/surfaces/sdk.svg" alt="" width={240} height={130} /><span>Embedded Checkout SDK</span></div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className={`section ${styles.constraintSection}`}>
-          <div className="container">
-            <motion.div className={styles.constraintGrid} {...reveal}>
-              <div>
-                <span className={styles.sectionLabel}>Constraint</span>
-                <h2>Five working days to show Pulse working</h2>
-              </div>
-              <div className={styles.constraintCopy}>
-                <p>
-                  Business Development found the prospective partner, Piggyvest, managed
-                  the relationship and arranged Friday’s evaluation.
-                </p>
-                <p>
-                  The evaluation focused on Piggyvest’s investment use case: accepting a
-                  payment inside the partner’s product and giving its team visibility.
-                </p>
-                <p>
-                  My PM and I protected three jobs for the demo: complete a payment,
-                  understand its status and see how to integrate.
-                </p>
-                <p>
-                  Checkout, the partner dashboard and developer guidance had to support
-                  the same evaluation.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className={`section ${styles.discoverySection}`}>
-          <div className="container cs-wide-container">
-            <motion.div className={styles.discoveryHeader} {...reveal}>
-              <div>
-                <span className={styles.sectionLabel}>Discovery</span>
-                <h2>Partner clarification narrowed the scope</h2>
-              </div>
-              <p>I used the direct partner conversation, Business Development context, payment knowledge and Engineering’s API constraints to define the jobs and initial role model before prompting Codex.</p>
-            </motion.div>
-            <motion.div className={styles.discoveryGrid} {...reveal}>
-              <article><span>1</span><h3>Pay inside the partner’s product</h3><p>I chose embedded checkout: API on mobile, SDK on web.</p></article>
-              <article><span>2</span><h3>Understand each payment</h3><p>I prioritised transaction monitoring and admin access controls.</p></article>
-              <article><span>3</span><h3>Know how to integrate</h3><p>I included docs, webhooks and API reference for the demo.</p></article>
-            </motion.div>
-            <div className={styles.optimisedFor}>
-              <span>How the scope developed</span>
-              <p><strong>Known at the start</strong>Partners needed embedded payments, operational visibility and a clear integration path.</p>
-              <p><strong>Decided for the demo</strong>I defined the initial roles and permissions. We deferred self-serve onboarding.</p>
-              <p><strong>Learned afterward</strong>Partners later requested clearer payment failure reasons.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className={`section ${styles.decisionSection}`}>
-          <div className="container cs-wide-container">
-            <motion.div className={styles.sectionHeader} {...reveal}>
-              <span>Decision</span>
-              <h2>I handed over the frontend in React</h2>
-            </motion.div>
-            <motion.div className={styles.deliveryCompare} {...reveal}>
-              <div>
-                <span>A separate build handoff</span>
-                <ol>
-                  <li>High-fidelity Figma screens</li>
-                  <li>Frontend implementation after handoff</li>
-                  <li>API integration</li>
-                </ol>
-              </div>
-              <div>
-                <span>The route I took</span>
-                <ol>
-                  <li>Helium React components and Storybook</li>
-                  <li>Codex builds, followed by my review and design QA</li>
-                  <li>Reviewed React code ready for API integration</li>
-                </ol>
-              </div>
-            </motion.div>
-            <div className={styles.sectionDetail}>
-              <h3 className={styles.sectionLabel}>The trade-offs</h3>
-              <div className={`${styles.discoveryGrid} ${styles.tradeoffGrid}`}>
-                <article>
-                  <span>Ownership</span>
-                  <h3>I took on the build and design QA</h3>
-                  <p>The team could review a working React frontend. That also made me responsible for checking its behaviour before handing the code to Engineering.</p>
-                </article>
-                <article>
-                  <span>Scope</span>
-                  <h3>Self-serve onboarding could wait</h3>
-                  <p>We deferred it to protect checkout, operations and integration for Friday’s evaluation. Partners would still need help getting set up.</p>
-                </article>
-                <article>
-                  <span>Reuse</span>
-                  <h3>Mintlify kept docs within reach</h3>
-                  <p>I used Shiga’s existing documentation structure instead of building a custom site. That left time for test credentials, API requests and payment-event guidance.</p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="ai-workflow" className={`section ${styles.contextSection}`}>
-          <div className="container cs-wide-container">
-            <div className={styles.sectionHeader}>
-              <span>AI workflow</span>
-              <h2>How I built Pulse with Codex</h2>
-              <p>I set the product structure and behaviour. Codex built in smaller steps; I reviewed the output and directed the next changes.</p>
-            </div>
-            <div className={`${styles.nextFlow} ${styles.workflowFlow}`} aria-label="Build and review workflow">
-              {[
-                ['I prepared the context', 'Product priorities, Figma flows, written behaviour and states, mapped to existing Helium React components.'],
-                ['Codex planned and built', 'The React frontend was assembled in smaller implementation steps, so I could review each part as it took shape.'],
-                ['I reviewed and corrected', 'I checked the behaviour and directed corrections into the next build. Product, Business Development and Engineering reviewed the working flow.'],
-                ['Engineering integrated', 'I handed over the reviewed React code. Frontend engineers connected the backend APIs; testing and iteration continued.'],
-              ].map(([title, description], index, items) => (
-                <div key={title}>
-                  <span>
-                    <span className={styles.workflowNumber}>{index + 1}</span>
-                    <strong>{title}</strong>
-                    <span className={styles.futureBody}>{description}</span>
-                  </span>
-                  {index < items.length - 1 && <ArrowIcon />}
-                </div>
-              ))}
-            </div>
-            <div className={styles.sectionDetail}>
-              <h3 className={styles.sectionLabel}>What I corrected in review</h3>
-              <div className={`${styles.promptGrid} ${styles.reviewGrid}`}>
-                <article>
-                  <h4>Table headers needed sorting</h4>
-                  <p>Codex missed this interaction. I added sorting to the table headers.</p>
-                </article>
-                <article>
-                  <h4>The table data needed simplifying</h4>
-                  <p>I condensed the data to simplify the table and directed the correction into the next build.</p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="design-system" className={`section ${styles.personaSection}`}>
-          <div className="container cs-wide-container">
-            <div className={styles.sectionHeader}>
-              <span>Design system</span>
-              <h2>Helium made the design reusable in code</h2>
-              <p>I converted the Figma system into React components and documented them in Storybook. Design, Codex and Engineering could work from the same reference.</p>
-            </div>
-            <div className={styles.constraintGrid}>
-              <div className={styles.solutionStack}>
-                <div className={styles.prototypeShell}>
-                  <header>
-                    <div><span>Component reference</span><strong>Helium in Storybook</strong></div>
-                    <a href={STORYBOOK_URL} target="_blank" rel="noreferrer">Explore Storybook <ExternalIcon /></a>
-                  </header>
-                </div>
-                <div className={styles.evidenceRow} role="group" aria-label="Helium component screenshot" tabIndex={0}>
-                  <ProductImage
-                    src="/work/pulse/helium-component.png"
-                    alt="Helium React button component with hierarchy, size and state controls in Storybook"
-                    width={1440}
-                    height={900}
-                    caption="The Button component and its variants in Storybook."
-                  />
-                </div>
-              </div>
-              <div className={styles.constraintCopy}>
-                <p><strong>Figma properties became React props.</strong> The Button mapping defined hierarchy and size, along with default, hover, focus and disabled states.</p>
-                <p><strong>The same component was reused in Pulse.</strong> Reusing established patterns gave me time to design and QA the product’s flows and features.</p>
-                <pre className={styles.componentExample} aria-label="Helium Button usage"><code>{"import { Button } from '@helium/react'\n\n<Button>Invite member</Button>"}</code></pre>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className={`section ${styles.solutionSection}`}>
-          <div className="container cs-wide-container">
-            <motion.div className={styles.sectionHeader} {...reveal}>
-              <span>Solution</span>
-              <h2>The working frontend across Pulse’s product surfaces</h2>
-              <p>Explore the current product and source documents below. These examples have developed beyond the first five-day demo.</p>
-            </motion.div>
-            <motion.div {...reveal}>
-              <SolutionTabs />
-            </motion.div>
-          </div>
-        </section>
-
-        <section className={`section ${styles.outcomeSection}`}>
-          <div className="container">
-            <motion.div {...reveal}>
-              <span className={styles.sectionLabel}>Outcome</span>
-              <h2>The demo helped secure Piggyvest as a partner.</h2>
-              <p className={styles.supportingCopy}>
-                The five-day build gave the partner enough confidence to move forward.
-              </p>
-              <div className={`${styles.productFlow} ${styles.deliveryTimeline}`} aria-label="The final three days of the original build">
-                <article>
-                  <span>Day 3</span>
-                  <h3>Frontend ready for review</h3>
-                  <p>I reviewed the working frontend with the team and iterated on their feedback.</p>
-                </article>
-                <ArrowIcon />
-                <article>
-                  <span>Day 4</span>
-                  <h3>Connected to backend APIs</h3>
-                  <p>Frontend developers connected the APIs. More end-to-end tests followed.</p>
-                </article>
-                <ArrowIcon />
-                <article>
-                  <span>Day 5</span>
-                  <h3>Testing and demo day</h3>
-                  <p>We continued testing and presented the integrated product to the partner.</p>
-                </article>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <ProductEvolutionSection />
-
-        <section className={`section ${styles.nextSection}`}>
-          <div className="container">
-            <motion.div {...reveal}>
-              <span className={styles.sectionLabel}>Next</span>
-              <h2>Where I’d take Pulse next</h2>
-              <p className={styles.supportingCopy}>
-                Checkout, operations and developer docs now work together, with Helium
-                providing reusable UI components. As more partners join, I’d build on
-                that work in four areas.
-              </p>
-              <div className={styles.nextFlow} aria-label="Priorities for the next iteration">
                 {[
-                  ['Test the next iteration with each role', 'Research setup, payment confidence and failure handling with partner operators, developers and customers.'],
-                  ['Measure where partners need help', 'Track integration time, payment completion and exception-resolution time to guide the next release.'],
-                  ['Make partner onboarding repeatable', 'Build the self-serve setup deferred for the first demo, using partner onboarding to identify where help is needed.'],
-                  ['Support new use cases through one SDK', 'Test which differences belong in partner configuration and which payment behaviours should stay shared.'],
-                ].map(([title, description], index, items) => (
-                  <div key={title}>
-                    <span><strong>{title}</strong><span className={styles.futureBody}>{description}</span></span>
-                    {index < items.length - 1 && <ArrowIcon />}
-                  </div>
-                ))}
+                  ['partner-dashboard', 'Partner Operations Dashboard'],
+                  ['developer-experience', 'Developer Integration Portal'],
+                  ['sdk', 'Embedded Checkout SDK'],
+                ].map(([file, label]) => <div key={file}><Image src={`/work/pulse/surfaces/${file}.svg`} alt="" width={240} height={130} /><span>{label}</span></div>)}
               </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="cs-next">
-          <div className="container">
-            <motion.div className="cs-next__row" {...reveal}>
-              <span className="cs-next__label">Next case study</span>
-              <Link href="/work/shiga-onboarding" className="cs-next__link">
-                Cutting time to value with a passkey-led onboarding
-                <ArrowIcon />
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-      </main>
-    </PageTransition>
+            </div>
+            <p className={styles.qualification}>Later product capability included USDC, USDT or BTC on 20+ networks. This describes the evolved product, not the scope delivered in five days.</p>
+          </Section>
+          <Section id="design-system" title="Helium made the Figma design reusable in code">
+            <p>I converted the Figma system into React components and documented them in Storybook. Design, Codex and Engineering could work from the same reference.</p>
+            <p>Figma properties became React props. The Button mapping defined hierarchy and size, along with default, hover, focus and disabled states. Reusing established patterns gave me time to design and QA the product’s flows and features.</p>
+            <figure className={styles.evidence}>
+              <ZoomableImage src="/work/pulse/helium-component.png" alt="Helium React button component with hierarchy, size and state controls in Storybook" width={1440} height={900} sizes="(max-width: 767px) 85vw, 744px" />
+              <figcaption>The Button component and its variants in Storybook.<a className={styles.evidenceLink} href={STORYBOOK_URL} target="_blank" rel="noreferrer">Explore Storybook <span aria-hidden="true">↗</span></a></figcaption>
+            </figure>
+            <HeliumButtonExample />
+          </Section>
+          <Section id="ai-workflow" title="AI-assisted implementation still needed design review">
+            <p>I set the product structure and behaviour: product priorities, Figma flows, written states and the existing Helium React components. Codex assembled the frontend in smaller implementation steps so I could review each part as it took shape.</p>
+            <p>Taking on the build also made me responsible for checking its behaviour before handing the code to Engineering. Product, Business Development and Engineering reviewed the working flow, and I directed corrections into the next build.</p>
+            <figure className={styles.evidence}>
+              <ZoomableImage src="/work/pulse/dashboard-transactions.png" alt="Pulse partner dashboard transactions view" width={1280} height={720} sizes="(max-width: 767px) 85vw, 744px" />
+              <figcaption>The later transactions view shows the operational surface: find a transaction, trace the payment and inspect its status.</figcaption>
+            </figure>
+          </Section>
+          <Section id="surfaces" title="Checkout, operations and docs supported the same evaluation">
+            <p className={styles.qualification}>Explore the later product and repository examples below. These surfaces developed beyond the first five-day demo.</p>
+            <SolutionTabs />
+          </Section>
+          <Section id="outcome" title="The demo helped secure Piggyvest as a partner">
+            <p>I handed over reviewed React code for API integration. Frontend engineers connected the backend APIs; testing and iteration continued through the partner demonstration.</p>
+            <ol className={styles.deliveryTimeline} aria-label="The final three days of the original build">
+              <li><span>Day 3</span><div><h3>Frontend ready for review</h3><p>I reviewed the working frontend with the team and iterated on their feedback.</p></div></li>
+              <li><span>Day 4</span><div><h3>Connected to backend APIs</h3><p>Frontend developers connected the APIs. More end-to-end tests followed.</p></div></li>
+              <li><span>Day 5</span><div><h3>Testing and demo day</h3><p>We continued testing and presented the integrated product to the partner.</p></div></li>
+            </ol>
+            <p>The first build gave the partner a working product to evaluate. The recorded outcome was that the demo helped secure Piggyvest as a partner.</p>
+          </Section>
+          <ProductEvolutionSection />
+          <Section id="learnings" title="Where I’d take Pulse next">
+            <p>Reusing Helium gave me time to focus on product behaviour, but the working build still needed review and correction. Checkout, operations and developer guidance had to make sense together before the team could demonstrate the product.</p>
+            <p>The recorded next-step priorities build on that work:</p>
+            <dl className={styles.nextPriorities}>
+              <div><dt>Test the next iteration with each role</dt><dd>Research setup, payment confidence and failure handling with partner operators, developers and customers.</dd></div>
+              <div><dt>Measure where partners need help</dt><dd>Track integration time, payment completion and exception-resolution time to guide the next release.</dd></div>
+              <div><dt>Make partner onboarding repeatable</dt><dd>Build the self-serve setup deferred for the first demo, using partner onboarding to identify where help is needed.</dd></div>
+              <div><dt>Support new use cases through one SDK</dt><dd>Test which differences belong in partner configuration and which payment behaviours should stay shared.</dd></div>
+            </dl>
+          </Section>
+          <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/shiga-onboarding">Cutting time to value with a passkey-led onboarding <span aria-hidden="true">↗</span></Link></nav>
+        </article>
+      </div>
+    </main>
   )
 }
