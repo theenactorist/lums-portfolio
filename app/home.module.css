@@ -2308,12 +2308,12 @@
   }
 
   .heroEyebrow {
-    margin-bottom: 0;
+    margin-bottom: 8px;
   }
 
   .heroLower {
-    gap: 8px;
-    margin-top: 8px;
+    gap: 14px;
+    margin-top: 20px;
   }
 
   .heroActions {

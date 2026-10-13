@@ -475,7 +475,7 @@ function Hero() {
           <div className={styles.heroLower}>
             <p className={styles.heroSummary}>
               I blend behavioural science, design and AI to create digital products that are
-              useful, usable and visually compelling while delivering on business goals.
+              useful and usable while delivering on business goals.
             </p>
             <div className={styles.heroActions}>
               <a
