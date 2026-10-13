@@ -13,7 +13,7 @@ import styles from '../../layout.module.css';
 export default function SiteShell({ children }) {
   const pathname = usePathname();
 
-  if (pathname !== '/' && pathname !== '/work/ai-copywriting' && pathname !== '/work/sabi' && pathname !== '/work/uba' && pathname !== '/work/carbon' && pathname !== '/work/shiga-onboarding' && pathname !== '/work/pulse') {
+  if (pathname !== '/' && pathname !== '/work/ai-copywriting' && pathname !== '/work/sabi' && pathname !== '/work/uba' && pathname !== '/work/carbon' && pathname !== '/work/shiga-onboarding' && pathname !== '/work/pulse' && pathname !== '/work/branch-ai') {
     return (
       <ProductionThemeProvider>
         <ProductionNav />

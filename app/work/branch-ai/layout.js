@@ -1,31 +1,29 @@
+const title = 'Building AI tools for consistent product design';
+const description = 'Creating reusable illustration, UX writing and Neem prototyping workflows for Branch’s product team, grounded in brand, market and component rules with human review.';
+
 export const metadata = {
-  title: 'Three AIs, One Design System - Branch International',
-  description:
-    'How Olumide turned scattered AI use into governed product workflows for illustration, copywriting, and prototyping across Branch International.',
+  title,
+  description,
   openGraph: {
-    title: 'Three AIs, One Design System - Branch International',
-    description:
-      'Case study: researching informal AI use and designing governed workflows with Branch product context, market rules, design-system logic, and human review.',
+    title,
+    description,
     type: 'article',
     url: 'https://olumideolusesi.com/work/branch-ai',
-    images: [
-      {
-        url: '/work/branch-ai/three-ai-workflows.jpg',
-        width: 1672,
-        height: 941,
-        alt: 'Three governed AI workflows across illustration, copywriting, and prototyping',
-      },
-    ],
+    images: [{
+      url: '/work/branch-ai/branch-shared-system-thumbnail.png',
+      width: 1672,
+      height: 941,
+      alt: 'Generated cover concept for Branch illustration, UX writing and Neem prototyping workflows',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Three AIs, One Design System - Branch International',
-    description:
-      'Turning scattered AI use into governed workflows for product work at Branch.',
-    images: ['/work/branch-ai/three-ai-workflows.jpg'],
+    title,
+    description,
+    images: ['/work/branch-ai/branch-shared-system-thumbnail.png'],
   },
 };
 
-export default function BranchAILayout({ children }) {
+export default function BranchLayout({ children }) {
   return children;
 }
