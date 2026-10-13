@@ -33,7 +33,7 @@ export const productionHomeProjects = [
     id: 'carbon',
     title: 'Unifying Carbon’s banking experience across Android and iOS',
     description: 'Redesigning the home screen to prioritise credit and everyday actions, improve balance privacy, and bring both mobile platforms into one consistent experience.',
-    attributes: ['Design Systems', 'B2C', 'B2B', 'Mobile', 'Web', 'Shipped'],
+    attributes: ['Design Systems', 'B2C', 'Mobile', 'Shipped'],
     image: '/home/live-work/carbon.jpg',
     imageAlt: 'Unifying Carbon’s banking experience across Android and iOS',
     href: 'https://olumideolusesi.com/work/carbon',

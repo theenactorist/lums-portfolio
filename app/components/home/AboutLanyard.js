@@ -74,9 +74,9 @@ export default function AboutLanyard({
     if (!container) return;
     const observer = new ResizeObserver(([entry]) => {
       const width = entry.contentRect.width;
-      const mobile = width <= 700;
+      const mobile = window.matchMedia('(max-width: 700px)').matches;
       const next = {
-        cardHeight: (mobile ? Math.min(390, width * 0.94) : Math.min(520, Math.max(360, width * 0.34))) * 0.8,
+        cardHeight: mobile ? Math.min(250, window.innerWidth * 0.6) : Math.min(520, Math.max(360, width * 0.34)) * 0.8,
         strapDrop: mobile ? 56 : Math.min(124, Math.max(72, width * 0.08)),
         anchor: mobile ? 0.5 : 0.22,
       };
@@ -91,6 +91,12 @@ export default function AboutLanyard({
   const useScene = nearViewport && reducedMotion === false && !unavailable;
   const sceneVisible = useScene && ready;
   const staticImage = imageFailed ? PORTRAIT : (showBack ? (backImage || frontImage) : frontImage);
+  let instructions = 'Click, tap, or press Enter or Space to flip the portrait card.';
+  if (sceneVisible) {
+    instructions = 'Drag the portrait card to move it. Click, tap, or press Enter or Space to flip.';
+  } else if (useScene && !ready) {
+    instructions = 'The portrait card is loading. Flip will be available when it is ready.';
+  }
 
   useEffect(() => {
     if (!sceneVisible || !entryReached || reducedMotion !== false || nudgePlayedRef.current) return;
@@ -127,7 +133,7 @@ export default function AboutLanyard({
                 src={staticImage || PORTRAIT}
                 alt={showBack && !imageFailed ? BACK_QUOTE : 'Olumide Olusesi (Lums)'}
                 fill
-                sizes="(max-width: 700px) 222px, 296px"
+                sizes="(max-width: 700px) 178px, 296px"
                 onError={() => setImageFailed(true)}
               />
             </button>
@@ -160,7 +166,7 @@ export default function AboutLanyard({
         <span className={styles.srOnly}>Back of card: {BACK_QUOTE}</span>
       </div>
       <figcaption className={styles.srOnly} id="about-lanyard-instructions">
-        Drag the portrait card to move it. Click, tap, or press Enter or Space to flip.
+        {instructions}
       </figcaption>
     </figure>
   );

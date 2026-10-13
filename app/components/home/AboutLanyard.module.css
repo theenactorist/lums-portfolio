@@ -77,7 +77,7 @@
 
 @media (max-width: 700px) {
   .figure {
-    --card-height: min(312px, 75.2vw);
+    --card-height: min(250px, 60vw);
     --card-top: 56px;
     --card-anchor: 50%;
   }

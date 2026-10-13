@@ -90,7 +90,7 @@ const workGroups = [
         companyLogoAlt: 'Carbon',
         companyLogoWidth: 125,
         companyLogoHeight: 31,
-        attributes: ['Design Systems', 'B2C', 'B2B', 'Mobile', 'Web', 'Shipped'],
+        attributes: ['Design Systems', 'B2C', 'Mobile', 'Shipped'],
         image: '/work/carbon/cover.gif',
         imageAlt: 'Carbon digital banking home screen experience',
         href: '/work/carbon',
@@ -980,9 +980,91 @@ function Recommendations() {
 function AskLumsShell() {
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
+  const shellRef = useRef(null);
   const launcherRef = useRef(null);
   const inputRef = useRef(null);
   const wasOpenRef = useRef(false);
+
+  useEffect(() => {
+    const shell = shellRef.current;
+    if (!shell) return undefined;
+    const clearPlacement = () => {
+      delete shell.dataset.placement;
+      shell.style.removeProperty('--ask-launcher-top');
+    };
+    if (open) {
+      clearPlacement();
+      return undefined;
+    }
+
+    const launcher = launcherRef.current;
+    const heading = document.getElementById('about-heading');
+    if (!launcher || !heading) return undefined;
+    const shortScreen = window.matchMedia('(max-width: 700px) and (max-height: 700px)');
+    let restingBottom = 12;
+    let blurFrame;
+
+    const syncPlacement = () => {
+      if (!shortScreen.matches) {
+        clearPlacement();
+        return;
+      }
+      // Keep a keyboard target steady until focus leaves it.
+      if (launcher.matches(':focus-visible')) return;
+      const bounds = heading.getBoundingClientRect();
+      const height = launcher.offsetHeight;
+      const restingTop = window.innerHeight - restingBottom - height;
+      if (bounds.top < restingTop + height + 12 && bounds.bottom > restingTop - 12) {
+        // The short-screen portrait reserve leaves this gap above the introduction.
+        shell.style.setProperty('--ask-launcher-top', `${bounds.top - height - 12}px`);
+        shell.dataset.placement = 'about-intro';
+      } else {
+        clearPlacement();
+      }
+    };
+    const refreshPlacement = () => {
+      clearPlacement();
+      restingBottom = Number.parseFloat(window.getComputedStyle(shell).bottom) || 12;
+      syncPlacement();
+    };
+    const syncAfterBlur = () => {
+      cancelAnimationFrame(blurFrame);
+      blurFrame = requestAnimationFrame(syncPlacement);
+    };
+
+    refreshPlacement();
+    const observer = new ResizeObserver(syncPlacement);
+    observer.observe(heading);
+    window.addEventListener('scroll', syncPlacement, { passive: true });
+    window.addEventListener('resize', refreshPlacement);
+    shortScreen.addEventListener('change', refreshPlacement);
+    launcher.addEventListener('blur', syncAfterBlur);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', syncPlacement);
+      window.removeEventListener('resize', refreshPlacement);
+      shortScreen.removeEventListener('change', refreshPlacement);
+      launcher.removeEventListener('blur', syncAfterBlur);
+      cancelAnimationFrame(blurFrame);
+      clearPlacement();
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (open) return;
+    // SVG backdrop refraction is a Chromium enhancement; other engines keep layered glass.
+    const chromium = navigator.userAgentData?.brands?.some(({ brand }) => /Chromium|Chrome|Edge/.test(brand))
+      || /Chrome|Chromium|Edg\//.test(navigator.userAgent);
+    if (chromium && CSS.supports('backdrop-filter', 'url("#ask-lums-lens")')) {
+      launcherRef.current?.setAttribute('data-lens', 'true');
+    }
+    const syncGlassVisibility = () => {
+      launcherRef.current?.style.setProperty('--glass-play-state', document.hidden ? 'paused' : 'running');
+    };
+    syncGlassVisibility();
+    document.addEventListener('visibilitychange', syncGlassVisibility);
+    return () => document.removeEventListener('visibilitychange', syncGlassVisibility);
+  }, [open]);
 
   const handleOpen = () => {
     // Mount and focus within the launch gesture so mobile keyboards can open too.
@@ -1010,10 +1092,19 @@ function AskLumsShell() {
   return (
     <motion.div
       className={styles.askShell}
+      ref={shellRef}
       data-open={open}
       layout={!reduceMotion}
       transition={{ layout: { duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' } }}
     >
+      <svg className={styles.askLensDefinitions} aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="ask-lums-lens" x="0" y="0" width="100%" height="100%" colorInterpolationFilters="sRGB">
+            <feImage href="/images/ask-lums-lens-map.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="rim-map" />
+            <feDisplacementMap in="SourceGraphic" in2="rim-map" scale="22" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
       <AnimatePresence initial={false} mode="popLayout">
         {!open ? (
           <motion.button

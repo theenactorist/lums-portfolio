@@ -109,6 +109,7 @@ function LogoWithNameNote({ isHomeHero }) {
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [overHero, setOverHero] = useState(true);
+  const [darkScrollSurface, setDarkScrollSurface] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
@@ -126,6 +127,13 @@ export default function Nav() {
         hero && navRef.current
         && hero.getBoundingClientRect().bottom > navRef.current.getBoundingClientRect().bottom
       ));
+      const viewportMiddle = window.innerHeight / 2;
+      setDarkScrollSurface(pathname === '/' && ['hero', 'about', 'career'].some((id) => {
+        const section = document.getElementById(id);
+        if (!section) return false;
+        const bounds = section.getBoundingClientRect();
+        return bounds.top <= viewportMiddle && bounds.bottom > viewportMiddle;
+      }));
     };
     handleScroll();
     const resizeObserver = new ResizeObserver(handleScroll);
@@ -166,6 +174,7 @@ export default function Nav() {
       className={`nav ${scrolled ? 'nav--scrolled' : ''}`}
       data-compact={pathname === '/' && scrolled}
       data-over-hero={pathname === '/' && overHero}
+      data-scrollbar-surface={pathname === '/' && darkScrollSurface ? 'dark' : undefined}
       id="main-nav"
       aria-label="Primary"
     >

@@ -141,6 +141,7 @@
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -184,18 +185,45 @@ ul, ol {
 }
 
 /* --- Scrollbar --- */
+:root {
+  --scrollbar-track: #0a0a0f;
+  --scrollbar-thumb: #71717a;
+  --scrollbar-thumb-hover: #a1a1aa;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --scrollbar-track: #f4f4f5;
+  --scrollbar-thumb: #8b8b94;
+  --scrollbar-thumb-hover: #71717a;
+}
+
+/* The existing Home scroll observer identifies its dark media/content surfaces. */
+html:has(.theme2-home):has(#main-nav[data-scrollbar-surface="dark"]) {
+  color-scheme: dark;
+  --scrollbar-track: #171717;
+  --scrollbar-thumb: #71717a;
+  --scrollbar-thumb-hover: #a1a1aa;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--scrollbar-thumb);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border-hover);
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* --- Container --- */
