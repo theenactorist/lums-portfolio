@@ -1,0 +1,107 @@
+{
+  "name": "Olumide Olusesi",
+  "title": "Senior Product Designer",
+  "location": "Greater Toronto Area, Ontario, Canada",
+  "phone": "(647) 657-7810",
+  "email": "consistentolusesi@gmail.com",
+  "website": "olumideolusesi.com",
+  "linkedin": "linkedin.com/in/olumideolusesi",
+  "summary": "Senior Product Designer with 6+ years across fintech, e-commerce, SaaS and enterprise software. I combine UX/UI craft, design systems and AI-assisted workflows to simplify complex products, partnering with engineering from problem definition through delivery.",
+  "skills": [
+    {
+      "label": "Product design",
+      "text": "Interaction design, mobile and responsive web design, accessibility, visual design, design systems and UX writing."
+    },
+    {
+      "label": "Research and strategy",
+      "text": "User interviews, usability testing, information architecture, journey mapping, problem definition and analytics-informed iteration."
+    },
+    {
+      "label": "Tools and delivery",
+      "text": "Figma, FigJam, Miro, Storybook, Claude, Codex, Gemini, AI prototyping, front-end development, design QA and engineering collaboration."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Shiga Onchain Banking",
+      "role": "Product Design Engineer",
+      "period": "May 2024 - Present",
+      "url": "https://shiga.io/",
+      "summary": "Founding designer leading product strategy, UX/UI and visual design across ENTA, Pulse and a POS product in development. I align roadmaps, stakeholders and engineering, managing two designers from product refinement through handoff and delivery.",
+      "bullets": [
+        "Led the design and Codex-assisted build of an embedded crypto checkout, connecting asset and network selection, rate locking, deposit detection, conversion and exception states within partner apps.",
+        "Built Helium 2.0 in Figma, React and Storybook with shared tokens, component specifications and design QA across mobile, web, and light and dark themes.",
+        "Built product and investor-facing prototypes that supported Tether investment and Visa accelerator participation. Customer prototypes for TON helped the team obtain Telegram funding for its integration.",
+        "Designed developer and partner workflows for SDKs, API keys, testing, webhooks, KYB, reconciliation and settlement, using AI-assisted prototyping and development."
+      ]
+    },
+    {
+      "company": "Branch International Financial Services",
+      "role": "Senior Product Designer",
+      "period": "Oct 2024 - Mar 2026",
+      "url": "https://branch.co/",
+      "summary": "Designed onboarding, lending, payments and growth experiences across markets, while strengthening design systems and delivery practices across four countries.",
+      "bullets": [
+        "Redesigned onboarding with OTP-based pre-fill to simplify customer data entry.",
+        "Migrated payments, onboarding, lending and dashboard experiences in Kenya, India and Nigeria into the Neem Design System.",
+        "Improved Figma organisation, versioning and engineering handoff, and built reusable AI workflows for illustration, UX writing and prototyping with brand, market and component rules and human review."
+      ]
+    },
+    {
+      "company": "Carbon Finance",
+      "role": "Product Designer",
+      "period": "Jun 2022 - Oct 2024",
+      "url": "https://getcarbon.co/",
+      "summary": "Led design and delivery across business and consumer banking, spanning product strategy, research, app releases, web design systems and cross-functional coordination.",
+      "bullets": [
+        "Led Carbon Business from concept to go-to-market, coordinating a five-person team and designing KYB and disbursement journeys. The product reached $500K CAD in disbursements within nine months.",
+        "Redesigned the iOS and Android home experience with design colleagues through research, usability testing, prototyping and engineering handoff.",
+        "Created a beta-testing community of 120+ participants to validate releases and uncover issues, helping reduce external research costs by 25%.",
+        "Established web design-system foundations and clearer handoff and versioning practices for designers, developers and scrum masters."
+      ]
+    },
+    {
+      "company": "United Bank for Africa (UBA) Group",
+      "role": "Product Designer",
+      "period": "Nov 2019 - Jun 2022",
+      "url": "https://www.ubagroup.com/",
+      "summary": "Designed enterprise HR automation and internal tools, alongside customer-facing mobile banking, ATM and physical banking kiosk experiences.",
+      "bullets": [
+        "Designed connected HR workflows for HCMConnect, a platform serving 10,000+ employees, from discovery and prototypes to testing and engineering handoff.",
+        "The platform improved HR efficiency by 30%. The wider move to in-house automation contributed approximately $960K in annual enterprise licence savings.",
+        "Used research, prototyping, usability testing and component documentation to simplify employee-service and consumer banking experiences."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "company": "Sabi",
+      "role": "Product design",
+      "period": "Project engagement",
+      "url": "https://olumideolusesi.com/work/sabi",
+      "text": "Designed supplier, logistics and driver experiences across web and mobile, connecting ordering and inventory with fulfilment and delivery. Research and prototype testing shaped stock management, trip coordination, pickups and drop-offs."
+    }
+  ],
+  "education": [
+    {
+      "title": "B.Sc., Civil Engineering",
+      "institution": "Obafemi Awolowo University",
+      "period": "2017"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Information Technology Professional (ITP)",
+      "institution": "Information and Communications Technology Council of Canada (ICTC)",
+      "period": "2025"
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Design Mentor",
+      "institution": "ADPList",
+      "period": "2023 - Present",
+      "text": "1,200+ minutes of mentorship across 41+ sessions."
+    }
+  ]
+}

@@ -137,42 +137,42 @@ const career = [
   {
     period: 'May 2024–Present',
     company: 'Shiga Onchain Banking',
-    role: 'Senior Product Designer (Consultant)',
+    role: 'Product Design Engineer',
     description:
-      'Owning design strategy and operations across consumer wallet, corporate banking, SaaS products, payment flows, and AI-assisted workflows.',
-    tags: ['Strategy', 'Fintech', 'Design operations'],
+      'As Shiga’s founding designer, I lead product strategy, UX/UI and visual design across ENTA, Pulse and a POS product in development, aligning roadmaps and engineering through delivery. This work helped secure Tether investment, Telegram funding for TON integration and Visa accelerator support.',
+    tags: ['Crypto banking', 'SaaS', 'B2B / B2C', 'AI prototyping'],
   },
   {
     period: 'Oct 2024–Mar 2026',
     company: 'Branch International',
     role: 'Senior Product Designer',
     description:
-      'Designed mobile experiences across payments, onboarding, and lending while scaling design operations and AI workflows across four countries.',
-    tags: ['Multi-market', 'AI workflows', 'Mobile'],
+      'I designed onboarding, lending, payments and growth experiences across markets. I also strengthened design systems, Figma versioning and engineering handoff, introducing AI workflows for writing, illustration and prototyping.',
+    tags: ['Digital lending', 'Mobile banking', 'Multi-market', 'AI workflows'],
   },
   {
     period: 'Jun 2022–Oct 2024',
     company: 'Carbon Finance',
     role: 'Product Designer',
     description:
-      'Owned product design and delivery across business banking, onboarding, KYC, lending, payments, cards, and web experiences.',
-    tags: ['Digital banking', 'Growth', 'Systems'],
+      'I led Carbon Business from concept to launch, coordinating a five-person team on the business banking and lending product. My work also spanned consumer banking on iOS and Android, design systems and a 120+ member beta community that helped cut external research costs by 25%.',
+    tags: ['Business banking', 'Consumer banking', 'Growth'],
   },
   {
     period: 'Nov 2019–Jun 2022',
     company: 'United Bank for Africa',
     role: 'Product Designer',
     description:
-      'Designed enterprise HR automation, internal tools, and consumer banking experiences, including a platform serving more than 10,000 employees.',
-    tags: ['Enterprise', 'Research', 'Delivery'],
+      'I designed HR automation for 10,000+ employees and contributed to mobile banking, ATM and physical banking kiosk experiences. My work combined research, workflow design, prototyping and testing to simplify services for employees and banking customers.',
+    tags: ['Enterprise', 'HR tech', 'Digital banking'],
   },
   {
     period: 'Project engagement',
     company: 'Sabi',
     role: 'Product design',
     description:
-      'Designed product and logistics experiences for merchants navigating inventory, commerce, and distribution across a complex supply network.',
-    tags: ['B2B', 'Logistics', 'Platform'],
+      'I designed supplier, logistics and driver experiences across web and mobile, connecting ordering and inventory with fulfilment and delivery. Research and prototype testing shaped tools around each role’s work: managing stock, coordinating trips and completing pickups and drop-offs.',
+    tags: ['B2B commerce', 'Logistics'],
     project: true,
   },
 ];
