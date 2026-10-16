@@ -3,52 +3,16 @@ import "./globals.css";
 import "./home-shell.css";
 import SiteShell from "./components/home/SiteShell";
 import { AudioProvider } from "./components/AudioContext";
+import JsonLd from './components/JsonLd';
+import { pageMetadata, site, siteIdentity } from '../lib/seo';
 
 export const metadata = {
-  metadataBase: new URL('https://olumideolusesi.com'),
-  title: {
-    default: "Lums - Product Designer | Olumide Olusesi",
-    template: "%s | Lums",
-  },
-  description:
-    "Lums (Olumide Olusesi) is a Senior Product Designer based in Ontario, Canada. Currently at Shiga Digital, previously at Branch International, Carbon, and UBA. Specializing in fintech, digital banking, and user-centered design.",
-  keywords: [
-    "product designer",
-    "UX designer",
-    "Olumide Olusesi",
-    "Lums",
-    "fintech design",
-    "portfolio",
-    "Ontario Canada",
-  ],
-  openGraph: {
-    title: {
-      default: "Lums - Product Designer | Olumide Olusesi",
-      template: "%s | Lums",
-    },
-    description:
-      "Senior Product Designer crafting intuitive digital experiences. Currently at Shiga Digital.",
-    type: "website",
-    locale: "en_CA",
-    url: "https://olumideolusesi.com",
-    siteName: "Lums Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Lums - Product Designer",
-    description: "Senior Product Designer crafting intuitive digital experiences.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  ...pageMetadata({ title: site.title, description: site.description, path: '/' }),
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s | ${site.name}` },
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
 };
 
 export default function RootLayout({ children }) {
@@ -90,6 +54,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <JsonLd data={siteIdentity} />
         <AudioProvider>
           <SiteShell>{children}</SiteShell>
         </AudioProvider>

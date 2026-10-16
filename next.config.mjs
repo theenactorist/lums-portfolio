@@ -3,6 +3,15 @@ const nextConfig = {
   allowedDevOrigins: ['127.0.0.1'],
   async headers() {
     return [
+      // Interactive demos and the print view remain usable, while the actual
+      // portfolio pages are the versions intended for search results.
+      ...[
+        '/work/stablecoin-checkout-sdk/:path*',
+        '/work/pulse/sdk-preview/:path*',
+        '/work/shiga-onboarding/demo-2026-09/:path*',
+        '/work/shiga-onboarding/prototype-v2/:path*',
+        '/olumide-olusesi-resume.html',
+      ].map((source) => ({ source, headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }] })),
       {
         source: '/(.*)',
         headers: [

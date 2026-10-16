@@ -1,8 +1,10 @@
-export const metadata = {
-  title: 'About',
-  description: 'Most people call me Lums, a Senior Product Designer with 8+ years shipping across multiple markets. I build with AI and think in systems.',
-};
+import JsonLd from '../components/JsonLd';
+import { absoluteUrl, pageMetadata, pageSchema } from '../../lib/seo';
 
-export default function AboutLayout({ children }) {
-  return children;
+const description = "Meet Olumide Olusesi (Lums), a Toronto-based product design engineer working across fintech, AI tools and complex platforms. Background, approach and interests.";
+export const metadata = pageMetadata({ title: "About", description, path: '/about' });
+const schema = { ...pageSchema({ path: '/about', name: 'About Olumide Olusesi', description, type: 'ProfilePage' }), mainEntity: { '@id': absoluteUrl('/#person') } };
+
+export default function PageLayout({ children }) {
+  return <><JsonLd data={schema} />{children}</>;
 }

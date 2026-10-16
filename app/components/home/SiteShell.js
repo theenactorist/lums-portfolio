@@ -9,11 +9,14 @@ import HomeFooter from './Footer';
 import HomeThemeProvider from './ThemeProvider';
 import styles from '../../layout.module.css';
 
-// Home and the approved CopyGPT, Sabi, UBA and Carbon cases use this shell; other routes keep theirs.
+const legacyRoutes = new Set(['/about', '/resume', '/work', '/work/branch-ai-v1', '/work/branch-ai-original-v1', '/work/shiga-onboarding-v1']);
+
+// Published cases and missing pages use the current identity.
+// Explicitly retained legacy routes keep their existing presentation.
 export default function SiteShell({ children }) {
   const pathname = usePathname();
 
-  if (pathname !== '/' && pathname !== '/work/ai-copywriting' && pathname !== '/work/sabi' && pathname !== '/work/uba' && pathname !== '/work/carbon' && pathname !== '/work/shiga-onboarding' && pathname !== '/work/pulse' && pathname !== '/work/branch-ai') {
+  if (legacyRoutes.has(pathname)) {
     return (
       <ProductionThemeProvider>
         <ProductionNav />

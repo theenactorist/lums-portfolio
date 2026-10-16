@@ -1,8 +1,7 @@
-export const metadata = {
-  title: 'Selected Work',
-  description: 'A curated selection of my product design work spanning fintech, logistics, and enterprise systems including Carbon, Sabi, and UBA.',
-};
+import { pageMetadata } from '../../lib/seo';
 
-export default function WorkLayout({ children }) {
+const description = "Explore seven product design case studies by Olumide Olusesi across payments, onboarding, mobile banking, AI tools, commerce and enterprise software.";
+export const metadata = pageMetadata({ title: "Selected work", description, path: '/work' });
+export default function PageLayout({ children }) {
   return children;
 }

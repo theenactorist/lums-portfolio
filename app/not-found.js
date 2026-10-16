@@ -1,60 +1,22 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-
-const CobeGlobe = dynamic(() => import('./components/CobeGlobe'), { ssr: false });
+import styles from './not-found.module.css';
+import homeStyles from './home.module.css';
 
 export default function NotFound() {
   return (
-    <main className="cosmic-404">
-      {/* CSS-based parallax starfield */}
-      <div className="cosmic-starfield" />
-
-      <div className="cosmic-404__inner">
-        {/* Header 4 [Globe] 4 Structure */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', flexWrap: 'nowrap' }}>
-          <motion.h1 
-            className="cosmic-404__code"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            4
-          </motion.h1>
-
-          <motion.div
-            className="cosmic-404__globe-wrap"
-            animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <CobeGlobe />
-          </motion.div>
-
-          <motion.h1 
-            className="cosmic-404__code"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-          >
-            4
-          </motion.h1>
+    <main className={`${homeStyles.homePage} ${styles.page} theme2-home`}>
+      <div className={styles.inner}>
+        <div className={styles.frame} aria-hidden="true">
+          <span className={styles.code}>404</span>
+          <span className={styles.corner} /><span className={styles.corner} /><span className={styles.corner} /><span className={styles.corner} />
         </div>
-
-        <motion.div
-          animate={{ y: [0, -5, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}
-        >
-          <h2 className="cosmic-404__headline">Signal Lost</h2>
-          <p className="cosmic-404__sub">
-            Unlike the Artemis II crew, it seems you're completely lost in space. 
-            The coordinates you entered don't exist in our known universe.
-          </p>
-
-          <Link href="/" className="cosmic-404__cta">
-            Return to Base
-          </Link>
-        </motion.div>
+        <div className={styles.content}>
+          <h1>Page not found.</h1>
+          <p>That link may be outdated, or the address may have a typo. The portfolio is still here.</p>
+          <nav className={styles.actions} aria-label="Find your way back">
+            <Link href="/work" className={styles.primary}>View selected work</Link>
+          </nav>
+        </div>
       </div>
     </main>
   );

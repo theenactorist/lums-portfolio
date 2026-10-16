@@ -4,105 +4,44 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
+import JsonLd from '../components/JsonLd';
+import { productionHomeProjects } from '../data/productionHomeProjects';
+import { absoluteUrl, caseStudies, pageSchema } from '../../lib/seo';
+
+const schema = {
+  ...pageSchema({
+    path: '/work',
+    name: 'Selected work by Olumide Olusesi',
+    description: 'Explore seven product design case studies by Olumide Olusesi across payments, onboarding, mobile banking, AI tools, commerce and enterprise software.',
+    type: 'CollectionPage',
+  }),
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: caseStudies.map((project, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: absoluteUrl(project.path),
+      name: project.title,
+    })),
+  },
+};
 
 /* ============================================
    All Projects Data
    ============================================ */
-const allProjects = [
-  {
-    id: 'pulse',
-    title: 'Pulse: Embedded Crypto Payments',
-    description: 'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
-    role: 'Product Designer & Front-end Developer (Payments, SaaS)',
-    period: 'Jul 2026 · 5 days',
-    tags: ['Fintech', 'Web3', 'B2B SaaS'],
-    category: 'product',
-    color: '#101116',
-    thumbnail: '/work/pulse/thumbnail.png',
-  },
-  {
-    id: 'shiga-onboarding',
-    title: 'Cutting Time to Value with a Passkey-Led Onboarding',
-    description: 'Rebuilding ENTA\'s sign-up around passkeys and deferred KYC to get users to their dashboard in under a minute.',
-    role: 'Product Designer',
-    period: 'Q1 2026 · 1 week',
-    tags: ['Fintech', 'Crypto', 'B2C'],
-    category: 'product',
-    color: '#0f1a2e',
-  },
-  {
-    id: 'carbon',
-    title: 'Carbon',
-    description: 'Revamping the home screen experience for a leading digital bank.',
-    role: 'Product Designer',
-    period: 'Jun 2022 - Oct 2024',
-    tags: ['Mobile', 'Fintech', 'UX Research'],
-    category: 'product',
-    color: '#1a1a2e',
-  },
-  {
-    id: 'branch-ai',
-    title: 'Three AIs, One Design System',
-    description: 'Researching informal AI use and designing governed workflows with Branch context, market rules, and human review.',
-    role: 'Product Designer',
-    period: 'Oct 2025 - Feb 2026',
-    tags: ['AI', 'Design Systems', 'Fintech'],
-    category: 'product',
-    color: '#0a1628',
-  },
-  {
-    id: 'sabi',
-    title: 'Sabi',
-    description: 'Revolutionizing supply chain logistics for African SMEs.',
-    role: 'Senior Product Designer',
-    period: '2021 - 2022',
-    tags: ['Web', 'B2B', 'Logistics'],
-    category: 'product',
-    color: '#1e1e28',
-  },
-  {
-    id: 'uba',
-    title: 'UBA',
-    description: 'Concept to production: HR management system for 20,000+ employees.',
-    role: 'Product Designer',
-    period: 'Nov 2019 - Jun 2022',
-    tags: ['Enterprise', 'Web App', 'HR Tech'],
-    category: 'product',
-    color: '#141422',
-  },
-  {
-    id: 'branch',
-    published: false,
-    title: 'Branch International',
-    description: 'Designing lending and financial inclusion products for emerging markets.',
-    role: 'Senior Product Designer',
-    period: 'Oct 2025 - Feb 2026',
-    tags: ['Lending', 'Mobile', 'Emerging Markets'],
-    category: 'product',
-    color: '#1a1a24',
-  },
-  {
-    id: 'africa-prudential',
-    published: false,
-    title: 'Africa Prudential',
-    description: 'Digital products for Nigeria\'s leading registrar and investor services.',
-    role: 'UI/UX Designer',
-    period: '2019 — 2020',
-    tags: ['Finance', 'Enterprise'],
-    category: 'product',
-    color: '#171720',
-  },
-];
-
-const categories = [
-  { key: 'all', label: 'All Work' },
-  { key: 'product', label: 'Product Design' },
-  { key: 'vibe', label: 'Vibe-Coded' },
-];
+const allProjects = productionHomeProjects.map((project) => ({
+  ...project,
+  thumbnail: project.image,
+  tags: project.attributes,
+  role: project.companyLogoAlt,
+  period: 'Case study',
+  color: '#171717',
+}));
 
 export default function WorkPage() {
   return (
     <PageTransition>
+      <JsonLd data={schema} />
       <main>
         {/* ===== WORK HERO ===== */}
         <section className="work-page-hero section" id="work-hero">
@@ -125,7 +64,7 @@ export default function WorkPage() {
         <section className="work-page-grid section" id="work-grid">
           <div className="container">
             <div className="work-page__grid">
-              {allProjects.filter((project) => project.published !== false).map((project, i) => (
+              {allProjects.map((project, i) => (
                 <motion.div
                   key={project.id}
                   className={`work-page__card ${i === 0 ? 'work-page__card--featured' : ''}`}
@@ -143,7 +82,7 @@ export default function WorkPage() {
                       {project.thumbnail ? (
                         <Image
                           src={project.thumbnail}
-                          alt=""
+                          alt={project.imageAlt}
                           fill
                           sizes={i === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 100vw, 33vw'}
                           style={{ objectFit: 'cover' }}

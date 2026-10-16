@@ -11,8 +11,16 @@ const navLinks = [
   { href: '/#about', label: 'About' },
   { href: '/#featured-work', label: 'Selected Work' },
   { href: '/#career', label: 'Career' },
-  { href: '/#footer', label: 'Contact' },
 ];
+
+function EnvelopeIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+      <rect x="3" y="5" width="18" height="14" rx="3" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
 
 function ThemeIcon({ theme }) {
   return theme === 'dark' ? (
@@ -190,8 +198,9 @@ export default function Nav() {
         </div>
 
         <div className="nav__right">
-          <a className="nav__contact-cta" href="mailto:consistentolusesi@gmail.com">
-            Let’s talk
+          <a className={`nav__contact-cta ${styles.emailLink}`} href="mailto:consistentolusesi@gmail.com" aria-label="Let’s have a chat by email">
+            <EnvelopeIcon />
+            <span>Let’s have a chat</span>
           </a>
           <button
             className="nav__theme-toggle"
@@ -249,7 +258,10 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <a className="nav__mobile-link" href="mailto:consistentolusesi@gmail.com" onClick={() => setMobileOpen(false)}>Let’s talk</a>
+          <a className={`nav__mobile-link ${styles.emailLink}`} href="mailto:consistentolusesi@gmail.com" aria-label="Let’s have a chat by email" onClick={() => setMobileOpen(false)}>
+            <EnvelopeIcon />
+            <span>Let’s have a chat</span>
+          </a>
         </div>
 
         <div className="nav__mobile-controls" aria-label="Display and audio controls">

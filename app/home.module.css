@@ -1395,6 +1395,8 @@
 
 .askLauncher {
   --glass-ink: #18181b;
+  --glass-energy-core: #324e68;
+  --glass-energy-edge: #7fa8cf;
   --glass-dimming: radial-gradient(ellipse 74% 90% at 50% 50%, rgb(255 255 255 / 58%) 0%, rgb(255 255 255 / 52%) 58%, rgb(255 255 255 / 22%) 76%, transparent 100%);
   position: relative;
   display: inline-flex;
@@ -1419,6 +1421,8 @@
 :global([data-theme='dark']) .askLauncher,
 :global(body:has(#main-nav[data-scrollbar-surface='dark'])) .askLauncher {
   --glass-ink: #ffffff;
+  --glass-energy-core: #ffffff;
+  --glass-energy-edge: #b6dcff;
   --glass-dimming: radial-gradient(ellipse 74% 90% at 50% 50%, rgb(0 0 0 / 68%) 0%, rgb(0 0 0 / 60%) 58%, rgb(0 0 0 / 32%) 76%, transparent 100%);
 }
 
@@ -1463,26 +1467,49 @@
   opacity: 0.5;
 }
 
-.askLauncherBorder::after {
+.askLauncherBorder::before {
   position: absolute;
-  inset: -60%;
-  background: linear-gradient(110deg, transparent 40%, rgb(255 255 255 / 85%) 49%, transparent 58%);
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background: conic-gradient(
+    transparent 0deg 100deg,
+    var(--glass-energy-edge) 135deg,
+    var(--glass-energy-core) 175deg,
+    var(--glass-energy-edge) 210deg,
+    transparent 250deg 360deg
+  );
   opacity: 0;
   content: '';
   pointer-events: none;
-  transform: translateX(-100%);
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: opacity 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes askBorderEnergy {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.askLauncherBorder::after {
+  position: absolute;
+  inset: -60%;
+  background: linear-gradient(110deg, transparent 32%, var(--glass-energy-edge) 41%, var(--glass-energy-core) 49%, var(--glass-energy-edge) 57%, transparent 68%);
+  opacity: 0;
+  content: '';
+  pointer-events: none;
+  transform: translateX(-38%);
 }
 
 @keyframes glassDiscovery {
-  0%, 6% { opacity: 0; transform: translateX(-100%); }
-  9% { opacity: 0.8; }
-  18% { opacity: 0; transform: translateX(100%); }
-  100% { opacity: 0; transform: translateX(100%); }
+  0%, 5% { opacity: 0; transform: translateX(-38%); }
+  10%, 30% { opacity: 1; }
+  38%, 100% { opacity: 0; transform: translateX(38%); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .askLauncherBorder::after {
-    animation: glassDiscovery 9s cubic-bezier(0.45, 0, 0.55, 1) 1.5s infinite;
+    animation: glassDiscovery 6s linear 1.5s infinite;
     animation-play-state: var(--glass-play-state, running);
   }
 }
@@ -1527,7 +1554,29 @@
   stroke-width: 1.35;
 }
 
+/* The masked rim moves; the button and its label keep their exact footprint. */
+@media (hover: hover) and (pointer: fine) {
+  .askLauncher:hover .askLauncherBorder {
+    border-width: 1.5px;
+    opacity: 1;
+  }
+
+  .askLauncher:hover .askLauncherBorder::before {
+    opacity: 1;
+  }
+
+  .askLauncher:hover .askLauncherBorder::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .askLauncher:hover:not(:focus-visible) .askLauncherBorder::before {
+    animation: askBorderEnergy 2.8s linear infinite;
+    animation-play-state: var(--glass-play-state, running);
+  }
+
   .askLauncher:hover:not(:focus-visible) {
     transform: translateY(-1px);
   }
@@ -1555,6 +1604,22 @@
   transition: none;
 }
 
+.askLauncher:focus-visible .askLauncherBorder {
+  border-width: 1.5px;
+  opacity: 1;
+}
+
+.askLauncher:focus-visible .askLauncherBorder::before {
+  opacity: 1;
+  animation: none;
+  transition: none;
+}
+
+.askLauncher:focus-visible .askLauncherBorder::after {
+  animation: none;
+  opacity: 0;
+}
+
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .askLauncher {
     background: #18181b;
@@ -1579,6 +1644,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .askLauncher,
+  .askLauncherBorder::before,
   .askLauncher::after {
     transition: none;
   }
