@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '../../components/SiteLink';
 import Image from 'next/image';
 import CaseStudyProgressRail from '../../components/CaseStudyProgressRail';
 import CaseStudyAnimation from '../../components/CaseStudyAnimation';

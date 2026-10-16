@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import Link from 'next/link'
+import Link from '../../components/SiteLink'
 import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import CaseStudyProgressRail from '../../components/CaseStudyProgressRail'

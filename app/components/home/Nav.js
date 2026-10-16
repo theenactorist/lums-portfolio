@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from '../SiteLink';
 import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeProvider';
 import MusicToggle from '../MusicToggle';

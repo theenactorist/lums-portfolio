@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import FragmentRecovery from '../FragmentRecovery';
 import ProductionNav from '../Nav';
 import ProductionFooter from '../Footer';
 import ProductionThemeProvider from '../ThemeProvider';
@@ -19,6 +20,7 @@ export default function SiteShell({ children }) {
   if (legacyRoutes.has(pathname)) {
     return (
       <ProductionThemeProvider>
+        <FragmentRecovery />
         <ProductionNav />
         {children}
         <ProductionFooter />
@@ -28,6 +30,7 @@ export default function SiteShell({ children }) {
 
   return (
     <HomeThemeProvider>
+      <FragmentRecovery />
       <a className={styles.skipLink} href="#main-content">
         Skip to content
       </a>

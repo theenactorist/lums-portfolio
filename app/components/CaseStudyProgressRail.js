@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { fragmentTarget } from '../lib/fragments.mjs';
 
 export default function CaseStudyProgressRail({ phases, orientation = 'horizontal' }) {
   const [activeId, setActiveId] = useState(phases[0]?.id ?? '');
@@ -21,7 +22,7 @@ export default function CaseStudyProgressRail({ phases, orientation = 'horizonta
     let updateFrame;
 
     const getHashTargetId = () => {
-      const targetId = window.location.hash.slice(1);
+      const targetId = fragmentTarget(window.location.hash);
       return phases.some((phase) => phase.id === targetId) ? targetId : '';
     };
 
