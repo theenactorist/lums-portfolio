@@ -612,6 +612,7 @@ function ProjectCard({ project }) {
         <div className={styles.projectMeta}>
           <Image
             className={styles.projectCompanyLogo}
+            data-company={project.companyLogoAlt}
             src={project.companyLogo}
             alt={project.companyLogoAlt}
             width={project.companyLogoWidth}
