@@ -448,7 +448,7 @@ function syncGlobalPresentation() {
   sdkOrderItem.textContent = ORDER.product;
   sdkOrderAmount.textContent = ORDER.fiatAmount;
   sdkOrderReference.textContent = ORDER.id;
-  document.title = `${partner.logoText} crypto checkout concepts`;
+  document.title = `${partner.logoText} crypto checkout concepts | Lums`;
 }
 
 function render({ focus = null, preserveFocus = false, animate = false } = {}) {

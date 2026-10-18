@@ -9,7 +9,7 @@ import { pageMetadata, site, siteIdentity } from '../lib/seo';
 export const metadata = {
   ...pageMetadata({ title: site.title, description: site.description, path: '/' }),
   metadataBase: new URL(site.url),
-  title: { default: site.title, template: `%s | ${site.name}` },
+  title: { default: site.title, template: `%s | ${site.brand}` },
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   publisher: site.name,

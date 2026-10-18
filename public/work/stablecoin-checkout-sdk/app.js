@@ -1105,7 +1105,7 @@ function applyTheme(input, { animate = true } = {}) {
     hostBrandName.textContent = theme.logoText;
     hostBrand.setAttribute("aria-label", `${theme.logoText} home`);
     hostBrandMark.style.background = theme.accentColor;
-    document.title = `${theme.logoText} crypto payment`;
+    document.title = `${theme.logoText} crypto payment | Lums`;
     dialog.querySelectorAll("input[name='partner-theme']").forEach((inputElement) => {
       inputElement.checked = inputElement.value === partnerId;
     });
