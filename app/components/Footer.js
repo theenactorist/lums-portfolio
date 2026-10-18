@@ -57,7 +57,7 @@ export default function Footer() {
               <h4 className="footer__col-title">Navigate</h4>
               <div className="footer__col-links">
                 <Link href="/#featured-work" className="footer__col-link" id="footer-work">Work</Link>
-                <Link href="/about" className="footer__col-link" id="footer-about">About</Link>
+                <Link href="/#about" className="footer__col-link" id="footer-about">About</Link>
                 <Link href="/resume" className="footer__col-link" id="footer-resume">Resume</Link>
               </div>
             </div>
