@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import JsonLd from '../components/JsonLd';
 import { productionHomeProjects } from '../data/productionHomeProjects';
-import { absoluteUrl, caseStudies, pageSchema } from '../../lib/seo';
+import { absoluteUrl, caseStudies, pageCopy, pageSchema } from '../../lib/seo';
 
 const schema = {
   ...pageSchema({
     path: '/work',
     name: 'Selected work by Olumide Olusesi',
-    description: 'Explore seven product design case studies by Olumide Olusesi across payments, onboarding, mobile banking, AI tools, commerce and enterprise software.',
+    description: pageCopy.work.description,
     type: 'CollectionPage',
   }),
   mainEntity: {
@@ -53,8 +53,7 @@ export default function WorkPage() {
             >
               <h1 className="work-page-hero__title">Work</h1>
               <p className="work-page-hero__subtitle">
-                A curated collection of product design case studies and vibe-coded projects — 
-                spanning fintech, digital banking, enterprise platforms, and beyond.
+                {pageCopy.work.intro}
               </p>
             </motion.div>
           </div>

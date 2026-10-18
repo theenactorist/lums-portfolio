@@ -10,7 +10,10 @@ import LogoTicker from './components/home/LogoTicker';
 import TechText from './components/home/TechText';
 import AboutLanyard from './components/home/AboutLanyard';
 import PageTransition from './components/PageTransition';
+import SiteLink from './components/SiteLink';
 import { productionHomeProjects } from './data/productionHomeProjects';
+import { homeAboutLead } from './data/profile';
+import { designSkills } from './data/designSkills';
 import styles from './home.module.css';
 
 // The first release is Home only. Keep the draft collection available for later review.
@@ -177,38 +180,31 @@ const career = [
   },
 ];
 
-const capabilities = [
+const capabilityIcons = [
   {
-    title: '0 to 1 products',
-    detail: 'From early direction to shipped experiences',
     paths: ['M3 20h5v-5h5v-5h6V4', 'm15 8 4-4 4 4'],
   },
   {
-    title: 'Design systems',
-    detail: 'Consistency across products and platforms',
     paths: ['M6 3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z', 'M12 3v18M3 12h18'],
   },
   {
-    title: 'AI tools',
-    detail: 'Practical tools for everyday workflows',
     paths: ['m11 4 2.4 6.6L20 13l-6.6 2.4L11 22l-2.4-6.6L2 13l6.6-2.4Z', 'M20 2v4m-2-2h4'],
   },
   {
-    title: 'Research & behaviour',
-    detail: 'Understanding people to guide product decisions',
     paths: ['M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z', 'm15 15 6 6'],
   },
   {
-    title: 'Prototyping',
-    detail: 'Making ideas tangible and testable',
     paths: ['M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2ZM3 8h18', 'm9 12-3 3 3 3m6-6 3 3-3 3'],
   },
   {
-    title: 'Complex platforms',
-    detail: 'Simplifying enterprise and operational workflows',
     paths: ['M9 3h6v6H9ZM2 15h6v6H2Zm14 0h6v6h-6Z', 'M12 9v3H5v3m7-3h7v3'],
   },
 ];
+
+const capabilities = designSkills.map((skill, index) => ({
+  ...skill,
+  paths: capabilityIcons[index].paths,
+}));
 
 const testimonials = [
   {
@@ -699,9 +695,7 @@ function About() {
               </h2>
               <div className={styles.aboutCopy}>
                 <p>
-                  Over the last 6+ years, I&apos;ve designed across fintech, SaaS, ecommerce and
-                  enterprise software, working on everything from banking and lending to
-                  payments, internal tools and design systems. I care about the full product,
+                  {homeAboutLead} I care about the full product,
                   not isolated screens: how it works for users, how it supports the business,
                   and how well it translates into something engineering can actually ship.
                 </p>
@@ -777,7 +771,7 @@ function Capabilities() {
     <div className={styles.capabilities} id="skills">
       <ul className={styles.capabilityGrid} aria-label="Capabilities">
         {capabilities.map((capability, index) => (
-          <li className={styles.capabilityItem} key={capability.title}>
+          <li className={styles.capabilityItem} key={capability.id}>
             <span className={styles.capabilityIcon} aria-hidden="true">
               <motion.svg
                 viewBox="0 0 24 24"
@@ -807,8 +801,8 @@ function Capabilities() {
               </motion.svg>
             </span>
             <div>
-              <h3>{capability.title}</h3>
-              <p>{capability.detail}</p>
+              <h3><SiteLink href={capability.href}>{capability.label}</SiteLink></h3>
+              <p>{capability.summary}</p>
             </div>
           </li>
         ))}

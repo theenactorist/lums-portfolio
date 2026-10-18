@@ -10,7 +10,7 @@ import HomeFooter from './Footer';
 import HomeThemeProvider from './ThemeProvider';
 import styles from '../../layout.module.css';
 
-const legacyRoutes = new Set(['/about', '/work', '/work/branch-ai-v1', '/work/branch-ai-original-v1', '/work/shiga-onboarding-v1']);
+const legacyRoutes = new Set(['/work', '/work/branch-ai-v1', '/work/branch-ai-original-v1', '/work/shiga-onboarding-v1']);
 
 // Published cases and missing pages use the current identity.
 // Explicitly retained legacy routes keep their existing presentation.

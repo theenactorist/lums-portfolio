@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: ['127.0.0.1'],
+  // Handle the retired About URL before normal trailing-slash normalization.
+  skipTrailingSlashRedirect: true,
+  async redirects() {
+    return [
+      { source: '/about', destination: '/#about', permanent: true },
+      { source: '/about/', destination: '/#about', permanent: true },
+      // Preserve Next's existing slash-removal behavior for every other path.
+      { source: '/:path+/', destination: '/:path+', permanent: true },
+    ];
+  },
   async headers() {
     return [
       // Interactive demos and the print view remain usable, while the actual

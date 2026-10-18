@@ -9,7 +9,7 @@ import MusicToggle from './MusicToggle';
 
 const navLinks = [
   { href: '/#featured-work', label: 'Work' },
-  { href: '/about', label: 'About' },
+  { href: '/#about', label: 'About' },
   { href: '/resume', label: 'Resume' },
 ];
 
