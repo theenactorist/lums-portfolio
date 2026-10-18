@@ -1372,7 +1372,7 @@
 .recommendationAuthor strong {
   font-size: 0.875rem;
   font-weight: 600;
-  text-decoration: underline;
+  text-decoration-line: none;
   text-decoration-color: var(--muted);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -1380,6 +1380,7 @@
 
 .recommendationAuthor:hover strong,
 .recommendationAuthor:focus-visible strong {
+  text-decoration-line: underline;
   text-decoration-color: currentColor;
 }
 
