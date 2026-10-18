@@ -4637,6 +4637,10 @@ main > .section:first-child {
   max-width: 500px;
 }
 
+.about-lums-hero__sub + .about-lums-hero__sub {
+  margin-top: 24px;
+}
+
 .about-lums-hero__portrait-wrapper {
   width: 100%;
   max-width: 400px;

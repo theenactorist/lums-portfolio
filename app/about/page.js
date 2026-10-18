@@ -46,7 +46,15 @@ export default function About() {
                   I don&apos;t just ship features. I design products people <span className="about-lums-hero__italic">actually</span> love.
                 </h1>
                 <p className="about-lums-hero__sub">
-                  Most people call me Lums, a Senior Product Designer with 8+ years shipping across multiple markets. I build with AI and think in systems.
+                  I&apos;m Olumide Olusesi—most people call me Lums—a product design engineer based in Toronto.
+                  I bring product thinking, visual design and AI prototyping together to turn complex
+                  problems into useful products.
+                </p>
+                <p className="about-lums-hero__sub">
+                  My work spans fintech, SaaS, ecommerce and enterprise software, from banking and
+                  lending to payments, internal tools and design systems. I work from strategy and
+                  research through interaction design, prototyping and engineering collaboration,
+                  helping teams align on what to build and carry it through to delivery.
                 </p>
               </motion.div>
 
@@ -99,12 +107,12 @@ export default function About() {
               
               <div className="about-lums-prose">
                 <p>
-                  I don't believe in rigid frameworks that stall momentum. Instead, I focus on shipping value safely and quickly. Here is how I think about building products:
+                  I don&apos;t believe in rigid frameworks that stall momentum. Instead, I focus on shipping value safely and quickly. Here is how I think about building products:
                 </p>
                 <ul className="about-lums-list">
-                  <li><strong>Design isn't just screens, it's systems:</strong> I don't stop at the UI. I love digging into how components connect, scale, and behave across an entire ecosystem.</li>
-                  <li><strong>AI amplifies craft, it doesn't replace it:</strong> I leverage AI to handle the heavy lifting of zero-to-one exploration, giving me the mental space to obsess over human nuance, product strategy, and visual polish.</li>
-                  <li><strong>Iterate while the paint is still wet:</strong> I believe in putting ideas in front of users fast. We learn exponentially more from a broken prototype in a user's hands than a perfect file on a canvas.</li>
+                  <li><strong>Design isn&apos;t just screens, it&apos;s systems:</strong> I don&apos;t stop at the UI. I love digging into how components connect, scale, and behave across an entire ecosystem.</li>
+                  <li><strong>AI amplifies craft, it doesn&apos;t replace it:</strong> I leverage AI to handle the heavy lifting of zero-to-one exploration, giving me the mental space to obsess over human nuance, product strategy, and visual polish.</li>
+                  <li><strong>Iterate while the paint is still wet:</strong> I believe in putting ideas in front of users fast. We learn exponentially more from a broken prototype in a user&apos;s hands than a perfect file on a canvas.</li>
                   <li><strong>Carry the engineers along:</strong> A design only matters if it ships. I design with the backend in mind, writing clear documentation and obsessing over clean handoffs so developers actually enjoy building what we design.</li>
                 </ul>
               </div>
@@ -154,7 +162,7 @@ export default function About() {
                 <div className="about-lums-loves__icon">📚</div>
                 <h3 className="about-lums-loves__title">Continuous Learning</h3>
                 <p className="about-lums-loves__desc">
-                  I dedicate at least 1 hour every single day to studying design trends. Currently, I'm deeply reading <em>Org Design for Design Orgs</em> and heavily researching Generative UI patterns for AI-forward products.
+                  I dedicate at least 1 hour every single day to studying design trends. Currently, I&apos;m deeply reading <em>Org Design for Design Orgs</em> and heavily researching Generative UI patterns for AI-forward products.
                 </p>
               </motion.div>
             </motion.div>
