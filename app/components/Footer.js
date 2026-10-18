@@ -1,13 +1,11 @@
 'use client';
 
 import Link from './SiteLink';
-import Image from 'next/image';
-import { useTheme } from './ThemeProvider';
+import BrandMark from './BrandMark';
 import BackgroundRipple from './BackgroundRipple';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { theme } = useTheme();
 
   return (
     <footer className="footer" id="footer">
@@ -20,15 +18,10 @@ export default function Footer() {
         <div className="footer__inner">
           <div className="footer__brand">
             <div className="footer__logo">
-              <Image
-                src={theme === 'dark' ? '/lums-logo-dark.svg' : '/lums-logo-light.svg'}
-                alt="Lums"
-                width={80}
-                height={31}
-              />
+              <BrandMark id="footer-logo" location="footer" />
             </div>
             <p className="footer__tagline footer__tagline--sub">
-              Open to new opportunities, collaborations, and interesting conversations.
+              Open to product design roles where I can shape the product and help ship it.
             </p>
             <div className="footer__cta-links">
               <a href="tel:+16476577810" className="footer__cta-link" aria-label="Phone">
@@ -97,7 +90,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span>© {currentYear} Olumide Olusesi. All rights reserved.</span>
-          <span>Designed & vibe-coded with 💛</span>
+          <span>Designed and built by Lums, with AI.</span>
         </div>
         <div className="footer__easter-hint">
           🔲 Tap any grid cell 5× to unlock a fun fact about Lums

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from './SiteLink';
-import Image from 'next/image';
+import BrandMark from './BrandMark';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
 import MusicToggle from './MusicToggle';
@@ -35,15 +35,7 @@ export default function Nav() {
       <div className="nav__inner">
         {/* Logo + Contact */}
         <div className="nav__left">
-          <Link href="/" className="nav__logo" id="nav-logo">
-            <Image
-              src={theme === 'dark' ? '/lums-logo-dark.svg' : '/lums-logo-light.svg'}
-              alt="Lums"
-              width={80}
-              height={31}
-              priority
-            />
-          </Link>
+          <BrandMark id="nav-logo" />
 
         </div>
 

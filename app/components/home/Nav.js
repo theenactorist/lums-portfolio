@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from '../SiteLink';
+import BrandMark from '../BrandMark';
 import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeProvider';
 import MusicToggle from '../MusicToggle';
@@ -31,86 +32,6 @@ function ThemeIcon({ theme }) {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z" />
     </svg>
-  );
-}
-
-function LogoWithNameNote({ isHomeHero }) {
-  const [open, setOpen] = useState(false);
-  const wrapperRef = useRef(null);
-  const hoveredRef = useRef(false);
-  const pointerRef = useRef({ type: '', wasOpen: false });
-
-  useEffect(() => {
-    if (!open) return undefined;
-
-    const dismissOnEscape = (event) => {
-      if (event.key === 'Escape') setOpen(false);
-    };
-    const dismissOutside = (event) => {
-      if (!wrapperRef.current?.contains(event.target)) setOpen(false);
-    };
-
-    document.addEventListener('keydown', dismissOnEscape);
-    document.addEventListener('pointerdown', dismissOutside);
-    return () => {
-      document.removeEventListener('keydown', dismissOnEscape);
-      document.removeEventListener('pointerdown', dismissOutside);
-    };
-  }, [open]);
-
-  return (
-    <div
-      className={styles.logoWithNote}
-      ref={wrapperRef}
-      onPointerEnter={(event) => {
-        if (event.pointerType !== 'touch') {
-          hoveredRef.current = true;
-          setOpen(true);
-        }
-      }}
-      onPointerLeave={(event) => {
-        hoveredRef.current = false;
-        if (!event.currentTarget.contains(document.activeElement)) setOpen(false);
-      }}
-      onFocus={() => setOpen(true)}
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget) && !hoveredRef.current) {
-          setOpen(false);
-        }
-      }}
-    >
-      <Link
-        href="/"
-        className="nav__logo"
-        id="nav-logo"
-        aria-label="Lums home"
-        aria-describedby="lums-name-note"
-        onPointerDown={(event) => {
-          pointerRef.current = { type: event.pointerType, wasOpen: open };
-        }}
-        onClick={(event) => {
-          // At the Home hero, tapping the logo can reveal the same context as hover.
-          // Elsewhere it keeps its normal home-link behaviour.
-          if (isHomeHero && event.detail !== 0 && pointerRef.current.type === 'touch') {
-            event.preventDefault();
-            setOpen(!pointerRef.current.wasOpen);
-          } else {
-            setOpen(false);
-          }
-        }}
-      >
-        Lums<span aria-hidden="true">*</span>
-      </Link>
-      <span
-        className={styles.nameNote}
-        id="lums-name-note"
-        role="tooltip"
-        data-open={open}
-        aria-hidden={!open}
-      >
-        Lums is short for <strong>Olumide Olusesi</strong>—a name coined by former colleagues.
-      </span>
-    </div>
   );
 }
 
@@ -187,7 +108,7 @@ export default function Nav() {
       aria-label="Primary"
     >
       <div className="nav__inner">
-        <LogoWithNameNote key={pathname} isHomeHero={pathname === '/' && overHero} />
+        <BrandMark key={pathname} id="nav-logo" />
 
         <div className="nav__links" id="nav-links">
           {navLinks.map((link) => (
@@ -236,9 +157,7 @@ export default function Nav() {
         onCancel={() => setMobileOpen(false)}
       >
         <div className="nav__mobile-header">
-          <Link href="/" className="nav__logo" aria-label="Lums home" onClick={() => setMobileOpen(false)}>
-            Lums<span aria-hidden="true">*</span>
-          </Link>
+          <BrandMark onHomeClick={() => setMobileOpen(false)} />
           <button className="nav__mobile-close" type="button" aria-label="Close menu" onClick={() => setMobileOpen(false)}>
             <span aria-hidden="true" />
             <span aria-hidden="true" />

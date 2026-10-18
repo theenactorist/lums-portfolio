@@ -12,6 +12,23 @@ const destinations = [
   { id: 'footer-resume', label: 'Resume', path: '/resume', hash: '' },
 ];
 
+function checkBrand(container, location) {
+  assert.ok(container.includes(`data-brand-mark="${location}"`), `${location} uses the shared mark`);
+  const buttons = [...container.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/g)]
+    .filter((button) => button[1].includes('aria-label="About the name Lums"'));
+  assert.ok(buttons.length > 0, `${location} has an accessible name explanation control`);
+  for (const button of buttons) {
+    assert.equal(button[2].replace(/<[^>]*>/g, '').trim(), '*', `${location} asterisk is present`);
+    assert.ok(button[1].includes('type="button"'));
+    assert.ok(button[1].includes('aria-describedby='));
+  }
+  const text = container.replace(/<[^>]*>/g, '');
+  assert.ok(text.includes('Lums is short for Olumide Olusesi—a name coined by former colleagues.'), `${location} retains the same approved name explanation`);
+  for (const anchor of container.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g)) {
+    assert.ok(!anchor[1].includes('<button'), 'Home link and asterisk button remain separate controls');
+  }
+}
+
 async function get(path) {
   if (!protectedDeployment) {
     const response = await fetch(origin + path);
@@ -38,6 +55,12 @@ for (let index = 0; index < routes.length; index += 3) {
         return { path, passed: true, footerPresent: false, note: 'This branded 404 does not render a shared footer.' };
       }
       assert.ok(footer, 'Visible footer exists');
+      const nav = html.match(/<nav\b(?=[^>]*\bid="main-nav")[\s\S]*?<\/nav>/)?.[0];
+      assert.ok(nav, 'Main navigation exists');
+      checkBrand(nav, 'header');
+      checkBrand(footer, 'footer');
+      assert.ok(footer.includes('Open to product design roles where I can shape the product and help ship it.'));
+      assert.ok(footer.includes('Designed and built by Lums, with AI.'));
       const anchors = [...footer.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)];
       const links = destinations.map((expected) => {
         const matches = anchors.filter((a) => a[1].includes(`id="${expected.id}"`));

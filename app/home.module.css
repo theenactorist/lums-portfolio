@@ -1,3 +1,10 @@
+/* Keep footer metadata clear of the fixed mobile Ask Lums control. */
+@media (max-width: 768px) {
+  :global(body):has(.askShell) :global(.footer) {
+    padding-bottom: calc(var(--space-xl) + 64px);
+  }
+}
+
 .homePage {
   --canvas: #ffffff;
   --surface: #fafafa;
