@@ -1064,13 +1064,6 @@
   max-width: 46rem;
 }
 
-.capabilityItem h3 a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
 .aboutLanyardSpace {
   min-height: 560px;
 }

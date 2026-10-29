@@ -13,6 +13,7 @@ import ProductEvolutionSection from './ProductEvolutionSection'
 import PulseDashboard from './PulseDashboard'
 import HeliumButtonExample from './HeliumButtonExample'
 import styles from './pulse.module.css'
+import { pulseHeadline } from '../../data/productionHomeProjects'
 
 const DASHBOARD_URL = 'https://pulse-staging-seven.vercel.app/app?embed=1&theme=light'
 const DOCS_URL = 'https://docs.pulseshiga.io/'
@@ -339,7 +340,7 @@ export default function PulseCaseStudy() {
       <header className={styles.header}>
         <div className={styles.heroCopy}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">Pulse</span></nav>
-          <h1>From Figma to a Working Payment Product in Five Days</h1>
+          <h1>{pulseHeadline}</h1>
           <div className={styles.intro}><p>Designing and building Pulse’s React frontend so a prospective partner could evaluate checkout, payment operations and developer integration in one working demo.</p></div>
         </div>
         <motion.div className={styles.heroMedia} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.55, delay: reducedMotion ? 0 : 0.08, ease: [0.16, 1, 0.3, 1] }}>

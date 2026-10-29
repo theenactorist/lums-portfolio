@@ -1,6 +1,13 @@
-// A visible skills shortlist, grounded in the linked portfolio case studies.
-// The same labels and destinations serve Home and the standalone About page.
+// A visible skills shortlist for Home About, grounded in portfolio case studies.
 export const designSkills = [
+  {
+    id: 'ai-product-design',
+    label: 'AI product design',
+    summary: 'AI tools and workflows for product teams',
+    detail: 'AI-assisted tools for illustration, UX writing and design-system prototyping, grounded in product context and human review.',
+    href: '/work/branch-ai',
+    caseLabel: 'Branch AI design workflows',
+  },
   {
     id: 'ux-ui',
     label: 'UX/UI & interaction design',
@@ -16,14 +23,6 @@ export const designSkills = [
     detail: 'Reusable components, shared tokens and coded interfaces that connect design decisions with engineering delivery.',
     href: '/work/pulse',
     caseLabel: 'Pulse design system and build',
-  },
-  {
-    id: 'ai-product-design',
-    label: 'AI product design',
-    summary: 'AI tools and workflows for product teams',
-    detail: 'AI-assisted tools for illustration, UX writing and design-system prototyping, grounded in product context and human review.',
-    href: '/work/branch-ai',
-    caseLabel: 'Branch AI design workflows',
   },
   {
     id: 'ux-research',

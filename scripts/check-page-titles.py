@@ -4,6 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -57,7 +58,7 @@ def fetch(item):
     path, user_agent = item
     url = args.origin.rstrip('/') + path
     if args.protected:
-        cli = '/Users/olumide/.npm/_npx/f56f1f0dfbede539/node_modules/vercel/dist/vc.js'
+        cli = os.environ.get('VERCEL_CLI_PATH', '/Users/olumide/.npm/_npx/f56f1f0dfbede539/node_modules/vercel/dist/vc.js')
         result = subprocess.run(['node', cli, 'curl', url, '--scope',
                                  'team_rBIoFQo258AbWGjBgNIyGJWp', '--', '--silent',
                                  '--show-error', '--compressed', '--include', '--max-time',

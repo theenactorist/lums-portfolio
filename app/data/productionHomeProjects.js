@@ -2,10 +2,12 @@
 // Includes the owner's subsequent Home copy, tags, and Pulse thumbnail updates.
 // The owner approved CopyGPT as the fourth card on 11 October 2026.
 // Other cards retain their verified production destinations and order.
+export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
+
 export const productionHomeProjects = [
   {
     id: 'pulse',
-    title: 'From Figma to a Working Payment Product in Five Days',
+    title: pulseHeadline,
     description: 'Turning an ambiguous embedded crypto payments concept into working software by connecting AI-assisted design with a coded design system and front-end development.',
     attributes: ['0 to 1', 'Design Systems', 'Web 3', 'SaaS', 'AI Tools', 'Web', 'Shipped'],
     image: '/home/live-work/pulse-layered.png',
