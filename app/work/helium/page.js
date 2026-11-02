@@ -13,7 +13,7 @@ const phases = [
   { id: 'why', label: 'Why Helium changed' },
   { id: 'foundation', label: 'Helium 1.0 to 2.0' },
   { id: 'layers', label: 'What Helium is made of' },
-  { id: 'thread', label: 'Why buttons never disable' },
+  { id: 'thread', label: 'Why buttons stay active' },
   { id: 'money', label: 'Wallet components' },
   { id: 'adoption', label: 'Who uses Helium' },
   { id: 'quality', label: 'How I keep it reliable' },
@@ -59,7 +59,7 @@ const steps = [
   ['Copy', 'The message says how to fix it', '“Password must be at least 8 characters.”'],
   ['Figma', 'Every input has an error state', 'An error border, a space for the message and an error focus ring.'],
   ['Code', 'All form fields share one component', 'Input, Textarea and InputDropdown use the same Field component. Pass it an error, and it replaces the hint and is read out by screen readers through aria-describedby.'],
-  ['Storybook', 'You can see it in every theme', 'The Input states story shows the error state in all four themes.'],
+  ['Storybook', 'You can see it in every theme', 'Storybook shows the error state for every input, in all four themes.'],
 ]
 
 const rewrites = [
@@ -71,10 +71,10 @@ const rewrites = [
 
 const walletComponents = [
   { name: 'SwapCard', line: 'What you send and what arrives, with thousands separators, long amounts that shrink to fit, and a mobile layout.', src: 'swapcard-business-dark', width: 782, height: 632, maxWidth: 300, alt: 'Helium SwapCard in the Business dark theme' },
-  { name: 'TokenAvatar', line: 'A coin with its network badge, so USD₮ on Optimism never looks like USD₮ on another network.', src: 'tokenavatar-pairs', width: 224, height: 160, maxWidth: 168, alt: 'Helium TokenAvatar pairs showing coins with their network badges' },
+  { name: 'TokenAvatar', line: 'A coin with its network badge, so the same coin on two networks never looks the same.', src: 'tokenavatar-pairs', width: 224, height: 160, maxWidth: 168, alt: 'Helium TokenAvatar pairs showing coins with their network badges' },
   { name: 'WalletCard', line: 'Balances by asset, with a hide option that masks every amount, including the converted total.', src: 'walletcard', width: 1600, height: 642, maxWidth: 800, alt: 'Helium WalletCard with balances by asset' },
   { name: 'Timeline', line: 'Transaction and approval history that makes it clear what has settled and what is still pending.', src: 'timeline-approval-trail', width: 976, height: 438, maxWidth: 488, alt: 'Helium Timeline showing an approval trail' },
-  { name: 'Asset libraries', line: '519 currencies, 235 flags, 100 company logos, 39 payment methods and 232 integration logos, exported from Figma so prototypes never wait on assets.', src: 'currency-crypto', width: 1704, height: 192, maxWidth: 852, alt: 'Helium currency icons for crypto assets' },
+  { name: 'Asset libraries', line: '519 currencies, 235 flags, 99 company logos, 39 payment methods and 232 integration logos, exported from Figma so prototypes never wait on assets.', src: 'currency-crypto', width: 1704, height: 192, maxWidth: 852, alt: 'Helium currency icons for crypto assets' },
 ]
 
 const adoption = [
@@ -175,7 +175,7 @@ export default function HeliumCaseStudy() {
                   </div>
                 ))}
               </div>
-              <figcaption>Helium 1.0 in Figma, and Helium 2.0 with its component pages linked to Storybook.</figcaption>
+              <figcaption>The cover and Buttons page from each version in Figma.</figcaption>
             </figure>
           </Section>
 
@@ -195,7 +195,7 @@ export default function HeliumCaseStudy() {
             />
           </Section>
 
-          <Section id="thread" title="Why Helium’s buttons never disable">
+          <Section id="thread" title="Why Helium’s main buttons stay active">
             <p>Here’s how one decision, keeping primary buttons active, shows up in the patterns, the copy, Figma and the code.</p>
             <ol className={styles.steps}>
               {steps.map(([where, title, line, source], index) => (
