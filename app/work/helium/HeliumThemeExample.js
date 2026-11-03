@@ -46,11 +46,11 @@ export default function HeliumThemeExample({ storyId, componentName, label, titl
           {helper && <p className={styles.helper}>{helper}</p>}
         </div>
         <a href={storyUrl} target="_blank" rel="noreferrer" className={styles.sourceLink} data-storybook-link>
-          View in Storybook <span aria-hidden="true">↗</span>
+          View in Storybook
         </a>
       </header>
 
-      <div className={styles.controls} role="group" aria-label={`${componentName} theme`}>
+      <div className={styles.controls} role="group" aria-label={`${componentName} mode`}>
         {THEMES.map((item) => (
           <button
             key={item.id}
@@ -71,14 +71,14 @@ export default function HeliumThemeExample({ storyId, componentName, label, titl
           {mounted && <iframe
             key={canvasUrl}
             src={canvasUrl}
-            title={`Helium ${componentName} in the ${current.label} theme`}
+            title={`Helium ${componentName} in the ${current.label} mode`}
             loading="lazy"
             referrerPolicy="no-referrer"
             onLoad={() => setLoaded(true)}
             data-loaded={loaded}
           />}
         </div>
-        <pre className={styles.code} aria-label={`HTML theme attribute for ${current.label}`}><code>{snippetFor(theme)}</code></pre>
+        <pre className={styles.code} aria-label={`HTML mode attribute for ${current.label}`}><code>{snippetFor(theme)}</code></pre>
       </div>
 
       {caption && <p className={styles.caption}>{caption}</p>}
