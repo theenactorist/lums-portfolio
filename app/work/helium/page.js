@@ -10,6 +10,8 @@ import ColourRamps from './ColourRamps'
 import VariableLayers from './VariableLayers'
 import { TokenAvatarFigure, ConversionPairFigure } from './AssetFigures'
 import FigmaToCodeFlow from './FigmaToCodeFlow'
+import LiveSidebarTile from './LiveSidebarTile'
+import Timeline from './Timeline'
 import styles from './helium.module.css'
 import { pulseHeadline } from '../../data/productionHomeProjects'
 
@@ -43,12 +45,13 @@ const levels = [
   { level: 'Organism', src: 'figma-sidebar-individual', width: 265, height: 600, alt: 'Helium sidebar navigation in Figma, with the Enta logo, the account switcher and the menu from Home to Support' },
 ]
 
-// SidebarNavigation from the live Storybook at 2x: individual-tier-1 in light and dark, business-tier-1 in the Business modes.
+// SidebarNavigation, live from the public Storybook (LiveSidebarTile): individual-tier-1 in the Individual modes,
+// business-tier-1 in the Business modes. Each tile keeps its 2x screenshot as the poster until the story loads.
 const themeTiles = [
-  { id: 'light', label: 'Individual light', alt: 'Helium sidebar in the Individual light theme: blue Enta logo and a blue active Home item on white' },
-  { id: 'dark', label: 'Individual dark', alt: 'Helium sidebar in the Individual dark theme: Enta logo and menu on a dark navy background' },
-  { id: 'business-light', label: 'Business light', alt: 'Helium sidebar in the Business light theme: neutral Enta logo with the Business caption, in greys on white' },
-  { id: 'business-dark', label: 'Business dark', alt: 'Helium sidebar in the Business dark theme: white Enta logo with the Business caption, in neutrals on near black' },
+  { id: 'light', story: 'individual-tier-1', label: 'Individual light' },
+  { id: 'dark', story: 'individual-tier-1', label: 'Individual dark' },
+  { id: 'business-light', story: 'business-tier-1', label: 'Business light' },
+  { id: 'business-dark', story: 'business-tier-1', label: 'Business dark' },
 ]
 
 const themeAttributes = [
@@ -128,12 +131,14 @@ const adoption = [
   ['AI coding agents', 'Every agent working in a Helium-based repo starts from AGENTS.md and the manifest.'],
 ]
 
+// Read from the copy: native theming is under way (iOS and Android have the core tokens and the light theme);
+// the rest come next. Nothing here is finished, so there is no done state.
 const nextSteps = [
-  ['Add automated tests', 'Today, quality depends on type checks, the audit and visual snapshots. Component tests would catch behaviour bugs earlier.'],
-  ['Finish native theming', 'iOS and Android get the core tokens and the light theme. Dark and Business modes come next.'],
-  ['Retest muted text contrast', 'A few muted text colours fall below 4.5:1 in some modes. We kept them as a shared decision; I’d test them with users and fix them in the tokens.'],
-  ['Move the error copy into Helium', 'The message library lives in a spreadsheet. As a UX pattern in the repo, it would sit next to the components that use it.'],
-  ['Publish the packages', 'Products use local copies of Helium today. A private package registry would make each update a simple version bump.'],
+  { title: 'Finish native theming', status: 'In progress', text: 'iOS and Android get the core tokens and the light theme. Dark and Business modes come next.' },
+  { title: 'Add automated tests', status: 'Next', text: 'Today, quality depends on type checks, the audit and visual snapshots. Component tests would catch behaviour bugs earlier.' },
+  { title: 'Retest muted text contrast', status: 'Next', text: 'A few muted text colours fall below 4.5:1 in some modes. We kept them as a shared decision; I’d test them with users and fix them in the tokens.' },
+  { title: 'Move the error copy into Helium', status: 'Next', text: 'The message library lives in a spreadsheet. As a UX pattern in the repo, it would sit next to the components that use it.' },
+  { title: 'Publish the packages', status: 'Next', text: 'Products use local copies of Helium today. A private package registry would make each update a simple version bump.' },
 ]
 
 function Section({ id, title, children }) {
@@ -212,17 +217,20 @@ export default function HeliumCaseStudy() {
 
           <Section id="themes" title="Designing themes for Individual and Business users">
             <p>Enta has two types of users, Individual and Business, and each can use the app in light or dark. That gives Helium four themes. Which type of user someone is depends on the version of the app they use; light or dark follows their device or their own choice.</p>
-            <p>Individual keeps Enta’s blue. Business swaps the blue brand colours and the greys for neutrals, and uses a neutral version of the Enta logo with a Business caption. That makes it obvious which account you’re in, and gives business users a more understated, professional look. Here’s the app’s sidebar in each theme.</p>
+            <p>Individual keeps Enta’s blue. Business swaps the blue brand colours and the greys for neutrals, and uses a neutral version of the Enta logo with a Business caption. That makes it obvious which account you’re in, and gives business users a more understated, professional look. Here’s the app’s sidebar in each theme, live from Helium’s Storybook. Hover the menu, or open the account switcher.</p>
             <figure className={styles.figure}>
               <div className={styles.themeGrid}>
                 {themeTiles.map((tile) => (
-                  <div key={tile.id} data-theme-tile={tile.id}>
-                    <span className={styles.figureLabel}>{tile.label}</span>
-                    <ZoomableImage src={`/work/helium/storybook-sidebar-${tile.id}.webp`} alt={tile.alt} width={530} height={880} sizes="(max-width: 767px) 42vw, 300px" />
-                  </div>
+                  <LiveSidebarTile
+                    key={tile.id}
+                    storyId={`components-sidebarnavigation--${tile.story}`}
+                    theme={tile.id}
+                    label={tile.label}
+                    title={`Helium sidebar in the ${tile.label} theme, live from Storybook`}
+                  />
                 ))}
               </div>
-              <figcaption>The same sidebar component in all four themes. Business drops the blue for neutrals, and the logo switches to the Business version.</figcaption>
+              <figcaption>The same sidebar component in all four themes. Business drops the blue for neutrals, and the logo switches to the Business version. The Business sidebars show a new account before its wallet is set up.</figcaption>
             </figure>
             <p>Only colour changes between themes. Spacing, type and radius stay the same, and no component checks which theme it’s in: the same 311 colour tokens simply resolve to different values. Adding a theme means adding a mode to the variables, not rewriting components. An app sets its theme with one attribute on the page:</p>
             <div className={styles.tableWrap}>
@@ -336,8 +344,8 @@ export default function HeliumCaseStudy() {
           </Section>
 
           <Section id="next" title="Work in progress">
-            <p>Helium is still growing. These are the parts I’m working on now:</p>
-            <Definitions items={nextSteps} />
+            <p>Helium is still growing. Here’s what I’m working on now, and what comes next:</p>
+            <Timeline items={nextSteps} className={styles.progressList} />
           </Section>
           <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/pulse">{pulseHeadline}</Link></nav>
         </article>

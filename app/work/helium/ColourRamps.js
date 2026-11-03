@@ -56,7 +56,7 @@ export default function ColourRamps() {
           </div>
         ))}
       </div>
-      <figcaption>Helium’s brand, grey and status ramps. Each step shows its contrast ratio and WCAG rating, as it does in the Figma library, so it’s clear which steps can carry text.</figcaption>
+      <figcaption>Helium’s brand, grey and status ramps. Each step shows its contrast ratio and WCAG rating, so it’s clear which steps can carry text.</figcaption>
     </figure>
   )
 }

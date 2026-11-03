@@ -20,7 +20,7 @@ export default function TypeCards() {
           <p className={styles.typeAlphabet}>ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</p>
           <p className={styles.typeRow} data-glyph-row>I l 1 O 0</p>
           <p className={styles.typeRow} data-glyph-row data-signs>$ £ € ¥ ¢</p>
-          <p className={styles.typeText}>Open source on Google Fonts, so it works on web, iOS and Android without licensing. One variable family covers weights from 400 to 700, enough for every level of hierarchy. It has the dollar, pound, euro and yen signs, but not the naira, cedi or bitcoin signs, or the ₮ in USD₮.</p>
+          <p className={styles.typeText}>Open source on Google Fonts, so it works on web, iOS and Android without licensing. One variable family covers weights from 400 to 700, enough for every level of hierarchy. It has the dollar, pound, euro and yen signs, but not the naira, cedi, bitcoin or tether signs.</p>
         </div>
         <div className={`${styles.typeCard} ${plexMono.className}`} data-type-card="IBM Plex Mono">
           <span className={styles.typeLabel}>Numbers, addresses and codes</span>
