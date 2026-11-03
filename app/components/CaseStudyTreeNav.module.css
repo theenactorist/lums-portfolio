@@ -1,0 +1,98 @@
+/* Tree nav: a guide line with an end marker, one shared pill behind the target row and a diamond on
+   the line beside it. Colours come from the page's tokens, with neutral fallbacks. */
+.tree {
+  --tree-row: 36px;
+  --tree-inset: 24px;
+  position: relative;
+  padding-left: var(--tree-inset);
+}
+
+.guide {
+  position: absolute;
+  top: 0;
+  bottom: 4px;
+  left: 9.5px;
+  width: 1px;
+  background: var(--tree-line, var(--line, #e7e7e7));
+}
+
+.end {
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--tree-line, var(--line, #e7e7e7));
+}
+
+.pill,
+.marker {
+  position: absolute;
+  top: 0;
+  height: var(--tree-row);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pill {
+  left: var(--tree-inset);
+  right: 0;
+  border-radius: 8px;
+  background: var(--tree-pill, var(--rail-surface, #f4f3f0));
+}
+
+.marker {
+  left: 0;
+  width: 20px;
+  display: grid;
+  place-items: center;
+}
+
+.diamond {
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background: var(--tree-accent, var(--accent, #e07b3c));
+  transform: rotate(45deg);
+}
+
+.list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  margin: 0;
+  padding: 0;
+}
+
+.list a {
+  display: block;
+  height: var(--tree-row);
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--tree-muted, var(--muted, #6f6f6d));
+  font-size: 13px;
+  line-height: var(--tree-row);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list a[aria-current],
+.list a.target {
+  color: var(--tree-ink, var(--ink, #1d1d1b));
+}
+
+.list a[aria-current] {
+  font-weight: 600;
+}
+
+.list a:focus-visible {
+  outline: 2px solid var(--tree-accent, var(--accent, #e07b3c));
+  outline-offset: 2px;
+}
