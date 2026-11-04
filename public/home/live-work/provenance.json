@@ -15,6 +15,23 @@
       "decoded_format": "png",
       "background": "#E5C5F5",
       "notes": "Unmodified export of the approved three-layer composition using the current Figma frame's lavender fill. Original production snapshot retained."
+    },
+    {
+      "file": "helium-layered.png",
+      "replaces_on_home": null,
+      "source_files": [
+        "public/work/helium/figma-helium-2-thumbnail.webp",
+        "public/work/helium/storybook-button-docs.webp"
+      ],
+      "approved_on": "2026-11-03",
+      "content_type": "image/png",
+      "bytes": 332245,
+      "sha256": "b17d284263392c6b6fb7c31440827ee05f2118e38cdd10d85d70591b65444e1e",
+      "width": 1600,
+      "height": 900,
+      "decoded_format": "png",
+      "background": "#D7E6FC",
+      "notes": "New Home card for the Helium case study, approved by the owner on 3 November 2026. Built from the page's hero layers (the Helium 2.0 Figma cover with the Storybook Button docs overlaid) on a flat pale blue fill, laid out like pulse-layered.png, and rendered at 1600 by 900 in headless Chromium."
     }
   ],
   "assets": [

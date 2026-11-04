@@ -13,7 +13,7 @@ import FigmaToCodeFlow from './FigmaToCodeFlow'
 import LiveSidebarTile from './LiveSidebarTile'
 import Timeline from './Timeline'
 import styles from './helium.module.css'
-import { pulseHeadline } from '../../data/productionHomeProjects'
+import { heliumHeadline, pulseHeadline } from '../../data/productionHomeProjects'
 
 const phases = [
   { id: 'overview', label: 'At a glance' },
@@ -164,7 +164,7 @@ export default function HeliumCaseStudy() {
       <header className={styles.header}>
         <div className={styles.heroCopy}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">Helium</span></nav>
-          <h1>Design System Engineering: Owning Helium from Figma Library to Production Code</h1>
+          <h1>{heliumHeadline}</h1>
           <div className={styles.intro}><p>How I built Helium, Shiga’s design system, so designers, engineers and AI coding agents can all build Enta and Pulse from the same foundations, components and rules.</p></div>
         </div>
         <HeroMedia />

@@ -38,7 +38,7 @@ const LUMS_FACTS = [
   "He's a certified Information Technology Professional (ITP) in Canada — designer by passion, professional by two degrees.",
   "Lums helped Shiga secure $1.2M in funding from Tether and a spot in the Visa Accelerator — just by translating a founder's vision into product.",
   "He founded a Beta-Testing Community of 120+ participants at Carbon — cutting external research costs by 25% and staying close to real users.",
-  "Lums architected a design system called Helium 2.0 from scratch: 263 color variables, full dark/light modes, ready for Android, iOS, and web.",
+  "Lums built Helium 2.0, Shiga’s design system: 1,608 Figma variables, four themes, 48 React components, and code names for Android, iOS and web.",
   "At Branch, his AI tools were adopted 500+ times across 6 teams in 4 countries. That's not a side project — that's infrastructure.",
   "Lums built a Telegram Mini-App POS for Shiga using Gemini and Claude. It was good enough to secure direct funding from Telegram (TON).",
   "He redesigned KYC onboarding at Branch and pushed approval rates from 42% to 56% — that's 14 percentage points of people who now get access to credit.",

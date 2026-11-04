@@ -30,6 +30,7 @@
 .articleLayout { display:grid; grid-template-columns:25% 66.666667%; align-items:start; gap:32px; width:min(1304px,calc(100% - 40px)); margin:0 auto; }
 .chapterRail { position:sticky; top:128px; max-height:calc(100dvh - 144px); overflow-y:auto; overscroll-behavior:contain; min-width:0; padding:0 12px; }
 .page :global(.cs-phase-nav) { position:static; inset:auto; width:100%; margin:0; padding:0; border:0; background:none; color:var(--ink); backdrop-filter:none; z-index:auto; }
+.page :global(.cs-phase-nav--tree) a:focus-visible { outline-offset:-2px; }
 .mobileContents { display:none; }
 .article { min-width:0; padding:0 12px 0 56px; container:helium-article / inline-size; }
 

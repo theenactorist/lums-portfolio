@@ -1,8 +1,10 @@
 // Verified against the live Home cards on 17 September 2026.
 // Includes the owner's subsequent Home copy, tags, and Pulse thumbnail updates.
 // The owner approved CopyGPT as the fourth card on 11 October 2026.
+// The owner approved Helium as the second card, after Pulse, on 3 November 2026.
 // Other cards retain their verified production destinations and order.
 export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
+export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
 
 export const productionHomeProjects = [
   {
@@ -13,6 +15,19 @@ export const productionHomeProjects = [
     image: '/home/live-work/pulse-layered.png',
     imageAlt: 'Pulse payment dashboard with embedded crypto checkout and developer API code',
     href: 'https://olumideolusesi.com/work/pulse',
+    companyLogo: '/home/work-logos/shiga.svg',
+    companyLogoAlt: 'Shiga',
+    companyLogoWidth: 1047,
+    companyLogoHeight: 291,
+  },
+  {
+    id: 'helium',
+    title: heliumHeadline,
+    description: 'Building Shiga’s design system across the Figma library and production React, so designers, engineers and AI coding agents can build Enta and Pulse from the same foundations.',
+    attributes: ['Design Systems', 'AI Tools', 'Shipped'],
+    image: '/home/live-work/helium-layered.png',
+    imageAlt: 'Helium’s Figma library cover with its Storybook Button documentation',
+    href: 'https://olumideolusesi.com/work/helium',
     companyLogo: '/home/work-logos/shiga.svg',
     companyLogoAlt: 'Shiga',
     companyLogoWidth: 1047,
