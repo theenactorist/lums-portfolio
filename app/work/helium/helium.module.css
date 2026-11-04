@@ -59,7 +59,6 @@
 .overviewCopy h3 { margin:32px 0 16px; font-size:20px; line-height:1.5; font-weight:600; letter-spacing:0; }
 .overviewCopy ul { list-style:none; padding:0; margin:0; }
 .overviewCopy li + li { margin-top:16px; padding-top:16px; border-top:1px solid var(--line); }
-.resultLink { display:inline-block; margin-top:24px; font-size:13px; line-height:1.7; }
 
 /* Figures: evidence on a flat surface, caption below */
 .figure { margin:40px 0; padding:28px; background:var(--surface); border-radius:30px; }
@@ -141,21 +140,38 @@
 .rampStep { display:block; font-size:13px; line-height:1.4; color:var(--ink); }
 .rampHex { display:block; font-family:var(--font-mono); font-size:11px; line-height:1.5; letter-spacing:.02em; color:var(--muted); }
 
-/* Variables: three layers on the figure's one surface, each a step further in with a turn arrow before its label.
-   Nothing inside has a fill, border or shadow except the drawn button and the swatches. Each swatch has a faint
-   inset edge in the ink colour, its own edge rather than a card stroke, so #171717 still shows on the dark surface. */
-.layersFigure { --swatch-edge:inset 0 0 0 1px color-mix(in srgb, var(--ink) 15%, transparent); }
-.layersFigure { --layer-indent:24px; }
+/* Variables: three layers on the figure's one surface, drawn as a tree. Nothing inside has a fill, border or shadow
+   except the drawn button and the swatches. Each swatch has a faint inset edge in the ink colour, its own edge rather
+   than a card stroke, so #171717 still shows on the dark surface.
+   Geometry: a level's details and its child sit one step (--layer-indent) in from its title, inside .layerBranch.
+   The child's turn arrow hangs in the gutter one step left of its label, so the label lines up with its title. The
+   parent's guide line runs down the gutter at the arrow's vertical stroke (72/256 of the icon's width in Phosphor's
+   regular weight), from 6px under the title 2px into the top of that stroke (which starts 24/256 down the icon), so line
+   and arrow read as one connector. Primitive has no child, so no line. */
+.layersFigure {
+  --swatch-edge:inset 0 0 0 1px color-mix(in srgb, var(--ink) 15%, transparent);
+  --layer-indent:24px; --tree-arrow:16px; --layer-gap:28px; --label-line:18px;
+  --tree-colour:color-mix(in srgb, var(--muted) 55%, var(--line));
+}
 .layers { margin:0; padding:0; list-style:none; }
 .layer { min-width:0; }
-.layerNested { margin-top:28px; padding-left:var(--layer-indent); }
-.layer .figureLabel { display:flex; align-items:center; gap:6px; }
-.turnArrow { flex:none; width:16px; height:16px; color:var(--muted); }
+.layerNested { margin-top:var(--layer-gap); }
+.layer .figureLabel { position:relative; }
+.turnArrow { position:absolute; left:calc(-1 * var(--layer-indent)); top:calc((var(--label-line) - var(--tree-arrow)) / 2); width:var(--tree-arrow); height:var(--tree-arrow); color:var(--tree-colour); }
+.layerBranch { padding-left:var(--layer-indent); }
+.layerDetails { position:relative; display:flow-root; }
+.layerParent::before {
+  content:''; position:absolute; width:1px; background:var(--tree-colour);
+  left:calc(var(--tree-arrow) * 72 / 256 - 0.5px - var(--layer-indent));
+  top:-10px;
+  bottom:calc(-1 * (var(--layer-gap) + (var(--label-line) - var(--tree-arrow)) / 2 + var(--tree-arrow) * 24 / 256) - 1.5px);
+}
 .layerTitle { margin:0 0 16px; font-size:18px; line-height:1.4; font-weight:600; color:var(--ink); }
 .layerTitle code, .layerRows code, .layerCode, .layerValue code { font-family:var(--font-mono); font-size:13px; color:var(--ink); overflow-wrap:anywhere; }
 .layerTitle code { font-size:15px; }
 .layerButton { display:inline-flex; align-items:center; gap:4px; padding:10px 16px; border-radius:8px; background:#175CD3; color:#fff; font-size:14px; line-height:20px; font-weight:600; user-select:none; }
 .layerCode { display:block; margin-top:16px; }
+.layerDetails > :last-child { margin-bottom:0; }
 .layerRows { margin:0 0 16px; display:grid; gap:8px; }
 .layerRows > div { display:grid; grid-template-columns:128px minmax(0,1fr); gap:12px; align-items:baseline; }
 .layerRows dt { font-family:var(--font-mono); font-size:12px; letter-spacing:.4px; color:var(--muted); }
@@ -216,7 +232,7 @@
 @container helium-article (max-width:560px) {
   .typeCards { grid-template-columns:1fr; }
   .layerRows > div { grid-template-columns:1fr; gap:2px; }
-  .layersFigure { --layer-indent:16px; }
+  .layersFigure { --layer-indent:16px; --tree-arrow:14px; }
 }
 @media (min-width:768px) and (max-width:1479px) {
   .header { grid-template-columns:minmax(0,1fr); }

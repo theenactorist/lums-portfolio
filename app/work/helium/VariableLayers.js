@@ -25,9 +25,11 @@ function TurnArrow() {
   )
 }
 
-// Three layers on the figure's one surface, nested as lists: each layer is a step further in, with a turn arrow
-// before its label. The button is drawn from Helium's tokens (Individual light): bg #175CD3, fg #FFFFFF,
-// radius-md 8px, md padding 10 by 14, text-sm 14/20 semibold.
+// Three layers on the figure's one surface, nested as lists, drawn as a tree. Each level's label and title sit
+// together; its details sit one step further in, inside a branch whose guide line (a pseudo-element) runs from
+// under the title down to the child's turn arrow, which hangs in the gutter beside the child's label. Lines and
+// arrows are decoration; the nested list carries the order. The button is drawn from Helium's tokens (Individual
+// light): bg #175CD3, fg #FFFFFF, radius-md 8px, md padding 10 by 14, text-sm 14/20 semibold.
 export default function VariableLayers() {
   return (
     <figure className={`${styles.figure} ${styles.layersFigure}`}>
@@ -35,32 +37,44 @@ export default function VariableLayers() {
         <li className={styles.layer} data-layer="component">
           <span className={styles.figureLabel}>Component</span>
           <p className={styles.layerTitle}>Button, Hierarchy: Primary</p>
-          <span className={`${styles.layerButton} ${instrumentSans.className}`} aria-hidden="true">Button CTA</span>
-          <span className={styles.srOnly}>A primary button labelled Button CTA, in Brand 600 blue.</span>
-          <code className={styles.layerCode}>{'<Button hierarchy="primary">'}</code>
+          <div className={styles.layerBranch}>
+            <div className={`${styles.layerDetails} ${styles.layerParent}`} data-layer-details="component">
+              <span className={`${styles.layerButton} ${instrumentSans.className}`} aria-hidden="true">Button CTA</span>
+              <span className={styles.srOnly}>A primary button labelled Button CTA, in Brand 600 blue.</span>
+              <code className={styles.layerCode}>{'<Button hierarchy="primary">'}</code>
+            </div>
 
-          <ul className={styles.layers}>
-            <li className={`${styles.layer} ${styles.layerNested}`} data-layer="component-variable">
-              <span className={styles.figureLabel}><TurnArrow />Component variable</span>
-              <p className={styles.layerTitle}><code>button-primary-bg</code></p>
-              <dl className={styles.layerRows}>
-                {codeSyntax.map(([platform, name]) => <div key={platform}><dt>{platform}</dt><dd><code>{name}</code></dd></div>)}
-              </dl>
-              <dl className={styles.layerRows}>
-                {modeValues.map(([mode, primitive, hex]) => (
-                  <div key={mode}><dt>{mode}</dt><dd><span className={styles.swatch} style={{ background: hex }} aria-hidden="true" />{primitive} <code>{hex}</code></dd></div>
-                ))}
-              </dl>
+            <ul className={styles.layers}>
+              <li className={`${styles.layer} ${styles.layerNested}`} data-layer="component-variable">
+                <span className={styles.figureLabel}><TurnArrow />Component variable</span>
+                <p className={styles.layerTitle}><code>button-primary-bg</code></p>
+                <div className={styles.layerBranch}>
+                  <div className={`${styles.layerDetails} ${styles.layerParent}`} data-layer-details="component-variable">
+                    <dl className={styles.layerRows}>
+                      {codeSyntax.map(([platform, name]) => <div key={platform}><dt>{platform}</dt><dd><code>{name}</code></dd></div>)}
+                    </dl>
+                    <dl className={styles.layerRows}>
+                      {modeValues.map(([mode, primitive, hex]) => (
+                        <div key={mode}><dt>{mode}</dt><dd><span className={styles.swatch} style={{ background: hex }} aria-hidden="true" />{primitive} <code>{hex}</code></dd></div>
+                      ))}
+                    </dl>
+                  </div>
 
-              <ul className={styles.layers}>
-                <li className={`${styles.layer} ${styles.layerNested}`} data-layer="primitive">
-                  <span className={styles.figureLabel}><TurnArrow />Primitive</span>
-                  <p className={styles.layerTitle}><code>Brand/600</code></p>
-                  <p className={styles.layerValue}><span className={styles.primitiveSwatch} style={{ background: '#175CD3' }} aria-hidden="true" /><code>#175CD3</code></p>
-                </li>
-              </ul>
-            </li>
-          </ul>
+                  <ul className={styles.layers}>
+                    <li className={`${styles.layer} ${styles.layerNested}`} data-layer="primitive">
+                      <span className={styles.figureLabel}><TurnArrow />Primitive</span>
+                      <p className={styles.layerTitle}><code>Brand/600</code></p>
+                      <div className={styles.layerBranch}>
+                        <div className={styles.layerDetails} data-layer-details="primitive">
+                          <p className={styles.layerValue}><span className={styles.primitiveSwatch} style={{ background: '#175CD3' }} aria-hidden="true" /><code>#175CD3</code></p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
       <figcaption>How the primary button gets its colour. Read from the bottom up: a raw value, the variable that names its job, and the component that uses it.</figcaption>

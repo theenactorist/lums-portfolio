@@ -193,7 +193,6 @@ export default function HeliumCaseStudy() {
                   <li>I started with the foundations, turned them into 1,608 Figma variables with names ready for Web, iOS and Android, then built 48 components in Figma and React, linked to each other and documented in a public Storybook.</li>
                   <li>Pulse’s first build, in July 2026, used Helium’s components and took five working days.</li>
                 </ul>
-                <a className={styles.resultLink} href="#adoption">See who uses Helium</a>
               </div>
             </div>
           </section>
