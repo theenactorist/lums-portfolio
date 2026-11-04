@@ -65,8 +65,8 @@ export default function BranchAICaseStudy() {
           </figure>
         </header>
         <div className={styles.articleLayout}>
-          <aside className={styles.chapterRail}><CaseStudyProgressRail phases={phases} orientation="vertical" /></aside>
-          <details className={styles.mobileContents}><summary>In this case study</summary><CaseStudyProgressRail phases={phases} orientation="vertical" /></details>
+          <aside className={styles.chapterRail}><CaseStudyProgressRail phases={phases} orientation="vertical" variant="tree" /></aside>
+          <details className={styles.mobileContents}><summary>In this case study</summary><CaseStudyProgressRail phases={phases} orientation="vertical" variant="tree" /></details>
           <article className={styles.article}>
             <section className={`${styles.section} ${styles.overview}`} id="overview" tabIndex={-1}>
               <div className={styles.overviewLabel}>At a glance</div>

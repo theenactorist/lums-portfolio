@@ -2,8 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { fragmentTarget } from '../lib/fragments.mjs';
+import CaseStudyTreeNav from './CaseStudyTreeNav';
 
-export default function CaseStudyProgressRail({ phases, orientation = 'horizontal' }) {
+// variant="tree" swaps the numbered list for the tree nav; the scroll tracking is shared.
+export default function CaseStudyProgressRail({ phases, orientation = 'horizontal', variant = 'default' }) {
   const [activeId, setActiveId] = useState(phases[0]?.id ?? '');
   const viewportRef = useRef(null);
   const activeIndex = useMemo(
@@ -121,6 +123,14 @@ export default function CaseStudyProgressRail({ phases, orientation = 'horizonta
       activeStep.offsetLeft - (viewport.clientWidth - activeStep.clientWidth) / 2,
     );
   }, [activeId]);
+
+  if (variant === 'tree') {
+    return (
+      <nav className="cs-phase-nav cs-phase-nav--tree" aria-label="In this case study">
+        <CaseStudyTreeNav phases={phases} activeId={activeId} listRef={viewportRef} />
+      </nav>
+    );
+  }
 
   return (
     <nav className="cs-phase-nav" aria-label="Case study progress">

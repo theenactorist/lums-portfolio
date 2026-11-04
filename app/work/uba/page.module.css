@@ -28,6 +28,8 @@
 .page :global(.cs-phase-nav__list a[aria-current]::after) { content:'↗'; display:grid; place-items:center; width:30px; height:30px; border:1px solid var(--line); border-radius:8px; margin-left:auto; font-weight:400; flex-shrink:0; }
 .page :global(.cs-phase-nav__number) { display:none; }
 .page :global(.cs-phase-nav__label) { color:inherit; font:inherit; }
+.page :global(.cs-phase-nav--tree) { background:none; border-radius:0; }
+.page :global(.cs-phase-nav--tree) a:focus-visible { outline-offset:-2px; }
 .mobileContents { display:none; }
 .article { min-width:0; padding:0 12px 0 56px; border-left:1px solid transparent; }
 .section { margin-bottom:64px; scroll-margin-top:calc(var(--nav-height,72px) + 32px); }
@@ -104,6 +106,10 @@
   .mobileContents :global(.cs-phase-nav__list a) { padding:12px 0; min-height:44px; font-size:14px; color:var(--muted); }
   .mobileContents :global(.cs-phase-nav__list a[aria-current]) { color:var(--ink); }
   .mobileContents :global(.cs-phase-nav__list a::before),.mobileContents :global(.cs-phase-nav__list a::after) { display:none; }
+  .mobileContents { --tree-pill:var(--paper); }
+  .mobileContents :global(.cs-phase-nav--tree) { padding-bottom:16px; }
+  .mobileContents :global(.cs-phase-nav--tree) > div { --tree-row:44px; }
+  .mobileContents :global(.cs-phase-nav--tree) a { font-size:14px; }
 }
 @media (max-width:767px) {
   .page { padding-top:calc(var(--nav-height,62.375px) + 16px); padding-bottom:24px; }
