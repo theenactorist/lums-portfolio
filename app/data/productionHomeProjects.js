@@ -99,7 +99,7 @@ export const productionHomeProjects = [
     id: 'branch-ai',
     title: 'Building AI tools for consistent product design',
     description: 'Creating reusable illustration, UX writing and Neem prototyping workflows for Branch’s product team, grounded in brand, market and component rules with human review.',
-    attributes: ['AI Automation', 'Internal Tools', 'Design Systems'],
+    attributes: ['AI Automation', 'Internal Tools'],
     image: '/work/branch-ai/branch-shared-system-thumbnail.png',
     imageAlt: 'Generated Branch cover concept showing illustration assets, a UX copy comparison and a schematic Neem prototype',
     href: '/work/branch-ai',
