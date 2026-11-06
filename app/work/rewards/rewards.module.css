@@ -93,7 +93,30 @@
 .screensThree { grid-template-columns:repeat(3,minmax(0,1fr)); }
 .screensFour { grid-template-columns:repeat(4,minmax(0,1fr)); }
 .screensSingle { grid-template-columns:minmax(0,240px); justify-content:center; }
-.figure.flowFigure { padding:20px; }
+.screensTwo { grid-template-columns:repeat(2,minmax(0,240px)); justify-content:center; }
+
+/* Entry points: two crops from Carbon's home screen and Account page, tops aligned. */
+.entryCrops { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; margin:0; padding:0; list-style:none; }
+.entryCrops > li { min-width:0; }
+.entryCrops :global(.zoom-trigger) { background:#fff; }
+
+/* Annotated screens (AnnotatedScreen.js): the screen with a 32px gutter for its numbers, the steps beside it.
+   Numbers are ink circles with paper numerals; the active one turns Warm Rust. The highlight is the only stroke and
+   exists only while a step is active; it sits on the region's exact box (outline outside it). */
+.annotated { --marker:22px; display:grid; grid-template-columns:312px minmax(0,1fr); gap:32px; align-items:start; }
+.annotatedScreen { position:relative; width:280px; margin-left:32px; }
+.annotatedScreen :global(.zoom-trigger) { border-radius:14px; background:var(--screen-surface); }
+.annotatedOverlay { position:absolute; inset:0; pointer-events:none; }
+.marker, .stepNumber { display:grid; place-items:center; width:var(--marker); height:var(--marker); border-radius:50%; background:var(--ink); color:var(--paper); font-family:var(--font-mono); font-size:11px; font-weight:600; line-height:1; }
+.marker { position:absolute; left:-8px; transform:translate(-100%,-50%); transition:background-color .15s ease, color .15s ease; }
+.marker[data-active], .steps li[data-active] .stepNumber { background:var(--accent); color:#fff; }
+.highlight { position:absolute; border-radius:6px; outline:2px solid var(--accent); outline-offset:1px; background:color-mix(in srgb, var(--accent) 12%, transparent); }
+.steps { display:grid; gap:2px; margin:0; padding:0; list-style:none; }
+.steps li { display:grid; grid-template-columns:var(--marker) minmax(0,1fr); gap:12px; padding:10px 12px; border-radius:10px; font-size:15px; line-height:1.55; color:var(--copy); }
+.steps li[data-active] { background:var(--paper); }
+.steps li:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.stepNumber { margin-top:1px; transition:background-color .15s ease, color .15s ease; }
+.stepBody strong { color:var(--ink); font-weight:600; }
 
 /* The two Carbon emails, side by side, tops aligned */
 .emails { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; margin:0; padding:0; list-style:none; }
@@ -126,12 +149,18 @@
 .next a { font-size:24px; line-height:1.3; text-decoration:none; }
 .next a:hover { text-decoration:underline; }
 
+@container rewards-article (max-width:680px) {
+  .annotated { grid-template-columns:minmax(0,1fr); gap:24px; }
+  .annotatedScreen { justify-self:center; width:min(260px, calc(100% - 40px)); }
+}
 @container rewards-article (max-width:600px) {
   .screensFour { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @container rewards-article (max-width:520px) {
   .screensThree { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .emails { grid-template-columns:1fr; }
+  .entryCrops { grid-template-columns:1fr; }
+  .steps li { padding:10px 8px; }
 }
 @media (min-width:768px) and (max-width:1479px) {
   .header { grid-template-columns:minmax(0,1fr); }

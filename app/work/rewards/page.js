@@ -6,6 +6,8 @@ import './rewards-shell.css'
 import ZoomableImage from '../pulse/PulseImage'
 import HeroMedia from './HeroMedia'
 import TierClimb from './TierClimb'
+import AnnotatedScreen from './AnnotatedScreen'
+import { carbonTier3, carbonLevelUp, branchFirstTime, branchReturning } from './annotations'
 import styles from './rewards.module.css'
 import { productionHomeProjects } from '../../data/productionHomeProjects'
 
@@ -46,14 +48,13 @@ const tierScreens = [
 ]
 
 // Recreated in Figma from the live app with sample data (T4), 360 by 800 at 2x.
+// The Rewards tab itself (empty and with a balance) is in annotations.js.
 const firstTimeScreens = [
-  { src: 'branch-rewards-empty', alt: 'Branch’s Rewards tab with nothing earned yet: the invite code card with Copy, rows to earn cashback, redeem a code and learn about rewards, and an Invite Friends button' },
   { src: 'branch-invite', alt: 'Branch’s Invite and earn screen with a gift box illustration, the invite code and a Share Invite Code button' },
   { src: 'branch-redeem', alt: 'Branch’s Redeem Invite Code screen with a code field, an open gift box illustration and an Apply Code button' },
 ]
 
 const returningScreens = [
-  { src: 'branch-rewards-balance', alt: 'Branch’s Rewards tab with a ₦1,250 rewards balance and a Spend Rewards button, with cards to invite friends and earn cashback below' },
   { src: 'branch-spend', alt: 'Branch’s Spend Rewards screen with two options, Buy airtime and Buy data' },
   { src: 'branch-rewards-history', alt: 'Branch’s Rewards History with a ₦1,250 balance, ₦6,480 earned and ₦5,230 spent' },
   { src: 'branch-transactions-rewards', alt: 'Branch’s transaction history filtered to Rewards, listing bill pay cashbacks and airtime purchases in April 2026' },
@@ -65,6 +66,14 @@ const branchRules = [
   ['Spending', 'Use your rewards balance', 'Airtime or data', 'Straight away'],
 ]
 const branchColumns = ['How you earn', 'What you get', 'When it lands']
+
+const customerNeeds = [
+  ['What they’re wondering', 'What is this, and how do I start?', 'What have I got, and did I get what I expected?'],
+  ['What comes first', 'Their invite code and the deal in one line', 'Their balance, with Spend Rewards'],
+  ['What follows', 'The other way to earn, redeeming a friend’s code, the FAQ', 'The ways to earn, their rewards history, the FAQ'],
+  ['Main action', 'Invite Friends', 'Spend Rewards'],
+]
+const customerColumns = ['Just joined', 'Has been earning']
 
 const comparison = [
   ['Why this reward', 'New benefits cost too much to give everyone, so the most active customers get them first', 'Bill payments were lagging, so paying bills in the app pays you back', 'Each new customer is a friend who borrows and repays'],
@@ -203,11 +212,23 @@ export default function RewardsCaseStudy() {
           </Section>
 
           <Section id="tiers" title="Showing what each tier unlocks">
-            <p>Customers reach their tier from two places: a badge on their profile picture on the home screen, and a tier label on the Account page. Both open the tiers screen, which has two tabs. “Your benefits” lists what your tier gives you now and, under it, what the next tier adds. “Level up to the next tier” explains what moves you up: keeping ₦20,000 in your wallet, transacting regularly and saving. A “What are tiers?” link opens a short explainer for anyone seeing tiers for the first time.</p>
-            <p>Here’s the flow, from the entry points to the explainers:</p>
-            <figure className={`${styles.figure} ${styles.flowFigure}`}>
-              <ZoomableImage src="/work/rewards/carbon-flow.webp" alt="Carbon’s tiers flow: the home screen and the Account page both lead to the tiers screen, which leads up to the What are tiers? article and across to the Level up tab, then the level-up sheet and the How to level up article" width={5830} height={5184} sizes="(max-width: 767px) 90vw, 760px" />
-              <figcaption>Two ways in, two tabs, and help one tap away. This is the first iteration of the flow; the benefits for each tier were finalised later, in the six screens below.</figcaption>
+            <p>Customers reach their tier from two places they already use: their profile picture on the home screen carries a tier badge, and the Account page shows a tier label beside their name.</p>
+            <figure className={styles.figure}>
+              <ul className={styles.entryCrops}>
+                <li><ZoomableImage src="/work/rewards/carbon-entry-home.webp" alt="The top of Carbon’s home screen, with the Tier 3 badge on the profile picture" width={750} height={544} sizes="(max-width: 767px) 85vw, 360px" /></li>
+                <li><ZoomableImage src="/work/rewards/carbon-entry-account.webp" alt="The profile row on Carbon’s Account page, with the “Carbon Tier 3” label" width={750} height={152} sizes="(max-width: 767px) 85vw, 360px" /></li>
+              </ul>
+              <figcaption>Two ways in: the badge on your profile picture, and the tier label on your Account page.</figcaption>
+            </figure>
+            <p>Both open the tiers screen. It had to answer three questions in order: where am I, what do I get, and how do I get more. Here’s how the screen is ordered, from the top:</p>
+            <figure className={styles.figure}>
+              <AnnotatedScreen screen={carbonTier3} />
+              <figcaption>The Tier 3 screen from the top: status, progress, help, then benefits now and next.</figcaption>
+            </figure>
+            <p>The second tab turns the next tier into a plan:</p>
+            <figure className={styles.figure}>
+              <AnnotatedScreen screen={carbonLevelUp} />
+              <figcaption>The Level up tab: the goal, the reward and the steps, in that order.</figcaption>
             </figure>
             <p>Once the benefits for each tier were agreed, I designed all six versions of the screen, so each one shows the right benefits and the right next step. At Tier 6 there’s no next tier, so the second tab becomes “Maintain your elite tier status” and explains how to keep it.</p>
             <figure className={styles.figure}>
@@ -222,24 +243,34 @@ export default function RewardsCaseStudy() {
             <p>This time the reward was money. Rewards launched on Android in Nigeria, Kenya and India. Here’s how customers earn and spend it in Nigeria:</p>
             <RulesTable caption="How rewards work at Branch in Nigeria" columns={branchColumns} rows={branchRules} />
             <p>Tying the referral reward to a repaid loan means Branch only pays for friends who actually borrow and repay. Limiting cashback on bill payments to five a month keeps its cost predictable.</p>
-            <p>I designed for two kinds of customer: someone who has just joined and doesn’t know what Rewards is, and someone who has been earning and wants to see what they’ve got.</p>
+            <p>I designed for two kinds of customer, and each needed something different first:</p>
+            <RulesTable caption="What each customer needs first" columns={customerColumns} rows={customerNeeds} />
           </Section>
 
           <Section id="first-time" title="Explaining rewards to someone who’s just joined">
-            <p>A new customer opening the Rewards tab has nothing to see yet, so the tab explains rewards and gives them two ways to start earning straight away. Their invite code comes first, with one line on how referrals work, then the ways to earn, a way to redeem a friend’s code and a link to learn more. The main button is “Invite Friends”.</p>
+            <p>A new customer opening the Rewards tab has nothing to spend yet, but they can start earning straight away. Here’s how the tab is ordered for them:</p>
             <figure className={styles.figure}>
-              <Screens items={firstTimeScreens} layout={styles.screensThree} sizes="(max-width: 767px) 42vw, 230px" />
-              <figcaption>Before you’ve earned anything, the tab leads with your invite code and the two ways to earn.</figcaption>
+              <AnnotatedScreen screen={branchFirstTime} />
+              <figcaption>Before you’ve earned anything: your code, why to share it, then everything else.</figcaption>
+            </figure>
+            <p>Sharing and redeeming each take one screen:</p>
+            <figure className={styles.figure}>
+              <Screens items={firstTimeScreens} layout={styles.screensTwo} sizes="(max-width: 767px) 42vw, 240px" />
+              <figcaption>Invite and earn shows your code with one button to share it. Redeem takes a friend’s code in one field.</figcaption>
             </figure>
             <p>The gift box illustrations came from <Link className={styles.inlineLink} href="/work/branch-ai">the illustration workflow I built at Branch</Link>, so they match the rest of the app.</p>
           </Section>
 
           <Section id="returning" title="Helping returning customers see and trust their rewards">
-            <p>Once a customer has earned something, the balance moves to the top with “Spend Rewards” under it, and the ways to earn become cards below. Spending opens airtime and data.</p>
+            <p>Once a customer has earned something, the order flips. The balance moves to the top, because it’s what they came to see:</p>
+            <figure className={styles.figure}>
+              <AnnotatedScreen screen={branchReturning} />
+              <figcaption>After you’ve earned: your balance and how to spend it first, then ways to earn more.</figcaption>
+            </figure>
             <p>A returning customer mostly wants to know one thing: did I get the cashback I expected? So every cashback appears as its own transaction, the transaction history has a Rewards filter, and a rewards history page shows the balance with everything earned and spent.</p>
             <figure className={styles.figure}>
-              <Screens items={returningScreens} layout={styles.screensFour} sizes="(max-width: 767px) 42vw, 180px" />
-              <figcaption>Your balance first, then the history behind it. Each cashback is its own transaction, so customers can check it against the bill.</figcaption>
+              <Screens items={returningScreens} layout={styles.screensThree} sizes="(max-width: 767px) 42vw, 230px" />
+              <figcaption>Spend, then check: each cashback is its own transaction, so customers can match it to the bill.</figcaption>
             </figure>
             <p>The FAQ answers a question that matters when money is involved: is the bill discounted? No. You pay the full amount, and the cashback lands in your rewards balance straight after.</p>
             <figure className={styles.figure}>
