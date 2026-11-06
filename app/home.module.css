@@ -806,9 +806,11 @@
   align-items: stretch;
 }
 
+/* Each row sizes to its own cards, so a group's lone third card isn't stretched to the first row's height. */
 @media (max-width: 1024px) {
   .projectGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
   }
 }
 
