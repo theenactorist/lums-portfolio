@@ -12,9 +12,8 @@ test('every Home project sits in exactly one work group', () => {
   assert.equal(new Set(groupedIds).size, groupedIds.length, 'a project is listed in more than one group');
 });
 
-test('work groups are numbered 1, 2, 3 without leading zeros', () => {
-  homeWorkGroups.forEach((group, index) => {
-    assert.equal(group.number, String(index + 1));
-    assert.ok(group.title && group.intro, `group ${group.number} needs a title and an intro`);
+test('every work group has a heading and an intro', () => {
+  homeWorkGroups.forEach((group) => {
+    assert.ok(group.title && group.intro, `group ${group.id} needs a title and an intro`);
   });
 });

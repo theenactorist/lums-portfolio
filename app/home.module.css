@@ -760,7 +760,7 @@
   text-wrap: balance;
 }
 
-/* Cards grouped by kind of work (T8): a numbered header, then one row of three cards on laptops. */
+/* Cards grouped by kind of work (T8): a heading and intro, then one row of three cards on laptops. */
 .workGroups {
   display: flex;
   flex-direction: column;
@@ -770,15 +770,6 @@
 .workGroupHeader {
   max-width: 44rem;
   margin-bottom: 32px;
-}
-
-.workGroupNumber {
-  margin: 0 0 8px;
-  color: var(--muted);
-  font-size: 1rem;
-  font-variant-numeric: tabular-nums;
-  font-weight: 500;
-  line-height: 1.5;
 }
 
 .workGroupTitle {

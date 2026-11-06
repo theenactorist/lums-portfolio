@@ -135,27 +135,24 @@ export const productionHomeProjects = [
   },
 ];
 
-// The owner grouped the Home cards by kind of work on 6 November 2026 (number, heading and intro approved as written).
+// The owner grouped the Home cards by kind of work on 6 November 2026 (heading and intro approved as written; no group numbers, 6 November 2026).
 // Home only: /work, the share images and the case-study pages keep reading productionHomeProjects in its order.
 // Every project id belongs to exactly one group (scripts/tests/home-work-groups.test.mjs).
 export const homeWorkGroups = [
   {
     id: 'new-products',
-    number: '1',
     title: 'Building new products',
     intro: 'From an idea to a product people use.',
     projectIds: ['pulse', 'sabi', 'uba'],
   },
   {
     id: 'design-systems-ai',
-    number: '2',
     title: 'Design systems and AI tools',
     intro: 'Foundations and tools that help teams ship consistent work.',
     projectIds: ['helium', 'ai-copywriting', 'branch-ai'],
   },
   {
     id: 'growth-retention',
-    number: '3',
     title: 'Growth and retention',
     intro: 'Getting customers through the door and using what they signed up for.',
     projectIds: ['shiga-onboarding', 'carbon', 'rewards'],

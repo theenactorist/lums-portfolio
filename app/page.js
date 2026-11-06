@@ -566,7 +566,6 @@ function SelectedWork() {
             return (
               <section className={styles.workGroup} key={group.id} aria-labelledby={headingId}>
                 <motion.header {...reveal} className={styles.workGroupHeader}>
-                  <p className={styles.workGroupNumber} aria-hidden="true" data-group-number>{group.number}</p>
                   <h3 className={styles.workGroupTitle} id={headingId}>{group.title}</h3>
                   <p className={styles.workGroupIntro}>{group.intro}</p>
                 </motion.header>
