@@ -88,7 +88,7 @@
 .page:global(#copygpt-case) :global(.section-copy > p) { margin-bottom: 20px; text-wrap: pretty; }
 .page:global(#copygpt-case) :global(.section-copy > h3) { margin-top: 56px; margin-bottom: 20px; font-size: 28px; line-height: 1.2; letter-spacing: -.025em; text-wrap: balance; }
 .page:global(#copygpt-case) :global(.section-copy em) { font-size: 14px; line-height: 1.7; color: var(--muted); }
-.page:global(#copygpt-case) :global(.case-overview h2) { font-family: 'CopyGPT Roobert VF', 'CopyGPT Roobert', Arial, sans-serif; max-width: none; font-size: 32px; line-height: 1.1; letter-spacing: -.01em; font-weight: 500; margin: 0 0 48px; }
+.page:global(#copygpt-case) :global(.case-overview h2) { font-family: var(--font-sans); max-width: none; font-size: 32px; line-height: 1.1; letter-spacing: -.01em; font-weight: 500; margin: 0 0 48px; }
 .page:global(#copygpt-case) :global(.overview-layout) { display: grid; grid-template-columns: 43% minmax(0, 1fr); gap: 24px; align-items: start; }
 .page:global(#copygpt-case) :global(.project-facts) { padding: 19.2px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; margin: 0; }
 .page:global(#copygpt-case) :global(.project-facts > div + div) { border-top: 1px dashed var(--line); padding-top: 19.2px; margin-top: 19.2px; }
@@ -98,7 +98,7 @@
 .page:global(#copygpt-case) :global(.overview-tool) { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
 .page:global(#copygpt-case) :global(.overview-tool-logo) { display: block; flex: 0 0 20px; width: 20px; height: 20px; object-fit: contain; }
 :global(html[data-theme='dark']) .page:global(#copygpt-case) :global(.overview-tool-logo-chatgpt) { filter: invert(1); }
-.page:global(#copygpt-case) :global(.overview-copy) { min-width: 0; font-family: 'CopyGPT Roobert VF', 'CopyGPT Roobert', Arial, sans-serif; font-size: 21.12px; line-height: 1.4; color: var(--ink); }
+.page:global(#copygpt-case) :global(.overview-copy) { min-width: 0; font-family: var(--font-sans); font-size: 21.12px; line-height: 1.4; color: var(--ink); }
 .page:global(#copygpt-case) :global(.overview-copy h3) { margin: 32px 0 16px; font-size: 20px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
 .page:global(#copygpt-case) :global(.overview-tldr) { list-style: disc; padding-left: 22px; margin: 0; font-size: inherit; line-height: inherit; }
 .page:global(#copygpt-case) :global(.overview-tldr li + li) { margin-top: 14px; }
@@ -212,7 +212,7 @@
   .page:global(#copygpt-case) :global(.cg-story-conflict-row), .page:global(#copygpt-case) :global(.cg-vocabulary-layout) { grid-template-columns: 1fr; gap: 24px; }
 }
 
-.page:global(#copygpt-case) :global(.chapter-rail), .page:global(#copygpt-case) :global(.case-overview) { font-family: 'CopyGPT Roobert VF', 'CopyGPT Roobert', Arial, sans-serif; }
+.page:global(#copygpt-case) :global(.chapter-rail), .page:global(#copygpt-case) :global(.case-overview) { font-family: var(--font-sans); }
 
 .page:global(#copygpt-case) :global(.case-article) { container: copygpt-article / inline-size; }
 .page:global(#copygpt-case) :global(.cg-metrics dl > div) { display: block; }

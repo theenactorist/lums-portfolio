@@ -408,7 +408,7 @@ body:has(#pulse-case) .nav__mobile-menu:not([open]) {
 
 /* Pulse-only shell; visual values follow the accepted CopyGPT reference. */
 body:has(#pulse-case) {
-  --font-family-sans: 'CopyGPT Roobert', system-ui, -apple-system, sans-serif; --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
+  --font-family-sans: var(--font-site-sans); --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
   --nav-height: 62.375px;
   --pulse-background: #fff;
   --pulse-foreground: #1d1d1b;

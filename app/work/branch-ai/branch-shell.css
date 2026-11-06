@@ -414,7 +414,7 @@ body:has(#branch-case):has(#mobile-navigation[open]) {
 
 /* Branch-only shell; visual values follow the accepted CopyGPT reference. */
 body:has(#branch-case) {
-  --font-family-sans: 'CopyGPT Roobert', system-ui, -apple-system, sans-serif; --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
+  --font-family-sans: var(--font-site-sans); --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
   --nav-height: 62.375px;
   --branch-background: #fff;
   --branch-foreground: #1d1d1b;

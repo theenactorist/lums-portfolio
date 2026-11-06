@@ -1,10 +1,28 @@
 import Script from "next/script";
+import { Google_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./home-shell.css";
 import SiteShell from "./components/home/SiteShell";
 import { AudioProvider } from "./components/AudioContext";
 import JsonLd from './components/JsonLd';
 import { pageMetadata, site, siteIdentity } from '../lib/seo';
+
+// Self-hosted at build time, so pages make no request to Google for fonts.
+// Google Sans loads as its variable font, which covers every weight from 400 to 700
+// (the case studies use 450, 550 and 650 as well as the four standard weights).
+const googleSans = Google_Sans({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-google-sans",
+});
+
+// Monospace is for code, file names and the existing technical labels.
+const jetbrainsMono = JetBrains_Mono({
+  weight: ["400", "500"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
+});
 
 export const metadata = {
   ...pageMetadata({ title: site.title, description: site.description, path: '/' }),
@@ -17,7 +35,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" data-theme="dark" className={`${googleSans.variable} ${jetbrainsMono.variable}`}>
       <head>
         {/* Google Analytics (gtag.js) */}
         <Script

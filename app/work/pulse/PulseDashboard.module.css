@@ -58,7 +58,7 @@
 .dialog::backdrop { background: rgba(10, 10, 14, .92); }
 .panel { display: grid; grid-template-rows: 52px minmax(0, 1fr); width: 100%; height: 100%; min-width: 0; }
 .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 8px 4px 16px; background: var(--pulse-background, #fff); border-bottom: 1px solid var(--pulse-border, #e7e7e7); }
-.toolbar h2 { margin: 0; font: 500 14px/1.3 'CopyGPT Roobert', system-ui, sans-serif; }
+.toolbar h2 { margin: 0; font: 500 14px/1.3 var(--font-sans); }
 .actions { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
 .control {
   all: unset;
@@ -75,7 +75,7 @@
 }
 .control:hover { background: var(--pulse-muted, #f4f3f0); }
 .control:focus-visible { outline: 2px solid var(--pulse-ring, #008bad); outline-offset: -2px; }
-.closeControl { width: auto; gap: 6px; padding-inline: 12px; font: 500 13px/1.3 'CopyGPT Roobert', system-ui, sans-serif; }
+.closeControl { width: auto; gap: 6px; padding-inline: 12px; font: 500 13px/1.3 var(--font-sans); }
 .appFrame { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; border: 0; background: #fff; }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @media (max-width: 640px) {

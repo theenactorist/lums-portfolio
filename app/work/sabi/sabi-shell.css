@@ -1,6 +1,6 @@
 /* Sabi uses the accepted CopyGPT shell. All selectors are route-conditioned. */
 body:has(#sabi-case) {
-  --font-family-sans: 'CopyGPT Roobert', system-ui, -apple-system, sans-serif; --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
+  --font-family-sans: var(--font-site-sans); --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
   --nav-height: 62.375px;
   --sabi-background: #fff;
   --sabi-foreground: #1d1d1b;

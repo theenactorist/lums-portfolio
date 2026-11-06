@@ -18,7 +18,7 @@
   border-radius: 18px;
   background: var(--dialog-paper);
   color: var(--dialog-ink);
-  font-family: var(--font-family-sans, 'CopyGPT Roobert', system-ui, sans-serif);
+  font-family: var(--font-family-sans, var(--font-sans));
   color-scheme: light;
   box-shadow: 0 30px 90px rgb(0 0 0 / 48%);
   overflow: hidden;

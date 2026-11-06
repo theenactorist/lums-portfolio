@@ -49,7 +49,7 @@
 .page :global(.animation-control) { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
 .page :global(.animation-control span) { display: grid; place-items: center; width: 16px; font-size: 18px; }
 .page :global(.article-layout) { display: grid; grid-template-columns: 25% 66.666667%; align-items: start; gap: 32px; width: min(1304px,calc(100% - 40px)); margin: 0 auto; }
-.page :global(.chapter-rail), .page :global(.case-overview) { font-family: 'CopyGPT Roobert VF', 'CopyGPT Roobert', Arial, sans-serif; }
+.page :global(.chapter-rail), .page :global(.case-overview) { font-family: var(--font-sans); }
 .page :global(.chapter-rail) { position: sticky; top: 128px; max-height: calc(100dvh - 144px); overflow-y: auto; overscroll-behavior: contain; min-width: 0; padding: 0 12px; }
 .page :global(.chapter-nav) { display: flex; flex-direction: column; padding: 8px 19.2px; margin: 0; border: 0; background: var(--rail-surface); border-radius: 16px; }
 .page :global(.chapter-nav a) { display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 8px 0; color: var(--ink); font-size: 12px; line-height: 18px; text-decoration: none; }

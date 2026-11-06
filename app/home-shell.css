@@ -1,6 +1,6 @@
 /* Home-only shell. Production case studies retain globals.css unchanged. */
 body:has(.theme2-home) {
-  --font-family-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans: var(--font-site-sans), "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-sans: var(--font-family-sans);
   --font-display: var(--font-family-sans);
   --font-serif: var(--font-family-sans);

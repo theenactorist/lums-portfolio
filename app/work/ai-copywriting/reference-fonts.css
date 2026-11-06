@@ -1,12 +1,7 @@
-/* Reference font faces are loaded from the same public CDN as the supplied
-   master pages for this local visual proof. No font binaries are bundled. */
-@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/6d741591-66db6b52701d0cc108d8a17d-roobert-regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/7b336388-66db6b5277d9460bfdf91388-roobert-medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/0ccfee2e-66db6b52aca9770fe39fc77e-roobert-semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: 'CopyGPT Roobert'; src: url('https://cdn.ploy.ai/b0c71644-d0ba-4359-a1e9-813c698be86d/user/eeaa271a-66db6b5272a073a0de6caf9b-roobert-regularitalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'CopyGPT Roobert VF'; src: url('https://cdn.prod.website-files.com/61477f2c24a826836f969afe/6a1e067cbcc79b9f76bb28f5_RoobertVF.woff2') format('woff2'); font-weight: 300 900; font-style: normal; font-display: swap; }
+/* The case studies now use Google Sans from app/layout.js (next/font); the Roobert
+   faces this file used to load from third-party CDNs are gone. */
 body:has(#copygpt-case) {
-  --font-family-sans: 'CopyGPT Roobert', system-ui, -apple-system, sans-serif; --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
+  --font-family-sans: var(--font-site-sans); --font-sans: var(--font-family-sans); --font-display: var(--font-family-sans); font-family: var(--font-family-sans);
   --nav-height: 62.375px;
   --copygpt-background: #fff;
   --copygpt-foreground: #1d1d1b;
