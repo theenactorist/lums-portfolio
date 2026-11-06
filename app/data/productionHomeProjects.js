@@ -3,7 +3,8 @@
 // The owner approved CopyGPT as the fourth card on 11 October 2026.
 // The owner approved Helium as the second card, after Pulse, on 3 November 2026.
 // The owner approved the rewards case study (Carbon and Branch) as the fifth card, after Carbon, on 6 November 2026.
-// It shows Branch's logo, since a card takes one; companyName gives /work and the share image both companies.
+// The owner asked for Carbon's and Branch's logos side by side on that card on 6 November 2026 (companyLogos, Home only);
+// companyName gives /work and the share image both companies. Cards without companyLogos show their single companyLogo.
 // Other cards retain their verified production destinations and order.
 export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
 export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
@@ -67,14 +68,18 @@ export const productionHomeProjects = [
     title: rewardsHeadline,
     description: 'Designing two rewards programs that got customers using their accounts: six loyalty tiers at Carbon, and cashback and referral rewards at Branch.',
     attributes: ['Growth', 'Fintech', 'Mobile', 'Shipped'],
-    image: '/home/live-work/rewards-layered.png',
-    imageAlt: 'Carbon’s tiers screen showing Tier 3 benefits, beside Branch’s Rewards tab with a cashback balance and an invite card',
+    image: '/home/live-work/rewards-earned.jpg',
+    imageAlt: 'Generated rewards cover concept showing Carbon’s Tier 4, 5 and 6 badges beside a Branch ticket with 2% cashback and a ₦1,250 sample rewards balance',
     href: 'https://olumideolusesi.com/work/rewards',
     companyName: 'Carbon and Branch',
     companyLogo: '/home/work-logos/branch.svg',
     companyLogoAlt: 'Branch',
     companyLogoWidth: 106,
     companyLogoHeight: 39,
+    companyLogos: [
+      { src: '/home/work-logos/carbon.svg', alt: 'Carbon', width: 125, height: 31 },
+      { src: '/home/work-logos/branch.svg', alt: 'Branch', width: 106, height: 39 },
+    ],
   },
   {
     id: 'ai-copywriting',

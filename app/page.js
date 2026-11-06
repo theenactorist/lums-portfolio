@@ -606,14 +606,30 @@ function ProjectCard({ project }) {
       </div>
       <div className={styles.projectBody}>
         <div className={styles.projectMeta}>
-          <Image
-            className={styles.projectCompanyLogo}
-            data-company={project.companyLogoAlt}
-            src={project.companyLogo}
-            alt={project.companyLogoAlt}
-            width={project.companyLogoWidth}
-            height={project.companyLogoHeight}
-          />
+          {project.companyLogos ? (
+            <span className={styles.projectCompanyLogos}>
+              {project.companyLogos.map((logo) => (
+                <Image
+                  key={logo.alt}
+                  className={styles.projectCompanyLogo}
+                  data-company={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                />
+              ))}
+            </span>
+          ) : (
+            <Image
+              className={styles.projectCompanyLogo}
+              data-company={project.companyLogoAlt}
+              src={project.companyLogo}
+              alt={project.companyLogoAlt}
+              width={project.companyLogoWidth}
+              height={project.companyLogoHeight}
+            />
+          )}
           {project.period && <span>{project.period}</span>}
         </div>
         <h3>{project.title}</h3>

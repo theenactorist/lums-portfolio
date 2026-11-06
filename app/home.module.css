@@ -970,6 +970,12 @@
   filter: brightness(0) opacity(0.28);
 }
 
+.projectCompanyLogos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .projectCompanyLogo[data-company='Branch'] {
   height: var(--project-logo-slot-height);
 }

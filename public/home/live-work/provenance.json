@@ -34,20 +34,20 @@
       "notes": "New Home card for the Helium case study, approved by the owner on 3 November 2026. Built from the page's hero layers (the Helium 2.0 Figma cover with the Storybook Button docs overlaid) on a flat pale blue fill, laid out like pulse-layered.png, and rendered at 1600 by 900 in headless Chromium."
     },
     {
-      "file": "rewards-layered.png",
-      "replaces_on_home": null,
+      "file": "rewards-earned.jpg",
+      "replaces_on_home": "rewards-layered.png",
       "source_files": [
-        "public/work/rewards/hero.webp"
+        "Portfolio/Website/Reviews/rewards-thumbnails-20261106/exports/rewards-c-earned-v3-web.jpg"
       ],
-      "approved_on": null,
-      "content_type": "image/png",
-      "bytes": 273224,
-      "sha256": "04bcd5244b8250ad0da112f5cbfec97819887d4466093edefac3df304a7e6d75",
-      "width": 1600,
-      "height": 900,
-      "decoded_format": "png",
-      "background": "#F2F2F2",
-      "notes": "New Home card for the rewards case study (Carbon and Branch); the owner asked for it fifth on 6 November 2026, and the image itself awaits the owner's review (T6 Q1). Made from the page's hero (Carbon's Tier 3 screen beside Branch's Rewards tab, exported from Figma 1982:1210) scaled to 60% on the hero's own flat grey fill, centred, keeping the hero's top padding and letting the phones bleed off the bottom. Sample data only."
+      "master_file": "Portfolio/Website/Reviews/rewards-thumbnails-20261106/exports/rewards-c-earned-v3.png",
+      "approved_on": "2026-11-06",
+      "content_type": "image/jpeg",
+      "bytes": 402832,
+      "sha256": "9d8b40e7e18b9fe4d00df6fb5ccaa96de429f53f9b7318db4b6483b949c9892a",
+      "width": 1920,
+      "height": 1080,
+      "decoded_format": "jpeg",
+      "notes": "Home card for the rewards case study (Carbon and Branch): option C, revision 3, “Earned, not given”, chosen by the owner on 6 November 2026. Artwork made with the built-in ImageGen tool, using the Carbon and Branch case-study assets as reference (prompts in the Reviews folder's PROMPTS.json); the enamel tier badges are artistic reinterpretations of Carbon's tier colours and hexagon shape, not Figma renders. ₦1,250 is the case study's sample balance, not a business result; Carbon's six tiers and Branch's 2% cashback are real. Web file: sRGB progressive JPEG at quality 88, copied unchanged from the 4.4 MB PNG master's export. The alt text starts with “Generated”, so the share image carries the generated cover note."
     }
   ],
   "assets": [
