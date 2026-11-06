@@ -26,11 +26,11 @@ const phases = [
 ]
 
 const review = [
-  { title: 'You use Carbon.', text: 'Wallet balance, transactions, savings, bills and on-time repayments all count.' },
-  { title: 'Carbon records it.', text: 'Every activity is logged against your account.' },
-  { title: 'The quarter ends.', text: 'One review runs across every customer.' },
-  { title: 'Your tier changes.', text: 'You move up, stay or move down.' },
-  { title: 'The app shows it.', text: 'Your new tier, its benefits and the next step.' },
+  { title: 'You use Carbon', text: 'Wallet balance, transactions, savings, bills and on-time repayments all count.' },
+  { title: 'Carbon records it', text: 'Every activity is logged against your account.' },
+  { title: 'The quarter ends', text: 'One review runs across every customer.' },
+  { title: 'Your tier changes', text: 'You move up, stay or move down.' },
+  { title: 'The app shows it', text: 'Your new tier, its benefits and the next step.' },
 ]
 
 // Figma 1981:3376 to 1981:3814 (duplicates of 1963:1642's screens), 750 wide at 2x; heights differ with the benefits.
@@ -156,7 +156,7 @@ export default function RewardsCaseStudy() {
                 <div><dt>Tools</dt><dd className={styles.tools}><span><Image src="/work/ai-copywriting/tools/figma.svg" alt="" width={18} height={18} />Figma,</span> <span>Neem (Branch’s design system),</span> <span>usability testing</span></dd></div>
               </dl>
               <div className={styles.overviewCopy}>
-                <h3>TLDR</h3>
+                <h3>Project TLDR:</h3>
                 <ul>
                   <li>In Nigeria you can open an account in minutes with OPay, PalmPay, Kuda, FairMoney, Carbon or Branch. The hard part for each company is getting you to use it.</li>
                   <li>At Carbon I designed six tiers that unlock better loans, savings rates and support. At Branch I designed cashback on bills and a referral reward, both spent inside the app.</li>
