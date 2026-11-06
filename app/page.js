@@ -11,130 +11,10 @@ import TechText from './components/home/TechText';
 import AboutLanyard from './components/home/AboutLanyard';
 import PageTransition from './components/PageTransition';
 import SiteLink from './components/SiteLink';
-import { productionHomeProjects } from './data/productionHomeProjects';
+import { homeWorkGroups, productionHomeProjects } from './data/productionHomeProjects';
 import { homeAboutLead } from './data/profile';
 import { designSkills } from './data/designSkills';
 import styles from './home.module.css';
-
-// The first release is Home only. Keep the draft collection available for later review.
-const SHOW_DRAFT_CASE_STUDIES = false;
-
-const workGroups = [
-  {
-    title: 'AI & New Ventures',
-    projects: [
-      {
-        id: 'pulse',
-        title: 'Pulse',
-        description:
-          'Removing a design-to-engineering bottleneck to deliver a working proof of concept in five days.',
-        companyLogo: '/home/work-logos/shiga.svg',
-        companyLogoAlt: 'Shiga',
-        companyLogoWidth: 1047,
-        companyLogoHeight: 291,
-        attributes: ['0 to 1', 'Design Systems', 'SaaS', 'AI Tools', 'Web', 'Shipped'],
-        image: '/work/pulse/hero-dashboard-isolated.png',
-        compositeHero: true,
-        imageAlt: 'Pulse transactions dashboard, embedded checkout, and developer API preview',
-        href: '/work/pulse/sdk-preview/index.html',
-      },
-      {
-        id: 'ai-illustration-system',
-        title: 'AI Illustration System',
-        description:
-          'A reusable workflow that turns natural-language requests into consistent 3D illustrations for Branch’s mobile products.',
-        companyLogo: '/home/work-logos/branch.svg',
-        companyLogoAlt: 'Branch',
-        companyLogoWidth: 106,
-        companyLogoHeight: 39,
-        attributes: ['AI Tools', 'Internal Tools', 'Shipped'],
-        image: '/work/branch-ai/illust-grid.jpg',
-        imageAlt: 'A grid of 3D illustrations created for Branch product experiences',
-      },
-      {
-        id: 'ai-copywriting',
-        title: 'Branch’s AI Copywriting System',
-        description:
-          'A governed workflow for clearer product copy that accounts for market context, product rules, and review boundaries.',
-        companyLogo: '/home/work-logos/branch.svg',
-        companyLogoAlt: 'Branch',
-        companyLogoWidth: 106,
-        companyLogoHeight: 39,
-        attributes: ['AI Tools', 'Internal Tools', 'Shipped'],
-        image: '/work/branch-ai/copy-impact.jpg',
-        imageAlt: 'A product copy impact comparison for the Branch AI copywriting workflow',
-        href: '/work/ai-copywriting',
-      },
-      {
-        id: 'shiga-onboarding',
-        title: 'Passkey-led Onboarding',
-        description:
-          'I reworked ENTA’s sign-up around passkeys and deferred verification so new customers could reach their dashboard in under a minute.',
-        companyLogo: '/home/work-logos/shiga.svg',
-        companyLogoAlt: 'Shiga',
-        companyLogoWidth: 1047,
-        companyLogoHeight: 291,
-        attributes: ['Web', 'Mobile'],
-        image: '/work/shiga-onboarding/thumbnail.jpg',
-        imageAlt: 'Shiga ENTA onboarding screens shown on mobile devices',
-        href: '/work/shiga-onboarding',
-      },
-    ],
-  },
-  {
-    title: 'Growth & Core Experiences',
-    projects: [
-      {
-        id: 'carbon',
-        title: 'Carbon Home',
-        description:
-          'I redesigned Carbon’s home experience to make essential products easier to find while bringing Android and iOS into a clearer system.',
-        companyLogo: '/home/work-logos/carbon.svg',
-        companyLogoAlt: 'Carbon',
-        companyLogoWidth: 125,
-        companyLogoHeight: 31,
-        attributes: ['Design Systems', 'B2C', 'Mobile', 'Shipped'],
-        image: '/work/carbon/cover.gif',
-        imageAlt: 'Carbon digital banking home screen experience',
-        href: '/work/carbon',
-      },
-    ],
-  },
-  {
-    title: 'Platforms at Scale',
-    projects: [
-      {
-        id: 'sabi',
-        title: 'Sabi Logistics',
-        description:
-          'Product and logistics tools that helped merchants manage inventory, commerce, and distribution across a complex supply network.',
-        period: 'Project engagement',
-        companyLogo: '/home/work-logos/sabi.svg',
-        companyLogoAlt: 'Sabi',
-        companyLogoWidth: 104,
-        companyLogoHeight: 27,
-        attributes: ['Web', 'Mobile'],
-        image: '/work/sabi/cover.gif',
-        imageAlt: 'Sabi commerce and logistics product experience',
-        href: '/work/sabi',
-      },
-      {
-        id: 'uba',
-        title: 'UBA HR Platform',
-        description:
-          'I led the design of a purpose-built HR system for more than 10,000 employees, replacing costly and fragmented workflows.',
-        companyLogo: '/home/work-logos/uba.svg',
-        companyLogoAlt: 'UBA',
-        companyLogoWidth: 757,
-        companyLogoHeight: 256,
-        attributes: ['0 to 1', 'Web', 'Enterprise', 'Shipped'],
-        image: '/work/uba/cover.gif',
-        imageAlt: 'UBA human resources management platform shown across devices',
-        href: '/work/uba',
-      },
-    ],
-  },
-];
 
 const career = [
   {
@@ -596,7 +476,7 @@ function ProjectCard({ project }) {
             alt={project.imageAlt}
             fill
             loading="lazy"
-            sizes="(max-width: 767px) 100vw, 50vw"
+            sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
             unoptimized={project.image.endsWith('.gif')}
           />
         )}
@@ -632,7 +512,7 @@ function ProjectCard({ project }) {
           )}
           {project.period && <span>{project.period}</span>}
         </div>
-        <h3>{project.title}</h3>
+        <h4>{project.title}</h4>
         <p>{project.description}</p>
         <ul className={styles.projectAttributes} aria-label="Project attributes" role="list">
           {project.attributes.map((attribute, index) => (
@@ -673,19 +553,31 @@ function ProjectCard({ project }) {
   );
 }
 
-function SelectedWork() {
-  const projects = SHOW_DRAFT_CASE_STUDIES
-    ? workGroups.flatMap((group) => group.projects)
-    : productionHomeProjects;
+const projectsById = new Map(productionHomeProjects.map((project) => [project.id, project]));
 
+function SelectedWork() {
   return (
     <section className={styles.work} id="featured-work" aria-labelledby="case-study-heading">
       <div className={styles.frame}>
         <h2 className={styles.workHeading} id="case-study-heading">Case Study</h2>
-        <div className={styles.projectGrid}>
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+        <div className={styles.workGroups}>
+          {homeWorkGroups.map((group) => {
+            const headingId = `work-group-${group.id}-heading`;
+            return (
+              <section className={styles.workGroup} key={group.id} aria-labelledby={headingId}>
+                <motion.header {...reveal} className={styles.workGroupHeader}>
+                  <p className={styles.workGroupNumber} aria-hidden="true" data-group-number>{group.number}</p>
+                  <h3 className={styles.workGroupTitle} id={headingId}>{group.title}</h3>
+                  <p className={styles.workGroupIntro}>{group.intro}</p>
+                </motion.header>
+                <div className={styles.projectGrid}>
+                  {group.projectIds.map((id) => (
+                    <ProjectCard key={id} project={projectsById.get(id)} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </div>
     </section>

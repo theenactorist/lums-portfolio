@@ -760,12 +760,56 @@
   text-wrap: balance;
 }
 
+/* Cards grouped by kind of work (T8): a numbered header, then one row of three cards on laptops. */
+.workGroups {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(64px, 7vw, 104px);
+}
+
+.workGroupHeader {
+  max-width: 44rem;
+  margin-bottom: 32px;
+}
+
+.workGroupNumber {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.workGroupTitle {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.workGroupIntro {
+  margin: 8px 0 0;
+  color: var(--copy);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-auto-rows: 1fr;
-  gap: 32px;
+  gap: 24px;
   align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .projectGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .projectCardOuter {
@@ -942,7 +986,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: clamp(20px, 3vw, 36px);
+  padding: 24px;
 }
 
 .projectMeta {
@@ -952,9 +996,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--muted);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-variant-numeric: tabular-nums;
   font-weight: 400;
   line-height: 1.5;
@@ -990,9 +1034,9 @@
   filter: brightness(0) invert(1) opacity(0.34);
 }
 
-.projectBody h3 {
+.projectBody h4 {
   margin: 0;
-  font-size: clamp(1.4rem, 4.75vw, 2.28rem);
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.025em;
@@ -1001,10 +1045,10 @@
 
 .projectBody > p {
   max-width: 38rem;
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   color: var(--copy);
-  font-size: 1.125rem;
-  line-height: 1.625;
+  font-size: 1rem;
+  line-height: 1.5;
   text-wrap: pretty;
 }
 
@@ -1019,7 +1063,7 @@
 
 .projectAttributes {
   margin: auto 0 0;
-  padding-top: 16px;
+  padding-top: 14px;
 }
 
 .careerTags {
@@ -1031,7 +1075,7 @@
   align-items: center;
   gap: 8px;
   color: var(--copy);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5;
   white-space: nowrap;
@@ -2028,7 +2072,7 @@
     height: 18px;
   }
 
-  .projectBody h3 {
+  .projectBody h4 {
     font-size: 1.4rem;
     line-height: 1.25;
   }
@@ -2216,6 +2260,14 @@
     gap: 24px;
   }
 
+  .workGroupHeader {
+    margin-bottom: 24px;
+  }
+
+  .workGroupIntro {
+    font-size: 1rem;
+  }
+
   .projectCard,
   .projectCard[data-active='true'] {
     border-radius: 18px;
@@ -2241,7 +2293,7 @@
     height: 18px;
   }
 
-  .projectBody h3 {
+  .projectBody h4 {
     font-size: 1.4rem;
     line-height: 1.25;
   }
