@@ -5,6 +5,7 @@ import CaseStudyTimeline from '../../components/CaseStudyTimeline'
 import './rewards-shell.css'
 import ZoomableImage from '../pulse/PulseImage'
 import HeroMedia from './HeroMedia'
+import TierClimb from './TierClimb'
 import styles from './rewards.module.css'
 import { productionHomeProjects } from '../../data/productionHomeProjects'
 
@@ -176,13 +177,10 @@ export default function RewardsCaseStudy() {
           <Section id="carbon" title="Designing six tiers at Carbon">
             <p>Carbon is a credit-led digital bank in Nigeria with more than four million customers. Carbon wanted to offer its customers more: better rates, faster support, buy now, pay later. Offering all of it to everyone at once would have cost too much, so the real question was who gets it first. Tiers answered it. The most committed, most active customers, the ones who keep money in their wallet, transact, save and repay on time, unlock benefits first, and everyone else can see what they’d get by using Carbon more.</p>
             <p>There are six tiers. Moving up unlocks things like higher loan offers at lower interest, applying for a loan twice a day, better savings interest, faster customer support, Carbon Zero (Carbon’s buy now, pay later, which spreads a payment over four instalments at 0% interest) and a direct line to the contact centre.</p>
-            <p>Each tier got its own colour and badge, so customers can tell at a glance where they are:</p>
+            <p>Each tier got its own colour and badge. Here’s a customer climbing from Tier 1 to Tier 6:</p>
             <figure className={styles.figure}>
-              <div className={styles.badgePanel}>
-                <div><ZoomableImage src="/work/rewards/carbon-badges.webp" alt="Carbon’s six tier badges, hexagons numbered 1 to 6, each in its own colour" width={1312} height={351} sizes="(max-width: 767px) 80vw, 656px" /></div>
-                <div><ZoomableImage src="/work/rewards/carbon-progress.webp" alt="Carbon’s tier progress row on Tier 3: Tiers 1 and 2 ticked, Tier 3 highlighted with You under it, Tiers 4 to 6 locked" width={1434} height={429} sizes="(max-width: 767px) 80vw, 478px" /></div>
-              </div>
-              <figcaption>The six tier badges. In the progress row, tiers you’ve passed are ticked, yours is highlighted and the ones ahead are locked.</figcaption>
+              <TierClimb />
+              <figcaption>Climbing from Tier 1 to Tier 6. The tiers you’ve passed are ticked, yours is highlighted in its colour, and the ones ahead stay locked.</figcaption>
             </figure>
           </Section>
 

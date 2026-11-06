@@ -65,12 +65,26 @@
 .figure :global(.zoom-trigger__image) { display:block; width:100%; height:auto; }
 .figure figcaption { margin-top:24px; font-size:13px; line-height:1.65; color:var(--muted); }
 
-/* Badges and progress row: two white Figma exports on one white panel, so they read as one picture. */
-.badgePanel { display:grid; gap:12px; justify-items:center; padding:24px; background:#fff; border-radius:16px; }
-.badgePanel > div { width:100%; }
-.badgePanel > div:first-child { max-width:656px; }
-.badgePanel > div:last-child { max-width:478px; }
-.badgePanel :global(.zoom-trigger) { border-radius:0; }
+/* Tier climb (TierClimb.js): Carbon's pill, badges and progress row on one white panel, as in Carbon's app.
+   The three progress states share one cell (54 by 64, the Current marker's own size) and are placed so their
+   hexagons share a centre, (27.3, 25.5) in the Current marker: Locked is 44 wide, Completed 30. */
+.badgePanel { display:grid; gap:16px; justify-items:center; padding:28px 24px 24px; background:#fff; border-radius:16px; }
+.tierPill { position:relative; width:192px; height:32px; }
+.tierPillItem { position:absolute; inset:0; display:flex; justify-content:center; }
+.tierPillItem img, .tierBadges img, .tierCell img { display:block; height:auto; }
+.tierBadges, .tierProgress { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); margin:0; padding:0; list-style:none; }
+.tierBadges { gap:8px; width:min(100%,336px); }
+.tierBadges li { display:flex; justify-content:center; }
+.tierBadges img { width:min(100%,36px); }
+.tierProgress { gap:4px; width:min(100%,360px); }
+.tierCell { position:relative; aspect-ratio:54 / 64; }
+.tierCell > span { position:absolute; display:block; }
+.tierCell img { width:100%; }
+.tierCurrent { left:0; top:0; width:100%; transform-origin:50.6% 39.8%; }
+.tierLocked { left:8.56%; top:7.2%; width:81.48%; }
+.tierCompleted { left:22.56%; top:18.08%; width:55.56%; }
+.replay { display:block; min-height:32px; margin:12px auto 0; padding:4px 10px; border:0; border-radius:6px; background:none; color:var(--ink); font-family:var(--font-mono); font-size:12px; line-height:1.5; letter-spacing:.4px; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.srOnly { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 /* Phone screens: each screen on a slightly darker fill than the figure, so a white screen keeps its edge in light mode. */
 .screens { display:grid; gap:20px 16px; align-items:start; margin:0; padding:0; list-style:none; }
@@ -149,7 +163,7 @@
   .overviewLayout { grid-template-columns:1fr; gap:32px; }
   .overviewCopy { font-size:20px; line-height:1.4; }
   .figure { padding:20px; border-radius:24px; }
-  .badgePanel { padding:16px; }
+  .badgePanel { padding:24px 16px 20px; }
   .table :is(th,td) { padding:12px 14px; }
   .table caption { padding:14px 14px 0; }
   /* Both tables stack on phones: the first column becomes the row's heading and each cell carries its column name. */
