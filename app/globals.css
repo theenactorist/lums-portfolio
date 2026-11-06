@@ -4305,16 +4305,27 @@ main > .section:first-child {
 .work-page__card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  gap: 8px;
 }
 
+/* Soft pills, matching the Home cards (Olumide, 6 Nov 2026): filled, no border, Google Sans. */
 .work-page__card-tag {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-muted);
+  --work-tag-bg: #27272a;
+  --work-tag-fg: #d4d4d8;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--work-tag-fg);
+  background: var(--work-tag-bg);
   padding: 4px 10px;
-  border: 1px solid var(--border);
   border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+[data-theme="light"] .work-page__card-tag {
+  --work-tag-bg: #efeff1;
+  --work-tag-fg: #52525b;
 }
 
 /* --- Work page responsive --- */

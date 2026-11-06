@@ -15,6 +15,8 @@
   --muted: #a1a1aa;
   --pale: #d4d4d8;
   --rule: #e4e4e7;
+  --tag-bg: #efeff1;
+  --tag-fg: #52525b;
   --action-bg: #000000;
   --action-fg: #ffffff;
   --action-hover: #27272a;
@@ -37,6 +39,8 @@
   --muted: #71717a;
   --pale: #52525b;
   --rule: #3f3f46;
+  --tag-bg: #27272a;
+  --tag-fg: #d4d4d8;
   --action-bg: #ffffff;
   --action-fg: #000000;
   --action-hover: #e4e4e7;
@@ -1063,14 +1067,17 @@
   margin: 28px 0 0;
 }
 
+/* Soft pills: filled, no border or separators (Olumide, 6 Nov 2026). */
 .projectAttributes li {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: var(--copy);
-  font-size: 0.875rem;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+  font-size: 0.8125rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.4;
   white-space: nowrap;
 }
 
@@ -1727,6 +1734,11 @@
 }
 
 @media (forced-colors: active) {
+  .projectAttributes li {
+    outline: 1px solid CanvasText;
+    outline-offset: -1px;
+  }
+
   .askLauncher {
     border-color: ButtonText;
     background: ButtonFace;
@@ -2081,9 +2093,6 @@
     padding-top: 14px;
   }
 
-  .projectAttributes li {
-    font-size: 0.875rem;
-  }
 }
 
 @media (max-width: 700px), (hover: none), (pointer: coarse) {
@@ -2302,9 +2311,6 @@
     padding-top: 14px;
   }
 
-  .projectAttributes li {
-    font-size: 0.875rem;
-  }
 
   .career {
     padding-block: 80px;

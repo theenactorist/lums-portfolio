@@ -515,11 +515,8 @@ function ProjectCard({ project }) {
         <h4>{project.title}</h4>
         <p>{project.description}</p>
         <ul className={styles.projectAttributes} aria-label="Project attributes" role="list">
-          {project.attributes.map((attribute, index) => (
-            <li key={attribute}>
-              {attribute}
-              {index < project.attributes.length - 1 && <span aria-hidden="true">·</span>}
-            </li>
+          {project.attributes.map((attribute) => (
+            <li key={attribute}>{attribute}</li>
           ))}
         </ul>
       </div>

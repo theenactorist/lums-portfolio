@@ -5,6 +5,7 @@
 // The owner approved the rewards case study (Carbon and Branch) as the fifth card, after Carbon, on 6 November 2026.
 // The owner asked for Carbon's and Branch's logos side by side on that card on 6 November 2026 (companyLogos, Home only);
 // companyName gives /work and the share image both companies. Cards without companyLogos show their single companyLogo.
+// Card tags (attributes) trimmed to at most three on 6 November 2026: no “Shipped” (all of them are) and none that repeat the Home group.
 // Other cards retain their verified production destinations and order.
 export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
 export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
@@ -15,7 +16,7 @@ export const productionHomeProjects = [
     id: 'pulse',
     title: pulseHeadline,
     description: 'Turning an ambiguous embedded crypto payments concept into working software by connecting AI-assisted design with a coded design system and front-end development.',
-    attributes: ['0 to 1', 'Design Systems', 'Web 3', 'SaaS', 'AI Tools', 'Web', 'Shipped'],
+    attributes: ['Web 3', 'SaaS', 'AI Tools'],
     image: '/home/live-work/pulse-layered.png',
     imageAlt: 'Pulse payment dashboard with embedded crypto checkout and developer API code',
     href: 'https://olumideolusesi.com/work/pulse',
@@ -28,7 +29,7 @@ export const productionHomeProjects = [
     id: 'helium',
     title: heliumHeadline,
     description: 'Building Shiga’s design system across the Figma library and production React, so designers, engineers and AI coding agents can build Enta and Pulse from the same foundations.',
-    attributes: ['Design Systems', 'AI Tools', 'Shipped'],
+    attributes: ['Design Systems', 'AI Tools'],
     image: '/home/live-work/helium-layered.png',
     imageAlt: 'Helium’s Figma library cover with its Storybook Button documentation',
     href: 'https://olumideolusesi.com/work/helium',
@@ -54,7 +55,7 @@ export const productionHomeProjects = [
     id: 'carbon',
     title: 'Unifying Carbon’s banking experience across Android and iOS',
     description: 'Redesigning the home screen to prioritise credit and everyday actions, improve balance privacy, and bring both mobile platforms into one consistent experience.',
-    attributes: ['Design Systems', 'B2C', 'Mobile', 'Shipped'],
+    attributes: ['Design Systems', 'B2C', 'Mobile'],
     image: '/home/live-work/carbon.jpg',
     imageAlt: 'Unifying Carbon’s banking experience across Android and iOS',
     href: 'https://olumideolusesi.com/work/carbon',
@@ -67,7 +68,7 @@ export const productionHomeProjects = [
     id: 'rewards',
     title: rewardsHeadline,
     description: 'Designing two rewards programs that got customers using their accounts: six loyalty tiers at Carbon, and cashback and referral rewards at Branch.',
-    attributes: ['Growth', 'Fintech', 'Mobile', 'Shipped'],
+    attributes: ['Growth', 'Fintech', 'Mobile'],
     image: '/home/live-work/rewards-earned.jpg',
     imageAlt: 'Generated rewards cover concept showing Carbon’s Tier 4, 5 and 6 badges beside a Branch ticket with 2% cashback and a ₦1,250 sample rewards balance',
     href: 'https://olumideolusesi.com/work/rewards',
@@ -85,7 +86,7 @@ export const productionHomeProjects = [
     id: 'ai-copywriting',
     title: 'Building Branch’s AI UX Writing System',
     description: 'I packaged Branch’s brand principles, product context and design-system rules as an agent skill, so every team’s AI workflows produced consistent, on-brand UX writing by default.',
-    attributes: ['AI Tools', 'Internal Tools', 'Shipped'],
+    attributes: ['AI Tools', 'Internal Tools'],
     image: '/home/live-work/ai-writing-guide.jpg',
     imageAlt: 'Generated cover concept of a navy Branch UX Writing System guide with Brand, Context and Components tabs',
     href: '/work/ai-copywriting',
@@ -98,7 +99,7 @@ export const productionHomeProjects = [
     id: 'branch-ai',
     title: 'Building AI tools for consistent product design',
     description: 'Creating reusable illustration, UX writing and Neem prototyping workflows for Branch’s product team, grounded in brand, market and component rules with human review.',
-    attributes: ['AI Automation', 'Internal Tools', 'Design Systems', 'Shipped'],
+    attributes: ['AI Automation', 'Internal Tools', 'Design Systems'],
     image: '/work/branch-ai/branch-shared-system-thumbnail.png',
     imageAlt: 'Generated Branch cover concept showing illustration assets, a UX copy comparison and a schematic Neem prototype',
     href: '/work/branch-ai',
@@ -124,7 +125,7 @@ export const productionHomeProjects = [
     id: 'uba',
     title: 'Taking an enterprise HR platform from concept to production',
     description: 'Designing UBA’s HCMConnect HR platform for 10,000+ employees, from discovery and connected workflows to testing and engineering handoff.',
-    attributes: ['0 to 1', 'Web', 'Enterprise', 'Shipped'],
+    attributes: ['Enterprise', 'Web'],
     image: '/home/live-work/uba.jpg',
     imageAlt: "UBA's Human Resource Management System",
     href: 'https://olumideolusesi.com/work/uba',
