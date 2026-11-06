@@ -976,6 +976,12 @@
   gap: 16px;
 }
 
+/* Paired with Branch, Carbon's wordmark reads about a fifth bigger and sits higher; match its letters and baseline to Branch's. */
+.projectCompanyLogos .projectCompanyLogo[data-company='Carbon'] {
+  height: calc(var(--project-logo-slot-height) * 0.63);
+  translate: 0 calc(var(--project-logo-slot-height) * 0.07);
+}
+
 .projectCompanyLogo[data-company='Branch'] {
   height: var(--project-logo-slot-height);
 }

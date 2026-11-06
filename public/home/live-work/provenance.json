@@ -48,6 +48,22 @@
       "height": 1080,
       "decoded_format": "jpeg",
       "notes": "Home card for the rewards case study (Carbon and Branch): option C, revision 3, “Earned, not given”, chosen by the owner on 6 November 2026. Artwork made with the built-in ImageGen tool, using the Carbon and Branch case-study assets as reference (prompts in the Reviews folder's PROMPTS.json); the enamel tier badges are artistic reinterpretations of Carbon's tier colours and hexagon shape, not Figma renders. ₦1,250 is the case study's sample balance, not a business result; Carbon's six tiers and Branch's 2% cashback are real. Web file: sRGB progressive JPEG at quality 88, copied unchanged from the 4.4 MB PNG master's export. The alt text starts with “Generated”, so the share image carries the generated cover note."
+    },
+    {
+      "file": "ai-writing-guide.jpg",
+      "replaces_on_home": "/work/ai-copywriting/copygpt-review-thumbnail.png",
+      "source_files": [
+        "Portfolio/Website/Reviews/ai-writing-thumbnails-20261106/exports/ai-writing-b-guide-v7-web.jpg"
+      ],
+      "master_file": "Portfolio/Website/Reviews/ai-writing-thumbnails-20261106/exports/ai-writing-b-guide-v7.png",
+      "approved_on": "2026-11-06",
+      "content_type": "image/jpeg",
+      "bytes": 250144,
+      "sha256": "8630ba3ec05d61a34943e58f4d9559e23ca81292c8d4f2de07d8a587600672f0",
+      "width": 1920,
+      "height": 1080,
+      "decoded_format": "jpeg",
+      "notes": "Home card for “Building Branch’s AI UX Writing System”: option B, revision 7, “The writing guide”, chosen by the owner on 6 November 2026. A navy guide labelled Branch UX Writing System with Brand, Context and Components tabs, illustrating the reusable writing skill; it doesn't claim a physical book was made. The book and scene are ImageGen artwork (prompts in the Reviews folder's PROMPTS.json); the cover title and tab labels are typeset in code and projected onto the cover and tabs (book-title-v7.js, perspective-text.js). No invented metrics. Web file: sRGB progressive JPEG at quality 88, copied unchanged from the 3.6 MB PNG master's export. Replaces the recreated CopyGPT review thumbnail, removed from public/work/ai-copywriting/. The alt text starts with “Generated”, so the share image carries the generated cover note."
     }
   ],
   "assets": [
