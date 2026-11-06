@@ -15,11 +15,11 @@ const phases = [
   { id: 'overview', label: 'At a glance' },
   { id: 'goal', label: 'The goal' },
   { id: 'carbon', label: 'Carbon' },
-  { id: 'constraint', label: 'Quarterly review' },
-  { id: 'tiers', label: 'Benefits' },
+  { id: 'constraint', label: 'The constraint', level: 2 },
+  { id: 'tiers', label: 'Benefits', level: 2 },
   { id: 'branch', label: 'Branch' },
-  { id: 'first-time', label: 'First-time users' },
-  { id: 'returning', label: 'Returning users' },
+  { id: 'first-time', label: 'First-time users', level: 2 },
+  { id: 'returning', label: 'Returning users', level: 2 },
   { id: 'compare', label: 'Side by side' },
   { id: 'results', label: 'Results' },
   { id: 'learned', label: 'What I learned' },
@@ -66,6 +66,7 @@ const branchRules = [
 const branchColumns = ['How you earn', 'What you get', 'When it lands']
 
 const comparison = [
+  ['Why this reward', 'New benefits cost too much to give everyone, so the most active customers get them first', 'Bill payments were lagging, so paying bills in the app pays you back', 'Each new customer is a friend who borrows and repays'],
   ['What earns it', 'Wallet balance, transactions, savings, bills and on-time repayments', 'Paying bills of ₦200 or more', 'A friend joining with your code and repaying their first loan'],
   ['What you get', 'Access: better loan and savings rates, faster support, Carbon Zero', '2% back', '₦2,000 each'],
   ['When you see it', 'When the quarterly review moves your tier', 'Straight after the payment', 'After your friend’s first repayment'],
@@ -74,8 +75,8 @@ const comparison = [
 const comparisonColumns = ['Carbon tiers', 'Branch cashback', 'Branch referrals']
 
 const results = [
-  ['Branch', 'Bill payments had been one of the weaker parts of the app. After Rewards launched, more customers paid their bills through Branch, earning cashback and spending it on more bills. Rewards launched on Android in Nigeria, Kenya and India, and it’s still live in Nigeria today, in an app with more than 50 million downloads on Google Play.'],
-  ['Carbon', 'Tiers are live in Carbon’s app on iOS and Android, with a help centre guide to all six, and Carbon was still emailing customers about their tier in 2025. Carbon has more than four million customers, and its app has more than 5 million downloads on Google Play.'],
+  ['Branch', 'Bill payments were the number we set out to move, and they went up after Rewards launched, as customers earned cashback and spent it on more bills. Other numbers moved with them, including loan applications. Rewards launched on Android in Nigeria, Kenya and India, and it’s still live in Nigeria today, in an app with more than 50 million downloads on Google Play.'],
+  ['Carbon', 'Tiers let Carbon offer new benefits to its most active customers without the cost of giving them to everyone. They’re live in Carbon’s app on iOS and Android, with a help centre guide to all six, and Carbon was still emailing customers about their tier in 2025. Carbon has more than four million customers, and its app has more than 5 million downloads on Google Play.'],
 ]
 
 const lessons = [
@@ -135,7 +136,7 @@ export default function RewardsCaseStudy() {
         <div className={styles.heroCopy}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">Rewards</span></nav>
           <h1>Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals</h1>
-          <div className={styles.intro}><p>Carbon and Branch both needed people to use the accounts they’d opened. Carbon rewarded them with tiers that unlock better products, and Branch rewarded them with money. I designed both.</p></div>
+          <div className={styles.intro}><p>Carbon and Branch both needed people to use the accounts they’d opened. Carbon gave its most active customers better products through tiers, and Branch paid customers cashback for paying their bills in the app. I designed both.</p></div>
         </div>
         <HeroMedia />
       </header>
@@ -158,9 +159,9 @@ export default function RewardsCaseStudy() {
               <div className={styles.overviewCopy}>
                 <h3>Project TLDR:</h3>
                 <ul>
-                  <li>In Nigeria you can open an account in minutes with OPay, PalmPay, Kuda, FairMoney, Carbon or Branch. The hard part for each company is getting you to use it.</li>
-                  <li>At Carbon I designed six tiers that unlock better loans, savings rates and support. At Branch I designed cashback on bills and a referral reward, both spent inside the app.</li>
-                  <li>Both are live today. Carbon’s app has more than 5 million downloads on Google Play; Branch’s has more than 50 million.</li>
+                  <li>At Carbon, giving new benefits to every customer at once would have cost too much, so I designed six tiers that give better loans, savings rates and support to the most active customers first.</li>
+                  <li>At Branch, bill payments were lagging, so I designed cashback on bills and a referral reward, both spent inside the app, with the Rewards tab ordered differently for new and returning customers.</li>
+                  <li>Bill payments at Branch went up after launch, and loan applications with them. Both programs are still live.</li>
                 </ul>
               </div>
             </div>
@@ -169,11 +170,11 @@ export default function RewardsCaseStudy() {
           <Section id="goal" title="Getting people to use the accounts they’d opened">
             <p>In Nigeria, anyone who wants a digital account has plenty of choice: OPay, PalmPay, Kuda, FairMoney, Carbon, Branch and more. Opening an account takes minutes, so the harder job is getting people to use it: to keep money in the wallet, pay bills, use the card and come back for a loan.</p>
             <p>I worked on that problem twice. At Carbon the answer was tiers: the more you used Carbon, the higher your tier and the more you could access. At Branch, where Carbon was one of the apps we competed with, the answer was money: cashback when you paid a bill, and a reward when a friend you invited repaid their first loan.</p>
-            <p>Both programs reward the same thing, using the app, but they pay out in very different ways. That difference shaped almost every design decision.</p>
+            <p>Both programs reward the same thing, using the app, but each had its own job. Carbon needed a fair way to decide who gets new benefits first. Branch needed one number to move: bill payments. And they pay out in very different ways, which shaped almost every design decision.</p>
           </Section>
 
           <Section id="carbon" title="Designing six tiers at Carbon">
-            <p>Carbon is a credit-led digital bank in Nigeria with more than four million customers. The idea behind tiers was to reward customers who use Carbon well, by keeping money in their wallet, transacting, saving and repaying loans on time, with access that other customers don’t have yet.</p>
+            <p>Carbon is a credit-led digital bank in Nigeria with more than four million customers. Carbon wanted to offer its customers more: better rates, faster support, buy now, pay later. Offering all of it to everyone at once would have cost too much, so the real question was who gets it first. Tiers answered it. The most committed, most active customers, the ones who keep money in their wallet, transact, save and repay on time, unlock benefits first, and everyone else can see what they’d get by using Carbon more.</p>
             <p>There are six tiers. Moving up unlocks things like higher loan offers at lower interest, applying for a loan twice a day, better savings interest, faster customer support, Carbon Zero (Carbon’s buy now, pay later, which spreads a payment over four instalments at 0% interest) and a direct line to the contact centre.</p>
             <p>Each tier got its own colour and badge, so customers can tell at a glance where they are:</p>
             <figure className={styles.figure}>
@@ -185,7 +186,7 @@ export default function RewardsCaseStudy() {
             </figure>
           </Section>
 
-          <Section id="constraint" title="Designing around a quarterly review">
+          <Section id="constraint" title="Designing around what the data could do">
             <p>What I wanted was a points counter that grew with every transfer and repayment, so customers could watch themselves get closer to the next tier. Research on reward programs supports this: people work harder for a reward as they get closer to it.</p>
             <p>The data didn’t allow it. Carbon recorded every activity that counted, from wallet balances and transfers to card payments, savings, Carbon Zero, loans and repayments, but it couldn’t total points in real time. Instead, a query ran across every customer at the end of each quarter and moved them up or down a tier.</p>
             <p>So I designed for what customers could rely on: the tier they’re on, what it gives them now, what the next tier adds and what gets them there. Progress shows as tiers, not points. Here’s how a customer moves between them:</p>
@@ -219,7 +220,7 @@ export default function RewardsCaseStudy() {
           </Section>
 
           <Section id="branch" title="Designing cashback and referrals at Branch">
-            <p>At Branch I took on rewards as the growth team’s product designer. The product manager and I shaped the flow and journey together; I designed the screens and the gift illustrations, working with the engineers in our growth pod. The goal matched Carbon’s: get customers who already had a Branch account to use it, for transfers, bills, their card and loans.</p>
+            <p>At Branch I took on rewards as the growth team’s product designer. The product manager and I shaped the flow and journey together; I designed the screens and the gift illustrations, working with the engineers in our growth pod. The goal matched Carbon’s, getting customers who already had a Branch account to use it, but we had one number to move: bill payments, which were lagging behind the rest of the app.</p>
             <p>This time the reward was money. Rewards launched on Android in Nigeria, Kenya and India. Here’s how customers earn and spend it in Nigeria:</p>
             <RulesTable caption="How rewards work at Branch in Nigeria" columns={branchColumns} rows={branchRules} />
             <p>Tying the referral reward to a repaid loan means Branch only pays for friends who actually borrow and repay. Limiting cashback on bill payments to five a month keeps its cost predictable.</p>

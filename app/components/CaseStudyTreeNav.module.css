@@ -3,6 +3,7 @@
 .tree {
   --tree-row: 36px;
   --tree-inset: 24px;
+  --tree-indent: 16px;
   position: relative;
   padding-left: var(--tree-inset);
 }
@@ -81,6 +82,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* A nested row (level 2): one indent step in, same type, pill, diamond and focus ring. */
+.list a.nested {
+  margin-left: var(--tree-indent);
 }
 
 .list a[aria-current],
