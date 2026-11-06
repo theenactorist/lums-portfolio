@@ -9,7 +9,7 @@ import TierClimb from './TierClimb'
 import AnnotatedScreen from './AnnotatedScreen'
 import { carbonTier3, carbonLevelUp, branchFirstTime, branchReturning } from './annotations'
 import styles from './rewards.module.css'
-import { productionHomeProjects } from '../../data/productionHomeProjects'
+import { productionHomeProjects, rewardsHeadline } from '../../data/productionHomeProjects'
 
 // Copy: HANDOVER.md “T5 copy” (approved by Olumide, 6 Nov 2026). Screens: T4's Figma exports at 2x, sample data only.
 const branchAi = productionHomeProjects.find((project) => project.id === 'branch-ai')
@@ -145,7 +145,7 @@ export default function RewardsCaseStudy() {
       <header className={styles.header}>
         <div className={styles.heroCopy}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">Rewards</span></nav>
-          <h1>Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals</h1>
+          <h1>{rewardsHeadline}</h1>
           <div className={styles.intro}><p>Carbon and Branch both needed people to use the accounts they’d opened. Carbon gave its most active customers better products through tiers, and Branch paid customers cashback for paying their bills in the app. I designed both.</p></div>
         </div>
         <HeroMedia />

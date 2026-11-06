@@ -5,7 +5,7 @@ import { promisify } from 'node:util';
 const origin = process.argv[2] || 'http://127.0.0.1:3065';
 const protectedDeployment = process.argv.includes('--protected');
 const exec = promisify(execFile);
-const routes = ['/', '/resume', '/work', '/work/pulse', '/work/helium', '/work/shiga-onboarding', '/work/carbon', '/work/ai-copywriting', '/work/branch-ai', '/work/sabi', '/work/uba', '/work/branch-ai-v1', '/work/branch-ai-original-v1', '/work/shiga-onboarding-v1', '/this-page-does-not-exist'];
+const routes = ['/', '/resume', '/work', '/work/pulse', '/work/helium', '/work/rewards', '/work/shiga-onboarding', '/work/carbon', '/work/ai-copywriting', '/work/branch-ai', '/work/sabi', '/work/uba', '/work/branch-ai-v1', '/work/branch-ai-original-v1', '/work/shiga-onboarding-v1', '/this-page-does-not-exist'];
 const destinations = [
   { id: 'footer-work', label: 'Work', path: '/', hash: '#featured-work' },
   { id: 'footer-about', label: 'About', path: '/', hash: '#about' },

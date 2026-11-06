@@ -106,6 +106,8 @@
 .annotated { --marker:22px; display:grid; grid-template-columns:312px minmax(0,1fr); gap:32px; align-items:start; }
 .annotatedScreen { position:relative; width:280px; margin-left:32px; }
 .annotatedScreen :global(.zoom-trigger) { border-radius:14px; background:var(--screen-surface); }
+/* T6: no zoom hint on annotated screens; on phones it sat over the app's own UI. Tapping the screen still opens the viewer. */
+.annotatedScreen :global(.zoom-trigger__hint) { display:none; }
 .annotatedOverlay { position:absolute; inset:0; pointer-events:none; }
 .marker, .stepNumber { display:grid; place-items:center; width:var(--marker); height:var(--marker); border-radius:50%; background:var(--ink); color:var(--paper); font-family:var(--font-mono); font-size:11px; font-weight:600; line-height:1; }
 .marker { position:absolute; left:-8px; transform:translate(-100%,-50%); transition:background-color .15s ease, color .15s ease; }

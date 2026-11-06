@@ -33,7 +33,7 @@ const allProjects = productionHomeProjects.map((project) => ({
   ...project,
   thumbnail: project.image,
   tags: project.attributes,
-  role: project.companyLogoAlt,
+  role: project.companyName ?? project.companyLogoAlt,
   period: 'Case study',
   color: '#171717',
 }));

@@ -2,9 +2,12 @@
 // Includes the owner's subsequent Home copy, tags, and Pulse thumbnail updates.
 // The owner approved CopyGPT as the fourth card on 11 October 2026.
 // The owner approved Helium as the second card, after Pulse, on 3 November 2026.
+// The owner approved the rewards case study (Carbon and Branch) as the fifth card, after Carbon, on 6 November 2026.
+// It shows Branch's logo, since a card takes one; companyName gives /work and the share image both companies.
 // Other cards retain their verified production destinations and order.
 export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
 export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
+export const rewardsHeadline = 'Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals';
 
 export const productionHomeProjects = [
   {
@@ -58,6 +61,20 @@ export const productionHomeProjects = [
     companyLogoAlt: 'Carbon',
     companyLogoWidth: 125,
     companyLogoHeight: 31,
+  },
+  {
+    id: 'rewards',
+    title: rewardsHeadline,
+    description: 'Designing two rewards programs that got customers using their accounts: six loyalty tiers at Carbon, and cashback and referral rewards at Branch.',
+    attributes: ['Growth', 'Fintech', 'Mobile', 'Shipped'],
+    image: '/home/live-work/rewards-layered.png',
+    imageAlt: 'Carbon’s tiers screen showing Tier 3 benefits, beside Branch’s Rewards tab with a cashback balance and an invite card',
+    href: 'https://olumideolusesi.com/work/rewards',
+    companyName: 'Carbon and Branch',
+    companyLogo: '/home/work-logos/branch.svg',
+    companyLogoAlt: 'Branch',
+    companyLogoWidth: 106,
+    companyLogoHeight: 39,
   },
   {
     id: 'ai-copywriting',

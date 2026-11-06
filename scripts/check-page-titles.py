@@ -17,7 +17,7 @@ parser.add_argument('origin')
 parser.add_argument('--protected', action='store_true')
 parser.add_argument('--output', type=Path)
 args = parser.parse_args()
-canonical = ['/', '/resume', '/work', '/work/pulse', '/work/helium', '/work/shiga-onboarding',
+canonical = ['/', '/resume', '/work', '/work/pulse', '/work/helium', '/work/rewards', '/work/shiga-onboarding',
              '/work/carbon', '/work/ai-copywriting', '/work/branch-ai', '/work/sabi', '/work/uba']
 archives = ['/work/branch-ai-v1', '/work/branch-ai-original-v1', '/work/shiga-onboarding-v1']
 missing = ['/this-page-does-not-exist', '/work/this-project-does-not-exist']
