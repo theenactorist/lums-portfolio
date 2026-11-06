@@ -1,4 +1,4 @@
-import Timeline from './Timeline'
+import Timeline from '../../components/CaseStudyTimeline'
 import styles from './helium.module.css'
 
 const steps = [

@@ -1,0 +1,168 @@
+/* Rewards case study. Built from the Helium page's rules (header, rail, sections, facts, figures, tables,
+   definitions), with colour from DESIGN.md: neutrals only, Warm Rust as the one accent, flat surfaces. Only
+   clickable things get strokes; everything else is separated by fill and spacing (Olumide, 3 Nov). New here: the
+   grid of phone screens and the pair of emails. */
+.page { --paper:#fff; --ink:#1d1d1b; --copy:oklch(0.423 0.004 84.76); --muted:#6f6f6d; --line:#e7e7e7; --surface:#f9f8f6; --rail-surface:#f4f3f0; --hero-surface:#f9f8f6; --screen-surface:#efeee9; --accent:#e07b3c; padding:calc(var(--nav-height,62.375px) + 24px) 0 56px; background:var(--paper); color:var(--ink); }
+:global(html[data-theme='dark']) .page { --paper:#0a0a0f; --ink:#f5f5f0; --copy:#d0d0d5; --muted:#999; --line:#2a2a30; --surface:#141419; --rail-surface:#141419; --hero-surface:#141419; --screen-surface:#141419; }
+.page * { box-sizing:border-box; }
+.page :is(h1,h2,h3) { color:var(--ink); }
+.page a { color:inherit; text-underline-offset:4px; }
+.page :is(a,button,summary):focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+
+/* Header */
+.header { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); align-items:center; gap:56px; width:min(2000px,95%); margin:0 auto 88px; padding:56px; background:var(--hero-surface); border-radius:30px; }
+.heroCopy { min-width:0; }
+.breadcrumb { display:flex; align-items:center; gap:12px; color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:32px; }
+.breadcrumb a { color:var(--ink); }
+.header h1 { max-width:720px; margin:0 0 32px; font-size:48px; font-weight:600; line-height:1.05; letter-spacing:-.04em; text-wrap:balance; }
+.intro,.intro p { max-width:680px; font-size:20px; line-height:1.6; color:var(--copy); }
+.intro p { margin:0; text-wrap:pretty; }
+
+/* Hero: one 1600 by 1000 frame from Figma (Carbon's Tier 3 screen beside Branch's Rewards tab). */
+.heroMedia { min-width:0; width:100%; }
+.heroMedia :global(.zoom-trigger) { display:block; width:100%; border:0; border-radius:16px; overflow:hidden; }
+.heroMedia :global(.zoom-trigger__image) { display:block; width:100%; height:auto; }
+.heroMedia :global(.zoom-trigger):hover :global(.zoom-trigger__image) { transform:none; }
+.heroMedia :global(.zoom-trigger__hint) { width:36px; height:36px; bottom:8px; right:8px; }
+
+/* Rail and article layout (as on Helium and Pulse) */
+.articleLayout { display:grid; grid-template-columns:25% 66.666667%; align-items:start; gap:32px; width:min(1304px,calc(100% - 40px)); margin:0 auto; }
+.chapterRail { position:sticky; top:128px; max-height:calc(100dvh - 144px); overflow-y:auto; overscroll-behavior:contain; min-width:0; padding:0 12px; }
+.page :global(.cs-phase-nav) { position:static; inset:auto; width:100%; margin:0; padding:0; border:0; background:none; color:var(--ink); backdrop-filter:none; z-index:auto; }
+.page :global(.cs-phase-nav--tree) a:focus-visible { outline-offset:-2px; }
+.mobileContents { display:none; }
+.article { min-width:0; padding:0 12px 0 56px; container:rewards-article / inline-size; }
+
+/* Sections */
+.section { margin-bottom:64px; scroll-margin-top:calc(var(--nav-height,72px) + 32px); }
+.section:focus { outline:none; }
+.section h2 { max-width:704px; margin:64px auto 20px; font-size:38.4px; line-height:1.1; letter-spacing:-.03em; font-weight:600; text-wrap:balance; }
+.prose { font-size:17px; line-height:1.625; color:var(--copy); }
+.prose > :is(p,h3) { max-width:704px; margin-inline:auto; }
+.prose > p { margin-bottom:20px; text-wrap:pretty; }
+/* A link inside a sentence is underlined, so it doesn't rely on colour (as Pulse's text links). */
+.inlineLink { color:var(--ink); text-decoration:underline; text-decoration-thickness:1px; }
+
+/* At a glance: the copy has no headline here, so the label is the section's heading. */
+.overview { margin-bottom:104px; }
+.overview h2.overviewLabel { display:inline-flex; max-width:none; padding:4px 8px; margin:0 0 32px; background:var(--rail-surface); border-radius:6px; font-family:var(--font-mono); font-size:12px; line-height:18px; font-weight:400; letter-spacing:0; color:var(--ink); }
+.overviewLayout { display:grid; grid-template-columns:43% minmax(0,1fr); gap:24px; align-items:start; }
+.facts { padding:19.2px; background:var(--surface); border-radius:16px; margin:0; }
+.facts > div + div { border-top:1px dashed var(--line); padding-top:19.2px; margin-top:19.2px; }
+.facts dt { font-family:var(--font-mono); font-size:12px; line-height:18px; color:var(--muted); font-weight:500; letter-spacing:.4px; text-transform:uppercase; margin-bottom:10px; }
+.facts dd { margin:0; font-size:16px; line-height:1.45; color:var(--ink); }
+.tools { display:flex; align-items:center; flex-wrap:wrap; gap:6px 8px; }
+.tools span { display:inline-flex; align-items:center; gap:6px; }
+.tools img { object-fit:contain; }
+.overviewCopy { min-width:0; font-size:21.12px; line-height:1.4; color:var(--ink); }
+.overviewCopy h3 { margin:0 0 16px; font-size:20px; line-height:1.5; font-weight:600; letter-spacing:0; }
+.overviewCopy ul { list-style:none; padding:0; margin:0; }
+.overviewCopy li + li { margin-top:16px; padding-top:16px; border-top:1px solid var(--line); }
+
+/* Figures: evidence on a flat surface, caption below */
+.figure { margin:40px 0; padding:28px; background:var(--surface); border-radius:30px; }
+.figure :global(.zoom-trigger) { display:block; width:100%; border:0; border-radius:12px; overflow:hidden; }
+.figure :global(.zoom-trigger__image) { display:block; width:100%; height:auto; }
+.figure figcaption { margin-top:24px; font-size:13px; line-height:1.65; color:var(--muted); }
+
+/* Badges and progress row: two white Figma exports on one white panel, so they read as one picture. */
+.badgePanel { display:grid; gap:12px; justify-items:center; padding:24px; background:#fff; border-radius:16px; }
+.badgePanel > div { width:100%; }
+.badgePanel > div:first-child { max-width:656px; }
+.badgePanel > div:last-child { max-width:478px; }
+.badgePanel :global(.zoom-trigger) { border-radius:0; }
+
+/* Phone screens: each screen on a slightly darker fill than the figure, so a white screen keeps its edge in light mode. */
+.screens { display:grid; gap:20px 16px; align-items:start; margin:0; padding:0; list-style:none; }
+.screens > li { min-width:0; }
+.screens :global(.zoom-trigger) { border-radius:14px; background:var(--screen-surface); }
+.screensThree { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.screensFour { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.screensSingle { grid-template-columns:minmax(0,240px); justify-content:center; }
+.figure.flowFigure { padding:20px; }
+
+/* The two Carbon emails, side by side, tops aligned */
+.emails { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; margin:0; padding:0; list-style:none; }
+.emails > li { min-width:0; }
+.emails :global(.zoom-trigger) { border-radius:12px; background:#fff; }
+
+/* The quarterly review timeline sits on the figure surface, so its markers take that fill. */
+.flow { --timeline-fill:var(--surface); }
+
+/* Tables (Helium's table styles) */
+.tableWrap { overflow-x:auto; border-radius:16px; background:var(--surface); }
+.prose > .tableWrap { max-width:704px; margin:32px auto 40px; }
+.table { width:100%; border-collapse:collapse; font-size:15px; line-height:1.55; }
+.table caption { padding:16px 20px 0; text-align:left; font-family:var(--font-mono); font-size:12px; line-height:1.5; letter-spacing:.4px; color:var(--muted); }
+.table :is(th,td) { padding:14px 20px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+.table tbody tr:last-child :is(th,td) { border-bottom:0; }
+.table thead th { font-family:var(--font-mono); font-size:12px; font-weight:500; letter-spacing:.4px; color:var(--muted); }
+.table tbody th { color:var(--ink); font-weight:600; }
+.table tbody td { color:var(--copy); }
+
+/* Definition lists (results and lessons) */
+.definitions { max-width:704px; margin:32px auto; }
+.definitions > div { padding:24px 0; }
+.definitions > div + div { border-top:1px solid var(--line); }
+.definitions dt { color:var(--ink); font-size:20px; font-weight:600; line-height:1.3; margin-bottom:12px; }
+.definitions dd { margin:0; }
+
+.next { max-width:704px; margin:64px auto 0; display:flex; flex-direction:column; gap:16px; }
+.next > span { color:var(--muted); font-family:var(--font-mono); font-size:12px; letter-spacing:.4px; text-transform:uppercase; }
+.next a { font-size:24px; line-height:1.3; text-decoration:none; }
+.next a:hover { text-decoration:underline; }
+
+@container rewards-article (max-width:600px) {
+  .screensFour { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@container rewards-article (max-width:520px) {
+  .screensThree { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .emails { grid-template-columns:1fr; }
+}
+@media (min-width:768px) and (max-width:1479px) {
+  .header { grid-template-columns:minmax(0,1fr); }
+  .heroCopy { width:100%; max-width:720px; justify-self:center; }
+  .heroMedia { width:min(100%,720px); justify-self:center; }
+}
+@media (max-width:991px) {
+  .articleLayout { display:block; width:min(832px,calc(100% - 64px)); }
+  .article { padding:0; border:0; }
+  .chapterRail { display:none; }
+  .mobileContents { display:block; margin-bottom:48px; background:var(--rail-surface); border-radius:16px; padding:0 24px; }
+  .mobileContents summary { min-height:56px; display:flex; align-items:center; justify-content:space-between; gap:16px; font-size:15px; cursor:pointer; list-style:none; }
+  .mobileContents summary::-webkit-details-marker { display:none; }
+  .mobileContents summary::after { content:'+'; font-size:22px; }
+  .mobileContents[open] summary::after { content:'−'; }
+  .mobileContents :global(.cs-phase-nav) { padding-bottom:16px; }
+  .mobileContents { --tree-pill:var(--paper); }
+  .mobileContents :global(.cs-phase-nav--tree) > div { --tree-row:44px; }
+  .mobileContents :global(.cs-phase-nav--tree) a { font-size:14px; }
+}
+@media (max-width:767px) {
+  .page { padding-top:calc(var(--nav-height,62.375px) + 16px); padding-bottom:24px; }
+  .header { display:block; width:95%; padding:40px 28px; margin-bottom:64px; border-radius:30px; }
+  .header h1 { font-size:35.2px; line-height:1.05; text-wrap:initial; }
+  .heroMedia { margin-top:32px; }
+  .articleLayout { width:calc(100% - 40px); }
+  .mobileContents { margin-bottom:40px; padding-inline:20px; }
+  .section h2 { font-size:32px; line-height:1.1; }
+  .overviewLayout { grid-template-columns:1fr; gap:32px; }
+  .overviewCopy { font-size:20px; line-height:1.4; }
+  .figure { padding:20px; border-radius:24px; }
+  .badgePanel { padding:16px; }
+  .table :is(th,td) { padding:12px 14px; }
+  .table caption { padding:14px 14px 0; }
+  /* Both tables stack on phones: the first column becomes the row's heading and each cell carries its column name. */
+  .stacked thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+  .stacked, .stacked tbody, .stacked tr, .stacked :is(th,td) { display:block; width:auto; }
+  .stacked caption { display:block; }
+  .stacked tbody tr { padding:16px; border-bottom:1px solid var(--line); }
+  .stacked tbody tr:last-child { border-bottom:0; }
+  .stacked tbody :is(th,td) { padding:0; border:0; }
+  .stacked tbody td { display:grid; grid-template-columns:112px minmax(0,1fr); gap:12px; margin-top:8px; }
+  .stacked tbody td::before { content:attr(data-label); font-family:var(--font-mono); font-size:12px; letter-spacing:.4px; color:var(--muted); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .page,.page * { scroll-behavior:auto !important; animation:none !important; transition-duration:0s !important; }
+  .heroMedia { opacity:1 !important; transform:none !important; }
+}

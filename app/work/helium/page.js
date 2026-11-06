@@ -11,7 +11,7 @@ import VariableLayers from './VariableLayers'
 import { TokenAvatarFigure, ConversionPairFigure } from './AssetFigures'
 import FigmaToCodeFlow from './FigmaToCodeFlow'
 import LiveSidebarTile from './LiveSidebarTile'
-import Timeline from './Timeline'
+import Timeline from '../../components/CaseStudyTimeline'
 import styles from './helium.module.css'
 import { heliumHeadline, pulseHeadline } from '../../data/productionHomeProjects'
 
