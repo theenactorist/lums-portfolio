@@ -9,7 +9,9 @@ const logos = [
     name: 'Shiga',
     slug: 'Shiga',
     url: 'https://shiga.io/',
-    bounds: { x: 2, y: 11, width: 100, height: 27 },
+    // Shiga's v2 brand mark is drawn on its own 278 by 77 canvas.
+    source: { width: 278, height: 77 },
+    bounds: { x: 0, y: 0, width: 278, height: 77 },
   },
   {
     name: 'Branch',
@@ -80,18 +82,17 @@ const logos = [
 ];
 
 const allLogos = [...logos, ...logos];
-const sourceWidth = 107;
-const sourceHeight = 48;
+const defaultSource = { width: 107, height: 48 };
 const maximumLogoHeight = 26;
 
-function getLogoCropStyle(bounds) {
+function getLogoCropStyle({ bounds, source = defaultSource }) {
   const scale = Math.min(1, maximumLogoHeight / bounds.height);
 
   return {
     '--logo-crop-width': `${bounds.width * scale}px`,
     '--logo-crop-height': `${bounds.height * scale}px`,
-    '--logo-source-width': `${sourceWidth * scale}px`,
-    '--logo-source-height': `${sourceHeight * scale}px`,
+    '--logo-source-width': `${source.width * scale}px`,
+    '--logo-source-height': `${source.height * scale}px`,
     '--logo-offset-x': `${bounds.x * scale * -1}px`,
     '--logo-offset-y': `${bounds.y * scale * -1}px`,
   };
@@ -136,14 +137,14 @@ export default function LogoTicker() {
                 className="logo-ticker__item"
                 aria-label={isDuplicate ? undefined : logo.name}
                 aria-hidden={isDuplicate ? 'true' : undefined}
-                style={getLogoCropStyle(logo.bounds)}
+                style={getLogoCropStyle(logo)}
                 tabIndex={isDuplicate ? -1 : undefined}
               >
                 <Image
                   src={`/logos/${theme === 'dark' ? 'dark' : 'light'}/${prefix}-${logo.slug}.svg`}
                   alt={isDuplicate ? '' : logo.name}
-                  width={107}
-                  height={48}
+                  width={(logo.source ?? defaultSource).width}
+                  height={(logo.source ?? defaultSource).height}
                   className="logo-ticker__img"
                 />
               </a>
