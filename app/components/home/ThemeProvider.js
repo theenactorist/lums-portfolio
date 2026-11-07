@@ -2,7 +2,8 @@
 
 import { createContext, useContext, useState, useEffect } from 'react';
 
-const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {} });
+// themeSaved: true once the visitor has picked a theme with the toggle (saved in localStorage).
+const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {}, themeSaved: false });
 
 export function useTheme() {
   return useContext(ThemeContext);
@@ -11,12 +12,14 @@ export function useTheme() {
 export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('light');
   const [mounted, setMounted] = useState(false);
+  const [themeSaved, setThemeSaved] = useState(false);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       const saved = localStorage.getItem('lums-theme-2');
       const initial = saved ?? 'light';
       setTheme(initial);
+      setThemeSaved(saved !== null);
       setMounted(true);
       document.documentElement.setAttribute('data-theme', initial);
     });
@@ -27,6 +30,7 @@ export default function ThemeProvider({ children }) {
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
+    setThemeSaved(true);
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('lums-theme-2', next);
   };
@@ -35,7 +39,7 @@ export default function ThemeProvider({ children }) {
   if (!mounted) return <>{children}</>;
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, themeSaved }}>
       {children}
     </ThemeContext.Provider>
   );

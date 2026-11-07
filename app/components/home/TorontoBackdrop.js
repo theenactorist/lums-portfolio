@@ -1,8 +1,21 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from './ThemeProvider';
 import { createTorontoRenderer, TORONTO_DURATION } from '../../../lib/torontoRenderer';
+
+// Day or night scene (Olumide, 7 Nov 2026): a theme the visitor picked with the
+// toggle decides it (dark is night, light is day); with no saved choice the
+// visitor's local clock does: night from 7:00 pm to 6:59 am.
+const NIGHT_FROM_HOUR = 19;
+const DAY_FROM_HOUR = 7;
+const CLOCK_RECHECK_MS = 5 * 60 * 1000;
+const SCENE_FADE_MS = 1000;
+
+export function isNightAt(date) {
+  const hour = date.getHours();
+  return hour >= NIGHT_FROM_HOUR || hour < DAY_FROM_HOUR;
+}
 
 export default function TorontoBackdrop({ videoRef, className, setPlaybackPreference }) {
   const canvasRef = useRef(null);
@@ -12,16 +25,63 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
   const foregroundRef = useRef(true);
   const [ready, setReady] = useState(false);
   const [contextGeneration, setContextGeneration] = useState(0);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, themeSaved } = useTheme();
   const themeRef = useRef(theme);
+  const savedRef = useRef(themeSaved);
   const toggleRef = useRef(toggleTheme);
+  // Scene mix: 0 is day, 1 is night. The target comes from the saved theme or
+  // the clock (or a review override); the mix fades to it.
+  const sceneMixRef = useRef(null);
+  const sceneTargetRef = useRef(null);
+  const sceneOverrideRef = useRef(null);
+  const fadeRef = useRef(null);
+  const renderRef = useRef(() => {});
+
+  const updateScene = useCallback((instant = false) => {
+    const target = sceneOverrideRef.current ?? (savedRef.current
+      ? (themeRef.current === 'dark' ? 1 : 0)
+      : (isNightAt(new Date()) ? 1 : 0));
+    if (target === sceneTargetRef.current && (!instant || sceneMixRef.current === target)) return;
+    sceneTargetRef.current = target;
+    if (fadeRef.current !== null) cancelAnimationFrame(fadeRef.current);
+    fadeRef.current = null;
+    const from = sceneMixRef.current;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (instant || from === null || reduceMotion) {
+      sceneMixRef.current = target;
+      renderRef.current();
+      return;
+    }
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min(1, (now - start) / SCENE_FADE_MS);
+      const eased = progress < 0.5 ? 2 * progress * progress : 1 - ((-2 * progress + 2) ** 2) / 2;
+      sceneMixRef.current = from + (target - from) * eased;
+      renderRef.current();
+      fadeRef.current = progress < 1 ? requestAnimationFrame(step) : null;
+    };
+    fadeRef.current = requestAnimationFrame(step);
+  }, []);
 
   useEffect(() => {
     themeRef.current = theme;
+    savedRef.current = themeSaved;
     toggleRef.current = toggleTheme;
-    rendererRef.current?.renderAt(seekTimeRef.current ?? videoRef.current?.currentTime ?? 0, theme,
-      { foreground: foregroundRef.current });
-  }, [theme, toggleTheme, videoRef]);
+    updateScene();
+  }, [theme, themeSaved, toggleTheme, updateScene]);
+
+  // Follow the clock: check again when the tab comes back and every 5 minutes.
+  useEffect(() => {
+    const recheckVisible = () => { if (document.visibilityState === 'visible') updateScene(); };
+    const timer = setInterval(() => updateScene(), CLOCK_RECHECK_MS);
+    document.addEventListener('visibilitychange', recheckVisible);
+    return () => {
+      clearInterval(timer);
+      document.removeEventListener('visibilitychange', recheckVisible);
+      if (fadeRef.current !== null) cancelAnimationFrame(fadeRef.current);
+      fadeRef.current = null;
+    };
+  }, [updateScene]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -33,7 +93,8 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
 
     const render = (mediaTime) => renderer?.renderAt(
       seekTimeRef.current ?? mediaTime ?? video.currentTime,
-      themeRef.current, { foreground: foregroundRef.current });
+      sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
+    renderRef.current = () => render();
     const frame = (_now, metadata) => {
       if (!active) return;
       render(metadata?.mediaTime);
@@ -91,16 +152,25 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
           });
         }
         render();
-        return { time: seconds, sourceTime: video.currentTime, theme: themeRef.current };
+        return { time: seconds, sourceTime: video.currentTime, theme: themeRef.current, scene: sceneMixRef.current };
       };
       const api = {
         duration: TORONTO_DURATION,
         seek,
+        // Changes the page theme through the site's toggle (a saved choice).
         setTheme(next) {
           if (next !== 'light' && next !== 'dark') throw new Error('Theme must be light or dark.');
           if (themeRef.current !== next) toggleRef.current();
           themeRef.current = next;
-          render();
+          savedRef.current = true;
+          updateScene(true);
+        },
+        // Drives the scene directly, independent of the page theme. null returns
+        // the scene to the saved theme or the clock.
+        setScene(next, { instant = true } = {}) {
+          if (next !== null && next !== 'day' && next !== 'night') throw new Error('Scene must be day, night or null.');
+          sceneOverrideRef.current = next === null ? null : next === 'night' ? 1 : 0;
+          updateScene(instant);
         },
         pause() {
           setPlaybackPreference('pause');
@@ -115,7 +185,10 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
           return video.play();
         },
         getState() {
-          return { ready: true, theme: themeRef.current, time: seekTimeRef.current ?? video.currentTime,
+          return { ready: true, theme: themeRef.current, themeSaved: savedRef.current,
+            scene: sceneMixRef.current, sceneTarget: sceneTargetRef.current,
+            sceneSource: sceneOverrideRef.current !== null ? 'review' : savedRef.current ? 'saved theme' : 'clock',
+            time: seekTimeRef.current ?? video.currentTime,
             sourceTime: video.currentTime, paused: video.paused, width: canvas.width, height: canvas.height,
             foreground: foregroundRef.current };
         },
@@ -127,7 +200,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
             return { testedTheme: 'light', ...renderer.compareRetainedForeground(),
               intentionalException: 'The authorized night-only floor reflection cleanup is excluded from this light-theme preservation check.' };
           } finally {
-            renderer.renderAt(prior, themeRef.current, { foreground: foregroundRef.current });
+            renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
           }
         },
         compareProtectedNight() {
@@ -136,7 +209,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
             renderer.renderAt(prior, 'dark', { foreground: true });
             return renderer.compareProtectedNight(prior);
           } finally {
-            renderer.renderAt(prior, themeRef.current, { foreground: foregroundRef.current });
+            renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
           }
         },
         compareOutdoorLoop() {
@@ -170,7 +243,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
               };
             }
           } finally {
-            renderer.renderAt(prior, themeRef.current, { foreground: foregroundRef.current });
+            renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
           }
           return samples;
         },
@@ -202,9 +275,10 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
       window.removeEventListener('hf-seek', onHfSeek);
       renderer?.dispose();
       rendererRef.current = null;
+      renderRef.current = () => {};
       delete window.__torontoPreview;
     };
-  }, [videoRef, setPlaybackPreference, contextGeneration]);
+  }, [videoRef, setPlaybackPreference, contextGeneration, updateScene]);
 
   return <canvas ref={canvasRef} className={className} data-toronto-composite="true"
     data-ready={ready} aria-hidden="true" style={{ opacity: ready ? 1 : 0 }} />;
