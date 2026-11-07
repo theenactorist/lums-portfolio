@@ -599,9 +599,9 @@ function About() {
                   ))}
                 </p>
                 <p>
-                  I&apos;m curious by default and collaborative by nature. I ask a lot of
-                  questions, challenge assumptions and like working with people who bring
-                  different perspectives to the table. These days, AI is also deeply embedded
+                  I’m curious by default and collaborative by nature. I ask a lot of
+                  questions and challenge assumptions, and I work as closely with PMs and
+                  engineers as I do with other designers. These days, AI is also deeply embedded
                   in how I work, from research and ideation to prototyping, design systems and
                   production-ready builds. The goal is pretty simple: understand the problem,
                   make the work better, and get useful things shipped.
