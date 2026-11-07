@@ -136,123 +136,130 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
       document.addEventListener('visibilitychange', refreshVisible);
       window.addEventListener('pageshow', refresh);
 
-      const seek = async (seconds, options = {}) => {
-        setPlaybackPreference('pause');
-        video.pause();
-        seekTimeRef.current = Number(seconds);
-        foregroundRef.current = options.foreground !== false;
-        const target = ((Number(seconds) % TORONTO_DURATION) + TORONTO_DURATION) % TORONTO_DURATION;
-        if (video.readyState < 1) {
-          await new Promise(resolve => video.addEventListener('loadedmetadata', resolve, { once: true }));
-        }
-        if (Math.abs(video.currentTime - target) > 0.000001) {
-          await new Promise(resolve => {
-            video.addEventListener('seeked', resolve, { once: true });
-            video.currentTime = target;
-          });
-        }
-        render();
-        return { time: seconds, sourceTime: video.currentTime, theme: themeRef.current, scene: sceneMixRef.current };
-      };
-      const api = {
-        duration: TORONTO_DURATION,
-        seek,
-        // Changes the page theme through the site's toggle (a saved choice).
-        setTheme(next) {
-          if (next !== 'light' && next !== 'dark') throw new Error('Theme must be light or dark.');
-          if (themeRef.current !== next) toggleRef.current();
-          themeRef.current = next;
-          savedRef.current = true;
-          updateScene(true);
-        },
-        // Drives the scene directly, independent of the page theme. null returns
-        // the scene to the saved theme or the clock.
-        setScene(next, { instant = true } = {}) {
-          if (next !== null && next !== 'day' && next !== 'night') throw new Error('Scene must be day, night or null.');
-          sceneOverrideRef.current = next === null ? null : next === 'night' ? 1 : 0;
-          updateScene(instant);
-        },
-        pause() {
+      // Review interface for local checks only (seek, scene, capture, pixel comparisons).
+      // Production builds drop it; rendering and floor protection are the same in both.
+      if (process.env.NODE_ENV !== 'production') {
+        const seek = async (seconds, options = {}) => {
           setPlaybackPreference('pause');
           video.pause();
-          seekTimeRef.current = video.currentTime;
+          seekTimeRef.current = Number(seconds);
+          foregroundRef.current = options.foreground !== false;
+          const target = ((Number(seconds) % TORONTO_DURATION) + TORONTO_DURATION) % TORONTO_DURATION;
+          if (video.readyState < 1) {
+            await new Promise(resolve => video.addEventListener('loadedmetadata', resolve, { once: true }));
+          }
+          if (Math.abs(video.currentTime - target) > 0.000001) {
+            await new Promise(resolve => {
+              video.addEventListener('seeked', resolve, { once: true });
+              video.currentTime = target;
+            });
+          }
           render();
-        },
-        play() {
-          foregroundRef.current = true;
-          seekTimeRef.current = null;
-          setPlaybackPreference('play');
-          return video.play();
-        },
-        getState() {
-          return { ready: true, theme: themeRef.current, themeSaved: savedRef.current,
-            scene: sceneMixRef.current, sceneTarget: sceneTargetRef.current,
-            sceneSource: sceneOverrideRef.current !== null ? 'review' : savedRef.current ? 'saved theme' : 'clock',
-            time: seekTimeRef.current ?? video.currentTime,
-            sourceTime: video.currentTime, paused: video.paused, width: canvas.width, height: canvas.height,
-            foreground: foregroundRef.current };
-        },
-        capture() { render(); return canvas.toDataURL('image/png'); },
-        compareRetainedForeground() {
-          const prior = seekTimeRef.current ?? video.currentTime;
-          try {
-            renderer.renderAt(prior, 'light', { foreground: true });
-            return { testedTheme: 'light', ...renderer.compareRetainedForeground(),
-              intentionalException: 'The authorized night-only floor reflection cleanup is excluded from this light-theme preservation check.' };
-          } finally {
-            renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
-          }
-        },
-        compareProtectedNight() {
-          const prior = seekTimeRef.current ?? video.currentTime;
-          try {
-            renderer.renderAt(prior, 'dark', { foreground: true });
-            return renderer.compareProtectedNight(prior);
-          } finally {
-            renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
-          }
-        },
-        compareOutdoorLoop() {
-          const prior = seekTimeRef.current ?? video.currentTime;
-          const samples = {};
-          const compare = (first, second) => {
-            let changed = 0, maximum = 0, totalDifference = 0;
-            for (let i = 0; i < first.length; i += 1) {
-              const difference = Math.abs(first[i] - second[i]);
-              if (difference) changed += 1;
-              maximum = Math.max(maximum, difference);
-              totalDifference += difference;
+          return { time: seconds, sourceTime: video.currentTime, theme: themeRef.current, scene: sceneMixRef.current };
+        };
+        const api = {
+          duration: TORONTO_DURATION,
+          seek,
+          // Changes the page theme through the site's toggle (a saved choice).
+          setTheme(next) {
+            if (next !== 'light' && next !== 'dark') throw new Error('Theme must be light or dark.');
+            if (themeRef.current !== next) toggleRef.current();
+            themeRef.current = next;
+            savedRef.current = true;
+            updateScene(true);
+          },
+          // Drives the scene directly, independent of the page theme. null returns
+          // the scene to the saved theme or the clock.
+          setScene(next, { instant = true } = {}) {
+            if (next !== null && next !== 'day' && next !== 'night') throw new Error('Scene must be day, night or null.');
+            sceneOverrideRef.current = next === null ? null : next === 'night' ? 1 : 0;
+            updateScene(instant);
+          },
+          pause() {
+            setPlaybackPreference('pause');
+            video.pause();
+            seekTimeRef.current = video.currentTime;
+            render();
+          },
+          play() {
+            foregroundRef.current = true;
+            seekTimeRef.current = null;
+            setPlaybackPreference('play');
+            return video.play();
+          },
+          getState() {
+            return { ready: true, theme: themeRef.current, themeSaved: savedRef.current,
+              scene: sceneMixRef.current, sceneTarget: sceneTargetRef.current,
+              sceneSource: sceneOverrideRef.current !== null ? 'review' : savedRef.current ? 'saved theme' : 'clock',
+              time: seekTimeRef.current ?? video.currentTime,
+              sourceTime: video.currentTime, paused: video.paused, width: canvas.width, height: canvas.height,
+              foreground: foregroundRef.current };
+          },
+          capture() { render(); return canvas.toDataURL('image/png'); },
+          compareRetainedForeground() {
+            const prior = seekTimeRef.current ?? video.currentTime;
+            try {
+              renderer.renderAt(prior, 'light', { foreground: true });
+              return { testedTheme: 'light', ...renderer.compareRetainedForeground(),
+                intentionalException: 'The authorized night-only floor reflection cleanup is excluded from this light-theme preservation check.' };
+            } finally {
+              renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
             }
-            return { changedChannels: changed, maximumChannelDifference: maximum,
-              meanAbsoluteChannelDifference: totalDifference / first.length,
-              comparedChannels: first.length };
-          };
-          try {
-            for (const mode of ['light', 'dark']) {
-              renderer.renderAt(0, mode, { foreground: false });
-              const first = renderer.readPixels();
-              const at = time => {
-                renderer.renderAt(time, mode, { foreground: false });
-                return compare(first, renderer.readPixels());
-              };
-              samples[mode] = {
-                exactLoop: { seconds: [0, TORONTO_DURATION], ...at(TORONTO_DURATION) },
-                quarterCycleMotion: { seconds: [0, TORONTO_DURATION / 4], ...at(TORONTO_DURATION / 4) },
-                finalFrameToStart: { seconds: [0, TORONTO_DURATION - 1 / 24], ...at(TORONTO_DURATION - 1 / 24) },
-                firstAdjacentFrame: { seconds: [0, 1 / 24], ...at(1 / 24) },
-              };
+          },
+          compareProtectedNight() {
+            const prior = seekTimeRef.current ?? video.currentTime;
+            try {
+              renderer.renderAt(prior, 'dark', { foreground: true });
+              return renderer.compareProtectedNight(prior);
+            } finally {
+              renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
             }
-          } finally {
-            renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
-          }
-          return samples;
-        },
-      };
-      window.__torontoPreview = api;
+          },
+          compareOutdoorLoop() {
+            const prior = seekTimeRef.current ?? video.currentTime;
+            const samples = {};
+            const compare = (first, second) => {
+              let changed = 0, maximum = 0, totalDifference = 0;
+              for (let i = 0; i < first.length; i += 1) {
+                const difference = Math.abs(first[i] - second[i]);
+                if (difference) changed += 1;
+                maximum = Math.max(maximum, difference);
+                totalDifference += difference;
+              }
+              return { changedChannels: changed, maximumChannelDifference: maximum,
+                meanAbsoluteChannelDifference: totalDifference / first.length,
+                comparedChannels: first.length };
+            };
+            try {
+              for (const mode of ['light', 'dark']) {
+                renderer.renderAt(0, mode, { foreground: false });
+                const first = renderer.readPixels();
+                const at = time => {
+                  renderer.renderAt(time, mode, { foreground: false });
+                  return compare(first, renderer.readPixels());
+                };
+                samples[mode] = {
+                  exactLoop: { seconds: [0, TORONTO_DURATION], ...at(TORONTO_DURATION) },
+                  quarterCycleMotion: { seconds: [0, TORONTO_DURATION / 4], ...at(TORONTO_DURATION / 4) },
+                  finalFrameToStart: { seconds: [0, TORONTO_DURATION - 1 / 24], ...at(TORONTO_DURATION - 1 / 24) },
+                  firstAdjacentFrame: { seconds: [0, 1 / 24], ...at(1 / 24) },
+                };
+              }
+            } finally {
+              renderer.renderAt(prior, sceneMixRef.current ?? 0, { foreground: foregroundRef.current });
+            }
+            return samples;
+          },
+        };
+        window.__torontoPreview = api;
+      }
     }).catch(error => {
       if (!active || error.name === 'AbortError') return;
-      console.error(error);
-      window.__torontoPreview = { error: error.message };
+      // Without WebGL or an image, the canvas stays hidden and the original video shows.
+      if (process.env.NODE_ENV !== 'production') {
+        console.error(error);
+        window.__torontoPreview = { error: error.message };
+      }
     });
 
     const onPlay = () => { seekTimeRef.current = null; foregroundRef.current = true; };
@@ -261,7 +268,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
       render();
     };
     video.addEventListener('play', onPlay);
-    window.addEventListener('hf-seek', onHfSeek);
+    if (process.env.NODE_ENV !== 'production') window.addEventListener('hf-seek', onHfSeek);
     return () => {
       active = false;
       initialization.abort();
@@ -272,11 +279,11 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
       canvas.removeEventListener('webglcontextlost', contextLost);
       canvas.removeEventListener('webglcontextrestored', contextRestored);
       video.removeEventListener('play', onPlay);
-      window.removeEventListener('hf-seek', onHfSeek);
+      if (process.env.NODE_ENV !== 'production') window.removeEventListener('hf-seek', onHfSeek);
       renderer?.dispose();
       rendererRef.current = null;
       renderRef.current = () => {};
-      delete window.__torontoPreview;
+      if (process.env.NODE_ENV !== 'production') delete window.__torontoPreview;
     };
   }, [videoRef, setPlaybackPreference, contextGeneration, updateScene]);
 
