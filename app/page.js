@@ -9,6 +9,7 @@ import AskLums from './components/home/AskLums';
 import LogoTicker from './components/home/LogoTicker';
 import TechText from './components/home/TechText';
 import AboutLanyard from './components/home/AboutLanyard';
+import TorontoBackdrop from './components/home/TorontoBackdrop';
 import PageTransition from './components/PageTransition';
 import SiteLink from './components/SiteLink';
 import { homeWorkGroups, productionHomeProjects } from './data/productionHomeProjects';
@@ -303,13 +304,20 @@ function Hero() {
             ref={videoRef}
             src="/home/hero/landing-diagonal-3.mp4"
             poster="/home/hero/landing-diagonal-3-poster.webp"
-            preload="none"
+            preload="auto"
             muted
             loop
             playsInline
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
             onError={() => setVideoFailed(true)}
+          />
+        )}
+        {!videoFailed && (
+          <TorontoBackdrop
+            videoRef={videoRef}
+            className={styles.heroImage}
+            setPlaybackPreference={setPlaybackPreference}
           />
         )}
       </div>
@@ -336,9 +344,6 @@ function Hero() {
               </a>
               <a className={styles.textLink} href="#about">
                 <span className={styles.heroAboutLabel}>About me</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M5 12h14m-6-6 6 6-6 6" />
-                </svg>
               </a>
             </div>
           </div>
