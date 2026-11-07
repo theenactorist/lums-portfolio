@@ -3,7 +3,9 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
 // themeSaved: true once the visitor has picked a theme with the toggle (saved in localStorage).
-const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {}, themeSaved: false });
+// mounted: false until the provider has read the saved theme. The provider swaps in after
+// one frame and the page under it mounts again, so media can wait for this to load once.
+const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {}, themeSaved: false, mounted: false });
 
 export function useTheme() {
   return useContext(ThemeContext);
@@ -39,7 +41,7 @@ export default function ThemeProvider({ children }) {
   if (!mounted) return <>{children}</>;
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, themeSaved }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, themeSaved, mounted: true }}>
       {children}
     </ThemeContext.Provider>
   );
