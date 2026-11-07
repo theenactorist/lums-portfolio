@@ -52,7 +52,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
     createTorontoRenderer(canvas, {
       video,
       matteUrl: '/_toronto/foreground-alpha-v2.png',
-      nightFloorUrl: '/_toronto/night-floor-v4.png?v=4-edge-final',
+      nightFloorUrl: '/_toronto/night-floor-v4.webp?v=4-edge-final',
       floorProtectionUrl: '/_toronto/protected-objects-v4.png?v=4-edge-final',
       floorRugProtectionUrl: '/_toronto/protected-rug-v4.png?v=4-edge-final',
       signal: initialization.signal,
