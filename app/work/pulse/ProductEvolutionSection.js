@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import ZoomableImage from './PulseImage'
 import pageStyles from './pulse.module.css'
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon'
 
 
 const partners = [
@@ -28,7 +29,7 @@ export default function ProductEvolutionSection() {
           <div>
             <h3>I designed and built the Pulse website</h3>
             <p>At the recorded update, the website was complete on staging and awaiting public launch.</p>
-            <a className={pageStyles.docsLink} href="https://pulse-staging-seven.vercel.app/" target="_blank" rel="noreferrer">Explore Pulse website <span aria-hidden="true">↗</span></a>
+            <a className={pageStyles.docsLink} href="https://pulse-staging-seven.vercel.app/" target="_blank" rel="noreferrer"><span><LinkArrowLabel>Explore Pulse website</LinkArrowLabel></span><span className={pageStyles.srOnly}> (opens in a new tab)</span></a>
             <figure className={pageStyles.websiteEvidence}>
               <ZoomableImage src="/work/pulse/website-current.png" alt="Pulse website showing the product overview and payment features" width={2668} height={1878} sizes="(max-width: 767px) 85vw, 400px" />
               <figcaption>Pulse website, staging at the recorded update.</figcaption>

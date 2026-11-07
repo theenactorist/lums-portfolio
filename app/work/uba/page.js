@@ -8,6 +8,7 @@ import '../../components/case-studies/shell-compat.css';
 import '../ai-copywriting/reference-fonts.css';
 import './uba-shell.css';
 import styles from './page.module.css';
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
 
 const phases = [
   { id: 'overview', label: 'At a glance' },
@@ -25,7 +26,7 @@ const links = {
   wireframes: 'https://whimsical.com/hr-sanctions-wireframes-EpmyxbnscnxDPuBBuKPdhS@AhRp651J2qVi9nHELRqnUVjYb',
 };
 function ExternalLink({ href, children }) {
-  return <a href={href} target="_blank" rel="noopener noreferrer">{children} <span aria-hidden="true">↗</span><span className={styles.srOnly}> (opens in a new tab)</span></a>;
+  return <a href={href} target="_blank" rel="noopener noreferrer"><LinkArrowLabel>{children}</LinkArrowLabel><span className={styles.srOnly}> (opens in a new tab)</span></a>;
 }
 function Evidence({ file, alt, caption, width = 3464, height = 1840, href, linkLabel }) {
   return (
@@ -71,7 +72,7 @@ export default function UBACaseStudy() {
                     <li>The platform served a workforce of <strong>10,000+ employees</strong> and improved HR efficiency by <strong>30%</strong>.</li>
                     <li>The wider move to in-house automation contributed to approximately <strong>$960K in annual enterprise licence savings</strong>.</li>
                   </ul>
-                  <a className={styles.resultLink} href="#results">Results and recognition <span aria-hidden="true">↗</span></a>
+                  <a className={styles.resultLink} href="#results">Results and recognition</a>
                 </div>
               </div>
             </section>

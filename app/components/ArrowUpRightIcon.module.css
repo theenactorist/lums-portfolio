@@ -1,0 +1,17 @@
+.keep {
+  white-space: nowrap;
+}
+
+/* 0.85em box; Phosphor draws the arrow from 0.186em to 0.664em of it. Raising the box 0.05em
+   puts the arrow's top on Google Sans's cap height (0.716em). The doubled class outranks
+   page rules such as Pulse's `.docsLink svg`, which strokes its own icons. */
+.keep > .linkIcon {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.08em;
+  vertical-align: 0.05em;
+  fill: currentColor;
+  stroke: none;
+  flex-shrink: 0;
+}

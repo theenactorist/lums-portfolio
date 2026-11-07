@@ -8,6 +8,7 @@ import '../../components/case-studies/shell-compat.css';
 import '../ai-copywriting/reference-fonts.css';
 import './sabi-shell.css';
 import styles from './page.module.css';
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
 
 export default function SabiCaseStudy() {
   return (
@@ -31,7 +32,7 @@ export default function SabiCaseStudy() {
               <h2>The goal was to connect commerce and delivery: help suppliers manage orders, logistics partners oversee fulfilment and drivers complete deliveries.</h2>
               <div className="overview-layout">
                 <dl className="project-facts">
-                  <div><dt>Company</dt><dd>Sabi<br /><a href="https://www.sabi.am/" target="_blank" rel="noopener noreferrer">Visit Sabi ↗</a></dd></div>
+                  <div><dt>Company</dt><dd>Sabi<br /><a href="https://www.sabi.am/" target="_blank" rel="noopener noreferrer"><LinkArrowLabel>Visit Sabi</LinkArrowLabel><span className="sr-only"> (opens in a new tab)</span></a></dd></div>
                   <div><dt>Industry</dt><dd>Logistics, E-commerce</dd></div>
                   <div><dt>Role</dt><dd>Product Design</dd></div>
                   <div><dt>Tools</dt><dd className="overview-tools"><span className="overview-tool"><Image src="/work/ai-copywriting/tools/figma.svg" width={20} height={20} alt="" aria-hidden="true" />Figma</span></dd></div>
@@ -46,7 +47,7 @@ export default function SabiCaseStudy() {
                     <li>The documented suite includes a logistics platform, a driver app and a supplier platform across web and mobile.</li>
                     <li>Research included competitive analysis, literature review, user interviews and prototype usability testing.</li>
                   </ul>
-                  <a className="overview-result-link" href="#logistics">Explore the product designs <span aria-hidden="true">↗</span></a>
+                  <a className="overview-result-link" href="#logistics">Explore the product designs</a>
                 </div>
               </div>
             </section>

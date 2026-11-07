@@ -9,6 +9,7 @@ import '../../components/case-studies/shell-compat.css';
 import '../ai-copywriting/reference-fonts.css';
 import './shiga-shell.css';
 import styles from './page.module.css';
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
 
 const phases = [
   { id: 'overview', label: 'At a glance' },
@@ -51,7 +52,7 @@ export default function ShigaOnboardingCaseStudy() {
               <h2>The first task should lead to the wallet, with verification tied to what comes next.</h2>
               <div className={styles.overviewLayout}>
                 <dl className={styles.facts}>
-                  <div><dt>Company</dt><dd>Shiga Digital<br /><a href="https://www.shiga.io/" target="_blank" rel="noopener noreferrer">Visit Shiga <span aria-hidden="true">↗</span></a></dd></div>
+                  <div><dt>Company</dt><dd>Shiga Digital<br /><a href="https://www.shiga.io/" target="_blank" rel="noopener noreferrer"><LinkArrowLabel>Visit Shiga</LinkArrowLabel><span className={styles.srOnly}> (opens in a new tab)</span></a></dd></div>
                   <div><dt>Industry</dt><dd>Fintech, cryptocurrency</dd></div>
                   <div><dt>Role</dt><dd>Product Designer<br />UX writing</dd></div>
                   <div><dt>Tools</dt><dd className={styles.tools}><span><Image src="/work/ai-copywriting/tools/claude.svg" width={20} height={20} alt="" />Claude Design</span>, <span><Image src="/work/ai-copywriting/tools/figma.svg" width={20} height={20} alt="" />Figma</span></dd></div>
@@ -66,7 +67,7 @@ export default function ShigaOnboardingCaseStudy() {
                     <li>The new structure separated crypto-only access from ENTA features that require identity verification.</li>
                     <li>Dashboard states explained what was available, what was locked and how to unlock it.</li>
                   </ul>
-                  <a className={styles.resultLink} href="#prototype">Explore the prototype <span aria-hidden="true">↗</span></a>
+                  <a className={styles.resultLink} href="#prototype">Explore the prototype</a>
                 </div>
               </div>
             </section>
@@ -153,7 +154,7 @@ export default function ShigaOnboardingCaseStudy() {
                 <h3>Design authentication beyond sign-up</h3>
                 <p>The passkey decision extends into device changes, return visits and recovery. Those paths need to be considered together so a shorter first journey does not create confusion later.</p>
               </div>
-              <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/carbon">Unifying Carbon’s banking experience across Android and iOS <span aria-hidden="true">↗</span></Link></nav>
+              <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/carbon"><LinkArrowLabel>Unifying Carbon’s banking experience across Android and iOS</LinkArrowLabel></Link></nav>
             </section>
           </article>
         </div>

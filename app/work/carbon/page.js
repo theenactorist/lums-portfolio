@@ -7,6 +7,7 @@ import '../../components/case-studies/shell-compat.css';
 import '../ai-copywriting/reference-fonts.css';
 import './carbon-shell.css';
 import styles from './page.module.css';
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
 
 const phases = [
   { id: 'overview', label: 'At a glance' },
@@ -49,7 +50,7 @@ export default function CarbonCaseStudy() {
               <h2>Customers saw two different versions of Carbon, depending on their phone.</h2>
               <div className={styles.overviewLayout}>
                 <dl className={styles.facts}>
-                  <div><dt>Company</dt><dd>Carbon<br /><a href="https://www.getcarbon.co/" target="_blank" rel="noopener noreferrer">Visit Carbon <span aria-hidden="true">↗</span></a></dd></div>
+                  <div><dt>Company</dt><dd>Carbon<br /><a href="https://www.getcarbon.co/" target="_blank" rel="noopener noreferrer"><LinkArrowLabel>Visit Carbon</LinkArrowLabel><span className={styles.srOnly}> (opens in a new tab)</span></a></dd></div>
                   <div><dt>Industry</dt><dd>Fintech, B2C banking</dd></div>
                   <div><dt>Role</dt><dd>Product Designer<br />User research</dd></div>
                   <div><dt>Team</dt><dd>1 product manager<br />3 product designers<br />6 engineers<br />1 product marketer<br />1 QA engineer</dd></div>
@@ -63,7 +64,7 @@ export default function CarbonCaseStudy() {
                     <li>The release brought Android and iOS together through a shared design system and a clearer home screen.</li>
                     <li>Recorded team outcomes included an <strong>81% increase in customer satisfaction</strong>, a <strong>25% increase in registrations</strong> and <strong>10% dormant-account reactivation</strong>.</li>
                   </ul>
-                  <a className={styles.resultLink} href="#results">Results and recognition <span aria-hidden="true">↗</span></a>
+                  <a className={styles.resultLink} href="#results">Results and recognition</a>
                 </div>
               </div>
             </section>
@@ -113,7 +114,7 @@ export default function CarbonCaseStudy() {
                   <CaseStudyAnimation src="/work/carbon/solution-3.gif" poster="/work/carbon/solution-3-poster.png" alt="Animated presentation of the redesigned Carbon home screen and its banking features" label="Carbon home screen animation" className={styles.bodyAnimation} style={{ aspectRatio: 'auto' }} />
                   <figcaption>The original animation presents the refreshed home screen and its banking features.</figcaption>
                 </figure>
-                <p><a href="https://youtu.be/62txB2xvgMY?si=Qwv2uB6Cul8MkfeJ" target="_blank" rel="noopener noreferrer">Watch Carbon’s feature launch video <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://youtu.be/62txB2xvgMY?si=Qwv2uB6Cul8MkfeJ" target="_blank" rel="noopener noreferrer"><LinkArrowLabel>Watch Carbon’s feature launch video</LinkArrowLabel><span className={styles.srOnly}> (opens in a new tab)</span></a></p>
               </div>
             </section>
             <section className={styles.section} id="delivery" tabIndex={-1}>
@@ -153,7 +154,7 @@ export default function CarbonCaseStudy() {
                 <h3>Trust is part of everyday interaction</h3>
                 <p>Balance privacy and a familiar interface matter alongside access to banking features. A cleaner visual system supports that experience, while customer feedback reveals the concerns the interface alone cannot address.</p>
               </div>
-              <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/sabi">Designing a multi-role commerce and delivery platform for Sabi <span aria-hidden="true">↗</span></Link></nav>
+              <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/sabi"><LinkArrowLabel>Designing a multi-role commerce and delivery platform for Sabi</LinkArrowLabel></Link></nav>
             </section>
           </article>
         </div>

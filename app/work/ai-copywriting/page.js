@@ -9,6 +9,7 @@ import './polish.css';
 import './shell-compat.css';
 import './reference-fonts.css';
 import styles from './clay-layout.module.css';
+import { linkArrowLabelHtml } from '../../components/ArrowUpRightIcon';
 
 const explorerData = {
   brand: framework.brand,
@@ -22,11 +23,14 @@ const sourceSnippet = {
   code: JSON.stringify(primaryButton.v7.slots[0], null, 2),
 };
 
+// Links that leave the page are marked `data-link-arrow` in the HTML and get the shared arrow icon here.
+const caseHtml = content.html.replace(/<span data-link-arrow>([^<]*)<\/span>/g, (_, label) => linkArrowLabelHtml(label));
+
 export default function AICopywritingCaseStudy() {
   return (
     <main className={`case-study-body ${styles.page}`} id="copygpt-case">
       {/* Trusted build output from the approved local narrative and vetted references. */}
-      <div dangerouslySetInnerHTML={{ __html: content.html }} />
+      <div dangerouslySetInnerHTML={{ __html: caseHtml }} />
       <CaseStudyEnhancements />
       <CaseStudyInteractive framework={explorerData} sourceSnippet={sourceSnippet} />
       <CopyGPTChatPreview />

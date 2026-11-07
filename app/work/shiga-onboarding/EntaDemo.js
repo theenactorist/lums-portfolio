@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from 'react';
 import styles from './enta-demo.module.css';
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
 
 const demoBase = '/work/shiga-onboarding/demo-2026-09';
 const views = [
@@ -90,7 +91,7 @@ export default function EntaDemo() {
         <p>ENTA onboarding and wallets</p>
         <a href={src} target="_blank" rel="noopener noreferrer"
           aria-label={`Open ${activeView.label.toLowerCase()} demo in a new tab`}>
-          Open full-screen demo ↗
+          <span><LinkArrowLabel>Open full-screen demo</LinkArrowLabel></span>
         </a>
       </div>
     </div>

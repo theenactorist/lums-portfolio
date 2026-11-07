@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ZoomableImage from '../../components/case-studies/ZoomableImage';
 import PrototypeViewer from './PrototypeViewer';
 import { logisticsPrototype, driverPrototype } from './caseStudyContent';
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
 
 export default function SabiBody() {
   return (
@@ -117,7 +118,7 @@ export default function SabiBody() {
           <p>A second takeaway was to stay open to changing requirements and user expectations as the product evolves.</p>
         </div>
       </section>
-      <div className="next-case"><span>Next case study</span><Link href="/work/uba">UBA — HR Management System <span aria-hidden="true">↗</span></Link></div>
+      <div className="next-case"><span>Next case study</span><Link href="/work/uba"><span><LinkArrowLabel>Taking an enterprise HR platform from concept to production</LinkArrowLabel></span></Link></div>
     </>
   );
 }

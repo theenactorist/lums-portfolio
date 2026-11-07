@@ -13,6 +13,7 @@ import ProductEvolutionSection from './ProductEvolutionSection'
 import PulseDashboard from './PulseDashboard'
 import HeliumButtonExample from './HeliumButtonExample'
 import styles from './pulse.module.css'
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon'
 import { pulseHeadline } from '../../data/productionHomeProjects'
 
 const DASHBOARD_URL = 'https://pulse-staging-seven.vercel.app/app?embed=1&theme=light'
@@ -375,7 +376,7 @@ export default function PulseCaseStudy() {
                   <li>Engineering connected the backend APIs. The team tested and presented the integrated product on day five.</li>
                   <li>The recorded demo helped secure Piggyvest as a partner.</li>
                 </ul>
-                <a className={styles.resultLink} href="#outcome">Handoff and first-demo outcome <span aria-hidden="true">↗</span></a>
+                <a className={styles.resultLink} href="#outcome">Handoff and first-demo outcome</a>
               </div>
             </div>
           </section>
@@ -418,7 +419,7 @@ export default function PulseCaseStudy() {
             <p>Figma properties became React props. The Button mapping defined hierarchy and size, along with default, hover, focus and disabled states. Reusing established patterns gave me time to design and QA the product’s flows and features.</p>
             <figure className={styles.evidence}>
               <ZoomableImage src="/work/pulse/helium-component.png" alt="Helium React button component with hierarchy, size and state controls in Storybook" width={1440} height={900} sizes="(max-width: 767px) 85vw, 744px" />
-              <figcaption>The Button component and its variants in Storybook.<a className={styles.evidenceLink} href={STORYBOOK_URL} target="_blank" rel="noreferrer">Explore Storybook <span aria-hidden="true">↗</span></a></figcaption>
+              <figcaption>The Button component and its variants in Storybook.<a className={styles.evidenceLink} href={STORYBOOK_URL} target="_blank" rel="noreferrer"><LinkArrowLabel>Explore Storybook</LinkArrowLabel><span className={styles.srOnly}> (opens in a new tab)</span></a></figcaption>
             </figure>
             <HeliumButtonExample />
           </Section>
@@ -454,7 +455,7 @@ export default function PulseCaseStudy() {
               <div><dt>Support new use cases through one SDK</dt><dd>Test which differences belong in partner configuration and which payment behaviours should stay shared.</dd></div>
             </dl>
           </Section>
-          <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/shiga-onboarding">Cutting time to value with a passkey-led onboarding <span aria-hidden="true">↗</span></Link></nav>
+          <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/shiga-onboarding"><LinkArrowLabel>Cutting time to value with a passkey-led onboarding</LinkArrowLabel></Link></nav>
         </article>
       </div>
     </main>

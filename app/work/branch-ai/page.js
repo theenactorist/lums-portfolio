@@ -5,6 +5,7 @@ import ZoomableImage from '../../components/case-studies/ZoomableImage';
 import '../ai-copywriting/reference-fonts.css';
 import './branch-shell.css';
 import styles from './page.module.css';
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
 
 const phases = [
   { id: 'overview', label: 'At a glance' },
@@ -73,7 +74,7 @@ export default function BranchAICaseStudy() {
               <h2>AI was already part of the team’s work. Branch context and quality standards were missing.</h2>
               <div className={styles.overviewLayout}>
                 <dl className={styles.facts}>
-                  <div><dt>Company</dt><dd><Image src="/home/work-logos/branch.svg" alt="Branch" width={88} height={26} className={styles.companyLogo} /><span className={styles.companyName}>Branch International</span><a href="https://branch.co" target="_blank" rel="noopener noreferrer">Visit Branch <span aria-hidden="true">↗</span></a></dd></div>
+                  <div><dt>Company</dt><dd><Image src="/home/work-logos/branch.svg" alt="Branch" width={88} height={26} className={styles.companyLogo} /><span className={styles.companyName}>Branch International</span><a href="https://branch.co" target="_blank" rel="noopener noreferrer"><LinkArrowLabel>Visit Branch</LinkArrowLabel><span className={styles.srOnly}> (opens in a new tab)</span></a></dd></div>
                   <div><dt>Role</dt><dd>Product Designer, AI Systems</dd></div>
                   <div><dt>Core users</dt><dd>5 designers, 4 UX researchers, 15 product managers</dd></div>
                   <div><dt>Markets</dt><dd>India, Kenya, Nigeria</dd></div>
@@ -89,7 +90,7 @@ export default function BranchAICaseStudy() {
                     <li><strong>Neem DS Prototyper:</strong> interactive prototypes helped PMs make PRD feedback more concrete before high-fidelity design.</li>
                   </ul>
                   <p className={styles.qualification}>Cross-market copy totals include audited India data and directional estimates for Kenya and Nigeria. PM feedback suggested about a 30% reduction in PRD evaluation time; this was not a timed study.</p>
-                  <a className={styles.resultLink} href="#results">Outcomes and recognition <span aria-hidden="true">↗</span></a>
+                  <a className={styles.resultLink} href="#results">Outcomes and recognition</a>
                 </div>
               </div>
             </section>
@@ -169,7 +170,7 @@ export default function BranchAICaseStudy() {
                 ]} />
                 <p>The same original PAN instruction needed different wording depending on the screen state. The tracker records implemented changes; it does not establish which version generated each historical rewrite.</p>
                 <p>I collaborated with one product manager and one engineer from each market for implementation. Original copy, proposed copy and rationale went into a shared Google Sheet, with human review before engineering changes.</p>
-                <div className={styles.caseLink}><h3>Explore the full CopyGPT case</h3><p>The separate UX-writing case covers the product dataset, component rules, v7 processing sequence, detailed tracker evidence and visitor chat.</p><Link href="/work/ai-copywriting">How I standardised UX writing at Branch <span aria-hidden="true">↗</span></Link></div>
+                <div className={styles.caseLink}><h3>Explore the full CopyGPT case</h3><p>The separate UX-writing case covers the product dataset, component rules, v7 processing sequence, detailed tracker evidence and visitor chat.</p><Link href="/work/ai-copywriting"><LinkArrowLabel>How I standardised UX writing at Branch</LinkArrowLabel></Link></div>
               </div>
             </section>
             <section className={styles.section} id="prototyping" tabIndex={-1}>
@@ -224,7 +225,7 @@ export default function BranchAICaseStudy() {
                 <h3>Guardrails need tuning</h3><p>Too little guidance left outputs generic. Overly strict rules could make them rigid. Iterating the references, testing outputs and cleaning inconsistent component names mattered as much as choosing a model.</p>
                 <h3>Reuse still needs human judgement</h3><p>A shared workflow helps teams start closer to an appropriate answer. Designers, engineers and PMs still decide whether an illustration, string or prototype fits the product before it moves forward.</p>
               </div>
-              <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/shiga-onboarding">Cutting time to value with Shiga’s passkey-led onboarding <span aria-hidden="true">↗</span></Link></nav>
+              <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/shiga-onboarding"><LinkArrowLabel>Cutting time to value with Shiga’s passkey-led onboarding</LinkArrowLabel></Link></nav>
             </section>
           </article>
         </div>

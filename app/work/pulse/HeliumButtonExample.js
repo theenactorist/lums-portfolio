@@ -2,6 +2,7 @@
 
 import { useId, useState, useSyncExternalStore } from 'react'
 import styles from './HeliumButtonExample.module.css'
+import { LinkArrowLabel } from '../../components/ArrowUpRightIcon'
 
 const STORYBOOK = 'https://helium-design-system-storybook.vercel.app'
 const EXAMPLES = {
@@ -50,7 +51,7 @@ export default function HeliumButtonExample() {
           <h3 id={titleId}>One Button, reusable props</h3>
         </div>
         <a href={storyUrl} target="_blank" rel="noreferrer" className={styles.sourceLink}>
-          View in Storybook <span aria-hidden="true">↗</span>
+          <LinkArrowLabel>View in Storybook</LinkArrowLabel><span className="sr-only"> (opens in a new tab)</span>
         </a>
       </header>
 
