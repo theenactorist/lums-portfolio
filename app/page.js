@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ import TorontoBackdrop from './components/home/TorontoBackdrop';
 import PageTransition from './components/PageTransition';
 import SiteLink from './components/SiteLink';
 import { homeWorkGroups, productionHomeProjects } from './data/productionHomeProjects';
-import { homeAboutLead } from './data/profile';
+import { homeAboutLeadParts } from './data/profile';
 import { designSkills } from './data/designSkills';
 import styles from './home.module.css';
 
@@ -577,7 +577,23 @@ function About() {
                 I design.
               </h2>
               <div className={styles.aboutCopy}>
-                <p>{homeAboutLead}</p>
+                <p>
+                  {homeAboutLeadParts.map((part, index) => (
+                    <Fragment key={index}>
+                      {typeof part === 'string' ? part : (
+                        <a
+                          className={styles.aboutLink}
+                          href={part.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {part.text}
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      )}
+                    </Fragment>
+                  ))}
+                </p>
                 <p>
                   I&apos;m curious by default and collaborative by nature. I ask a lot of
                   questions, challenge assumptions and like working with people who bring

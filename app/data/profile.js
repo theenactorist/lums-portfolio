@@ -18,5 +18,19 @@ export function yearsOfExperience(now = new Date()) {
   return now.getMonth() + 1 < careerStart.month ? years - 1 : years;
 }
 
-// First About paragraph on Home (Olumide approved, 6 Nov 2026).
-export const homeAboutLead = `I’ve spent ${yearsOfExperience()} years designing at every size. I was Shiga’s founding designer, taking its first product from idea to funding. At Branch and Carbon, I designed apps used by millions (50M+ downloads at Branch, 4M+ customers at Carbon). I’ve also designed for people with very particular jobs, like delivery drivers and the developers wiring up a payments SDK. Whatever the size, I care about the full product, not isolated screens: how it works for users, how it supports the business, and how well it translates into something engineering can actually ship.`;
+// First About paragraph on Home (Olumide approved, 6 Nov 2026; Shiga sentence and
+// company links, 7 Nov 2026). Links mark the first mention of each company and open
+// in a new tab; Home renders the parts, and homeAboutLead is the same text as a string.
+export const homeAboutLeadParts = [
+  `I’ve spent ${yearsOfExperience()} years designing at every size. I’m `,
+  { text: 'Shiga', href: 'https://shiga.io/' },
+  '’s founding designer, and I took its first product from idea to funding. At ',
+  { text: 'Branch', href: 'https://branch.co/' },
+  ' and ',
+  { text: 'Carbon', href: 'https://www.getcarbon.co/personal' },
+  ', I designed apps used by millions (50M+ downloads at Branch, 4M+ customers at Carbon). I’ve also designed for people with very particular jobs, like delivery drivers and the developers wiring up a payments SDK. Whatever the size, I care about the full product, not isolated screens: how it works for users, how it supports the business, and how well it translates into something engineering can actually ship.',
+];
+
+export const homeAboutLead = homeAboutLeadParts
+  .map((part) => (typeof part === 'string' ? part : part.text))
+  .join('');
