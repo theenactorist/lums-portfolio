@@ -320,38 +320,12 @@ function Hero() {
             <span className={styles.heroTitleLine}>
               <TechText text="Product design engineer." boundsRef={heroRef} />
             </span>
-            {' '}
-            <span className={styles.heroLocation}>
-              Based in{' '}
-              <button
-                className={styles.torontoTrigger}
-                type="button"
-                aria-label="Toronto"
-                aria-describedby="toronto-preview-description"
-              >
-                <span className={styles.torontoText}>Toronto.</span>
-                <span className={styles.cnTowerPreview} aria-hidden="true">
-                  <svg viewBox="0 0 120 300" focusable="false">
-                    <path d="M58.5 0h3l2.8 72H55.7L58.5 0Z" />
-                    <path d="M52.5 66h15l7 10-5 11h-19l-5-11 7-10Z" />
-                    <path d="M54.5 87h11l4 45h-19l4-45Z" />
-                    <path d="M31 124h58l16 12-4 16-12 9H31l-12-9-4-16 16-12Z" />
-                    <path d="M48 162h24l8 99H40l8-99Z" />
-                    <path d="M40 261h40l16 39H24l16-39Z" />
-                  </svg>
-                </span>
-              </button>
-            </span>
           </h1>
-          <span className={styles.visuallyHidden} id="toronto-preview-description">
-            A slightly tilted silhouette of Toronto&apos;s CN Tower appears on hover or
-            keyboard focus.
-          </span>
 
           <div className={styles.heroLower}>
             <p className={styles.heroSummary}>
-              I blend behavioural science, design and AI to create digital products that are
-              useful and usable while delivering on business goals.
+              Based in Toronto, I blend behavioural science, design and AI to create digital
+              products that are useful and usable while delivering on business goals.
             </p>
             <div className={styles.heroActions}>
               <a
