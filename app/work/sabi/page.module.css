@@ -56,7 +56,6 @@
 .page :global(.chapter-nav a::before) { content: ''; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0; }
 .page :global(.chapter-nav a[aria-current]) { font-weight: 600; }
 .page :global(.chapter-nav a[aria-current]::before) { opacity: 1; }
-.page :global(.chapter-nav a[aria-current]::after) { content: '↗'; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 8px; margin-left: auto; font-weight: 400; flex-shrink: 0; }
 .page :global(.mobile-contents) { display: none; }
 .page :global(.case-article) { container: sabi-article / inline-size; min-width: 0; padding: 0 12px 0 56px; border-left: 1px solid transparent; }
 .page :global(.case-section) { margin-bottom: 64px; scroll-margin-top: calc(var(--nav-height,72px) + 32px); }
