@@ -45,11 +45,11 @@
 
 /* At a glance: the copy has no headline here, so the label is the section's heading. */
 .overview { margin-bottom:104px; }
-.overview h2.overviewLabel { display:inline-flex; max-width:none; padding:4px 8px; margin:0 0 32px; background:var(--rail-surface); border-radius:6px; font-family:var(--font-mono); font-size:12px; line-height:18px; font-weight:400; letter-spacing:0; color:var(--ink); }
+.overview h2.overviewLabel { display:inline-flex; max-width:none; padding:4px 8px; margin:0 0 32px; background:var(--rail-surface); border-radius:6px; font-family:var(--font-sans); font-size:12px; line-height:18px; font-weight:400; letter-spacing:0; color:var(--ink); }
 .overviewLayout { display:grid; grid-template-columns:43% minmax(0,1fr); gap:24px; align-items:start; }
 .facts { padding:19.2px; background:var(--surface); border-radius:16px; margin:0; }
 .facts > div + div { border-top:1px dashed var(--line); padding-top:19.2px; margin-top:19.2px; }
-.facts dt { font-family:var(--font-mono); font-size:12px; line-height:18px; color:var(--muted); font-weight:500; letter-spacing:.4px; text-transform:uppercase; margin-bottom:10px; }
+.facts dt { font-family:var(--font-sans); font-size:12px; line-height:18px; color:var(--muted); font-weight:500; letter-spacing:.4px; text-transform:uppercase; margin-bottom:10px; }
 .facts dd { margin:0; font-size:16px; line-height:1.45; color:var(--ink); }
 .tools { display:flex; align-items:center; flex-wrap:wrap; gap:6px 8px; }
 .tools span { display:inline-flex; align-items:center; gap:6px; }
@@ -83,7 +83,7 @@
 .tierCurrent { left:0; top:0; width:100%; transform-origin:50.6% 39.8%; }
 .tierLocked { left:8.56%; top:7.2%; width:81.48%; }
 .tierCompleted { left:22.56%; top:18.08%; width:55.56%; }
-.replay { display:block; min-width:56px; min-height:32px; margin:12px auto 0; padding:4px 10px; border:0; border-radius:6px; background:none; color:var(--ink); font-family:var(--font-mono); font-size:12px; line-height:1.5; letter-spacing:.4px; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.replay { display:block; min-width:56px; min-height:32px; margin:12px auto 0; padding:4px 10px; border:0; border-radius:6px; background:none; color:var(--ink); font-family:var(--font-sans); font-size:12px; line-height:1.5; letter-spacing:.4px; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
 .srOnly { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 /* Phone screens: each screen on a slightly darker fill than the figure, so a white screen keeps its edge in light mode. */
@@ -109,7 +109,7 @@
 /* T6: no zoom hint on annotated screens; on phones it sat over the app's own UI. Tapping the screen still opens the viewer. */
 .annotatedScreen :global(.zoom-trigger__hint) { display:none; }
 .annotatedOverlay { position:absolute; inset:0; pointer-events:none; }
-.marker, .stepNumber { display:grid; place-items:center; width:var(--marker); height:var(--marker); border-radius:50%; background:var(--ink); color:var(--paper); font-family:var(--font-mono); font-size:11px; font-weight:600; line-height:1; }
+.marker, .stepNumber { display:grid; place-items:center; width:var(--marker); height:var(--marker); border-radius:50%; background:var(--ink); color:var(--paper); font-family:var(--font-sans); font-size:11px; font-weight:600; line-height:1; }
 .marker { position:absolute; left:-8px; transform:translate(-100%,-50%); transition:background-color .15s ease, color .15s ease; }
 .marker[data-active], .steps li[data-active] .stepNumber { background:var(--accent); color:#fff; }
 .highlight { position:absolute; border-radius:6px; outline:2px solid var(--accent); outline-offset:1px; background:color-mix(in srgb, var(--accent) 12%, transparent); }
@@ -132,10 +132,10 @@
 .tableWrap { overflow-x:auto; border-radius:16px; background:var(--surface); }
 .prose > .tableWrap { max-width:704px; margin:32px auto 40px; }
 .table { width:100%; border-collapse:collapse; font-size:15px; line-height:1.55; }
-.table caption { padding:16px 20px 0; text-align:left; font-family:var(--font-mono); font-size:12px; line-height:1.5; letter-spacing:.4px; color:var(--muted); }
+.table caption { padding:16px 20px 0; text-align:left; font-family:var(--font-sans); font-size:12px; line-height:1.5; letter-spacing:.4px; color:var(--muted); }
 .table :is(th,td) { padding:14px 20px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
 .table tbody tr:last-child :is(th,td) { border-bottom:0; }
-.table thead th { font-family:var(--font-mono); font-size:12px; font-weight:500; letter-spacing:.4px; color:var(--muted); }
+.table thead th { font-family:var(--font-sans); font-size:12px; font-weight:500; letter-spacing:.4px; color:var(--muted); }
 .table tbody th { color:var(--ink); font-weight:600; }
 .table tbody td { color:var(--copy); }
 
@@ -147,7 +147,7 @@
 .definitions dd { margin:0; }
 
 .next { max-width:704px; margin:64px auto 0; display:flex; flex-direction:column; gap:16px; }
-.next > span { color:var(--muted); font-family:var(--font-mono); font-size:12px; letter-spacing:.4px; text-transform:uppercase; }
+.next > span { color:var(--muted); font-family:var(--font-sans); font-size:12px; letter-spacing:.4px; text-transform:uppercase; }
 .next a { font-size:24px; line-height:1.3; text-decoration:none; }
 .next a:hover { text-decoration:underline; }
 
@@ -205,7 +205,7 @@
   .stacked tbody tr:last-child { border-bottom:0; }
   .stacked tbody :is(th,td) { padding:0; border:0; }
   .stacked tbody td { display:grid; grid-template-columns:112px minmax(0,1fr); gap:12px; margin-top:8px; }
-  .stacked tbody td::before { content:attr(data-label); font-family:var(--font-mono); font-size:12px; letter-spacing:.4px; color:var(--muted); }
+  .stacked tbody td::before { content:attr(data-label); font-family:var(--font-sans); font-size:12px; letter-spacing:.4px; color:var(--muted); }
 }
 @media (prefers-reduced-motion:reduce) {
   .page,.page * { scroll-behavior:auto !important; animation:none !important; transition-duration:0s !important; }

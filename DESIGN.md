@@ -10,14 +10,16 @@ colors:
   border: "#2a2a30"
 typography:
   display:
-    fontFamily: "'Google Sans Display', 'Google Sans', -apple-system, sans-serif"
+    fontFamily: "'Google Sans', ui-sans-serif, system-ui, sans-serif"
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "'Playfair Display', Georgia, serif"
+    fontFamily: "'Google Sans', ui-sans-serif, system-ui, sans-serif"
   body:
-    fontFamily: "'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    fontFamily: "'Google Sans', ui-sans-serif, system-ui, sans-serif"
     lineHeight: 1.6
   label:
+    fontFamily: "'Google Sans', ui-sans-serif, system-ui, sans-serif"
+  code:
     fontFamily: "'JetBrains Mono', 'SF Mono', 'Consolas', monospace"
 rounded:
   sm: "6px"
@@ -56,7 +58,7 @@ This system is modern yet recognizable, built to reflect a thoughtful, un-rushed
 - Restrained and deliberate
 - High-contrast, dark-immersive default
 - Flat by default (no shadows)
-- Purposeful use of technical monospaced accents
+- One typeface, Google Sans, with hierarchy from size and weight
 
 ## 2. Colors
 
@@ -77,22 +79,20 @@ The palette is a strict, dark-immersive canvas punctuated by a single, highly sa
 
 ## 3. Typography
 
-**Display Font:** Google Sans Display (with sans-serif)
-**Headline Font:** Playfair Display (with serif)
-**Body Font:** Google Sans (with sans-serif)
-**Label/Mono Font:** JetBrains Mono (with monospace)
+**Typeface:** Google Sans everywhere: display, headlines, body and labels (self-hosted through `next/font` in `app/layout.js`, with a size-matched Arial fallback).
+**Code Font:** JetBrains Mono, only where code is shown.
 
-**Character:** A highly structured, editorial-technical pairing. Google Sans provides clean, modern geometry, while Playfair Display injects a touch of editorial warmth for key headlines. JetBrains Mono provides strict technical contrast.
+**Character:** One clean, modern sans across the whole site. Hierarchy comes from size, weight and spacing, not from switching typefaces. There is no serif and no separate display face.
 
 ### Hierarchy
 - **Display** (600, fluid 56-96px, 1.1): Hero headlines only. Extremely tight tracking.
-- **Headline** (400/italic, fluid 32-60px, 1.2): Section intros and narrative breaks.
+- **Headline** (fluid 32-60px, 1.2): Section intros and narrative breaks.
 - **Title** (500, fluid 24-32px, 1.3): Card titles and component headers.
 - **Body** (400, fluid 16-18px, 1.6): Long-form reading and component descriptions. Cap line length at 65–75ch.
 - **Label** (400, fluid 12-14px, normal): Technical metadata, tags, and small utility text.
 
 ### Named Rules
-**The Mono Metadata Rule.** Dates, technical tags, and code-adjacent labels must use JetBrains Mono to reinforce the "precision engineer" aesthetic.
+**The Code-Only Mono Rule.** JetBrains Mono is for code only: code blocks, inline code, token names and values shown as code. Dates, tags, table heads, metadata and other labels use Google Sans.
 
 ## 4. Elevation
 

@@ -1780,7 +1780,7 @@ main > .section:first-child {
 }
 
 .project-entry__period {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--accent);
   letter-spacing: 0.02em;
@@ -2149,7 +2149,7 @@ main > .section:first-child {
 .timeline__period {
   font-size: var(--text-xs);
   color: var(--text-tertiary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .timeline__badge {
@@ -2215,7 +2215,7 @@ main > .section:first-child {
 .tool-chip__category {
   font-size: var(--text-xs);
   color: var(--text-muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 /* --- Vibe-Coded Apps --- */
@@ -2441,7 +2441,7 @@ main > .section:first-child {
 
 .wall__eyebrow {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2734,7 +2734,7 @@ main > .section:first-child {
 }
 
 .project-hero__client {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--accent);
   text-transform: uppercase;
@@ -2780,7 +2780,7 @@ main > .section:first-child {
 }
 
 .project-meta__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--text-muted);
   text-transform: uppercase;
@@ -2853,7 +2853,7 @@ main > .section:first-child {
 }
 
 .project-next__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--text-muted);
   text-transform: uppercase;
@@ -2977,7 +2977,7 @@ main > .section:first-child {
 }
 
 .cs-hero__eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--accent);
   text-transform: uppercase;
@@ -3040,7 +3040,7 @@ main > .section:first-child {
 }
 
 .cs-meta__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -3143,7 +3143,7 @@ main > .section:first-child {
 }
 
 .cs-metrics__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--text-tertiary);
   text-transform: uppercase;
@@ -3152,7 +3152,7 @@ main > .section:first-child {
 
 /* --- Section divider eyebrow --- */
 .cs-divider {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -3194,7 +3194,7 @@ main > .section:first-child {
 }
 
 .cs-feature__deliverables-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -3433,7 +3433,7 @@ main > .section:first-child {
   min-width: 48px;
   text-align: center;
   color: rgba(255, 255, 255, 0.85);
-  font-family: var(--font-mono, var(--font-display));
+  font-family: var(--font-sans);
   font-size: 12px;
   font-variant-numeric: tabular-nums;
   padding: 0 4px;
@@ -3550,7 +3550,7 @@ main > .section:first-child {
 .cs-impact-card__label,
 .cs-status-card__label,
 .cs-example-card__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--accent);
   text-transform: uppercase;
@@ -3607,7 +3607,7 @@ main > .section:first-child {
 .cs-comparison-table__header {
   background: var(--bg-elevated);
   color: var(--text-primary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -3651,7 +3651,7 @@ main > .section:first-child {
 .cs-data-table th {
   background: var(--bg-elevated);
   color: var(--text-primary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -3695,7 +3695,7 @@ main > .section:first-child {
   display: block;
   margin-bottom: var(--space-xs);
   color: var(--accent);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -3736,7 +3736,7 @@ main > .section:first-child {
 
 .cs-initiative-snapshot__item span {
   color: var(--text-tertiary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -3910,7 +3910,7 @@ main > .section:first-child {
 }
 
 .cs-award__eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--accent);
   text-transform: uppercase;
@@ -3950,7 +3950,7 @@ main > .section:first-child {
   background: color-mix(in srgb, var(--accent) 14%, var(--bg-elevated));
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   color: var(--text-primary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 700;
 }
@@ -3988,7 +3988,7 @@ main > .section:first-child {
 }
 
 .cs-next__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -4074,7 +4074,7 @@ main > .section:first-child {
     gap: var(--space-xs);
   }
   .cs-comparison-table__row span:first-child {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-xs);
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -4110,7 +4110,7 @@ main > .section:first-child {
   .cs-data-table td::before {
     content: attr(data-label);
     color: var(--text-tertiary);
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-xs);
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -4292,7 +4292,7 @@ main > .section:first-child {
 }
 
 .work-page__card-role {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--text-muted);
   text-transform: uppercase;
@@ -4300,7 +4300,7 @@ main > .section:first-child {
 }
 
 .work-page__card-period {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--text-muted);
 }

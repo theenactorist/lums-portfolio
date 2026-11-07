@@ -70,7 +70,7 @@
 .control:focus-visible, .close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .control:disabled { opacity: .35; cursor: default; }
 .reset { width: auto; padding-inline: 12px; font: 500 12px var(--font-display, sans-serif); }
-.scale { min-width: 42px; text-align: center; font: 500 12px var(--font-mono, monospace); font-variant-numeric: tabular-nums; }
+.scale { min-width: 42px; text-align: center; font: 500 12px var(--font-sans); font-variant-numeric: tabular-nums; }
 .close { position: absolute; top: max(24px, env(safe-area-inset-top)); right: 24px; border: 1px solid rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .08); }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @media (max-width: 640px) {
