@@ -112,14 +112,15 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
 
     createTorontoRenderer(canvas, {
       video,
-      matteUrl: '/_toronto/foreground-alpha-v2.png',
-      nightFloorUrl: '/_toronto/night-floor-v4.webp?v=4-edge-final',
-      floorProtectionUrl: '/_toronto/protected-objects-v4.png?v=4-edge-final',
-      floorRugProtectionUrl: '/_toronto/protected-rug-v4.png?v=4-edge-final',
+      matteUrl: '/_toronto/foreground-alpha-v3.png',
+      nightFloorUrl: '/_toronto/night-floor-v5.webp?v=5-mask-fixes',
+      floorProtectionUrl: '/_toronto/protected-objects-v5.png?v=5-mask-fixes',
+      floorRugProtectionUrl: '/_toronto/protected-rug-v5.png?v=5-mask-fixes',
       signal: initialization.signal,
       dynamic: {
-        url: '/_toronto/dynamic-alpha-atlas.png',
+        url: '/_toronto/dynamic-alpha-atlas-v5.png?v=5-mask-fixes',
         rect: [820, 692, 350, 94], columns: 8, rows: 31,
+        floorRect: [835, 856, 256, 24], floorChannel: 'green',
       },
     }).then((instance) => {
       if (!active) { instance.dispose(); return; }
