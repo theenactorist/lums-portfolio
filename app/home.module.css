@@ -2065,6 +2065,27 @@
   }
 }
 
+/* Short landscape: the buttons land on the bright floor where the scrim is lightest,
+   so darken the lower left until About me reads at 4.5:1 or more in both scenes. */
+@media (min-width: 701px) and (max-height: 500px) {
+  .heroBackdrop::after {
+    background:
+      radial-gradient(
+        70% 60% at 0% 100%,
+        rgb(7 15 25 / 66%) 0%,
+        rgb(7 15 25 / 56%) 45%,
+        rgb(7 15 25 / 0%) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgb(7 15 25 / 68%) 0%,
+        rgb(7 15 25 / 62%) 72%,
+        rgb(7 15 25 / 12%) 86%,
+        rgb(7 15 25 / 76%) 100%
+      );
+  }
+}
+
 @media (max-width: 700px), (hover: none), (pointer: coarse) {
   .projectOpen {
     opacity: 1;
