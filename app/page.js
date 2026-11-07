@@ -464,7 +464,12 @@ function ProjectCard({ project }) {
           />
         )}
         {project.href && (
-          <span className={styles.projectOpen} aria-hidden="true">↗</span>
+          <span className={styles.projectOpen} aria-hidden="true">
+            {/* ArrowUpRight, regular weight, from Phosphor Icons (MIT): github.com/phosphor-icons/core */}
+            <svg viewBox="0 0 256 256" fill="currentColor" focusable="false">
+              <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z" />
+            </svg>
+          </span>
         )}
       </div>
       <div className={styles.projectBody}>
