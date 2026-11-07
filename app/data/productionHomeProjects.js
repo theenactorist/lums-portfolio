@@ -6,6 +6,7 @@
 // The owner asked for Carbon's and Branch's logos side by side on that card on 6 November 2026 (companyLogos, Home only);
 // companyName gives /work and the share image both companies. Cards without companyLogos show their single companyLogo.
 // Card tags (attributes) trimmed to at most three on 6 November 2026: no “Shipped” (all of them are) and none that repeat the Home group.
+// The owner asked for four tags on Carbon (adding Fintech) and Shiga onboarding (adding B2B) on 7 November 2026.
 // Other cards retain their verified production destinations and order.
 export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
 export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
@@ -42,7 +43,7 @@ export const productionHomeProjects = [
     id: 'shiga-onboarding',
     title: 'Cutting time to value with passkey-led onboarding',
     description: 'Redesigning ENTA’s individual onboarding around passkeys and feature-based verification, so users can reach their wallet before unlocking fiat services.',
-    attributes: ['Fintech', 'Crypto', 'B2C'],
+    attributes: ['Fintech', 'Crypto', 'B2C', 'B2B'],
     image: '/home/live-work/shiga-onboarding.jpg',
     imageAlt: 'Cutting time to value with passkey-led onboarding',
     href: 'https://olumideolusesi.com/work/shiga-onboarding',
@@ -55,7 +56,7 @@ export const productionHomeProjects = [
     id: 'carbon',
     title: 'Unifying Carbon’s banking experience across Android and iOS',
     description: 'Redesigning the home screen to prioritise credit and everyday actions, improve balance privacy, and bring both mobile platforms into one consistent experience.',
-    attributes: ['Design Systems', 'B2C', 'Mobile'],
+    attributes: ['Design Systems', 'B2C', 'Mobile', 'Fintech'],
     image: '/home/live-work/carbon.jpg',
     imageAlt: 'Unifying Carbon’s banking experience across Android and iOS',
     href: 'https://olumideolusesi.com/work/carbon',
