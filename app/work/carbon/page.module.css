@@ -9,7 +9,7 @@
 .heroCopy { min-width:0; }
 .breadcrumb { display:flex; align-items:center; gap:12px; color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:32px; }
 .breadcrumb a { color:var(--ink); }
-.header h1 { max-width:720px; margin:0 0 32px; font-size:48px; font-weight:600; line-height:1.05; letter-spacing:-.04em; text-wrap:balance; }
+.header h1 { max-width:760px; margin:0 0 32px; font-size:48px; font-weight:600; line-height:1.05; letter-spacing:-.04em; text-wrap:balance; }
 .intro,.intro p { max-width:680px; font-size:20px; line-height:1.6; color:var(--copy); }
 .intro p { margin:0; text-wrap:pretty; }
 .page .heroEvidence { min-width:0; width:100%; --animation-surface:#e8e1f3; --animation-control-hover:rgb(0 0 0 / 6%); color:#1d1d1b; }
@@ -97,7 +97,7 @@
 }
 @media (min-width:768px) and (max-width:1479px) {
   .header { grid-template-columns:minmax(0,1fr); }
-  .heroCopy { width:100%; max-width:720px; justify-self:center; }
+  .heroCopy { width:100%; max-width:760px; justify-self:center; }
   .heroEvidence { width:min(100%,530px); justify-self:center; }
 }
 @media (max-width:991px) {
