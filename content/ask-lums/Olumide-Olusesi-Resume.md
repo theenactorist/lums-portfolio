@@ -6,7 +6,7 @@ Greater Toronto Area, Ontario | (647) 657-7810 | consistentolusesi@gmail.com
 ---
 
 ## PROFESSIONAL SUMMARY
-Senior Product Designer with 6+ years of experience in fintech, eCommerce SaaS designing mobile and web products for consumer and enterprise users. I bring strong end-to-end UX/UI craft, design systems experience, and AI workflow expertise to create human-centered designs that simplify complexity, improve usability and adoption, and deliver measurable business impact.
+Senior Product Designer with 7 years of experience in fintech, eCommerce SaaS designing mobile and web products for consumer and enterprise users. I bring strong end-to-end UX/UI craft, design systems experience, and AI workflow expertise to create human-centered designs that simplify complexity, improve usability and adoption, and deliver measurable business impact.
 
 ---
 

@@ -568,15 +568,11 @@ function About() {
             <div className={styles.aboutLanyardSpace} aria-hidden="true" />
             <div className={styles.aboutProse}>
               <h2 id="about-heading">
-                Hi, I&apos;m Olumide (Lums), a low-ego, high-impact Product Design Engineer who turns
-                complex problems into clear, useful experiences.
+                Hi, I’m Olumide (Lums). I design for millions, and for the few. And I build what
+                I design.
               </h2>
               <div className={styles.aboutCopy}>
-                <p>
-                  {homeAboutLead} I care about the full product,
-                  not isolated screens: how it works for users, how it supports the business,
-                  and how well it translates into something engineering can actually ship.
-                </p>
+                <p>{homeAboutLead}</p>
                 <p>
                   I&apos;m curious by default and collaborative by nature. I ask a lot of
                   questions, challenge assumptions and like working with people who bring

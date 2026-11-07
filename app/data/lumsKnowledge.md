@@ -10,7 +10,7 @@
 - **Nickname:** Lums — a short form coined by past colleagues that stuck as a badge of honor
 - **Title:** Senior Product Designer (also self-describes as "full-stack product designer")
 - **Location:** Ontario, Canada (remote work base)
-- **Years of experience:** 6+ years as a Product Designer at product-led companies (2020–present). Prior to that, 3 years as a Visual/UI/UX Designer at design agencies (2017–2020). Total design career: 8+ years.
+- **Years of experience:** {{YEARS}} years in product design since November 2019, at product-led companies. Before that, Visual/UI/UX Designer at design agencies from 2017.
 - **Employment status:** Open to full-time and contract roles. Not available for freelance.
 - **Email:** consistentolusesi@gmail.com
 - **Phone:** (647) 657-7810

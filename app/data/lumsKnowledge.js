@@ -6,6 +6,8 @@
    context-aware responses without API dependencies.
 */
 
+import { yearsOfExperience } from './profile';
+
 const knowledge = {
   identity: {
     name: 'Olumide Olusesi',
@@ -15,7 +17,7 @@ const knowledge = {
     location: 'Ontario, Canada',
     previousLocation: 'Lagos, Nigeria',
     email: 'consistentolusesi@gmail.com',
-    bio: 'Lums is a product designer with 6+ years of experience, currently at Shiga Digital. He specializes in fintech, B2B, and cross-border payment design. He\'s shipped products used by millions across Africa and beyond.',
+    bio: `Lums is a product designer with ${yearsOfExperience()} years of experience, currently at Shiga Digital. He specializes in fintech, B2B, and cross-border payment design. He's shipped products used by millions across Africa and beyond.`,
   },
 
   experience: [
@@ -125,11 +127,11 @@ const responses = {
   greeting: [
     "Hey! I'm Lums — a product designer based in Ontario, Canada 🇨🇦. I'm currently at Shiga Digital, designing cross-border payment experiences. What would you like to know?",
     "Welcome! 👋 I'm Lums — I design fintech products that millions of people use. Ask me about my experience, tools, or the industries I've worked in.",
-    "Hi there! I'm Olumide, but everyone calls me Lums. I've spent 6+ years designing products across fintech, crypto, and enterprise. What can I tell you?",
+    `Hi there! I'm Olumide, but everyone calls me Lums. I've spent ${yearsOfExperience()} years designing products across fintech, crypto, and enterprise. What can I tell you?`,
   ],
 
   experience: [
-    `Lums has worked across 5 companies:\n\n• **Shiga Digital** (Current) — Cross-border payments & crypto\n• **Branch International** — Lending for emerging markets\n• **Carbon** — Digital banking (40% discoverability boost!)\n• **Sabi** — Supply chain logistics for African SMEs\n• **UBA** — HR systems for 20K+ employees across 20 countries\n\n6+ years of shipping products used by millions.`,
+    `Lums has worked across 5 companies:\n\n• **Shiga Digital** (Current) — Cross-border payments & crypto\n• **Branch International** — Lending for emerging markets\n• **Carbon** — Digital banking (40% discoverability boost!)\n• **Sabi** — Supply chain logistics for African SMEs\n• **UBA** — HR systems for 20K+ employees across 20 countries\n\n${yearsOfExperience()} years of shipping products used by millions.`,
     `From Lagos to Ontario — here's the career timeline:\n\n📍 UBA → Sabi → Carbon → Shiga → Branch\n\nEach company taught Lums something the previous one couldn't. UBA was enterprise scale, Sabi was startup speed, Carbon was user obsession, and Shiga is the intersection of crypto + payments.`,
   ],
 

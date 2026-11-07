@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { query } from '../../../lib/db';
 import { sendUnknownQuery } from '../../../lib/mailer';
+import { yearsOfExperience } from '../../data/profile';
 
 // In-memory rate limiting map (resets on serverless cold start, but blocks rapid loop flooding)
 const requestTracker = new Map();
@@ -20,7 +21,9 @@ function getKnowledgeBase() {
   // 1. Master overview document
   if (fs.existsSync(masterPath)) {
     try {
-      knowledgeParts.push(`=== MASTER OVERVIEW (lumsKnowledge.md) ===\n${fs.readFileSync(masterPath, 'utf-8')}`);
+      // {{YEARS}} uses the same helper as the About paragraph, so both give the same number.
+      const master = fs.readFileSync(masterPath, 'utf-8').replaceAll('{{YEARS}}', String(yearsOfExperience()));
+      knowledgeParts.push(`=== MASTER OVERVIEW (lumsKnowledge.md) ===\n${master}`);
     } catch (e) {
       console.error('Error reading lumsKnowledge.md:', e);
     }
