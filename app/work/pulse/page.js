@@ -412,7 +412,7 @@ export default function PulseCaseStudy() {
                 ].map(([file, label]) => <div key={file}><Image src={`/work/pulse/surfaces/${file}.svg`} alt="" width={240} height={130} /><span>{label}</span></div>)}
               </div>
             </div>
-            <p className={styles.qualification}>Later product capability included USDC, USDT or BTC on 20+ networks. This describes the evolved product, not the scope delivered in five days.</p>
+            <p className={styles.qualification}>Later product capability included USDC, USD₮ or BTC on 20+ networks. This describes the evolved product, not the scope delivered in five days.</p>
           </Section>
           <Section id="design-system" title="Helium made the Figma design reusable in code">
             <p>I converted the Figma system into React components and documented them in Storybook. Design, Codex and Engineering could work from the same reference.</p>

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PageTransition from '../../components/PageTransition';
 import ZoomableImage from '../../components/ZoomableImage';
@@ -527,13 +526,9 @@ export default function BranchAICaseStudy() {
                 You have re-defined &lsquo;That&apos;s so cool!&rsquo;&rdquo;
               </blockquote>
               <div className="cs-award__attribution">
-                <Image
-                  src="/work/branch-ai/deovrat-avatar.jpg"
-                  alt="Deovrat Dwivedi"
-                  width={56}
-                  height={56}
-                  className="cs-award__avatar"
-                />
+                <div className="cs-award__avatar cs-award__avatar--initials" aria-hidden="true">
+                  DD
+                </div>
                 <div className="cs-award__person">
                   <span className="cs-award__name">Deovrat Dwivedi</span>
                   <span className="cs-award__role">Design Lead · Branch International</span>

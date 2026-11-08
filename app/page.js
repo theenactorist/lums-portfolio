@@ -95,7 +95,7 @@ const testimonials = [
     company: 'Branch',
     linkedin: 'https://www.linkedin.com/in/deovratdwivedi14/',
     quote:
-      "Lums is not a pixel pusher. He is an AI-native builder with a designer's eye and a PM's brain — and that combination is exactly what product teams need to stay relevant in 2026. He specialises in taking an abstract problem, dissecting it surgically, and creating something better than what you imagined. Beyond the work — he is a generous collaborator, a fun teammate, and someone who makes the people around him better.",
+      "Lums is not a pixel pusher. He is an AI-native builder with a designer's eye and a PM's brain - and that combination is exactly what product teams need to stay relevant in 2026. He specialises in taking an abstract problem, dissecting it surgically, and creating something better than what you imagined. Beyond the work - he is a generous collaborator, a fun teammate, and someone who makes the people around him better.",
   },
   {
     name: 'Duncan',
