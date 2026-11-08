@@ -21,7 +21,7 @@ Senior Product Designer with 7 years of experience in fintech, eCommerce SaaS de
 
 ## WORK EXPERIENCE
 
-### Shiga Onchain Banking — Senior Product Designer (Consultant)
+### Shiga Onchain Banking, Senior Product Designer (Consultant)
 *May 2024 - Present | UK*
 Leading design strategy and operations across Shiga's crypto banking ecosystem & B2B SaaS payment product for embedded checkout, developer tooling, partner operations, and internal systems. Managing two designers while partnering cross-functionally to turn ambiguous requirements into human-centred products, which led to Shiga raising over $4M from Tether and Visa.
 - Led the end-to-end design and Codex-assisted build of Shiga's embedded crypto checkout, simplifying asset and network selection, rate locking, deposit detection, confirmation, conversion, and payment exception states within partner apps.
@@ -30,7 +30,7 @@ Leading design strategy and operations across Shiga's crypto banking ecosystem &
 - Used AI workflows in Gemini CLI, Claude, Codex, and Antigravity IDE to design and deliver developer, partner, and internal operations experiences for Shiga's B2B crypto payment gateway, covering SDKs for React, React Native, and Vanilla JS, API keys, sandbox testing, webhooks, tenant-isolated dashboards, KYB, reconciliation, settlement, compliance, and support tooling.
 - Collaborated with marketing to design and launch lifecycle journeys in MailerLite for onboarding, post-KYC activation, and win-back campaigns, achieving a 73% reactivation open rate and establishing Shiga’s first lifecycle engine.
 
-### Branch International Financial Services — Senior Product Designer
+### Branch International Financial Services, Senior Product Designer
 *Oct 2024 - Mar 2026 | USA, Kenya, India, Nigeria*
 Senior Product Designer within Branch’s larger design org as an individual contributor to the mobile app product experiences across payments, onboarding, lending while helping scale design ops quality, AI design workflows, mobile design system adoption, and cross-functional execution across four countries.
 - Owned the migration of payments, onboarding, lending, and dashboard products across Kenya, India, and Nigeria into Branch’s mobile Neem Design System, improving consistency and modernising mobile experiences for millions of users.
@@ -40,7 +40,7 @@ Senior Product Designer within Branch’s larger design org as an individual con
 - Owned AI design workflows, including agentic prototyping, copywriting automation using ChatGPT, illustration generation using custom GPTs, versioning practices, and knowledge-sharing snorkels/deep dives that helped the design org learn and explore emerging AI use cases.
 - Designed cross-functional assets for marketing, HR/people ops, and business development, including internship campaign visuals, branded merchandise, sales pitch decks, and printed sales flyers which increased recruitment and sales engagement.
 
-### Carbon Finance — Product Designer
+### Carbon Finance, Product Designer
 *Jun 2022 - Oct 2024 | UK*
 Owned product design and delivery execution across Carbon Business, onboarding, KYC, lending, payments, cards, and web experiences, combining research, PRDs, prototyping, documentation, cross-functional alignment, and DesignOps to launch products, improve adoption, and strengthen customer outcomes.
 - Led Carbon Business from product refinement to release, translating SME lending requirements into PRDs, KYB flows, prototypes, dev handoffs, and under-48-hour disbursement journeys while coordinating a five-person delivery team, helping the product reach $500K CAD disbursed within nine months.
@@ -50,7 +50,7 @@ Owned product design and delivery execution across Carbon Business, onboarding, 
 - Created DesignOps handoff and versioning practices for designers, developers, and scrum masters, improving Jira ticket clarity, flow discoverability, developer understanding, and designer freedom to ideate without confusing active builds.
 - Created Carbon’s first web design system in Figma by adapting mobile design system foundations into reusable web standards, improving UI consistency, design-development workflow, and standardization across web applications.
 
-### United Bank for Africa (UBA) Group — Product Designer
+### United Bank for Africa (UBA) Group, Product Designer
 *Nov 2019 - Jun 2022 | Nigeria*
 Designed enterprise HR automation, internal tools, and consumer banking experiences at UBA, with major focus on a large-scale HR platform serving 10,000+ employees while also contributing to mobile banking, ATM, and kiosk initiatives through research, prototyping, usability testing, and design system foundations.
 - Led design for UBA’s purpose-built enterprise HR automation platform, translating core HR, organisation design, recruitment, payroll, personnel, performance, manpower planning, talent, training, alumni, self-service, manager-service, helpdesk, approvals, records, letters, and e-filing workflows into a usable internal suite that replaced fragmented Salesforce processes, improved HR efficiency by 30%, and saved approximately $960K annually.
@@ -60,15 +60,15 @@ Designed enterprise HR automation, internal tools, and consumer banking experien
 ---
 
 ## EDUCATION
-- **Diploma, Web Design** — Academy of Learning Career College (2027)
-- **B.Sc., Civil Engineering** — Obafemi Awolowo University (2017)
+- **Diploma, Web Design**: Academy of Learning Career College (2027)
+- **B.Sc., Civil Engineering**: Obafemi Awolowo University (2017)
 
 ---
 
 ## CERTIFICATES
-- **Information Technology Professional (ITP)** — The Information and Communications Technology Council of Canada (ICTC) (2025)
+- **Information Technology Professional (ITP)**: The Information and Communications Technology Council of Canada (ICTC) (2025)
 
 ---
 
 ## VOLUNTEER EXPERIENCE
-- **ADPList Design Mentor** — 1,200+ minutes of mentorship across 41+ sessions (2023 - Present)
+- **ADPList Design Mentor**: 1,200+ minutes of mentorship across 41+ sessions (2023 - Present)
