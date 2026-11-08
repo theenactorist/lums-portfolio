@@ -595,7 +595,7 @@ The available evidence does not support:
 - The prototype represents three roles, Test/Live concepts, transactions, API-key and webhook tools, team access, settings, and checkout customization.
 - API-key rotation includes an optional **24-hour** overlap.
 - The V1 product definition uses a **10-minute** locked quote.
-- The V1 product definition specifies USDC/USD₮ on EVM and Solana, NGN/USD settlement, and automatic detection. Later prototypes add BTC/XAUT, use GBP/USD examples, and include a manual "I have made payment" action to advance simulated states.
+- The V1 product definition specifies USDC/USD₮ on EVM and Solana, NGN/USD settlement, and automatic detection. Later prototypes add BTC/XAU₮, use GBP/USD examples, and include a manual "I have made payment" action to advance simulated states.
 - Those later prototype choices are product drift or simulation behavior, not proof of the V1 product truth.
 - The available current code uses simulated or in-memory payment, authentication, webhook, and settlement behavior. It demonstrates interaction design and product breadth but does not prove the original API-connected build.
 - Mintlify is named in the project account, while the available files contain only an external Docs link. The documentation itself is not available.
