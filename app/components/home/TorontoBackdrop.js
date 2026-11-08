@@ -4,18 +4,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from './ThemeProvider';
 import { createTorontoRenderer, TORONTO_DURATION } from '../../../lib/torontoRenderer';
 
-// Day or night scene (Olumide, 7 Nov 2026): a theme the visitor picked with the
-// toggle decides it (dark is night, light is day); with no saved choice the
-// visitor's local clock does: night from 7:00 pm to 6:59 am.
-const NIGHT_FROM_HOUR = 19;
-const DAY_FROM_HOUR = 7;
-const CLOCK_RECHECK_MS = 5 * 60 * 1000;
+// Day or night scene: it follows the page theme (Olumide, 7 Nov 2026), light is day and dark is
+// night. The theme itself comes from the visitor's saved choice or their clock (lib/theme.js).
 const SCENE_FADE_MS = 1000;
-
-export function isNightAt(date) {
-  const hour = date.getHours();
-  return hour >= NIGHT_FROM_HOUR || hour < DAY_FROM_HOUR;
-}
 
 export default function TorontoBackdrop({ videoRef, className, setPlaybackPreference }) {
   const canvasRef = useRef(null);
@@ -25,12 +16,12 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
   const foregroundRef = useRef(true);
   const [ready, setReady] = useState(false);
   const [contextGeneration, setContextGeneration] = useState(0);
-  const { theme, toggleTheme, themeSaved } = useTheme();
+  const { theme, toggleTheme, themeSaved, mounted: themeKnown } = useTheme();
   const themeRef = useRef(theme);
   const savedRef = useRef(themeSaved);
   const toggleRef = useRef(toggleTheme);
-  // Scene mix: 0 is day, 1 is night. The target comes from the saved theme or
-  // the clock (or a review override); the mix fades to it.
+  // Scene mix: 0 is day, 1 is night. The target comes from the page theme (or a
+  // review override); the mix fades to it when the theme changes.
   const sceneMixRef = useRef(null);
   const sceneTargetRef = useRef(null);
   const sceneOverrideRef = useRef(null);
@@ -38,9 +29,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
   const renderRef = useRef(() => {});
 
   const updateScene = useCallback((instant = false) => {
-    const target = sceneOverrideRef.current ?? (savedRef.current
-      ? (themeRef.current === 'dark' ? 1 : 0)
-      : (isNightAt(new Date()) ? 1 : 0));
+    const target = sceneOverrideRef.current ?? (themeRef.current === 'dark' ? 1 : 0);
     if (target === sceneTargetRef.current && (!instant || sceneMixRef.current === target)) return;
     sceneTargetRef.current = target;
     if (fadeRef.current !== null) cancelAnimationFrame(fadeRef.current);
@@ -63,25 +52,19 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
     fadeRef.current = requestAnimationFrame(step);
   }, []);
 
+  // The first decision waits for the real theme and is instant, so a dark page never fades in
+  // from a day scene; later theme changes (the toggle) fade.
   useEffect(() => {
     themeRef.current = theme;
     savedRef.current = themeSaved;
     toggleRef.current = toggleTheme;
-    updateScene();
-  }, [theme, themeSaved, toggleTheme, updateScene]);
+    if (themeKnown) updateScene(sceneMixRef.current === null);
+  }, [theme, themeSaved, toggleTheme, themeKnown, updateScene]);
 
-  // Follow the clock: check again when the tab comes back and every 5 minutes.
-  useEffect(() => {
-    const recheckVisible = () => { if (document.visibilityState === 'visible') updateScene(); };
-    const timer = setInterval(() => updateScene(), CLOCK_RECHECK_MS);
-    document.addEventListener('visibilitychange', recheckVisible);
-    return () => {
-      clearInterval(timer);
-      document.removeEventListener('visibilitychange', recheckVisible);
-      if (fadeRef.current !== null) cancelAnimationFrame(fadeRef.current);
-      fadeRef.current = null;
-    };
-  }, [updateScene]);
+  useEffect(() => () => {
+    if (fadeRef.current !== null) cancelAnimationFrame(fadeRef.current);
+    fadeRef.current = null;
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -170,7 +153,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
             updateScene(true);
           },
           // Drives the scene directly, independent of the page theme. null returns
-          // the scene to the saved theme or the clock.
+          // the scene to the page theme.
           setScene(next, { instant = true } = {}) {
             if (next !== null && next !== 'day' && next !== 'night') throw new Error('Scene must be day, night or null.');
             sceneOverrideRef.current = next === null ? null : next === 'night' ? 1 : 0;
@@ -191,7 +174,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
           getState() {
             return { ready: true, theme: themeRef.current, themeSaved: savedRef.current,
               scene: sceneMixRef.current, sceneTarget: sceneTargetRef.current,
-              sceneSource: sceneOverrideRef.current !== null ? 'review' : savedRef.current ? 'saved theme' : 'clock',
+              sceneSource: sceneOverrideRef.current !== null ? 'review' : 'page theme',
               time: seekTimeRef.current ?? video.currentTime,
               sourceTime: video.currentTime, paused: video.paused, width: canvas.width, height: canvas.height,
               foreground: foregroundRef.current };
