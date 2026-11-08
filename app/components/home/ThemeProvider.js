@@ -1,7 +1,7 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useSyncExternalStore } from 'react';
-import { readSavedTheme, saveTheme, themeForTime } from '../../../lib/theme';
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useSyncExternalStore } from 'react';
+import { readSavedTheme, resolveTheme, saveTheme, themeForTime } from '../../../lib/theme';
 
 // The theme lives on <html data-theme>, written before the first paint by the inline script in
 // app/layout.js (lib/theme.js has the rule). This provider reads it from there instead of picking
@@ -41,6 +41,15 @@ export default function ThemeProvider({ children }) {
   const mounted = snapshot !== null;
   const theme = mounted ? snapshot.split(':')[0] : 'light';
   const themeSaved = mounted && snapshot.endsWith(':saved');
+
+  // When React renders a page on the client instead of hydrating it (the missing-page route
+  // streams Next's error shell first), it clears <html>'s attributes, including the one the
+  // inline script wrote. Put it back before the browser paints.
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const current = root.getAttribute('data-theme');
+    if (current !== 'light' && current !== 'dark') root.setAttribute('data-theme', resolveTheme());
+  }, []);
 
   // With no saved choice, check the clock again only when the tab comes back into view, so the
   // colours never change while someone is reading.
