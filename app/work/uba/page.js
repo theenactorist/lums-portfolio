@@ -160,7 +160,7 @@ export default function UBACaseStudy() {
                 </blockquote>
               </div>
             </section>
-            <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/carbon">Carbon — Revamping Fintech Home Screen Experience <span aria-hidden="true">→</span></Link></nav>
+            <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/carbon"><LinkArrowLabel>Unifying Carbon’s banking experience across Android and iOS</LinkArrowLabel></Link></nav>
           </article>
         </div>
       </div>

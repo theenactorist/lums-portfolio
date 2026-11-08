@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'framer-motion';
 import AskLums from './components/home/AskLums';
 import LogoTicker from './components/home/LogoTicker';
-import ArrowUpRightIcon from './components/ArrowUpRightIcon';
+import ArrowUpRightIcon, { LinkArrowLabel } from './components/ArrowUpRightIcon';
 import TechText from './components/home/TechText';
 import AboutLanyard from './components/home/AboutLanyard';
 import TorontoBackdrop from './components/home/TorontoBackdrop';
@@ -631,7 +631,7 @@ function Career() {
           <p className={styles.sectionKicker} key="label">Career overview</p>
           <h2 id="career-heading" key="heading">A path shaped by curiosity and the problems that asked more of me.</h2>
           <Link className={styles.inverseTextLink} href="/resume" key="resume">
-            View résumé <span aria-hidden="true">→</span>
+            <span><LinkArrowLabel>View résumé</LinkArrowLabel></span>
           </Link>
         </motion.div>
 
