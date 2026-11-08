@@ -203,8 +203,11 @@ function CareerCompanyTitle({ company }) {
 
   return (
     <motion.h3
-      initial={reduceMotion ? false : 'hidden'}
-      whileInView="visible"
+      // `initial` is in the server markup, so it must match on both sides; with reduced motion
+      // the words show on mount instead of when scrolled to.
+      initial="hidden"
+      animate={reduceMotion ? 'visible' : undefined}
+      whileInView={reduceMotion ? undefined : 'visible'}
       viewport={{ once: true, amount: 0.65 }}
       variants={{
         hidden: {},
@@ -223,7 +226,7 @@ function CareerCompanyTitle({ company }) {
             visible: {
               opacity: 1,
               y: 0,
-              transition: { duration: 0.18, ease: 'easeOut' },
+              transition: { duration: reduceMotion ? 0 : 0.18, ease: 'easeOut' },
             },
           }}
           key={`${word}-${index}`}
@@ -678,8 +681,11 @@ function Capabilities() {
               <motion.svg
                 viewBox="0 0 24 24"
                 focusable="false"
-                initial={reduceMotion ? false : 'hidden'}
-                whileInView="visible"
+                // `initial` is in the server markup, so it must be the same on both sides; with
+                // reduced motion the icons show on mount, otherwise they draw in when scrolled to.
+                initial="hidden"
+                animate={reduceMotion ? 'visible' : undefined}
+                whileInView={reduceMotion ? undefined : 'visible'}
                 viewport={{ once: true, amount: 0.8 }}
               >
                 {capability.paths.map((path) => (
@@ -1012,7 +1018,8 @@ function AskLumsShell() {
             aria-expanded="false"
             onClick={handleOpen}
             key="ask-launcher"
-            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.96 }}
+            // Same on server and client (it's in the server markup); reduced motion shows it at once.
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
             transition={{ duration: reduceMotion ? 0 : 0.1, ease: 'easeOut' }}
