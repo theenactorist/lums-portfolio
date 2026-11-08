@@ -56,13 +56,15 @@ This system is modern yet recognizable, built to reflect a thoughtful, un-rushed
 
 **Key Characteristics:**
 - Restrained and deliberate
-- High-contrast, dark-immersive default
+- High-contrast in light and dark; the theme follows the visitor's time of day unless they pick one
 - Flat by default (no shadows)
 - One typeface, Google Sans, with hierarchy from size and weight
 
 ## 2. Colors
 
-The palette is a strict, dark-immersive canvas punctuated by a single, highly saturated accent.
+The palette is a strict, immersive canvas punctuated by a single, highly saturated accent. The colours below are the dark theme; the light theme mirrors them on light neutrals.
+
+**The Time-of-Day Rule.** A theme the visitor picks with the toggle always wins and is remembered. Without one, their local time decides: light from 7:00 am to 6:59 pm, dark from 7:00 pm to 6:59 am. The theme is set before the first paint, so it never flashes, and it's checked again only when the tab comes back into view, never while someone is reading. On Home, the Toronto scene follows the theme: day in light, night in dark.
 
 ### Primary
 - **Warm Rust** (#e07b3c): The sole action color. Used sparingly for links, active states, and critical emphasis. Its rarity is the point.
