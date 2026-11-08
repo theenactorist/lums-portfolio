@@ -1,48 +1,71 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useSyncExternalStore } from 'react';
+import { readSavedTheme, saveTheme, themeForTime } from '../../../lib/theme';
 
-// themeSaved: true once the visitor has picked a theme with the toggle (saved in localStorage).
-// mounted: false until the provider has read the saved theme. The provider swaps in after
-// one frame and the page under it mounts again, so media can wait for this to load once.
+// The theme lives on <html data-theme>, written before the first paint by the inline script in
+// app/layout.js (lib/theme.js has the rule). This provider reads it from there instead of picking
+// its own, and renders from the first render, so the page under it is built once.
+//
+// theme: 'light' or 'dark'. themeSaved: true when the visitor picked it with the toggle.
+// mounted: false only while the server-rendered page hydrates, before the theme can be read;
+// anything that must match the visitor's theme (logo files, the Toronto scene) waits for it.
 const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {}, themeSaved: false, mounted: false });
 
 export function useTheme() {
   return useContext(ThemeContext);
 }
 
+const THEME_CHANGE = 'lums-theme-change';
+
+function subscribe(onChange) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  window.addEventListener(THEME_CHANGE, onChange);
+  return () => {
+    observer.disconnect();
+    window.removeEventListener(THEME_CHANGE, onChange);
+  };
+}
+
+// A string, so React can compare snapshots by value.
+function getSnapshot() {
+  const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  return `${theme}:${readSavedTheme() ? 'saved' : 'auto'}`;
+}
+
+const getServerSnapshot = () => null;
+
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('light');
-  const [mounted, setMounted] = useState(false);
-  const [themeSaved, setThemeSaved] = useState(false);
+  const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const mounted = snapshot !== null;
+  const theme = mounted ? snapshot.split(':')[0] : 'light';
+  const themeSaved = mounted && snapshot.endsWith(':saved');
 
+  // With no saved choice, check the clock again only when the tab comes back into view, so the
+  // colours never change while someone is reading.
   useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      const saved = localStorage.getItem('lums-theme-2');
-      const initial = saved ?? 'light';
-      setTheme(initial);
-      setThemeSaved(saved !== null);
-      setMounted(true);
-      document.documentElement.setAttribute('data-theme', initial);
-    });
-
-    return () => cancelAnimationFrame(frame);
+    const recheck = () => {
+      if (document.visibilityState !== 'visible' || readSavedTheme()) return;
+      const next = themeForTime(new Date());
+      if (document.documentElement.getAttribute('data-theme') !== next) {
+        document.documentElement.setAttribute('data-theme', next);
+      }
+    };
+    document.addEventListener('visibilitychange', recheck);
+    return () => document.removeEventListener('visibilitychange', recheck);
   }, []);
 
-  const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    setTheme(next);
-    setThemeSaved(true);
+  const toggleTheme = useCallback(() => {
+    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    saveTheme(next);
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('lums-theme-2', next);
-  };
+    // Also covers the case where only the saved flag changed.
+    window.dispatchEvent(new Event(THEME_CHANGE));
+  }, []);
 
-  // Prevent flash of wrong theme
-  if (!mounted) return <>{children}</>;
+  const value = useMemo(() => ({ theme, toggleTheme, themeSaved, mounted }), [theme, toggleTheme, themeSaved, mounted]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, themeSaved, mounted: true }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

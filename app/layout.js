@@ -6,6 +6,7 @@ import SiteShell from "./components/home/SiteShell";
 import { AudioProvider } from "./components/AudioContext";
 import JsonLd from './components/JsonLd';
 import { pageMetadata, site, siteIdentity } from '../lib/seo';
+import { themeInitScript } from '../lib/theme';
 
 // Self-hosted at build time, so pages make no request to Google for fonts.
 // Google Sans loads as its variable font, which covers every weight from 400 to 700
@@ -35,8 +36,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark" className={`${googleSans.variable} ${jetbrainsMono.variable}`}>
+    // data-theme is written by the inline script before the first paint (lib/theme.js), so the
+    // server sends none and React leaves the attribute alone.
+    <html lang="en" className={`${googleSans.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {/* Google Analytics (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-S7J6MXCNLB"
