@@ -7,7 +7,7 @@
 ## 1. Identity
 
 - **Full name:** Olumide Consistent Olusesi
-- **Nickname:** Lums — a short form coined by past colleagues that stuck as a badge of honor
+- **Nickname:** Lums, a short form coined by past colleagues that stuck as a badge of honor
 - **Title:** Senior Product Designer (also self-describes as "full-stack product designer")
 - **Location:** Ontario, Canada (remote work base)
 - **Years of experience:** {{YEARS}} years in product design since November 2019, at product-led companies. Before that, Visual/UI/UX Designer at design agencies from 2017.
