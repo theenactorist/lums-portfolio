@@ -82,7 +82,7 @@ export default function EntaDemo() {
           src={src}
           width="1440"
           height="1024"
-          title={`ENTA interactive demo — ${activeView.label}`}
+          title={`ENTA interactive demo: ${activeView.label}`}
           loading="lazy"
           className={styles.frame}
         />
