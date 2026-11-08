@@ -11,7 +11,6 @@ import ArrowUpRightIcon, { LinkArrowLabel } from './components/ArrowUpRightIcon'
 import TechText from './components/home/TechText';
 import AboutLanyard from './components/home/AboutLanyard';
 import TorontoBackdrop from './components/home/TorontoBackdrop';
-import { useTheme } from './components/home/ThemeProvider';
 import PageTransition from './components/PageTransition';
 import SiteLink from './components/SiteLink';
 import { homeWorkGroups, productionHomeProjects } from './data/productionHomeProjects';
@@ -246,13 +245,10 @@ function Hero() {
   const [videoFailed, setVideoFailed] = useState(false);
   const heroRef = useRef(null);
   const videoRef = useRef(null);
-  // The page mounts twice on load (before and after the theme provider). Only the
-  // second video element loads and plays, so the MP4 downloads once.
-  const { mounted: themeMounted } = useTheme();
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !themeMounted) return undefined;
+    if (!video) return undefined;
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const syncPlayback = () => {
@@ -274,7 +270,7 @@ function Hero() {
       motionPreference.removeEventListener('change', syncPlayback);
       video.pause();
     };
-  }, [isVisible, playbackPreference, videoFailed, themeMounted]);
+  }, [isVisible, playbackPreference, videoFailed]);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -312,7 +308,7 @@ function Hero() {
             ref={videoRef}
             src="/home/hero/landing-diagonal-3.mp4"
             poster="/home/hero/landing-diagonal-3-poster.webp"
-            preload={themeMounted ? 'auto' : 'none'}
+            preload="auto"
             muted
             loop
             playsInline
