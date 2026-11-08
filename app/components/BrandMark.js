@@ -73,7 +73,7 @@ export default function BrandMark({ id, location = 'header', onHomeClick }) {
         <span aria-hidden="true">*</span>
       </button>
       <span id={noteId} className={styles.note} role="tooltip" data-open={open} aria-hidden={!open}>
-        Lums is short for <strong>Olumide Olusesi</strong>—a name coined by former colleagues.
+        Lums is short for <strong>Olumide Olusesi</strong>, a name coined by former colleagues.
       </span>
     </span>
   );

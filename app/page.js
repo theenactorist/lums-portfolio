@@ -103,7 +103,7 @@ const testimonials = [
     company: 'Branch',
     linkedin: 'https://www.linkedin.com/in/duncangichu/',
     quote:
-      'From being your onboarding buddy to someone who shaped how I think about AI and automation — you inspired a whole new way of approaching problems and possibilities.',
+      'From being your onboarding buddy to someone who shaped how I think about AI and automation - you inspired a whole new way of approaching problems and possibilities.',
   },
   {
     name: 'Annmercy',
@@ -127,7 +127,7 @@ const testimonials = [
     company: 'UBA',
     linkedin: 'https://www.linkedin.com/in/tonyeboham/',
     quote:
-      'Your immense contribution towards the delivery of the HR automation platform is a sterling achievement — borne out of your dedication, result-oriented approach, and willingness to go the extra mile to ensure delivery of all envisioned and ad-hoc requirements of the platform.',
+      'Your immense contribution towards the delivery of the HR automation platform is a sterling achievement - borne out of your dedication, result-oriented approach, and willingness to go the extra mile to ensure delivery of all envisioned and ad-hoc requirements of the platform.',
   },
   {
     name: 'Chijioke Dozie',
@@ -151,7 +151,7 @@ const testimonials = [
     company: 'Branch',
     linkedin: 'https://www.linkedin.com/in/eniayo/',
     quote:
-      "You're one of those people who make work feel easy — reliable, thoughtful, and just always on top of things.",
+      "You're one of those people who make work feel easy - reliable, thoughtful, and just always on top of things.",
   },
   {
     name: 'Simon Julius',
@@ -159,7 +159,7 @@ const testimonials = [
     company: 'Carbon',
     linkedin: 'https://www.linkedin.com/in/simon-julius-1429bb1b6/',
     quote:
-      'I love the dedication Olumide puts into his work — how he carries the developer along when making designs, and how he takes responsibility while creating user-centric designs.',
+      'I love the dedication Olumide puts into his work - how he carries the developer along when making designs, and how he takes responsibility while creating user-centric designs.',
   },
   {
     name: 'Emike Okoyomoh',
@@ -167,7 +167,7 @@ const testimonials = [
     company: 'Sabi',
     linkedin: 'https://www.linkedin.com/in/emike-okoyomoh/',
     quote:
-      'His unique wealth of design experience and flexibility made him a valuable asset. He excels at his core — product design — but also contributes beyond scope, taking initiative to mentor junior designers.',
+      'His unique wealth of design experience and flexibility made him a valuable asset. He excels at his core - product design - but also contributes beyond scope, taking initiative to mentor junior designers.',
   },
 ];
 

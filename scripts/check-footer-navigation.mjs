@@ -23,7 +23,7 @@ function checkBrand(container, location) {
     assert.ok(button[1].includes('aria-describedby='));
   }
   const text = container.replace(/<[^>]*>/g, '');
-  assert.ok(text.includes('Lums is short for Olumide Olusesi—a name coined by former colleagues.'), `${location} retains the same approved name explanation`);
+  assert.ok(text.includes('Lums is short for Olumide Olusesi, a name coined by former colleagues.'), `${location} retains the same approved name explanation`);
   for (const anchor of container.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g)) {
     assert.ok(!anchor[1].includes('<button'), 'Home link and asterisk button remain separate controls');
   }
