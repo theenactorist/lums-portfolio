@@ -99,7 +99,9 @@ function getLogoCropStyle({ bounds, source = defaultSource }) {
 }
 
 export default function LogoTicker() {
-  const { theme } = useTheme();
+  // The logo files depend on the theme, so they wait until it's known: one set loads, never the
+  // light set first. The carousel sits below the fold and each crop box keeps its size meanwhile.
+  const { theme, mounted } = useTheme();
   const prefix = theme === 'dark' ? 'Dark_mode' : 'Light_mode';
   const tickerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
@@ -140,13 +142,15 @@ export default function LogoTicker() {
                 style={getLogoCropStyle(logo)}
                 tabIndex={isDuplicate ? -1 : undefined}
               >
-                <Image
-                  src={`/logos/${theme === 'dark' ? 'dark' : 'light'}/${prefix}-${logo.slug}.svg`}
-                  alt={isDuplicate ? '' : logo.name}
-                  width={(logo.source ?? defaultSource).width}
-                  height={(logo.source ?? defaultSource).height}
-                  className="logo-ticker__img"
-                />
+                {mounted && (
+                  <Image
+                    src={`/logos/${theme === 'dark' ? 'dark' : 'light'}/${prefix}-${logo.slug}.svg`}
+                    alt={isDuplicate ? '' : logo.name}
+                    width={(logo.source ?? defaultSource).width}
+                    height={(logo.source ?? defaultSource).height}
+                    className="logo-ticker__img"
+                  />
+                )}
               </a>
             );
           })}

@@ -519,3 +519,18 @@ body:has(.theme2-home) .nav__mobile-menu:not([open]) {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Theme toggle icon (T12): both icons are rendered and <html data-theme> picks one, so the icon
+   is right from the first paint. Light shows the moon (switch to dark), dark shows the sun. */
+.nav__theme-icon {
+  display: block;
+}
+
+.nav__theme-icon--sun,
+[data-theme="dark"] .nav__theme-icon--moon {
+  display: none;
+}
+
+[data-theme="dark"] .nav__theme-icon--sun {
+  display: block;
+}
