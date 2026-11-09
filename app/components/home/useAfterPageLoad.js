@@ -44,10 +44,12 @@ export default function useAfterPageLoad({ idle = false, afterHero = false, reve
       if (cancelled) return;
       window.removeEventListener(HERO_READY_EVENT, onHeroReady);
       if (timer !== null) window.clearTimeout(timer);
-      nextFrame(() => {
+      // Two frames, not one: after the repaint the poster's paint has to be recorded before the
+      // video request starts (one frame left only an 8 ms margin in testing).
+      nextFrame(() => nextFrame(() => {
         if (idle && window.requestIdleCallback) idleId = window.requestIdleCallback(done, { timeout: 1000 });
         else nextFrame(done);
-      });
+      }));
     }
     const reveal = (element, started = performance.now()) => {
       if (cancelled) return;
