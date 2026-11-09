@@ -10,8 +10,9 @@ const PORTRAIT = '/home/about/olumide-profile.png';
 const BACK_QUOTE = 'UX is everyone’s business. AI UX is mine.';
 
 // Keep the generated front artwork visible as a static fallback when motion is reduced.
+// v2 is v1's PNG as WebP (quality 90, same 1060x1484): 483 KB instead of 3.4 MB.
 export default function AboutLanyard({
-  frontImage = '/home/about/olumide-lanyard-front-v1.png',
+  frontImage = '/home/about/olumide-lanyard-front-v2.webp',
   backImage = '/home/about/lanyard-back.svg',
   strapImage,
 }) {
