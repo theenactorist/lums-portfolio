@@ -11,6 +11,7 @@ import ArrowUpRightIcon, { LinkArrowLabel } from './components/ArrowUpRightIcon'
 import TechText from './components/home/TechText';
 import AboutLanyard from './components/home/AboutLanyard';
 import TorontoBackdrop from './components/home/TorontoBackdrop';
+import useAfterPageLoad from './components/home/useAfterPageLoad';
 import PageTransition from './components/PageTransition';
 import SiteLink from './components/SiteLink';
 import { homeWorkGroups, productionHomeProjects } from './data/productionHomeProjects';
@@ -248,23 +249,16 @@ function Hero() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackPreference, setPlaybackPreference] = useState('auto');
   const [videoFailed, setVideoFailed] = useState(false);
-  // The 1.2 MB video waits for the poster, so on a slow connection it doesn't take the
-  // bandwidth the first paint needs. The poster shows until the video can play, as before.
-  const [posterLoaded, setPosterLoaded] = useState(false);
   const heroRef = useRef(null);
   const videoRef = useRef(null);
-
-  useEffect(() => {
-    let active = true;
-    const poster = new window.Image();
-    poster.onload = poster.onerror = () => { if (active) setPosterLoaded(true); };
-    poster.src = HERO_POSTER;
-    return () => { active = false; };
-  }, []);
+  // The 1.2 MB video and the Toronto scene wait until the poster is in and showing, so on a
+  // slow connection they don't take the bandwidth the first paint needs. The poster shows
+  // until the video can play, as before.
+  const pageLoaded = useAfterPageLoad({ revealRef: videoRef });
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !posterLoaded) return undefined;
+    if (!video || !pageLoaded) return undefined;
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const syncPlayback = () => {
@@ -286,7 +280,7 @@ function Hero() {
       motionPreference.removeEventListener('change', syncPlayback);
       video.pause();
     };
-  }, [isVisible, playbackPreference, videoFailed, posterLoaded]);
+  }, [isVisible, playbackPreference, videoFailed, pageLoaded]);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -324,7 +318,7 @@ function Hero() {
             ref={videoRef}
             src="/home/hero/landing-diagonal-3.mp4"
             poster={HERO_POSTER}
-            preload={posterLoaded ? 'auto' : 'none'}
+            preload={pageLoaded ? 'auto' : 'none'}
             muted
             loop
             playsInline
@@ -336,7 +330,7 @@ function Hero() {
         {!videoFailed && (
           <TorontoBackdrop
             videoRef={videoRef}
-            enabled={posterLoaded}
+            enabled={pageLoaded}
             className={styles.heroImage}
             setPlaybackPreference={setPlaybackPreference}
           />

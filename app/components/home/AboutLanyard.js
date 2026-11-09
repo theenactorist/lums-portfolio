@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import useAfterPageLoad from './useAfterPageLoad';
 import styles from './AboutLanyard.module.css';
 
 const LanyardScene = dynamic(() => import('./LanyardScene'), { ssr: false });
@@ -22,9 +23,9 @@ export default function AboutLanyard({
   const nudgePlayedRef = useRef(false);
   const [nearViewport, setNearViewport] = useState(false);
   // On a phone About starts just under the fold, so "near" is true at load. The scene (three.js
-  // and the card artwork) waits for the page's load event so it doesn't share the connection
-  // with the hero. The static card shows until the scene is ready, as before.
-  const [pageLoaded, setPageLoaded] = useState(false);
+  // and the card artwork) waits for the hero's Toronto scene and an idle moment so it doesn't
+  // share the connection with it. The static card shows until the scene is ready, as before.
+  const pageLoaded = useAfterPageLoad({ afterHero: true, idle: true });
   const [reducedMotion, setReducedMotion] = useState(null);
   const [ready, setReady] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
@@ -42,21 +43,6 @@ export default function AboutLanyard({
     syncPreference();
     preference.addEventListener('change', syncPreference);
     return () => preference.removeEventListener('change', syncPreference);
-  }, []);
-
-  useEffect(() => {
-    let idle = null;
-    const markLoaded = () => {
-      idle = window.requestIdleCallback
-        ? window.requestIdleCallback(() => setPageLoaded(true), { timeout: 1000 })
-        : window.setTimeout(() => setPageLoaded(true), 0);
-    };
-    if (document.readyState === 'complete') markLoaded();
-    else window.addEventListener('load', markLoaded, { once: true });
-    return () => {
-      window.removeEventListener('load', markLoaded);
-      if (idle !== null) (window.cancelIdleCallback || window.clearTimeout)(idle);
-    };
   }, []);
 
   useEffect(() => {

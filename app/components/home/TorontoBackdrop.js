@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from './ThemeProvider';
+import { announceHeroReady } from './useAfterPageLoad';
 import { createTorontoRenderer, TORONTO_DURATION } from '../../../lib/torontoRenderer';
 
 // Day or night scene: it follows the page theme (Olumide, 7 Nov 2026), light is day and dark is
@@ -113,6 +114,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
       rendererRef.current = instance;
       render();
       setReady(true);
+      announceHeroReady();
       if (video.requestVideoFrameCallback) frameRef.current = video.requestVideoFrameCallback(frame);
       video.addEventListener('loadeddata', refresh);
       video.addEventListener('seeked', refresh);
@@ -241,6 +243,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
       }
     }).catch(error => {
       if (!active || error.name === 'AbortError') return;
+      announceHeroReady();
       // Without WebGL or an image, the canvas stays hidden and the original video shows.
       if (process.env.NODE_ENV !== 'production') {
         console.error(error);
