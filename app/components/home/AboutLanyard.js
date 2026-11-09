@@ -21,6 +21,10 @@ export default function AboutLanyard({
   const controlsRef = useRef(null);
   const nudgePlayedRef = useRef(false);
   const [nearViewport, setNearViewport] = useState(false);
+  // On a phone About starts just under the fold, so "near" is true at load. The scene (three.js
+  // and the card artwork) waits for the page's load event so it doesn't share the connection
+  // with the hero. The static card shows until the scene is ready, as before.
+  const [pageLoaded, setPageLoaded] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(null);
   const [ready, setReady] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
@@ -38,6 +42,21 @@ export default function AboutLanyard({
     syncPreference();
     preference.addEventListener('change', syncPreference);
     return () => preference.removeEventListener('change', syncPreference);
+  }, []);
+
+  useEffect(() => {
+    let idle = null;
+    const markLoaded = () => {
+      idle = window.requestIdleCallback
+        ? window.requestIdleCallback(() => setPageLoaded(true), { timeout: 1000 })
+        : window.setTimeout(() => setPageLoaded(true), 0);
+    };
+    if (document.readyState === 'complete') markLoaded();
+    else window.addEventListener('load', markLoaded, { once: true });
+    return () => {
+      window.removeEventListener('load', markLoaded);
+      if (idle !== null) (window.cancelIdleCallback || window.clearTimeout)(idle);
+    };
   }, []);
 
   useEffect(() => {
@@ -89,7 +108,7 @@ export default function AboutLanyard({
     observer.observe(container);
     return () => observer.disconnect();
   }, []);
-  const useScene = nearViewport && reducedMotion === false && !unavailable;
+  const useScene = nearViewport && pageLoaded && reducedMotion === false && !unavailable;
   const sceneVisible = useScene && ready;
   const staticImage = imageFailed ? PORTRAIT : (showBack ? (backImage || frontImage) : frontImage);
   let instructions = 'Click, tap, or press Enter or Space to flip the portrait card.';
