@@ -1,8 +1,10 @@
 import Anthropic from '@anthropic-ai/sdk';
+import { after } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { query } from '../../../lib/db';
 import { sendUnknownQuery } from '../../../lib/mailer';
+import { recordAfterResponse } from '../../../lib/ask-lums/record.mjs';
 import { yearsOfExperience } from '../../data/profile';
 
 // In-memory rate limiting map (resets on serverless cold start, but blocks rapid loop flooding)
@@ -136,6 +138,8 @@ export async function POST(req) {
   let fullResponse = '';
   let isUnknown = false;
   let headerStripped = false;
+  // Registered now, while the request is handled; runs once the stream settles below.
+  const settleRecord = recordAfterResponse({ after, query, sendUnknownQuery });
 
   const stream = new ReadableStream({
     async start(controller) {
@@ -177,20 +181,15 @@ export async function POST(req) {
         controller.close();
       } catch (err) {
         controller.error(err);
+      } finally {
+        // Save the question (and email it if unknown) with whatever answer was produced.
+        settleRecord({
+          sessionId,
+          message,
+          response: isUnknown ? fullResponse.slice('[UNKNOWN_QUERY]'.length).trim() : fullResponse.trim(),
+          isUnknown,
+        });
       }
-
-      // Background: save to DB + email if unknown (non-blocking)
-      const cleanResponse = isUnknown
-        ? fullResponse.slice('[UNKNOWN_QUERY]'.length).trim()
-        : fullResponse.trim();
-
-      Promise.all([
-        query(
-          'INSERT INTO questions (session_id, user_message, assistant_response, is_unknown) VALUES ($1, $2, $3, $4)',
-          [sessionId ?? null, message, cleanResponse, isUnknown]
-        ),
-        isUnknown ? sendUnknownQuery(message) : Promise.resolve(),
-      ]).catch((err) => console.error('[Ask Lums background]', err));
     },
   });
 
