@@ -248,12 +248,23 @@ function Hero() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackPreference, setPlaybackPreference] = useState('auto');
   const [videoFailed, setVideoFailed] = useState(false);
+  // The 1.2 MB video waits for the poster, so on a slow connection it doesn't take the
+  // bandwidth the first paint needs. The poster shows until the video can play, as before.
+  const [posterLoaded, setPosterLoaded] = useState(false);
   const heroRef = useRef(null);
   const videoRef = useRef(null);
 
   useEffect(() => {
+    let active = true;
+    const poster = new window.Image();
+    poster.onload = poster.onerror = () => { if (active) setPosterLoaded(true); };
+    poster.src = HERO_POSTER;
+    return () => { active = false; };
+  }, []);
+
+  useEffect(() => {
     const video = videoRef.current;
-    if (!video) return undefined;
+    if (!video || !posterLoaded) return undefined;
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const syncPlayback = () => {
@@ -275,7 +286,7 @@ function Hero() {
       motionPreference.removeEventListener('change', syncPlayback);
       video.pause();
     };
-  }, [isVisible, playbackPreference, videoFailed]);
+  }, [isVisible, playbackPreference, videoFailed, posterLoaded]);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -313,7 +324,7 @@ function Hero() {
             ref={videoRef}
             src="/home/hero/landing-diagonal-3.mp4"
             poster={HERO_POSTER}
-            preload="auto"
+            preload={posterLoaded ? 'auto' : 'none'}
             muted
             loop
             playsInline
