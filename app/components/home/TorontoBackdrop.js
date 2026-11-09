@@ -8,7 +8,9 @@ import { createTorontoRenderer, TORONTO_DURATION } from '../../../lib/torontoRen
 // night. The theme itself comes from the visitor's saved choice or their clock (lib/theme.js).
 const SCENE_FADE_MS = 1000;
 
-export default function TorontoBackdrop({ videoRef, className, setPlaybackPreference }) {
+// enabled: Home turns it on once the hero poster has loaded, so the scene's images don't
+// share a slow connection with the first paint. The canvas stays hidden until it's ready.
+export default function TorontoBackdrop({ videoRef, className, setPlaybackPreference, enabled = true }) {
   const canvasRef = useRef(null);
   const rendererRef = useRef(null);
   const frameRef = useRef(null);
@@ -69,7 +71,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
   useEffect(() => {
     const video = videoRef.current;
     const canvas = canvasRef.current;
-    if (!video || !canvas) return undefined;
+    if (!video || !canvas || !enabled) return undefined;
     let active = true;
     let renderer;
     const initialization = new AbortController();
@@ -269,7 +271,7 @@ export default function TorontoBackdrop({ videoRef, className, setPlaybackPrefer
       renderRef.current = () => {};
       if (process.env.NODE_ENV !== 'production') delete window.__torontoPreview;
     };
-  }, [videoRef, setPlaybackPreference, contextGeneration, updateScene]);
+  }, [videoRef, setPlaybackPreference, contextGeneration, updateScene, enabled]);
 
   return <canvas ref={canvasRef} className={className} data-toronto-composite="true"
     data-ready={ready} aria-hidden="true" style={{ opacity: ready ? 1 : 0 }} />;

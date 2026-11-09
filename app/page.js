@@ -336,6 +336,7 @@ function Hero() {
         {!videoFailed && (
           <TorontoBackdrop
             videoRef={videoRef}
+            enabled={posterLoaded}
             className={styles.heroImage}
             setPlaybackPreference={setPlaybackPreference}
           />
