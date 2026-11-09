@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useEffect, useRef, useState } from 'react';
-import { flushSync } from 'react-dom';
+import { flushSync, preload } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'framer-motion';
@@ -238,7 +238,12 @@ function CareerCompanyTitle({ company }) {
   );
 }
 
+const HERO_POSTER = '/home/hero/landing-diagonal-3-poster.webp';
+
 function Hero() {
+  // The poster is the largest paint on every screen size. Fetch it first, ahead of the
+  // scripts, so it isn't left waiting behind them on a slow phone connection.
+  preload(HERO_POSTER, { as: 'image', fetchPriority: 'high' });
   const [isVisible, setIsVisible] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackPreference, setPlaybackPreference] = useState('auto');
@@ -297,7 +302,7 @@ function Hero() {
         {videoFailed ? (
           <Image
             className={styles.heroImage}
-            src="/home/hero/landing-diagonal-3-poster.webp"
+            src={HERO_POSTER}
             alt=""
             fill
             sizes="100vw"
@@ -307,7 +312,7 @@ function Hero() {
             className={styles.heroImage}
             ref={videoRef}
             src="/home/hero/landing-diagonal-3.mp4"
-            poster="/home/hero/landing-diagonal-3-poster.webp"
+            poster={HERO_POSTER}
             preload="auto"
             muted
             loop
