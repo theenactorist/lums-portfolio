@@ -468,7 +468,7 @@ Former entry title: **Helium design system**.
 
 #### Context and challenge
 
-Helium is Shiga's design system, used across Enta and Pulse. Helium 1.0 gave designers one place for colors, type and shared components, but nothing tied the code back to the design. Specs reached engineering as Slack links, and small differences reached the live product: in March 2026 the send flows showed mixed casing and a label that read "Ban account" (ENG-956).
+Helium is Shiga's design system, used across Enta and Pulse. Helium 1.0 gave designers one place for colors, type and shared components, but nothing tied the code back to the design. Specs reached engineering as Slack links, and small differences reached the live product: in March 2026 the send flows showed mixed casing and a label that read "Ban account".
 
 Two later changes raised the stakes. In June 2026 Enta added Business accounts, so the system needed four themes instead of two. AI coding agents had also started writing Shiga's frontend code, and left to themselves, agents invent their own values. My goal went beyond consistent screens: a code layer that agents could build with, so a screen comes out right whether a designer, an engineer or an agent builds it.
 
@@ -476,10 +476,10 @@ Two later changes raised the stakes. In June 2026 Enta added Business accounts, 
 |---|---|---|
 | Before 2025 | Helium 1.0: a style guide in Figma only. | Owner account |
 | By May 2025 | Helium 2.0 in Figma on the Untitled UI foundation; specs reached engineering as Slack links. | Slack, ADR-0002 |
-| November 2025 | Error messages had no standard and drove support tickets. | Linear PRO-45 |
-| January 2026 | Tokens handed to Android and iOS as one-off theme files: 263 color tokens in Light and Dark. | Linear PRO-65 |
-| March 2026 | Live send flows didn't match the design: mixed casing and "Ban account". | Linear ENG-956 |
-| April 2026 | Mobile Revamp: mobile tokens, a component library and a Figma versus mobile parity review. | Linear ENG-1195 to ENG-1201 |
+| November 2025 | Error messages had no standard and drove support tickets. | Linear |
+| January 2026 | Tokens handed to Android and iOS as one-off theme files: 263 color tokens in Light and Dark. | Linear |
+| March 2026 | Live send flows didn't match the design: mixed casing and "Ban account". | Linear |
+| April 2026 | Mobile Revamp: mobile tokens, a component library and a Figma versus mobile parity review. | Linear |
 | June 2026 | Enta added Business accounts, making four modes; the code layer started on 21 June. | Slack, repository |
 | July 2026 | The React library became a Q3 priority to make prototyping faster and cheaper; Pulse's first build used it. | Q3 Design Roadmap, Pulse case |
 | September 2026 | Helium set up in Claude Design for the team; makeshift copies removed. | Slack |
@@ -553,7 +553,7 @@ I owned Helium end to end: the foundations, the Figma library, the production Re
 **Collaborators**
 
 - Product and Engineering at Shiga.
-- Mobile engineering: Badmus received the platform token files under PRO-65, and the mobile team is adopting Helium's tokens and components.
+- Mobile engineering received the platform token files, and the mobile team is adopting Helium's tokens and components.
 - Claude Code built the code layer to my rules; two AI reviewers ran the QA audit.
 
 The full roster and contribution boundaries need confirmation.
@@ -729,7 +729,7 @@ Public case: [ENTA onboarding](https://olumideolusesi.com/work/shiga-onboarding)
 
 - **Company:** Shiga Onchain Banking
 - **Dates:** May 2024 to present is the consulting engagement range; individual workstream dates need confirmation.
-- **Role:** Senior Product Designer (Consultant).
+- **Role:** Product Design Engineer.
 - **Product:** ENTA consumer wallet, FORGE corporate banking, Telegram Mini-App, crypto payment flows, merchant payment tools, lifecycle marketing, KYC, and transaction security.
 - **Users:** Consumers, businesses, merchants, crypto-plus-fiat customers, and internal growth/operations teams.
 - **Problem:** Shiga needed to turn a founders' vision into a coherent multi-platform product ecosystem and expand beyond a core wallet into merchant and business payment use cases.
@@ -903,7 +903,7 @@ The prototype simulates verification, quotes, payments, screening, returns and s
 **Collaborators**
 
 - Dami Etomi (co-founder and COO) wrote the concept handover that framed the plaque model and session codes.
-- Shiga Engineering, including Samuel, implemented the production product.
+- Shiga Engineering implemented the production product.
 - AI agents: Claude Cowork for planning, review and the Figma boards; Claude Code as the builder; Codex for early backend and data work.
 
 The full team roster and contribution boundaries need confirmation.
@@ -986,7 +986,7 @@ I split the work between planning and doing. Claude Cowork acted as my planner a
 
 #### Collaborators, tools, and methods
 
-- Dave (Product Manager); Shiga Engineering, including Adedayo and Lekan.
+- The Product Manager; Shiga Engineering.
 - Claude Cowork for planning, review and tracking; Claude Code for Figma and code; OpenAI Codex briefly at the start.
 - Figma and Figma's MCP server, Helium, React and TypeScript, Vercel, GitHub and Mobbin.
 - Task briefs, screenshots beside Figma frames, review pages, approval before release, and written rules.
@@ -1114,7 +1114,7 @@ A review call with Engineering on 21 September set the wallet infrastructure as 
 
 #### Collaborators, tools, and methods
 
-- Engineering (wallet infrastructure and the production build); Dave (Product Manager).
+- Engineering (wallet infrastructure and the production build); the Product Manager.
 - Figma, Helium, and the AI-assisted prototype in entry 11.
 - PRD revisions, acceptance scenarios, live testing and screen-by-screen review.
 
@@ -1166,7 +1166,7 @@ PRD v2.1 builds on v1.4 and v2.0 and brings fiat into links: merchants can be pa
 **Supported by the project record**
 
 - Engineering built Payment links in production from the prototype.
-- Engineering (Adedayo) is moving the live checkout to the Enta POS experience from my November frames.
+- Engineering is moving the live checkout to the Enta POS experience from my November frames.
 
 **Not established**
 
@@ -1174,7 +1174,7 @@ PRD v2.1 builds on v1.4 and v2.0 and brings fiat into links: merchants can be pa
 
 #### Collaborators, tools, and methods
 
-- Dave (Product Manager) set the Bitcoin routes (Spark and Lightning only); Engineering built the backend and production.
+- The Product Manager set the Bitcoin routes (Spark and Lightning only); Engineering built the backend and production.
 - Figma, Helium, Mobbin, and the AI-assisted prototype in entry 11.
 
 #### Evidence and validation notes
@@ -1237,7 +1237,7 @@ In November 2026 I brought Move money into the prototype on the current design s
 
 #### Collaborators, tools, and methods
 
-- Shiga Engineering (production); Lekan for the fee and amount notes.
+- Shiga Engineering (production, and notes on fees and amounts).
 - Figma, Helium, and the AI-assisted prototype in entry 11.
 
 Live prototype: [Move money](https://move-money.vercel.app).
@@ -1293,7 +1293,7 @@ The redesign follows a paid model: setup is free, and a one-off fee is charged o
 
 #### Collaborators, tools, and methods
 
-- Abiola and Dami (pricing and sign-off), Adedayo and Samuel (build), Akin (infrastructure).
+- Co-founders Abiola Shogbeni and Dami Etomi (pricing and sign-off); Shiga Engineering (build and infrastructure).
 - Figma, Helium, Mobbin references (Airwallex, Mercury, Melio, Deel and others), and the AI-assisted workflow in entry 11.
 
 ---

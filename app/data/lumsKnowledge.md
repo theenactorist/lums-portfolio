@@ -50,7 +50,7 @@ His Civil Engineering degree taught him systems thinking, precision, and problem
 
 ### Sabi, Senior Product Designer | 2021–2022
 *(E-commerce, Logistics, Product-led)*
-- Built supply chain logistics tools used daily by thousands of African SMEs
+- Designed supply-chain logistics tools for a platform used by thousands of African SMEs
 - Covered inventory management, B2B commerce, and distribution at scale
 - Mentored junior designers beyond his core role
 - Colleagues describe him as "a valuable asset" with "wealth of design experience and flexibility"
@@ -61,16 +61,16 @@ His Civil Engineering degree taught him systems thinking, precision, and problem
 - Led a cross-functional team of 5, wrote PRDs, ran sprints, managed stakeholders, acting as de facto PM
 - Designed the full KYB flow; shipped from zero to $500k CAD disbursed in 9 months
 - Designed the Carbon debit card experience, including card issuance, virtual card management, PIN setup, and card-linked spend tracking within the app
-- Revamped Android and iOS home screens, improving feature discoverability, boosting organic referrals by 15%
+- Revamped Android and iOS home screens, improving feature discoverability, with reported team outcomes of 81% higher customer satisfaction, 25% more registrations and 10% of dormant accounts reactivated in the release month
 - Founded a Beta-Testing Community of 120+ participants, cutting external research costs by 25%
 - Standardized design handoff, improving design-to-development velocity by 30%
 
-### Shiga Onchain Banking, Senior Product Designer (Consultant) | May 2024 – Present
+### Shiga Onchain Banking, Product Design Engineer | May 2024 – Present
 *(Digital Banking, Crypto/Web3, Cross-border Payments, Product-led)*
 - Leading design strategy and operations across Shiga's crypto banking ecosystem & B2B SaaS payment product for embedded checkout, developer tooling, partner operations, and internal systems. Managing two designers while partnering cross-functionally.
-- Directly contributed to turning ambiguous requirements into human-centred products, which led to Shiga raising over $4M from Tether and Visa.
-- Built Helium 2.0, Shiga's design system, on Untitled UI and owned it from the Figma library to production React and Storybook: variables, tokens, reusable component specs, micro-interactions across Android, iOS, web, and light/dark modes.
-- Simplified complex crypto payment flows (Swap, Onramp, Offramp, Currency Conversion), reducing payment-related errors by 40%.
+- Directly contributed to turning ambiguous requirements into human-centred products, which helped Shiga secure USD 1.2 million in Tether funding and a place in the Visa Accelerator.
+- Built Helium 2.0, Shiga's design system, on Untitled UI and owned it from the Figma library to production React and Storybook: variables, tokens, reusable component specs, micro-interactions across Android, iOS, web, and four themes (Individual and Business, each in light and dark).
+- Simplified complex crypto payment flows (Swap, Onramp, Offramp, Currency Conversion), reducing payment-related errors by an estimated 40%.
 - Used AI workflows in Gemini CLI, Claude, Codex, and Antigravity IDE to design developer, partner, and internal operations experiences (React/React Native/Vanilla JS SDKs, API keys, sandbox testing, webhooks, KYB, reconciliation, compliance, and support tooling).
 - Built segmented MailerLite lifecycle journeys for onboarding, post-KYC, and win-back campaigns, achieving a 73% reactivation open rate.
 

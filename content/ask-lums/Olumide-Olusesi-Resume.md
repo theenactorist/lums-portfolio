@@ -21,12 +21,12 @@ Senior Product Designer with 7 years of experience in fintech, eCommerce SaaS de
 
 ## WORK EXPERIENCE
 
-### Shiga Onchain Banking, Senior Product Designer (Consultant)
+### Shiga Onchain Banking, Product Design Engineer
 *May 2024 - Present | UK*
-Leading design strategy and operations across Shiga's crypto banking ecosystem & B2B SaaS payment product for embedded checkout, developer tooling, partner operations, and internal systems. Managing two designers while partnering cross-functionally to turn ambiguous requirements into human-centred products, which led to Shiga raising over $4M from Tether and Visa.
+Leading design strategy and operations across Shiga's crypto banking ecosystem & B2B SaaS payment product for embedded checkout, developer tooling, partner operations, and internal systems. Managing two designers while partnering cross-functionally to turn ambiguous requirements into human-centred products, which helped Shiga secure USD 1.2 million in Tether funding and a place in the Visa Accelerator.
 - Led the end-to-end design and Codex-assisted build of Shiga's embedded crypto checkout, simplifying asset and network selection, rate locking, deposit detection, confirmation, conversion, and payment exception states within partner apps.
-- Architected Shiga’s Helium 2.0 design system from concept to production in Figma, React & Storybook, collaborating with engineers to define tokens, variable tables, reusable component specs, micro-interactions, and design QA practices across Android, iOS, web, and light/dark modes.
-- Redesigned complex crypto payment flows on web & mobile using UX principles, research insights, usability heuristics, and UX copywriting to make swap, onramp, offramp, payments and currency conversion easier for business and consumer users to understand and complete, reducing payment-related errors by 40%.
+- Built Shiga’s Helium 2.0 design system on Untitled UI in Figma, React & Storybook, collaborating with engineers to define tokens, variable tables, reusable component specs, micro-interactions, and design QA practices across Android, iOS, web, and light/dark modes.
+- Redesigned complex crypto payment flows on web & mobile using UX principles, research insights, usability heuristics, and UX copywriting to make swap, onramp, offramp, payments and currency conversion easier for business and consumer users to understand and complete, reducing payment-related errors by an estimated 40%.
 - Used AI workflows in Gemini CLI, Claude, Codex, and Antigravity IDE to design and deliver developer, partner, and internal operations experiences for Shiga's B2B crypto payment gateway, covering SDKs for React, React Native, and Vanilla JS, API keys, sandbox testing, webhooks, tenant-isolated dashboards, KYB, reconciliation, settlement, compliance, and support tooling.
 - Collaborated with marketing to design and launch lifecycle journeys in MailerLite for onboarding, post-KYC activation, and win-back campaigns, achieving a 73% reactivation open rate and establishing Shiga’s first lifecycle engine.
 
