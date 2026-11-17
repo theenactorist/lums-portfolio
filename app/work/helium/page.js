@@ -200,7 +200,7 @@ export default function HeliumCaseStudy() {
           <Section id="goal" title="What I wanted Helium to do">
             <p>Every design system is meant to help a team build consistently. That was the starting point for Helium too, but I had a second goal. AI coding agents were starting to write our front-end code, and left to themselves, each one invents its own colours, spacing and components. I wanted Helium to give agents a code layer to build with, so a screen comes out right whether a designer, an engineer or an agent builds it.</p>
             <p>Helium 1.0 couldn’t do that. It was a style guide in Figma. Designers had one place for colours, type and shared components, but engineers rebuilt every screen by eye from Figma links and screenshots. Nothing tied the code back to the design, so small differences crept in, like mixed casing and a label that read “Ban account” in our send flows.</p>
-            <p>Helium 2.0 is built on Untitled UI, a widely used Figma kit. I kept that base and rebuilt everything on top of it, from the foundations up, so the same names run from Figma to code.</p>
+            <p>Helium 1.0 was built on Untitled UI, a widely used Figma kit. For Helium 2.0, I rebuilt and adapted it from the foundations up, so the same names run from Figma to code.</p>
           </Section>
 
           <Section id="foundations" title="Starting with the foundations">

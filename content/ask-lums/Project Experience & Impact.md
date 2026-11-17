@@ -475,8 +475,8 @@ Two later changes raised the stakes. In June 2026 Enta added Business accounts, 
 
 | When | What happened | Source |
 |---|---|---|
-| Before 2025 | Helium 1.0: a style guide in Figma only. | Owner account |
-| By May 2025 | Helium 2.0 in Figma on the Untitled UI foundation; specs reached engineering as Slack links. | Slack, ADR-0002 |
+| Before 2025 | Helium 1.0: a style guide in Figma only, built on Untitled UI. | Owner account |
+| By May 2025 | Helium 2.0 in Figma, rebuilt and adapted from Helium 1.0; specs reached engineering as Slack links. | Slack, owner account |
 | November 2025 | Error messages had no standard and drove support tickets. | Linear |
 | January 2026 | Tokens handed to Android and iOS as one-off theme files: 263 color tokens in Light and Dark. | Linear |
 | March 2026 | Live send flows didn't match the design: mixed casing and "Ban account". | Linear |
@@ -505,7 +505,7 @@ I owned Helium end to end: the foundations, the Figma library, the production Re
 
 #### Key decisions
 
-- **Build on a proven base.** Helium 2.0 extends Untitled UI rather than starting from scratch (ADR-0002); the work went into the foundations, naming and themes on top of it.
+- **Rebuild from Helium 1.0.** Helium 1.0 was built on Untitled UI. For 2.0 I rebuilt and adapted it from the foundations up, so the same names run from Figma to code.
 - **Name tokens for code, not only for design.** Code syntax on the Figma variables lets agents and engineers reach for the right token instead of hard-coding a value.
 - **Theme by type of user.** Business uses neutrals so it's obvious which account you're in and it looks more understated and professional. No component checks its theme; adding a theme means adding a variable mode.
 - **Give numbers their own typeface.** IBM Plex Mono separates look-alike characters and covers ₦, ₵, ₿ and the ₮ in USD₮, which Instrument Sans lacks.
@@ -545,7 +545,7 @@ I owned Helium end to end: the foundations, the Figma library, the production Re
 **Superseded or retired claims**
 
 - **"263 color variables."** That was the January 2026 handoff in two modes. Helium now has 311 color tokens per theme across four themes.
-- **"Architected from scratch."** Helium 2.0 is built on Untitled UI (ADR-0002).
+- **"Architected from scratch" and "built on Untitled UI."** Neither describes Helium 2.0. Olumide, 17 November 2026: Helium 2.0 was rebuilt and adapted from Helium 1.0, which was built on Untitled UI.
 - **"Production-ready theme files for Android, iOS and web that unified Shiga's identity."** The native outputs cover the light theme only so far, and the current résumé no longer makes this claim.
 - **"One-week Pulse delivery window."** The Pulse case records five working days.
 
@@ -561,7 +561,7 @@ The full roster and contribution boundaries need confirmation.
 
 **Tools and methods**
 
-- Figma variables, modes, scoping and code syntax; Figma's MCP server; Untitled UI as the base.
+- Figma variables, modes, scoping and code syntax; Figma's MCP server.
 - Claude Code, AGENTS.md and the Figma-to-code manifest.
 - React, TypeScript, Storybook, Chromatic and Style Dictionary with DTCG-format JSON tokens.
 - Atomic design, architecture decision records and UX pattern documents.
@@ -573,6 +573,7 @@ The full roster and contribution boundaries need confirmation.
 
 - This account comes from the published case study, the Helium repository and the research behind the case (Linear, Slack and the Q3 Design Roadmap). The case study's figures were checked against the repository while the page was built.
 - Repository figures are as of its last commit, 11 October 2026.
+- Some of Helium's own documentation (ADR-0002, the Figma-to-code guide and the agent rules) still describes Helium 2.0 as built on the Untitled UI foundation. Olumide's account of 17 November 2026 governs: 2.0 was rebuilt and adapted from 1.0, which was built on Untitled UI.
 - The July snapshot vendored into the Pulse demo had 43 component directories; the October repository has 48. Both are right for their dates.
 - The QA audit used two AI reviewers in sequence (find, then verify) held to Helium's own UX patterns, plus a computed contrast audit. A planned third, adversarial review layer did not complete.
 - The error-message rewrite is the same work as the 100+ messages in the product ecosystem entry (entry 9). Don't add the two together.
