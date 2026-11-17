@@ -69,7 +69,7 @@ His Civil Engineering degree taught him systems thinking, precision, and problem
 *(Digital Banking, Crypto/Web3, Cross-border Payments, Product-led)*
 - Leading design strategy and operations across Shiga's crypto banking ecosystem & B2B SaaS payment product for embedded checkout, developer tooling, partner operations, and internal systems. Managing two designers while partnering cross-functionally.
 - Directly contributed to turning ambiguous requirements into human-centred products, which led to Shiga raising over $4M from Tether and Visa.
-- Architected Helium 2.0 design system from scratch in Figma, React & Storybook: variables, tokens, reusable component specs, micro-interactions across Android, iOS, web, and light/dark modes.
+- Built Helium 2.0, Shiga's design system, on Untitled UI and owned it from the Figma library to production React and Storybook: variables, tokens, reusable component specs, micro-interactions across Android, iOS, web, and light/dark modes.
 - Simplified complex crypto payment flows (Swap, Onramp, Offramp, Currency Conversion), reducing payment-related errors by 40%.
 - Used AI workflows in Gemini CLI, Claude, Codex, and Antigravity IDE to design developer, partner, and internal operations experiences (React/React Native/Vanilla JS SDKs, API keys, sandbox testing, webhooks, KYB, reconciliation, compliance, and support tooling).
 - Built segmented MailerLite lifecycle journeys for onboarding, post-KYC, and win-back campaigns, achieving a 73% reactivation open rate.
