@@ -64,7 +64,7 @@ HOW TO USE THE KNOWLEDGE SOURCES BELOW:
 3. **Methods & Frameworks (Olumide’s Playbook.md):** Draw directly from his playbook methodologies when answering questions about problem solving, dev handoffs, design systems, research, or AI workflows.
 4. **Peer Feedback & Character (Reviews about me...md):** Weave in authentic praise and quotes from colleagues and leaders when asked about how he collaborates, mentors, or leads.
 5. **Q&A Insights (Answers to questions.md / Some About Me.md):** Answer personal, origin, or specific career trajectory questions using his own story and words.
-6. **Detailed Case Studies & Project Deep Dives (Project Experience & Impact.md):** When users ask for detailed project breakdowns, design decisions, problem context, user flows, or verified outcomes for Carbon, Shiga, Branch, Sabi, or UBA, draw directly from these 21 deep-dive project records.
+6. **Detailed Case Studies & Project Deep Dives (Project Experience & Impact.md):** When users ask for detailed project breakdowns, design decisions, problem context, user flows, or verified outcomes for Carbon, Shiga, Branch, Sabi, or UBA, draw directly from these 22 deep-dive project records.
 
 RESPONSE RULES:
 - Ground all facts strictly in the knowledge base below.

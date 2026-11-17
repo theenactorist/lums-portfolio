@@ -22,9 +22,10 @@ Public copy for Ask Lums, made from the master file on 17 November 2026. Source-
 16. **Shiga** - Enta wallet recovery | Getting back into a wallet after losing a passkey
 17. **Branch International** - Building AI tools for consistent product design (formerly Three AIs, One Design System)
 18. **Branch International** - Multi-market product modernization and DesignOps
-19. **Sabi** - Supply-chain logistics suite
-20. **United Bank for Africa** - HCMConnect enterprise HR automation
-21. **United Bank for Africa** - Multi-channel banking and design-system foundations
+19. **Carbon and Branch International** - Rewards | Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals
+20. **Sabi** - Supply-chain logistics suite
+21. **United Bank for Africa** - HCMConnect enterprise HR automation
+22. **United Bank for Africa** - Multi-channel banking and design-system foundations
 
 ---
 
@@ -1475,6 +1476,119 @@ The work addressed two connected needs:
 - The active case-study route focuses only on the separate AI programme.
 - The current website does not provide dedicated case pages, raw analytics, or implementation artifacts for these modernization workstreams.
 - Employment dates define the outer boundary, not individual project dates.
+
+---
+
+## Carbon and Branch International
+
+### Rewards | Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals
+
+One case study covers two related programs: loyalty tiers at Carbon, then cashback and referral rewards at Branch.
+
+#### Project snapshot
+
+- **Company:** Carbon (loyalty tiers) and Branch International (cashback and referral rewards).
+- **Dates:** Carbon's tiers were designed while I was at Carbon (June 2022 to October 2024) and Branch's rewards while I was at Branch (October 2024 to March 2026). No narrower dates survive. The public case study went live on 6 November 2026.
+- **Role:** Product Designer at Carbon; Senior Product Designer on Branch's growth team.
+- **Product:** Carbon's six customer tiers, which give the most active customers better loan offers, savings rates, support and Carbon Zero first; Branch's Rewards tab, with 2% cashback on bill payments, a ₦2,000 reward for both people when an invited friend repays their first loan, and a balance that's spent on airtime and data.
+- **Users:** Carbon customers in Nigeria on iOS and Android; Branch customers on Android in Nigeria, Kenya and India.
+- **Problem:** In Nigeria's crowded fintech market, opening an account takes minutes; getting people to use it is the hard part. Carbon needed a fair way to decide who gets costly new benefits first. Branch needed to lift bill payments, which lagged behind the rest of the app.
+- **Personal ownership:** All of the design for both programs: Carbon's tier badges, entry points and tier screens, and Branch's Rewards screens and gift illustrations. At Branch the product manager and I shaped the flow and journey together.
+- **Delivered work:** Carbon: tier entry points, a two-tab tiers screen, six per-tier screens and a Tier 6 "maintain" state. Branch: first-time and returning versions of the Rewards tab, invite, redeem, spend, rewards history, a Rewards filter in transaction history and an FAQ, built in Neem.
+- **Strongest supported outcome:** Both programs are live. At Branch, bill payments went up after launch, and loan applications with them; this is my recollection, and no figures survive.
+- **Key skills:** Growth and retention design, loyalty and incentive programs, designing within data constraints, state design, content design for money rules, design-system work in Neem and usability testing.
+- **Public disclosure status:** The case study is public. Branch's screens in it are recreated with sample data, because the live screens held personal balances, codes and transactions. Carbon's help centre documents the tiers publicly.
+
+#### Context and challenge
+
+Nigerians can open a digital account with OPay, PalmPay, Kuda, FairMoney, Carbon, Branch and more, in minutes. The harder job is getting people to keep money in the wallet, pay bills, use the card and come back for a loan. I worked on that problem twice, first at Carbon and then at Branch, where Carbon was one of the apps we competed with.
+
+At Carbon, a credit-led digital bank with more than four million customers, the company wanted to offer more: better rates, faster support, buy now, pay later. Offering it all to everyone at once would have cost too much. Tiers answered who gets it first: the customers who keep money in their wallet, transact, save and repay on time unlock benefits first, and everyone else can see what they'd get by using Carbon more.
+
+The data set the main constraint. I wanted a points counter that grew with every transfer and repayment, so customers could watch themselves get closer to the next tier. Carbon recorded every activity that counted but couldn't total points in real time; a query ran across every customer at the end of each quarter and moved them up or down a tier.
+
+At Branch, the reward was money, and the job was one number: bill payments. How rewards work in Nigeria:
+
+| | How you earn | What you get | When it lands |
+|---|---|---|---|
+| Bill cashback | Pay airtime, data, cable TV or electricity bills of ₦200 or more | 2% back, on up to five bill payments a month and on all airtime and data purchases above ₦200 | Straight after the payment |
+| Referral | A friend joins with your invite code and repays their first loan | ₦2,000 for you and ₦2,000 for your friend | After the friend's first repayment |
+| Spending | Use your rewards balance | Airtime or data | Straight away |
+
+Tying the referral reward to a repaid loan means Branch only pays for friends who borrow and repay, and the five-a-month cap keeps cashback costs predictable.
+
+#### Work and ownership
+
+| Program | Surface | Work completed |
+|---|---|---|
+| Carbon | Tier system | Six tiers, each with its own color and badge; a progress row where passed tiers are ticked, the current tier is marked "You" and the ones ahead are locked. |
+| Carbon | Entry points | A tier badge on the profile picture on the home screen and a tier label beside the name on the Account page, both opening the tiers screen. |
+| Carbon | Tiers screen | Ordered to answer where am I, what do I get and how do I get more: status, progress, a quiet "What are tiers?" explainer, then two tabs for benefits now and next. |
+| Carbon | Level up tab | The next tier as a plan: the goal, what it adds, three steps (keep ₦20,000 in the wallet, transact regularly, save) and a link to the full help article. |
+| Carbon | Per-tier screens | All six versions once benefits were agreed; at Tier 6 the second tab becomes "Maintain your elite tier status". |
+| Branch | First-time Rewards tab | Invite code with Copy first, the deal under it, cashback as a row, redeem a friend's code, the FAQ last, and Invite Friends pinned as the main action. |
+| Branch | Returning Rewards tab | The balance first in the largest type, Spend Rewards attached to it, ways to earn moved into cards, then redeem, rewards history and the FAQ. |
+| Branch | Checking rewards | Every cashback as its own transaction, a Rewards filter in transaction history and a rewards history page with the balance, earned and spent. |
+| Branch | Invite, redeem, spend and FAQ | One screen each to share a code or redeem one; spending on airtime and data; an FAQ that answers whether the bill is discounted (it isn't; the cashback lands after). |
+| Branch | Illustrations and system | Gift box illustrations from the illustration workflow I built at Branch (entry 17); every screen built with Neem, Branch's design system. |
+
+I tested Carbon's tier screens with customers and refined them before they shipped. Branch's flow was tested internally and with customers across several rounds before launch. No research report survives from either.
+
+#### Key decisions
+
+- **Give each program one job.** Carbon used access to decide who gets costly benefits first; Branch used money to move bill payments.
+- **Design for what the data could do.** Without live points, the tier screens show the tier, what it gives now, what the next tier adds and how to get there.
+- **Show the next step at every level.** The next tier's benefits sit under the current ones, and even Tier 6 has a step: keep it.
+- **Order the screen by the customer's state.** New Branch customers see their invite code first; returning ones see their balance first.
+- **Make every reward checkable.** Each cashback is its own transaction, with a filter and a history, so customers can match it to the bill.
+- **Match the screen to how fast the reward arrives.** Cashback lands seconds after a bill, so it needs a balance and history; a tier can take a quarter, so it needs a clear picture of what's coming.
+
+#### Outcomes
+
+**Documented**
+
+- Carbon's tiers are live on iOS and Android, with a help centre guide to all six.
+- Carbon emailed customers about tier changes in 2025: a warning to customers at risk of dropping a tier on 20 March, before the quarter closed, and a welcome to Tier 6 on 27 April.
+- Branch Rewards launched on Android in Nigeria, Kenya and India, and was live in Nigeria on 5 November 2026.
+- The case study was published at olumideolusesi.com/work/rewards on 6 November 2026.
+- Company scale, not program reach: Branch's app has more than 50 million Google Play downloads; Carbon's has more than 5 million, and Carbon has more than four million customers.
+
+**Owner-reported, without figures**
+
+- Bill payments at Branch went up after Rewards launched, as customers earned cashback and spent it on more bills, and loan applications rose with them.
+
+**Not established**
+
+- Any measured figure: bill payments, loan applications, referrals, cashback paid, redemptions, tier movements, retention or program cost.
+- Whether Branch Rewards is still live in Kenya and India.
+- Research participants, methods and findings at either company.
+
+#### Collaborators, tools, and methods
+
+**Collaborators**
+
+- Product managers and engineers at each company.
+- Branch's growth pod; its product manager shaped the flow and journey with me.
+
+The full team and contribution boundaries need confirmation.
+
+**Tools and methods**
+
+- Figma for both programs; Neem, Branch's design system.
+- The illustration workflow I built at Branch, for the gift illustrations.
+- Usability testing at Carbon; internal and customer test rounds at Branch.
+- Reward-program research: the goal-gradient effect (people work harder as a reward gets closer) behind the wish for live points.
+- State design for first-time and returning customers, and per-tier screen variants.
+
+#### Evidence and validation notes
+
+- This account comes from the published case study, its approved copy and research notes, Olumide's answers of 6 November 2026, Carbon's help centre, the Figma files and screenshots of the live Branch app taken on 5 November 2026.
+- The Branch results are the owner's recollection. The case study deliberately uses no invented numbers.
+- Carbon sent the tier emails; this entry doesn't claim their design. The quarterly review comes from the owner; Carbon's help centre doesn't say how often tiers update.
+- Benefits moved between the first tier design and the final per-tier screens (Carbon Zero, for example, moved from Tier 3 to Tier 5), which fits benefits being agreed after the first design.
+- Entry 18 lists rewards among the Branch screens moved to Neem. That's the migration; this entry is the program design. Don't count them twice.
+
+Public case: [Rewards](https://olumideolusesi.com/work/rewards).
 
 ---
 
