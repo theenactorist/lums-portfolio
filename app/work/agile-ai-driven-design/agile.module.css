@@ -1,0 +1,244 @@
+/* Agile AI-driven design case study, from the Helium page's module. Structure and spacing follow the Pulse page; colour follows DESIGN.md:
+   neutrals only, Warm Rust as the one accent, flat surfaces. Only clickable things get strokes; everything else
+   is separated by fill and spacing (Olumide, 3 Nov). */
+.page { --paper:#fff; --ink:#1d1d1b; --copy:oklch(0.423 0.004 84.76); --muted:#6f6f6d; --line:#e7e7e7; --surface:#f9f8f6; --rail-surface:#f4f3f0; --hero-surface:#f9f8f6; --accent:#e07b3c; padding:calc(var(--nav-height,62.375px) + 24px) 0 56px; background:var(--paper); color:var(--ink); }
+:global(html[data-theme='dark']) .page { --paper:#0a0a0f; --ink:#f5f5f0; --copy:#d0d0d5; --muted:#999; --line:#2a2a30; --surface:#141419; --rail-surface:#141419; --hero-surface:#141419; }
+.page * { box-sizing:border-box; }
+.page :is(h1,h2,h3) { color:var(--ink); }
+.page a { color:inherit; text-underline-offset:4px; }
+.page :is(a,button,summary):focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+
+/* Header */
+.header { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); align-items:center; gap:56px; width:min(2000px,95%); margin:0 auto 88px; padding:56px; background:var(--hero-surface); border-radius:30px; }
+.heroCopy { min-width:0; }
+.breadcrumb { display:flex; align-items:center; gap:12px; color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:32px; }
+.breadcrumb a { color:var(--ink); }
+.header h1 { max-width:720px; margin:0 0 32px; font-size:48px; font-weight:600; line-height:1.05; letter-spacing:-.04em; text-wrap:balance; }
+.intro,.intro p { max-width:680px; font-size:20px; line-height:1.6; color:var(--copy); }
+.intro p { margin:0; text-wrap:pretty; }
+
+.heroMedia { position:relative; min-width:0; width:100%; aspect-ratio:100 / 80; }
+.heroBase,.heroPhone { position:absolute; }
+.heroBase { top:0; left:6.87%; width:93.12%; }
+/* The phone shows its top two thirds (780 by 1125 of 780 by 1688); the viewer still opens the whole capture. */
+.heroPhone { bottom:0; left:0; width:31%; }
+.heroPhone :global(.zoom-trigger) { aspect-ratio:780 / 1125; }
+.heroMedia :global(.zoom-trigger) { display:block; width:100%; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+.heroMedia :global(.zoom-trigger__image) { display:block; width:100%; height:auto; }
+.heroMedia :global(.zoom-trigger):hover :global(.zoom-trigger__image) { transform:none; }
+.heroMedia :global(.zoom-trigger__hint) { width:36px; height:36px; bottom:8px; right:8px; }
+
+/* Rail and article layout (as on Pulse) */
+.articleLayout { display:grid; grid-template-columns:25% 66.666667%; align-items:start; gap:32px; width:min(1304px,calc(100% - 40px)); margin:0 auto; }
+.chapterRail { position:sticky; top:128px; max-height:calc(100dvh - 144px); overflow-y:auto; overscroll-behavior:contain; min-width:0; padding:0 12px; }
+.page :global(.cs-phase-nav) { position:static; inset:auto; width:100%; margin:0; padding:0; border:0; background:none; color:var(--ink); backdrop-filter:none; z-index:auto; }
+.page :global(.cs-phase-nav--tree) a:focus-visible { outline-offset:-2px; }
+.mobileContents { display:none; }
+.article { min-width:0; padding:0 12px 0 56px; container:agile-article / inline-size; }
+
+/* Sections */
+.section { margin-bottom:64px; scroll-margin-top:calc(var(--nav-height,72px) + 32px); }
+.section:focus { outline:none; }
+.section h2 { max-width:704px; margin:64px auto 20px; font-size:38.4px; line-height:1.1; letter-spacing:-.03em; font-weight:600; text-wrap:balance; }
+.prose { font-size:17px; line-height:1.625; color:var(--copy); }
+.prose > :is(p,h3) { max-width:704px; margin-inline:auto; }
+.prose > p { margin-bottom:20px; text-wrap:pretty; }
+.prose > h3 { margin-top:56px; margin-bottom:20px; font-size:28px; line-height:1.2; letter-spacing:-.025em; font-weight:600; text-wrap:balance; }
+
+/* At a glance */
+.overview { margin-bottom:104px; }
+.overviewLabel { display:inline-flex; padding:4px 8px; margin-bottom:32px; background:var(--rail-surface); border-radius:6px; font-family:var(--font-sans); font-size:12px; line-height:18px; color:var(--ink); }
+.overview h2 { max-width:none; font-size:32px; line-height:1.1; letter-spacing:-.01em; font-weight:500; margin:0 0 48px; }
+.overviewLayout { display:grid; grid-template-columns:43% minmax(0,1fr); gap:24px; align-items:start; }
+.facts { padding:19.2px; background:var(--surface); border-radius:16px; margin:0; }
+.facts > div + div { border-top:1px dashed var(--line); padding-top:19.2px; margin-top:19.2px; }
+.facts dt { font-family:var(--font-sans); font-size:12px; line-height:18px; color:var(--muted); font-weight:500; letter-spacing:.4px; text-transform:uppercase; margin-bottom:10px; }
+.facts dd { margin:0; font-size:16px; line-height:1.45; color:var(--ink); }
+.tools { display:flex; align-items:center; flex-wrap:wrap; gap:6px 8px; }
+.tools span { display:inline-flex; align-items:center; gap:6px; }
+.tools img { object-fit:contain; }
+.overviewCopy { min-width:0; font-size:21.12px; line-height:1.4; color:var(--ink); }
+.overviewCopy p { margin:0 0 20px; }
+.overviewCopy h3 { margin:32px 0 16px; font-size:20px; line-height:1.5; font-weight:600; letter-spacing:0; }
+.overviewCopy ul { list-style:none; padding:0; margin:0; }
+.overviewCopy li + li { margin-top:16px; padding-top:16px; border-top:1px solid var(--line); }
+
+/* Figures: evidence on a flat surface, caption below */
+.figure { margin:40px 0; padding:28px; background:var(--surface); border-radius:30px; }
+.figure :global(.zoom-trigger) { display:block; width:100%; border:0; border-radius:12px; overflow:hidden; }
+.figure :global(.zoom-trigger__image) { display:block; width:100%; height:auto; }
+.figure figcaption { margin-top:24px; font-size:13px; line-height:1.65; color:var(--muted); }
+.figureLabel { display:block; margin-bottom:12px; font-family:var(--font-sans); font-size:12px; line-height:1.5; letter-spacing:.4px; color:var(--muted); }
+
+.tableWrap { overflow-x:auto; border-radius:16px; background:var(--surface); }
+.prose > .tableWrap { max-width:704px; margin:32px auto 40px; }
+.table { width:100%; border-collapse:collapse; font-size:15px; line-height:1.55; }
+.table :is(th,td) { padding:14px 20px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+.table tbody tr:last-child :is(th,td) { border-bottom:0; }
+.table thead th { font-family:var(--font-sans); font-size:12px; font-weight:500; letter-spacing:.4px; color:var(--muted); }
+.table code { font-family:var(--font-mono); font-size:13px; color:var(--ink); }
+.table tbody th { color:var(--ink); font-weight:600; }
+.table tbody td { color:var(--copy); }
+.table td:last-child:not([data-label]) { white-space:nowrap; }
+
+/* Figma to code: excerpts */
+.code { min-width:0; margin:0; padding:16px 20px; border-radius:16px; background:var(--paper); color:var(--ink); font-family:var(--font-mono); font-size:13px; line-height:1.65; white-space:pre-wrap; overflow-wrap:anywhere; }
+.prose p code { font-family:var(--font-mono); font-size:.9em; color:var(--ink); }
+
+/* Definition lists */
+.definitions { max-width:704px; margin:32px auto; }
+.definitions > div { padding:24px 0; }
+.definitions > div + div { border-top:1px solid var(--line); }
+.definitions dt { color:var(--ink); font-size:20px; font-weight:600; line-height:1.3; margin-bottom:12px; }
+.definitions dd { margin:0; }
+
+.next { max-width:704px; margin:64px auto 0; display:flex; flex-direction:column; gap:16px; }
+.next > span { color:var(--muted); font-family:var(--font-sans); font-size:12px; letter-spacing:.4px; text-transform:uppercase; }
+.next a { font-size:24px; line-height:1.3; text-decoration:none; }
+.next a:hover { text-decoration:underline; }
+
+/* Visuals that follow their own definition item sit inside its description */
+.definitions dd > :is(figure,section) { margin-bottom:8px; }
+.srOnly { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* Timeline: the shared CaseStudyTimeline, with each item's dates as its label. */
+.prose > .timeline { max-width:704px; margin:28px auto 32px; }
+
+/* Overview: the jump link and the small note, as on Pulse */
+.resultLink { display:inline-block; margin-top:24px; font-size:13px; line-height:1.7; }
+.qualification { font-size:14px !important; line-height:1.65; color:var(--muted); }
+:global(html[data-theme='dark']) .openaiMark { filter:invert(1); }
+/* A link inside a sentence is underlined, so it doesn't rely on colour (as Pulse's text links). */
+.inlineLink { color:var(--ink); text-decoration:underline; text-decoration-thickness:1px; }
+
+/* Diagrams, built in code so they follow the theme. Boxes are fill and spacing only; Olumide's parts take a Warm Rust
+   tint. Connectors are plain lines with arrowheads, drawn by .wire pieces placed in the diagram's grid: ::before is the
+   horizontal segment, ::after the vertical one and .head the arrowhead. Each piece class switches a segment on through
+   custom properties, so a container query can turn a piece from across to down without new markup. */
+.diagram { --wire:color-mix(in srgb, var(--muted) 80%, transparent); --wire-w:1.5px; --tip:5px; container:agile-diagram / inline-size; }
+.node { min-width:0; padding:16px 18px; background:var(--paper); border-radius:16px; }
+.node strong { display:block; font-size:16px; line-height:1.35; font-weight:600; color:var(--ink); }
+.node small { display:block; margin-top:6px; font-size:13px; line-height:1.5; color:var(--copy); }
+.kicker { display:block; margin-bottom:6px; font-family:var(--font-sans); font-size:12px; line-height:1.5; letter-spacing:.4px; color:var(--muted); }
+.mine { background:color-mix(in srgb, var(--accent) 18%, var(--paper)); }
+.mine .kicker { color:var(--ink); }
+:global(html[data-theme='dark']) .mine { background:color-mix(in srgb, var(--accent) 24%, var(--paper)); }
+
+.wire { position:relative; min-width:0; min-height:24px; --x:50%; --y:50%; }
+.wire::before, .wire::after { content:''; position:absolute; background:var(--wire); }
+.wire::before { display:var(--h, none); top:calc(var(--y) - var(--wire-w) / 2); height:var(--wire-w); left:var(--h0, 0); right:var(--h1, 0); }
+.wire::after { display:var(--v, none); left:calc(var(--x) - var(--wire-w) / 2); width:var(--wire-w); top:var(--v0, 0); bottom:var(--v1, 0); }
+.head { display:var(--hd, none); position:absolute; left:var(--hx); top:var(--hy); width:8px; height:8px; border-top:var(--wire-w) solid var(--wire); border-left:var(--wire-w) solid var(--wire); transform:translate(-50%,-50%) rotate(var(--hr)); }
+.hFull { --h:block; --h0:0; --h1:0; }
+.hToX { --h:block; --h0:0; --h1:calc(100% - var(--x)); }
+.hFromX { --h:block; --h0:var(--x); --h1:0; }
+.vFull { --v:block; --v0:0; --v1:0; }
+.vToY { --v:block; --v0:0; --v1:calc(100% - var(--y)); }
+.vFromY { --v:block; --v0:var(--y); --v1:0; }
+.headRight { --hd:block; --hx:calc(100% - var(--tip)); --hy:var(--y); --hr:135deg; }
+.headLeft { --hd:block; --hx:var(--tip); --hy:var(--y); --hr:-45deg; }
+.headDown { --hd:block; --hx:var(--x); --hy:calc(100% - var(--tip)); --hr:-135deg; }
+.headUp { --hd:block; --hx:var(--x); --hy:var(--tip); --hr:45deg; }
+/* A step-to-step arrow: across on wide figures, down when the figure stacks. */
+.flowArrow { --h:block; --h0:0; --h1:0; --hd:block; --hx:calc(100% - var(--tip)); --hy:var(--y); --hr:135deg; }
+.wireLabel { position:absolute; left:0; right:0; bottom:calc(50% + 6px); font-family:var(--font-sans); font-size:12px; line-height:1.4; letter-spacing:.4px; color:var(--muted); text-align:center; }
+.stackOnly { display:none; }
+
+/* The system: Me, the planner and the two builders in a row; the reports return underneath; AGENTS.md at the foot. */
+.system { display:grid; grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr) 72px minmax(0,1fr); }
+.system > .node { align-self:stretch; display:flex; flex-direction:column; justify-content:center; }
+.builders { display:grid; gap:12px; min-width:0; }
+.sysMe { grid-column:1; grid-row:1; }
+.sysBrief { grid-column:2; grid-row:1; }
+.sysPlanner { grid-column:3; grid-row:1; }
+.sysTasks { grid-column:4; grid-row:1; }
+.sysBuilders { grid-column:5; grid-row:1; }
+.sysReturn { --y:20px; grid-row:2; }
+.sysReturnStart { grid-column:5; }
+.sysReturnMid { grid-column:2 / 5; }
+.sysReturnEnd { grid-column:1; }
+.returnText { margin:0; padding:36px 8px 4px; font-size:13px; line-height:1.55; color:var(--copy); text-align:center; text-wrap:pretty; }
+.sysFoot { grid-column:1 / -1; grid-row:3; margin-top:20px; }
+.rulesBar { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; padding:14px 18px; background:var(--paper); border-radius:14px; font-size:14px; line-height:1.5; color:var(--copy); }
+.rulesBar strong { font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--ink); }
+.sysLoop { grid-column:2; display:none; }
+
+/* The path: six steps in two rows of three, the turn between them, and QA's return to my review on the right. */
+.path { display:grid; grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr) 32px minmax(0,1fr) 40px; grid-template-rows:auto 48px auto; margin:0; padding:0; list-style:none; }
+.path > .node { align-self:stretch; }
+.p1 { grid-area:1 / 1; } .a12 { grid-area:1 / 2; } .p2 { grid-area:1 / 3; } .a23 { grid-area:1 / 4; } .p3 { grid-area:1 / 5; }
+.turnA { grid-area:2 / 5; } .turnB { grid-row:2; grid-column:2 / 5; } .turnC { grid-area:2 / 1; }
+.p4 { grid-area:3 / 1; } .a45 { grid-area:3 / 2; } .p5 { grid-area:3 / 3; } .a56 { grid-area:3 / 4; } .p6 { grid-area:3 / 5; }
+.a34 { display:none; }
+.loopTop { grid-area:1 / 6; } .loopMid { grid-area:2 / 6; } .loopBottom { grid-area:3 / 6; }
+.pathReturn { margin:16px 0 0; font-size:13px; line-height:1.55; color:var(--copy); text-align:right; }
+
+@container agile-diagram (max-width:600px) {
+  /* Down instead of across */
+  .flowArrow { --h:none; --v:block; --v0:0; --v1:0; --x:24px; --hx:var(--x); --hy:calc(100% - var(--tip)); --hr:-135deg; min-height:44px; }
+  .wireLabel { left:40px; right:auto; bottom:auto; top:50%; transform:translateY(-50%); text-align:left; }
+  .stackOnly { display:block; }
+  .system { grid-template-columns:minmax(0,1fr) 40px; }
+  .sysMe { grid-area:1 / 1; } .sysBrief { grid-area:2 / 1; } .sysPlanner { grid-area:3 / 1; } .sysTasks { grid-area:4 / 1; } .sysBuilders { grid-area:5 / 1; }
+  .sysReturn { display:none; }
+  .sysLoop { display:block; }
+  .sysLoopTop { grid-area:1 / 2; } .sysLoopMid { grid-row:2 / 5; grid-column:2; } .sysLoopBottom { grid-area:5 / 2; }
+  .sysReturnStack { grid-row:6; grid-column:1 / -1; }
+  .sysReturnStack .returnText { padding:16px 0 0; text-align:left; }
+  .sysFoot { grid-row:7; }
+  .path { grid-template-columns:minmax(0,1fr) 40px; grid-template-rows:none; }
+  .p1 { grid-area:1 / 1; } .a12 { grid-area:2 / 1; } .p2 { grid-area:3 / 1; } .a23 { grid-area:4 / 1; } .p3 { grid-area:5 / 1; }
+  .a34 { display:block; grid-area:6 / 1; }
+  .p4 { grid-area:7 / 1; } .a45 { grid-area:8 / 1; } .p5 { grid-area:9 / 1; } .a56 { grid-area:10 / 1; } .p6 { grid-area:11 / 1; }
+  .turnA, .turnB, .turnC { display:none; }
+  .loopTop { grid-area:5 / 2; } .loopMid { grid-row:6 / 11; grid-column:2; } .loopBottom { grid-area:11 / 2; }
+  .pathReturn { text-align:left; }
+}
+
+/* Figma beside the prototype: desktop screens in one row, phones in the next. */
+.compare { display:grid; gap:28px; }
+.compareRow { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; }
+.comparePhones { max-width:520px; margin-inline:auto; width:100%; }
+.compareRow > div { min-width:0; }
+.picker :global(.zoom-trigger) { border-radius:8px; }
+@container agile-article (max-width:560px) {
+  .compareRow:not(.comparePhones) { grid-template-columns:1fr; }
+}
+@media (min-width:768px) and (max-width:1479px) {
+  .header { grid-template-columns:minmax(0,1fr); }
+  .heroCopy { width:100%; max-width:720px; justify-self:center; }
+  .heroMedia { width:min(100%,560px); justify-self:center; }
+}
+@media (max-width:991px) {
+  .articleLayout { display:block; width:min(832px,calc(100% - 64px)); }
+  .article { padding:0; border:0; }
+  .chapterRail { display:none; }
+  .mobileContents { display:block; margin-bottom:48px; background:var(--rail-surface); border-radius:16px; padding:0 24px; }
+  .mobileContents summary { min-height:56px; display:flex; align-items:center; justify-content:space-between; gap:16px; font-size:15px; cursor:pointer; list-style:none; }
+  .mobileContents summary::-webkit-details-marker { display:none; }
+  .mobileContents summary::after { content:'+'; font-size:22px; }
+  .mobileContents[open] summary::after { content:'−'; }
+  .mobileContents :global(.cs-phase-nav) { padding-bottom:16px; }
+  /* Inside the disclosure the pill sits on the disclosure's fill, so it takes the page tone; rows are touch size. */
+  .mobileContents { --tree-pill:var(--paper); }
+  .mobileContents :global(.cs-phase-nav--tree) > div { --tree-row:44px; }
+  .mobileContents :global(.cs-phase-nav--tree) a { font-size:14px; }
+}
+@media (max-width:767px) {
+  .page { padding-top:calc(var(--nav-height,62.375px) + 16px); padding-bottom:24px; }
+  .header { display:block; width:95%; padding:40px 28px; margin-bottom:64px; border-radius:30px; }
+  .header h1 { font-size:35.2px; line-height:1.05; text-wrap:initial; }
+  .heroMedia { margin-top:32px; }
+  .articleLayout { width:calc(100% - 40px); }
+  .mobileContents { margin-bottom:40px; padding-inline:20px; }
+  .section h2 { font-size:32px; line-height:1.1; }
+  .prose > h3 { font-size:24px; line-height:1.25; margin-top:40px; }
+  .overviewLayout { grid-template-columns:1fr; gap:32px; }
+  .overviewCopy { font-size:20px; line-height:1.4; }
+  .figure { padding:20px; border-radius:24px; }
+  .code { padding:14px 16px; font-size:12px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .page,.page * { scroll-behavior:auto !important; animation:none !important; transition-duration:0s !important; }
+  .heroMedia { opacity:1 !important; transform:none !important; }
+}
