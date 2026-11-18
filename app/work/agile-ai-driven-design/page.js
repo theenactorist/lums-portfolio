@@ -40,18 +40,19 @@ const path = [
   ['QA against production', 'Once Engineering ships, the prototype becomes the reference. Agents capture the production screens and compare them with the prototype and Figma, and the findings come back to Figma as corrections. On EntaPOS, that was 59 captures and 39 findings, drawn on Production vs Design Review boards in eleven batches.'],
 ]
 
-// Figma exports (read-only, scale 2): Multisig Requests 19143:129941 (hDTGMIGGN5IedwXue9wSYi) and the Lagos city tour
-// link details sheet 24800:41191 (GO6scykq7gsmaGxIq41y8I). Prototype captures at 2x from the Enta prototype's build.
+// Figma exports (read-only, scale 2): Multisig request 19810:62831 (Mobile > Requests > Withdraw, file
+// hDTGMIGGN5IedwXue9wSYi) and the Lagos city tour link details sheet 24800:41191 (GO6scykq7gsmaGxIq41y8I), each beside
+// the prototype's capture of the same screen at 2x. Both pairs are phones (T15 V5, Q1).
 const compareRows = [
   {
-    phones: false,
+    id: 'request',
     items: [
-      { label: 'Figma', src: 'figma-desk-request', width: 2880, height: 2048, alt: 'A Multisig request on the Requests page in Figma, with its approval trail open' },
-      { label: 'Prototype', src: 'prototype-desk-request', width: 2880, height: 1800, alt: 'A Multisig request on the Requests page in the Enta prototype, with its approval trail open' },
+      { label: 'Figma', src: 'figma-phone-request', width: 750, height: 1624, alt: 'The 12,500.48 USD₮ Multisig request on a phone in Figma, with its approval trail open' },
+      { label: 'Prototype', src: 'prototype-phone-request', width: 780, height: 1688, alt: 'The 12,500.48 USD₮ Multisig request on a phone in the Enta prototype, with its approval trail open' },
     ],
   },
   {
-    phones: true,
+    id: 'link',
     items: [
       { label: 'Figma', src: 'figma-phone-link', width: 750, height: 1624, alt: 'The Lagos city tour payment link’s details sheet on a phone in Figma' },
       { label: 'Prototype', src: 'prototype-phone-link', width: 780, height: 1688, alt: 'The Lagos city tour payment link’s details sheet on a phone in the Enta prototype' },
@@ -59,17 +60,17 @@ const compareRows = [
   },
 ]
 
-// Quoted as “T15 copy” gives them, from the dated rules in Product Features' AGENTS.md.
-const agentsRules = `- One picker look, every build (Olumide, 17 Oct): every picker sheet on a phone is Helium List Child rows. One library, shared/picker; no feature restyles it.
-- Dates in lists and tables (Olumide, 19 Oct): every row that shows a day reads “Today”, “Yesterday”, then “16 Sept”.
-- Payment link addresses in the prototype (Olumide, 11 Nov): a link’s address is the prototype’s own, so it always opens the payer page. Figma keeps the production address.`
+// Quoted as “T15 copy” gives them, from the dated rules in Product Features' AGENTS.md; “…” marks each cut (T15 V5, Q4).
+const agentsRules = `- One picker look, every build (Olumide, 17 Oct): every picker sheet on a phone (currency, asset, network, account, the money flows’ option sheets) is Helium List Child rows … One library, shared/picker; no feature restyles it.
+- Dates in lists and tables (Olumide, 19 Oct): every table column, list row and row sub-line that shows a day reads “Today”, “Yesterday”, then “16 Sept” …
+- Payment link addresses in the prototype (Olumide, 11 Nov): a link’s address is the prototype’s own … so it always opens the payer page. … Figma keeps entashiga.io/pay/... as the production address.`
 
 const changes = [
   { label: '16 to 20 Sept', title: 'Multisig', text: 'First pass built to the PRD in one day; first deploy four days later.' },
-  { label: '22 to 24 Sept', title: 'Payment links', text: 'PRD drafted, then a working prototype two days later.' },
+  { label: '22 to 28 Sept', title: 'Payment links', text: 'First call with Engineering, then a live prototype six days later.' },
   { label: '10 to 20 Oct', title: 'Phone versions', text: 'Three features designed in Figma and built for phones.' },
   { label: '10 Oct to 3 Nov', title: 'EntaPOS', text: 'Eight prototype releases.' },
-  { label: '3 to 13 Nov', title: 'Move money', text: 'Seven of nine routes live by 7 Nov; all nine by 13 Nov.' },
+  { label: '3 to 13 Nov', title: 'Move money', text: 'Seven of nine routes live by 7 Nov; all nine built and approved by 13 Nov.' },
 ]
 
 const habits = [
@@ -121,7 +122,7 @@ export default function AgileCaseStudy() {
                 <div><dt>Industry & platform</dt><dd>Fintech, Web3, B2C, B2B, Web, Mobile web</dd></div>
                 <div><dt>Role</dt><dd>Product design owner, directing AI agents in Figma and code</dd></div>
                 <div><dt>Team</dt><dd>Product, Engineering</dd></div>
-                <div><dt>Timeline</dt><dd>July to November 2026 at Shiga, building on AI work at Branch from October 2025</dd></div>
+                <div><dt>Timeline</dt><dd>June to November 2026 at Shiga, building on AI work at Branch from October 2025</dd></div>
                 <div><dt>Tools</dt><dd className={styles.tools}><span><Image src="/work/ai-copywriting/tools/claude.svg" alt="" width={18} height={18} />Claude Cowork,</span> <span><Image src="/work/ai-copywriting/tools/claude.svg" alt="" width={18} height={18} />Claude Code,</span> <span><Image src="/work/ai-copywriting/tools/chatgpt.svg" alt="" width={18} height={18} className={styles.openaiMark} />Codex,</span> <span><Image src="/work/ai-copywriting/tools/figma.svg" alt="" width={18} height={18} />Figma and its MCP server,</span> <span>Helium React,</span> <span>Vercel,</span> <span>GitHub,</span> <span>Mobbin</span></dd></div>
               </dl>
               <div className={styles.overviewCopy}>
@@ -130,7 +131,7 @@ export default function AgileCaseStudy() {
                 <h3>Project TLDR:</h3>
                 <ul>
                   <li>Engineering built Pulse, Multisig and Payment links in production from the prototypes.</li>
-                  <li>Payment links went from PRD to a working prototype in two days.</li>
+                  <li>Payment links went from its first call with Engineering to a live prototype in six days.</li>
                   <li>One live Enta app joins four features, two account types and two layouts, reviewed screen by screen against Figma.</li>
                   <li>The same loop ran EntaPOS, and it’s packaged as my skill, lums-build-toolkit, which I reuse on new projects.</li>
                 </ul>
@@ -163,17 +164,17 @@ export default function AgileCaseStudy() {
             <figure className={styles.figure}>
               <div className={styles.compare}>
                 {compareRows.map((row) => (
-                  <div key={row.phones ? 'phone' : 'desktop'} className={`${styles.compareRow} ${row.phones ? styles.comparePhones : ''}`}>
+                  <div key={row.id} className={`${styles.compareRow} ${styles.comparePhones}`}>
                     {row.items.map((item) => (
                       <div key={item.src}>
                         <span className={styles.figureLabel}>{item.label}</span>
-                        <ZoomableImage src={`/work/agile-ai-driven-design/${item.src}.webp`} alt={item.alt} width={item.width} height={item.height} sizes={row.phones ? '(max-width: 767px) 40vw, 250px' : '(max-width: 767px) 85vw, 360px'} />
+                        <ZoomableImage src={`/work/agile-ai-driven-design/${item.src}.webp`} alt={item.alt} width={item.width} height={item.height} sizes="(max-width: 767px) 40vw, 250px" />
                       </div>
                     ))}
                   </div>
                 ))}
               </div>
-              <figcaption>The same screens in Figma and in the prototype, on desktop and on a phone.</figcaption>
+              <figcaption>The same screens in Figma and in the prototype.</figcaption>
             </figure>
           </Section>
 
@@ -197,7 +198,7 @@ export default function AgileCaseStudy() {
           <Section id="changed" title="Engineering builds from the prototypes">
             <p>Engineering built Pulse, Multisig and Payment links in production from these prototypes. The Pulse demo helped secure Piggyvest as a partner.</p>
             <p>The team walks flows instead of reading them. In one app, a payer pays a link, and the payment lands in the merchant’s dashboard and on Home, with the same example people throughout.</p>
-            <p>And the work moves faster. I design several screens in a day, where the same work used to take days. Payment links went from PRD to a working prototype in two days. Seven of Move money’s nine routes were live in the prototype within five days. Here’s how each one went:</p>
+            <p>And the work moves faster. I design several screens in a day, where the same work used to take days. Payment links went from its first call with Engineering to a live prototype in six days. Seven of Move money’s nine routes were live in the prototype within five days. Here’s how each one went:</p>
             <Timeline items={changes} label="How each feature went" className={styles.timeline} />
             <p className={styles.qualification}>The dates come from the project record. There’s no timed before-and-after study, so I don’t claim a percentage.</p>
           </Section>
