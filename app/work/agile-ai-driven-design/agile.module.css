@@ -17,13 +17,9 @@
 .intro,.intro p { max-width:680px; font-size:20px; line-height:1.6; color:var(--copy); }
 .intro p { margin:0; text-wrap:pretty; }
 
-.heroMedia { position:relative; min-width:0; width:100%; aspect-ratio:100 / 80; }
-.heroBase,.heroPhone { position:absolute; }
-.heroBase { top:0; left:6.87%; width:93.12%; }
-/* The phone shows its top two thirds (780 by 1125 of 780 by 1688); the viewer still opens the whole capture. */
-.heroPhone { bottom:0; left:0; width:31%; }
-.heroPhone :global(.zoom-trigger) { aspect-ratio:780 / 1125; }
-.heroMedia :global(.zoom-trigger) { display:block; width:100%; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+.heroMedia { position:relative; min-width:0; width:100%; }
+/* The hero is one transparent image of the two devices: no border, corner or fill around it. */
+.heroMedia :global(.zoom-trigger) { display:block; width:100%; border-radius:0; overflow:visible; }
 .heroMedia :global(.zoom-trigger__image) { display:block; width:100%; height:auto; }
 .heroMedia :global(.zoom-trigger):hover :global(.zoom-trigger__image) { transform:none; }
 .heroMedia :global(.zoom-trigger__hint) { width:36px; height:36px; bottom:8px; right:8px; }
