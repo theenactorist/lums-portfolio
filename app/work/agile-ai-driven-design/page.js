@@ -5,8 +5,7 @@ import Timeline from '../../components/CaseStudyTimeline'
 import './agile-shell.css'
 import ZoomableImage from '../pulse/PulseImage'
 import HeroMedia from './HeroMedia'
-import SystemDiagram from './SystemDiagram'
-import PathDiagram from './PathDiagram'
+import FlowDiagram from './FlowDiagram'
 import styles from './agile.module.css'
 import { heliumHeadline } from '../../data/productionHomeProjects'
 
@@ -34,10 +33,10 @@ const origins = [
 
 const path = [
   ['Documentation', 'I write the PRD and keep Helium current: 48 components, 13 UX patterns with Do and Don’t rules, and six decision records that settle the defaults. The Payment links PRD reached v2.1 after 83 revisions, and Multisig’s carries 20 acceptance scenarios. Pulse’s master build prompt names its sources in order, so the agent knows which one wins when two disagree.'],
-  ['Agents draft in Figma', 'Screens are drawn with Helium’s own components. When there’s a real choice, the options sit side by side: two concepts for wallet recovery, three picker styles for one product.'],
-  ['I review in Figma', 'I make the call and write down why. Recovery got the progress ring. Every feature got one picker style.'],
-  ['Agents detail the handoff', 'They add the specs and annotations and move finished frames to Ready for Dev. About 4,000 Helium bindings across three Figma files mean the frames use Helium’s variables instead of loose values. Boards are arranged by flow with figma-section-layout, a skill I wrote for it.'],
-  ['The prototype carries the interactions', 'Every state and transition is coded and live on Vercel, on desktop and phone. Phone frames sit beside every desktop frame in Figma, 94 in Payments alone.'],
+  ['Drafts in Figma', 'Screens are drawn with Helium’s own components. When there’s a real choice, the options sit side by side: two concepts for wallet recovery, three picker styles for one product.'],
+  ['Review in Figma', 'I make the call and write down why. Recovery got the progress ring. Every feature got one picker style.'],
+  ['Handoff detailing', 'They add the specs and annotations and move finished frames to Ready for Dev. About 4,000 Helium bindings across three Figma files mean the frames use Helium’s variables instead of loose values. Boards are arranged by flow with figma-section-layout, a skill I wrote for it.'],
+  ['Prototype', 'Every state and transition is coded and live on Vercel, on desktop and phone. Phone frames sit beside every desktop frame in Figma, 94 in Payments alone.'],
   ['QA against production', 'Once Engineering ships, the prototype becomes the reference. Agents capture the production screens and compare them with the prototype and Figma, and the findings come back to Figma as corrections. On EntaPOS, that was 59 captures and 39 findings, drawn on Production vs Design Review boards in eleven batches.'],
 ]
 
@@ -76,7 +75,7 @@ const changes = [
 const habits = [
   ['Write it down first', 'An agent only knows what’s on the page.'],
   ['Split planning from building', 'The agent doing the work shouldn’t be the only one checking it.'],
-  ['Review against the design', 'Screenshots beside Figma frames, every time.'],
+  ['Review against the design', 'Ask for the screenshot beside its Figma frame, every time. An agent can say a screen matches when it doesn’t; side by side, the difference shows.'],
   ['Turn every correction into a rule', 'Then you only fix it once.'],
   ['Keep the decisions human', 'Agents propose options. I choose, and I approve what ships.'],
 ]
@@ -133,7 +132,7 @@ export default function AgileCaseStudy() {
                   <li>Engineering built Pulse, Multisig and Payment links in production from the prototypes.</li>
                   <li>Payment links went from PRD to a working prototype in two days.</li>
                   <li>One live Enta app joins four features, two account types and two layouts, reviewed screen by screen against Figma.</li>
-                  <li>The same loop ran EntaPOS, and it’s packaged as a skill I reuse on new projects.</li>
+                  <li>The same loop ran EntaPOS, and it’s packaged as my skill, lums-build-toolkit, which I reuse on new projects.</li>
                 </ul>
                 <a className={styles.resultLink} href="#changed">What changed</a>
               </div>
@@ -149,16 +148,16 @@ export default function AgileCaseStudy() {
 
           <Section id="system" title="How I split the work with AI agents">
             <p>Every project runs on one loop. A planner agent in Claude Cowork turns my brief into tasks. Each task names the files to read and the Figma frames to match, and says how the result will be checked.</p>
-            <p>Builder agents in Claude Code do the work. One draws in Figma through Figma’s MCP server. The other writes code, and it’s the only one allowed to touch git. Here’s the loop:</p>
-            <SystemDiagram />
+            <p>Builder agents in Claude Code do the work. One draws in Figma through Figma’s MCP server. The other writes code, and it’s the only one allowed to touch git.</p>
             <p>Every report comes back with screenshots beside the Figma frames they should match. The planner checks them first. Then I review each screen and approve it before anything goes live.</p>
             <p>When I correct something, it becomes a dated rule in the project’s AGENTS.md. Every later task starts from those rules, and the Enta prototypes have about 40 of them now.</p>
+            <p>I’ve packaged the whole loop as a skill, lums-build-toolkit. A new project starts with the same planner, builders and rules.</p>
             <p className={styles.qualification}>If you know the BMAD Method, this will look familiar. BMAD splits AI work into roles, such as analyst, product manager, architect, developer and QA, and passes context between them in written stories. I built my loop independently. It shares BMAD’s spec-first, role-split idea, and it centres on Figma, Helium and visual QA against production.</p>
           </Section>
 
           <Section id="path" title="How a feature goes from documentation to production">
-            <p>Here’s the path one feature takes. The highlighted steps are mine; agents do the rest.</p>
-            <PathDiagram />
+            <p>Here’s the path one feature takes, grouped by the double diamond’s stages:</p>
+            <FlowDiagram />
             <Definitions items={path} />
             <p>Here’s one Multisig request and one payment link in Figma and in the prototype:</p>
             <figure className={styles.figure}>
@@ -204,12 +203,12 @@ export default function AgileCaseStudy() {
           </Section>
 
           <Section id="teach" title="What I’d teach another designer">
-            <p>These are the habits I’d pass on to any designer starting out with agents.</p>
+            <p>These are the habits I’d pass on to any designer starting out with agents. They’re all built into lums-build-toolkit.</p>
             <Definitions items={habits} />
           </Section>
 
           <Section id="next" title="Where I’m taking it next">
-            <p>Move money on phones is next for the Enta prototypes. And the workflow travels. It’s packaged as a skill, lums-build-toolkit, that sets up the same loop on a new project, with Figma or without it, and asks where the work deploys before anything ships.</p>
+            <p>Move money on phones is next for the Enta prototypes. And the workflow travels. The skill sets up the same loop on a new project, with Figma or without it, and asks where the work deploys before anything ships.</p>
           </Section>
           <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/helium">{heliumHeadline}</Link></nav>
         </article>
