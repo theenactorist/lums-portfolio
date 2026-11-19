@@ -8,7 +8,7 @@ Public copy for Ask Lums, made from the master file on 17 November 2026. Source-
 2. **Carbon** - Mobile home-screen redesign | Unifying Android and iOS
 3. **Carbon** - Carbon Business B2B SME lending
 4. **Carbon** - Beta-Testing Community and DesignOps
-5. **Shiga** - Pulse | AI-Native Design Engineering: A Payment Product in Five Days
+5. **Shiga** - Pulse | Zero to One: Designing a Payments SaaS
 6. **Shiga** - Helium | Design System Engineering: Owning Helium from Figma Library to Production Code
 7. **Shiga** - Shiga/ENTA business onboarding | KYB, owner verification and activation
 8. **Shiga** - ENTA passkey-led consumer onboarding | Cutting time to value
@@ -372,7 +372,7 @@ Exact owners and operating partners need confirmation.
 
 ## Shiga
 
-### Pulse | AI-Native Design Engineering: A Payment Product in Five Days
+### Pulse | Zero to One: Designing a Payments SaaS
 
 #### Project snapshot
 

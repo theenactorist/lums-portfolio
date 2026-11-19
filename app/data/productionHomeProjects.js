@@ -8,9 +8,11 @@
 // Card tags (attributes) trimmed to at most three on 6 November 2026: no “Shipped” (all of them are) and none that repeat the Home group.
 // The owner asked for four tags on Carbon (adding Fintech) and Shiga onboarding (adding B2B) on 7 November 2026.
 // The Agile AI-driven design case study (Cowork, T16, 18 November 2026) is listed third, after Helium, and first in
-// “Design systems and AI tools” on Home; its title is the page's H1 (agileHeadline).
+// “Design systems and AI-driven design” on Home; its title is the page's H1 (agileHeadline).
+// The owner renamed that group from “Design systems and AI tools” on 18 November 2026 (title and intro as written).
+// The owner retitled Pulse as a zero-to-one SaaS case on 18 November 2026: pulseHeadline, its card line and tags (no AI Tools).
 // Other cards retain their verified production destinations and order.
-export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
+export const pulseHeadline = 'Zero to One: Designing a Payments SaaS';
 export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
 export const agileHeadline = 'Agile AI-Driven Design: Design Judgment, Written for Agents';
 export const rewardsHeadline = 'Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals';
@@ -19,8 +21,8 @@ export const productionHomeProjects = [
   {
     id: 'pulse',
     title: pulseHeadline,
-    description: 'Turning an ambiguous embedded crypto payments concept into working software by connecting AI-assisted design with a coded design system and front-end development.',
-    attributes: ['Web 3', 'SaaS', 'AI Tools'],
+    description: 'Taking an embedded crypto payments idea to a working B2B product: checkout for customers, operations for partner teams and tools for developers.',
+    attributes: ['Web 3', 'SaaS', 'B2B'],
     image: '/home/live-work/pulse-layered.png',
     imageAlt: 'Pulse payment dashboard with embedded crypto checkout and developer API code',
     href: 'https://olumideolusesi.com/work/pulse',
@@ -165,8 +167,8 @@ export const homeWorkGroups = [
   },
   {
     id: 'design-systems-ai',
-    title: 'Design systems and AI tools',
-    intro: 'Foundations and tools that help teams ship consistent work.',
+    title: 'Design systems and AI-driven design',
+    intro: 'Foundations and AI workflows that help teams move fast and keep the quality high.',
     projectIds: ['agile-ai-driven-design', 'helium', 'ai-copywriting', 'branch-ai'],
   },
   {
