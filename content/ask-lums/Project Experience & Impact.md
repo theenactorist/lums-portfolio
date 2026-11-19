@@ -20,7 +20,7 @@ Public copy for Ask Lums, made from the master file on 17 November 2026. Source-
 14. **Shiga** - Enta Payment links | Get paid by link, in crypto or by bank transfer
 15. **Shiga** - Enta Move money | Every way money moves, in one place
 16. **Shiga** - Enta wallet recovery | Getting back into a wallet after losing a passkey
-17. **Branch International** - Building AI tools for consistent product design (formerly Three AIs, One Design System)
+17. **Branch International** - Beyond Prompts: Shared AI Workflows Built on Branch’s Design System (formerly Building AI tools for consistent product design, and before that Three AIs, One Design System)
 18. **Branch International** - Multi-market product modernization and DesignOps
 19. **Carbon and Branch International** - Rewards | Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals
 20. **Sabi** - Supply-chain logistics suite
@@ -456,11 +456,11 @@ Former entry title: **Helium design system**.
 #### Project snapshot
 
 - **Company:** Shiga.
-- **Dates:** Helium 2.0 existed in Figma by May 2025. Platform token files went to the mobile team in January 2026. The code layer ran from 21 June to 11 October 2026 (109 commits). The public case study went live on 3 November 2026. Helium 1.0's dates need confirmation.
+- **Dates:** Helium v.2 existed in Figma by May 2025. Platform token files went to the mobile team in January 2026. The code layer ran from 21 June to 11 October 2026 (109 commits). The public case study went live on 3 November 2026. Helium v.1's dates need confirmation.
 - **Role:** Design system owner across the Figma library and the production React codebase. The current Shiga employment title is Product Design Engineer.
-- **Product:** Helium 2.0, Shiga's design system for Enta (Individual and Business) and Pulse: foundations, 1,608 Figma variables, four themes, 48 components in Figma and React, tokens for web, iOS and Android, a public Storybook, UX patterns, decision records and a Figma-to-code manifest that AI coding agents can read.
+- **Product:** Helium v.2 (written Helium 2.0 until 18 November 2026, and its first version Helium 1.0; Olumide names them v.1 and v.2), Shiga's design system for Enta (Individual and Business) and Pulse: foundations, 1,608 Figma variables, four themes, 48 components in Figma and React, tokens for web, iOS and Android, a public Storybook, UX patterns, decision records and a Figma-to-code manifest that AI coding agents can read.
 - **Users:** Shiga's designers, frontend and mobile engineers, and AI coding agents working in Helium-based repositories. The products built with it serve Enta's Individual and Business users and Pulse's partners.
-- **Problem:** Helium 1.0 was a style guide in Figma only. Engineers rebuilt screens by eye from Figma links and screenshots, so copy and styling drifted. Enta then added Business accounts, and AI coding agents started writing frontend code with their own colors, spacing and components.
+- **Problem:** Helium v.1 was a style guide in Figma only. Engineers rebuilt screens by eye from Figma links and screenshots, so copy and styling drifted. Enta then added Business accounts, and AI coding agents started writing frontend code with their own colors, spacing and components.
 - **Personal ownership:** Foundations, the Figma library and variable architecture, theming, component specifications, the React code layer built with Claude Code to my rules, review of every component against Figma, UX patterns, decision records, the error-message formula and rewrites, and QA remediation.
 - **Delivered work:** 48 components in Figma and React with more than 300 Storybook stories; tokens built by Style Dictionary into CSS, TypeScript, Swift and Android XML; 13 UX patterns; six decision records; a Figma-to-code manifest and AGENTS.md for agents; exported asset sets; a published case study.
 - **Strongest supported outcome:** Pulse's console imports Helium's React components, icons and tokens, and Pulse's first build took five working days in July 2026. Helium is also used in Enta prototypes and Claude Design, and the mobile team is bringing its tokens into the Enta app. No measured time or defect savings exist.
@@ -469,14 +469,14 @@ Former entry title: **Helium design system**.
 
 #### Context and challenge
 
-Helium is Shiga's design system, used across Enta and Pulse. Helium 1.0 gave designers one place for colors, type and shared components, but nothing tied the code back to the design. Specs reached engineering as Slack links, and small differences reached the live product: in March 2026 the send flows showed mixed casing and a label that read "Ban account".
+Helium is Shiga's design system, used across Enta and Pulse. Helium v.1 gave designers one place for colors, type and shared components, but nothing tied the code back to the design. Specs reached engineering as Slack links, and small differences reached the live product: in March 2026 the send flows showed mixed casing and a label that read "Ban account".
 
 Two later changes raised the stakes. In June 2026 Enta added Business accounts, so the system needed four themes instead of two. AI coding agents had also started writing Shiga's frontend code, and left to themselves, agents invent their own values. My goal went beyond consistent screens: a code layer that agents could build with, so a screen comes out right whether a designer, an engineer or an agent builds it.
 
 | When | What happened | Source |
 |---|---|---|
-| Before 2025 | Helium 1.0: a style guide in Figma only, built on Untitled UI. | Owner account |
-| By May 2025 | Helium 2.0 in Figma, rebuilt and adapted from Helium 1.0; specs reached engineering as Slack links. | Slack, owner account |
+| Before 2025 | Helium v.1: a style guide in Figma only, built on Untitled UI. | Owner account |
+| By May 2025 | Helium v.2 in Figma, rebuilt and adapted from Helium v.1; specs reached engineering as Slack links. | Slack, owner account |
 | November 2025 | Error messages had no standard and drove support tickets. | Linear |
 | January 2026 | Tokens handed to Android and iOS as one-off theme files: 263 color tokens in Light and Dark. | Linear |
 | March 2026 | Live send flows didn't match the design: mixed casing and "Ban account". | Linear |
@@ -505,7 +505,7 @@ I owned Helium end to end: the foundations, the Figma library, the production Re
 
 #### Key decisions
 
-- **Rebuild from Helium 1.0.** Helium 1.0 was built on Untitled UI. For 2.0 I rebuilt and adapted it from the foundations up, so the same names run from Figma to code.
+- **Rebuild from Helium v.1.** Helium v.1 was built on Untitled UI. For v.2 I rebuilt and adapted it from the foundations up, so the same names run from Figma to code.
 - **Name tokens for code, not only for design.** Code syntax on the Figma variables lets agents and engineers reach for the right token instead of hard-coding a value.
 - **Theme by type of user.** Business uses neutrals so it's obvious which account you're in and it looks more understated and professional. No component checks its theme; adding a theme means adding a variable mode.
 - **Give numbers their own typeface.** IBM Plex Mono separates look-alike characters and covers ₦, ₵, ₿ and the ₮ in USD₮, which Instrument Sans lacks.
@@ -545,7 +545,7 @@ I owned Helium end to end: the foundations, the Figma library, the production Re
 **Superseded or retired claims**
 
 - **"263 color variables."** That was the January 2026 handoff in two modes. Helium now has 311 color tokens per theme across four themes.
-- **"Architected from scratch" and "built on Untitled UI."** Neither describes Helium 2.0. Olumide, 17 November 2026: Helium 2.0 was rebuilt and adapted from Helium 1.0, which was built on Untitled UI.
+- **"Architected from scratch" and "built on Untitled UI."** Neither describes Helium v.2. Olumide, 17 November 2026: Helium v.2 was rebuilt and adapted from Helium v.1, which was built on Untitled UI.
 - **"Production-ready theme files for Android, iOS and web that unified Shiga's identity."** The native outputs cover the light theme only so far, and the current résumé no longer makes this claim.
 - **"One-week Pulse delivery window."** The Pulse case records five working days.
 
@@ -573,7 +573,7 @@ The full roster and contribution boundaries need confirmation.
 
 - This account comes from the published case study, the Helium repository and the research behind the case (Linear, Slack and the Q3 Design Roadmap). The case study's figures were checked against the repository while the page was built.
 - Repository figures are as of its last commit, 11 October 2026.
-- Some of Helium's own documentation (ADR-0002, the Figma-to-code guide and the agent rules) still describes Helium 2.0 as built on the Untitled UI foundation. Olumide's account of 17 November 2026 governs: 2.0 was rebuilt and adapted from 1.0, which was built on Untitled UI.
+- Some of Helium's own documentation (ADR-0002, the Figma-to-code guide and the agent rules) still describes Helium v.2 as built on the Untitled UI foundation. Olumide's account of 17 November 2026 governs: v.2 was rebuilt and adapted from v.1, which was built on Untitled UI.
 - The July snapshot vendored into the Pulse demo had 43 component directories; the October repository has 48. Both are right for their dates.
 - The QA audit used two AI reviewers in sequence (find, then verify) held to Helium's own UX patterns, plus a computed contrast audit. A planned third, adversarial review layer did not complete.
 - The error-message rewrite is the same work as the 100+ messages in the product ecosystem entry (entry 9). Don't add the two together.
@@ -1303,9 +1303,9 @@ The redesign follows a paid model: setup is free, and a one-off fee is charged o
 
 ## Branch International
 
-### Branch | Building AI tools for consistent product design
+### Branch | Beyond Prompts: Shared AI Workflows Built on Branch’s Design System
 
-Former project title: **Three AIs, One Design System**.
+Former project titles: **Building AI tools for consistent product design** (until 18 Nov 2026) and, before that, **Three AIs, One Design System**.
 
 #### Project snapshot
 
@@ -1378,7 +1378,7 @@ The old 500+ uses/6 teams/4 countries adoption claim is absent from the current 
 
 #### Evidence and validation notes
 
-The active programme title is **Building AI tools for consistent product design**. The homepage also features a separate detailed CopyGPT case, **Building Branch’s AI UX Writing System**; it is supporting detail for this programme, not an additional accomplishment to double-count.
+The active programme title is **Beyond Prompts: Shared AI Workflows Built on Branch’s Design System**. The homepage also features a separate detailed CopyGPT case, **Building Branch’s AI UX Writing System**; it is supporting detail for this programme, not an additional accomplishment to double-count.
 
 The detailed CopyGPT owner-confirmed fact sheet provides finer ownership and workstream dates than the programme summary. Its historical UI/build notes are not current publication-status evidence. The active case and original system files support the workflow descriptions. Generated cover artwork is illustrative, not a recorded prototype output. Archived `*-v1` cases and superseded recognition-image metrics do not override the qualified current outcomes.
 

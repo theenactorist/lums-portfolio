@@ -30,7 +30,7 @@
       "summary": "Founding designer leading product strategy, UX/UI and visual design across ENTA, Pulse and a POS product in development. I align roadmaps, stakeholders and engineering, managing two designers from product refinement through handoff and delivery.",
       "bullets": [
         "Led the design and Codex-assisted build of an embedded crypto checkout, connecting asset and network selection, rate locking, deposit detection, conversion and exception states within partner apps.",
-        "Built Helium 2.0 in Figma, React and Storybook with shared tokens, component specifications and design QA across mobile, web, and light and dark themes.",
+        "Built Helium v.2 in Figma, React and Storybook with shared tokens, component specifications and design QA across mobile, web, and light and dark themes.",
         "Built product and investor-facing prototypes that supported Tether investment and Visa accelerator participation. Customer prototypes for TON helped the team obtain Telegram funding for its integration.",
         "Designed developer and partner workflows for SDKs, API keys, testing, webhooks, KYB, reconciliation and settlement, using AI-assisted prototyping and development."
       ]

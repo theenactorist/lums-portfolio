@@ -11,11 +11,15 @@
 // “Design systems and AI-driven design” on Home; its title is the page's H1 (agileHeadline).
 // The owner renamed that group from “Design systems and AI tools” on 18 November 2026 (title and intro as written).
 // The owner retitled Pulse as a zero-to-one SaaS case on 18 November 2026: pulseHeadline, its card line and tags (no AI Tools).
+// New covers on 18 November 2026 (T17): the owner's AGENTS.md notebook for Agile, “Shared AI Workflows” for Branch AI
+// (card and page cover) and “Helium v.2 Design System” for Helium's card; all three are generated covers, so their alts start
+// with “Generated” and the share image adds its note. Branch AI is retitled branchAiHeadline (card and the page's H1).
 // Other cards retain their verified production destinations and order.
 export const pulseHeadline = 'Zero to One: Designing a Payments SaaS';
 export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
 export const agileHeadline = 'Agile AI-Driven Design: Design Judgment, Written for Agents';
 export const rewardsHeadline = 'Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals';
+export const branchAiHeadline = 'Beyond Prompts: Shared AI Workflows Built on Branch’s Design System';
 
 export const productionHomeProjects = [
   {
@@ -36,8 +40,8 @@ export const productionHomeProjects = [
     title: heliumHeadline,
     description: 'Building Shiga’s design system across the Figma library and production React, so designers, engineers and AI coding agents can build Enta and Pulse from the same foundations.',
     attributes: ['Design Systems', 'AI Tools'],
-    image: '/home/live-work/helium-layered.png',
-    imageAlt: 'Helium’s Figma library cover with its Storybook Button documentation',
+    image: '/home/live-work/helium-v2-cover.jpg',
+    imageAlt: 'Generated cover concept of “Helium v.2 Design System” above a cream tile with a purple pen tool, joined like a puzzle piece to a dark tile with a selected Button tag, on lavender',
     href: 'https://olumideolusesi.com/work/helium',
     companyLogo: '/home/work-logos/shiga.svg',
     companyLogoAlt: 'Shiga',
@@ -49,8 +53,8 @@ export const productionHomeProjects = [
     title: agileHeadline,
     description: 'How I design and prototype Shiga’s products with AI agents, from documentation and Figma to live prototypes Engineering builds from, with QA against production.',
     attributes: ['AI Tools', 'Prototyping'],
-    image: '/home/live-work/agile-layered.png',
-    imageAlt: 'The Enta prototype on a Pixelbook Go and a Pixel 5: a payment link’s details on the laptop and a Multisig request on the phone',
+    image: '/home/live-work/agile-agents-md.jpg',
+    imageAlt: 'Generated cover concept of a stitched notebook titled AGENTS.md, with “Design judgment, written for agents” and “judgment” underlined in blue',
     href: 'https://olumideolusesi.com/work/agile-ai-driven-design',
     companyLogo: '/home/work-logos/shiga.svg',
     companyLogoAlt: 'Shiga',
@@ -116,11 +120,11 @@ export const productionHomeProjects = [
   },
   {
     id: 'branch-ai',
-    title: 'Building AI tools for consistent product design',
+    title: branchAiHeadline,
     description: 'Creating reusable illustration, UX writing and Neem prototyping workflows for Branch’s product team, grounded in brand, market and component rules with human review.',
     attributes: ['AI Automation', 'Internal Tools'],
-    image: '/work/branch-ai/branch-shared-system-thumbnail.png',
-    imageAlt: 'Generated Branch cover concept showing illustration assets, a UX copy comparison and a schematic Neem prototype',
+    image: '/work/branch-ai/branch-shared-workflows-cover.jpg',
+    imageAlt: 'Generated cover concept of “Shared AI Workflows” beside three stacked acrylic layers: a leaf for illustration, quotation marks for UX writing and a phone screen for prototypes, joined by guide lines',
     href: '/work/branch-ai',
     companyLogo: '/home/work-logos/branch.svg',
     companyLogoAlt: 'Branch',

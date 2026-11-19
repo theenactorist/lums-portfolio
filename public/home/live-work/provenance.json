@@ -31,7 +31,7 @@
       "height": 900,
       "decoded_format": "png",
       "background": "#D7E6FC",
-      "notes": "New Home card for the Helium case study, approved by the owner on 3 November 2026. Built from the page's hero layers (the Helium 2.0 Figma cover with the Storybook Button docs overlaid) on a flat pale blue fill, laid out like pulse-layered.png, and rendered at 1600 by 900 in headless Chromium."
+      "notes": "New Home card for the Helium case study, approved by the owner on 3 November 2026. Built from the page's hero layers (the Helium 2.0 Figma cover with the Storybook Button docs overlaid) on a flat pale blue fill, laid out like pulse-layered.png, and rendered at 1600 by 900 in headless Chromium. Replaced on Home by helium-v2-cover.jpg on 18 November 2026 (T17); kept on disk."
     },
     {
       "file": "agile-layered.png",
@@ -47,7 +47,7 @@
       "height": 900,
       "decoded_format": "png",
       "background": "#D4EDE0",
-      "notes": "Home card for the Agile AI-driven design case study (T16, 18 November 2026), awaiting the owner's approval. Built from the page's T16 hero (Google's Pixelbook Go and Pixel 5 device art from the Android Device Art Generator, CC BY 4.0, with screens captured from enta-one.vercel.app) on a flat pale mint fill, laid out like pulse-layered.png and helium-layered.png, at 1600 by 900 with Pillow (docs/audit/t16/card/make-card.py, local)."
+      "notes": "Home card for the Agile AI-driven design case study (T16, 18 November 2026), awaiting the owner's approval. Built from the page's T16 hero (Google's Pixelbook Go and Pixel 5 device art from the Android Device Art Generator, CC BY 4.0, with screens captured from enta-one.vercel.app) on a flat pale mint fill, laid out like pulse-layered.png and helium-layered.png, at 1600 by 900 with Pillow (docs/audit/t16/card/make-card.py, local). Replaced on Home by agile-agents-md.jpg on 18 November 2026 (T17); kept on disk."
     },
     {
       "file": "rewards-earned.jpg",
@@ -80,6 +80,37 @@
       "height": 1080,
       "decoded_format": "jpeg",
       "notes": "Home card for “Building Branch’s AI UX Writing System”: option B, revision 7, “The writing guide”, chosen by the owner on 6 November 2026. A navy guide labelled Branch UX Writing System with Brand, Context and Components tabs, illustrating the reusable writing skill; it doesn't claim a physical book was made. The book and scene are ImageGen artwork (prompts in the Reviews folder's PROMPTS.json); the cover title and tab labels are typeset in code and projected onto the cover and tabs (book-title-v7.js, perspective-text.js). No invented metrics. Web file: sRGB progressive JPEG at quality 88, copied unchanged from the 3.6 MB PNG master's export. Replaces the recreated CopyGPT review thumbnail, removed from public/work/ai-copywriting/. The alt text starts with “Generated”, so the share image carries the generated cover note."
+    },
+    {
+      "file": "agile-agents-md.jpg",
+      "replaces_on_home": "agile-layered.png",
+      "source_files": [
+        "Portfolio/Website/Reviews/agile-thumbnail-20261118/exports/agile-agents-md-v1-web.jpg"
+      ],
+      "master_file": "Portfolio/Website/Reviews/agile-thumbnail-20261118/exports/agile-agents-md-v1.png",
+      "approved_on": "2026-11-18",
+      "content_type": "image/jpeg",
+      "bytes": 272253,
+      "sha256": "cbddd183a8d3e824cb2a228e6104cdb3b441b786ab12e11fa799bfd62bc9d538",
+      "width": 1920,
+      "height": 1080,
+      "decoded_format": "jpeg",
+      "notes": "Home card for the Agile AI-driven design case study: the owner's generated cover of a stitched notebook titled AGENTS.md, with “Design judgment, written for agents” and “judgment” underlined in blue, on deep blue cloth, sent on 18 November 2026. The original (source/Agent_MD_Thumbnsil.png in the Reviews folder) is 1536 by 1024 (3:2); Cowork's make-16x9.py extended it to 16:9 by building only the blue margins, leaving the notebook's pixels untouched, so the card doesn't crop the notebook. Web file: progressive JPEG at quality 86, copied unchanged from the export. The case-study page keeps its device hero (hero-pixel.webp). The alt text starts with “Generated”, so the share image carries the generated cover note."
+    },
+    {
+      "file": "helium-v2-cover.jpg",
+      "replaces_on_home": "helium-layered.png",
+      "source_files": [
+        "Portfolio/Website/Reviews/helium-cover-20261118/source/Helium_Design_System.jpg"
+      ],
+      "approved_on": "2026-11-18",
+      "content_type": "image/jpeg",
+      "bytes": 211215,
+      "sha256": "8c4fdd1def8058b3490654b090c3d060413cb18d6fcf8b10f820d854ff3a79f4",
+      "width": 1672,
+      "height": 941,
+      "decoded_format": "jpeg",
+      "notes": "Home card for the Helium case study: the owner's generated cover, “Helium v.2 Design System” above a cream tile with a purple pen tool, joined like a puzzle piece to a dark tile with a selected Button tag, on lavender, sent on 18 November 2026 and copied byte for byte from the Reviews source (there is no separate master). The Helium page keeps its Figma cover and Storybook docs. The alt text starts with “Generated”, so the share image carries the generated cover note."
     }
   ],
   "assets": [

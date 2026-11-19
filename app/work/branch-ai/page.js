@@ -6,6 +6,7 @@ import '../ai-copywriting/reference-fonts.css';
 import './branch-shell.css';
 import styles from './page.module.css';
 import { LinkArrowLabel } from '../../components/ArrowUpRightIcon';
+import { branchAiHeadline } from '../../data/productionHomeProjects';
 
 const phases = [
   { id: 'overview', label: 'At a glance' },
@@ -57,12 +58,12 @@ export default function BranchAICaseStudy() {
         <header className={styles.header}>
           <div className={styles.heroCopy}>
             <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span>Branch</span></nav>
-            <h1>Building AI tools for consistent product design</h1>
+            <h1>{branchAiHeadline}</h1>
             <div className={styles.intro}><p>Creating reusable illustration, UX writing and Neem prototyping workflows for Branch’s product team, grounded in brand, market and component rules with human review.</p></div>
           </div>
           <figure className={styles.heroEvidence}>
-            <ZoomableImage src="/work/branch-ai/branch-shared-system-thumbnail.png" alt="Generated cover concept showing Branch illustration, reviewed UX copy and a schematic Neem prototype connected by shared visual rules" width={1672} height={941} priority sizes="(max-width: 767px) 90vw, 530px" className={styles.evidenceImage} />
-            <figcaption>Generated cover artwork showing the three workflows and a schematic prototype. Original project evidence appears below.</figcaption>
+            <ZoomableImage src="/work/branch-ai/branch-shared-workflows-cover.jpg" alt="Generated cover concept of “Shared AI Workflows” beside three stacked acrylic layers: a leaf for illustration, quotation marks for UX writing and a phone screen for prototypes, joined by guide lines" width={1672} height={941} priority sizes="(max-width: 767px) 90vw, 530px" className={styles.evidenceImage} />
+            <figcaption>Generated cover artwork: one layer for each workflow. Original project evidence appears below.</figcaption>
           </figure>
         </header>
         <div className={styles.articleLayout}>
