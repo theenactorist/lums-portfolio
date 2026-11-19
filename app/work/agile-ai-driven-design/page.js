@@ -126,7 +126,7 @@ export default function AgileCaseStudy() {
                 <div><dt>Tools</dt><dd className={styles.tools}><span><Image src="/work/ai-copywriting/tools/claude.svg" alt="" width={18} height={18} />Claude Cowork,</span> <span><Image src="/work/ai-copywriting/tools/claude.svg" alt="" width={18} height={18} />Claude Code,</span> <span><Image src="/work/ai-copywriting/tools/chatgpt.svg" alt="" width={18} height={18} className={styles.openaiMark} />Codex,</span> <span><Image src="/work/ai-copywriting/tools/figma.svg" alt="" width={18} height={18} />Figma and its MCP server,</span> <span>Helium React,</span> <span>Vercel,</span> <span>GitHub,</span> <span>Mobbin</span></dd></div>
               </dl>
               <div className={styles.overviewCopy}>
-                <p>I’m Shiga’s only product designer, and the product list keeps growing: wallets, Multisig approvals, payment links, Move money, a point-of-sale app and a partner dashboard. So I built a way of working where AI agents do the production work and I keep the judgment.</p>
+                <p>I lead product design at Shiga, in a team of two designers, and the product list keeps growing: wallets, Multisig approvals, payment links, Move money, a point-of-sale app and a partner dashboard. So I built a way of working where AI agents do the production work and I keep the judgment.</p>
                 <p>That judgment lives in writing: Helium’s components and patterns, the PRDs, and about 40 rules that each started as one of my corrections. Agents read it before they touch Figma or code. I review what comes back.</p>
                 <h3>Project TLDR:</h3>
                 <ul>

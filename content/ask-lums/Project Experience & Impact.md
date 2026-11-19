@@ -14,7 +14,7 @@ Public copy for Ask Lums, made from the master file on 17 November 2026. Source-
 8. **Shiga** - ENTA passkey-led consumer onboarding | Cutting time to value
 9. **Shiga** - Product ecosystem and payment expansion
 10. **Shiga** - EntaPOS | Stablecoin payments at the counter, without changing checkout
-11. **Shiga** - Enta high-fidelity prototypes | Designing in Figma and building working prototypes with AI
+11. **Shiga** - Agile AI-Driven Design | Designing in Figma and building working prototypes with AI (the Enta prototypes)
 12. **Shiga** - Enta Home and wallets | One home for individuals and businesses
 13. **Shiga** - Enta Business Multisig | Payment approvals for teams that share a wallet
 14. **Shiga** - Enta Payment links | Get paid by link, in crypto or by bank transfer
@@ -929,7 +929,7 @@ The full team roster and contribution boundaries need confirmation.
 
 Live prototype: [EntaPOS](https://enta-web-pos.vercel.app).
 
-### Enta high-fidelity prototypes | Designing in Figma and building working prototypes with AI
+### Agile AI-Driven Design | Designing in Figma and building working prototypes with AI (the Enta prototypes)
 
 #### Project snapshot
 
@@ -944,7 +944,7 @@ Live prototype: [EntaPOS](https://enta-web-pos.vercel.app).
 - **Strongest supported outcome:** Engineering built Multisig and Payment links in production from these prototypes, as they did Pulse (entry 5).
 - **Key skills:** AI-assisted design engineering, spec-driven agentic workflows (comparable to the BMAD Method), high-fidelity prototyping, design-to-code alignment, design QA, design systems, fintech flows, and directing AI agents.
 - **Useful for teaching and mentoring:** How a designer can direct AI agents to design and build, how to review AI output against a design, and how to turn feedback into rules an AI follows every time.
-- **Public disclosure status:** The prototypes are publicly reachable on Vercel. There is no public case study yet.
+- **Public disclosure status:** Public as the portfolio case study “Agile AI-Driven Design: Design Judgment, Written for Agents” (olumideolusesi.com/work/agile-ai-driven-design, November 2026), which also draws on EntaPOS, Helium and Pulse. The prototypes are publicly reachable on Vercel; the repositories, Figma files and task records are private.
 
 #### Context and challenge
 
@@ -981,6 +981,7 @@ I split the work between planning and doing. Claude Cowork acted as my planner a
 - Engineering built Multisig and Payment links in production from the prototypes.
 - The prototype is the place the team walks flows and the reference for Engineering, with every screen reviewed against Figma on desktop and phone.
 - The workflow is now a reusable skill, lums-build-toolkit.
+- The approach is published as a portfolio case study (November 2026). It shows the process on the double diamond's stages: my documentation, Claude drafting in Figma with Helium, my review in Figma, Claude's handoff detailing, the prototype's interaction detailing, and QA against production that comes back to my review.
 
 **Not established**
 
@@ -996,10 +997,10 @@ I split the work between planning and doing. Claude Cowork acted as my planner a
 #### Evidence and validation notes
 
 - EntaPOS (entry 10) ran on the same planner-and-builder loop. Count the approach once.
-- Comparable industry approach: the BMAD Method, a spec-driven framework that splits AI work into roles (analyst, product manager, architect, developer, QA) and passes context through written stories. I developed this workflow independently and didn't use BMAD. It shares the spec-first, role-split idea and adds a Figma design track and visual QA against Figma.
+- Comparable industry approach: the BMAD Method, a spec-driven framework that splits AI work into roles (analyst, product manager, architect, developer, QA) and passes context through written stories. I developed this workflow independently and didn't use BMAD. It shares the spec-first, role-split idea and centres on Figma, Helium and visual QA against production. BMAD now has its own design module (Whiteport Design Studio), so this is a comparison, not a claim that BMAD lacks design.
 - Entries 12 to 16 cover the features themselves.
 
-Live prototype: [Enta](https://enta-one.vercel.app).
+Public case: [Agile AI-driven design](https://olumideolusesi.com/work/agile-ai-driven-design). Live prototype: [Enta](https://enta-one.vercel.app).
 
 ### Enta Home and wallets | One home for individuals and businesses
 
