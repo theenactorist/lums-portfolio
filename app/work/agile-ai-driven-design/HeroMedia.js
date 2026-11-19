@@ -7,7 +7,8 @@ import styles from './agile.module.css'
 // T15 V4: Google's device art (Android Device Art Generator, Pixelbook Go landscape and Pixel 5 portrait, back layers
 // only, no shadow or glare) with screens recaptured from enta-one.vercel.app, demo bar hidden. Each screen sits under
 // its device at the generator's offset; the laptop is at full size and the phone in front over its lower left. One
-// transparent image, so it sits on the hero surface in both themes.
+// transparent image, so it sits on the hero surface in both themes. T16: the laptop screen recaptured at the bezel's
+// opening (1216 by 720 at 1.5x, placed unscaled at 182, 158), so the bezel no longer hides its sides. Credit at the article's end.
 export default function HeroMedia() {
   const reducedMotion = useReducedMotion()
   return (

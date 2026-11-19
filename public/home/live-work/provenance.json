@@ -34,6 +34,22 @@
       "notes": "New Home card for the Helium case study, approved by the owner on 3 November 2026. Built from the page's hero layers (the Helium 2.0 Figma cover with the Storybook Button docs overlaid) on a flat pale blue fill, laid out like pulse-layered.png, and rendered at 1600 by 900 in headless Chromium."
     },
     {
+      "file": "agile-layered.png",
+      "replaces_on_home": null,
+      "source_files": [
+        "public/work/agile-ai-driven-design/hero-pixel.webp"
+      ],
+      "approved_on": null,
+      "content_type": "image/png",
+      "bytes": 254428,
+      "sha256": "94f92e90b255e5ccdd993577653db2cfcbf75cc6cf6113c47772c26f1f418639",
+      "width": 1600,
+      "height": 900,
+      "decoded_format": "png",
+      "background": "#D4EDE0",
+      "notes": "Home card for the Agile AI-driven design case study (T16, 18 November 2026), awaiting the owner's approval. Built from the page's T16 hero (Google's Pixelbook Go and Pixel 5 device art from the Android Device Art Generator, CC BY 4.0, with screens captured from enta-one.vercel.app) on a flat pale mint fill, laid out like pulse-layered.png and helium-layered.png, at 1600 by 900 with Pillow (docs/audit/t16/card/make-card.py, local)."
+    },
+    {
       "file": "rewards-earned.jpg",
       "replaces_on_home": "rewards-layered.png",
       "source_files": [

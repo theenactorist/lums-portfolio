@@ -103,6 +103,8 @@
 /* Overview: the jump link and the small note, as on Pulse */
 .resultLink { display:inline-block; margin-top:24px; font-size:13px; line-height:1.7; }
 .qualification { font-size:14px !important; line-height:1.65; color:var(--muted); }
+/* T16: the device art's credit (CC BY 4.0), at the end of the article above Next case study. */
+.credit { max-width:704px; margin:0 auto; }
 :global(html[data-theme='dark']) .openaiMark { filter:invert(1); }
 /* A link inside a sentence is underlined, so it doesn't rely on colour (as Pulse's text links). */
 .inlineLink { color:var(--ink); text-decoration:underline; text-decoration-thickness:1px; }

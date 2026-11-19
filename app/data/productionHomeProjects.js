@@ -7,9 +7,12 @@
 // companyName gives /work and the share image both companies. Cards without companyLogos show their single companyLogo.
 // Card tags (attributes) trimmed to at most three on 6 November 2026: no “Shipped” (all of them are) and none that repeat the Home group.
 // The owner asked for four tags on Carbon (adding Fintech) and Shiga onboarding (adding B2B) on 7 November 2026.
+// The Agile AI-driven design case study (Cowork, T16, 18 November 2026) is listed third, after Helium, and first in
+// “Design systems and AI tools” on Home; its title is the page's H1 (agileHeadline).
 // Other cards retain their verified production destinations and order.
 export const pulseHeadline = 'AI-Native Design Engineering: A Payment Product in Five Days';
 export const heliumHeadline = 'Design System Engineering: Owning Helium from Figma Library to Production Code';
+export const agileHeadline = 'Agile AI-Driven Design: Design Judgment, Written for Agents';
 export const rewardsHeadline = 'Designing Rewards for Growth at Carbon and Branch: Loyalty Tiers, Cashback and Referrals';
 
 export const productionHomeProjects = [
@@ -34,6 +37,19 @@ export const productionHomeProjects = [
     image: '/home/live-work/helium-layered.png',
     imageAlt: 'Helium’s Figma library cover with its Storybook Button documentation',
     href: 'https://olumideolusesi.com/work/helium',
+    companyLogo: '/home/work-logos/shiga.svg',
+    companyLogoAlt: 'Shiga',
+    companyLogoWidth: 1047,
+    companyLogoHeight: 291,
+  },
+  {
+    id: 'agile-ai-driven-design',
+    title: agileHeadline,
+    description: 'How I design and prototype Shiga’s products with AI agents, from documentation and Figma to live prototypes Engineering builds from, with QA against production.',
+    attributes: ['AI Tools', 'Prototyping'],
+    image: '/home/live-work/agile-layered.png',
+    imageAlt: 'The Enta prototype on a Pixelbook Go and a Pixel 5: a payment link’s details on the laptop and a Multisig request on the phone',
+    href: 'https://olumideolusesi.com/work/agile-ai-driven-design',
     companyLogo: '/home/work-logos/shiga.svg',
     companyLogoAlt: 'Shiga',
     companyLogoWidth: 1047,
@@ -151,7 +167,7 @@ export const homeWorkGroups = [
     id: 'design-systems-ai',
     title: 'Design systems and AI tools',
     intro: 'Foundations and tools that help teams ship consistent work.',
-    projectIds: ['helium', 'ai-copywriting', 'branch-ai'],
+    projectIds: ['agile-ai-driven-design', 'helium', 'ai-copywriting', 'branch-ai'],
   },
   {
     id: 'growth-retention',

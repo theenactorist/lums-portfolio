@@ -7,9 +7,9 @@ import ZoomableImage from '../pulse/PulseImage'
 import HeroMedia from './HeroMedia'
 import FlowDiagram from './FlowDiagram'
 import styles from './agile.module.css'
-import { heliumHeadline } from '../../data/productionHomeProjects'
+import { agileHeadline, heliumHeadline } from '../../data/productionHomeProjects'
 
-// Copy: HANDOVER.md “T15 copy” (approved by Olumide, 18 Nov 2026). Unlisted until he approves the page.
+// Copy: HANDOVER.md “T15 copy” (approved by Olumide, 18 Nov 2026). Listed on Home and /work since T16; the H1 is shared with the card.
 const phases = [
   { id: 'overview', label: 'At a glance' },
   { id: 'start', label: 'Where it started' },
@@ -104,7 +104,7 @@ export default function AgileCaseStudy() {
       <header className={styles.header}>
         <div className={styles.heroCopy}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/#featured-work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">Agile AI-driven design</span></nav>
-          <h1>Agile AI-Driven Design: Design Judgment, Written for Agents</h1>
+          <h1>{agileHeadline}</h1>
           <div className={styles.intro}><p>How I write my design judgment down so AI agents can design, build and check Shiga’s products with me, from documentation to production.</p></div>
         </div>
         <HeroMedia />
@@ -211,6 +211,7 @@ export default function AgileCaseStudy() {
           <Section id="next" title="Where I’m taking it next">
             <p>Move money on phones is next for the Enta prototypes. And the workflow travels. The skill sets up the same loop on a new project, with Figma or without it, and asks where the work deploys before anything ships.</p>
           </Section>
+          <p className={`${styles.qualification} ${styles.credit}`}>Device frames from Google’s <a className={styles.inlineLink} href="https://developer.android.com/distribute/marketing-tools/device-art-generator" target="_blank" rel="noreferrer">Android Device Art Generator</a>.</p>
           <nav className={styles.next} aria-label="Next case study"><span>Next case study</span><Link href="/work/helium">{heliumHeadline}</Link></nav>
         </article>
       </div>
